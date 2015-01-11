@@ -1,2 +1,8 @@
 _site/
-.sass-cache/
+.sass-cache
+
+*.sublime-*
+.DS_Store
+
+.vagrant
+node_modules/

@@ -1,0 +1,16 @@
+# Site settings
+title: Robin Andeer Portfolio
+email: robin.andeer@gmail.se
+description: >
+  Personal portfolio of Robin Andeer
+baseurl: ""
+url: "http://www.robinandeer.com"
+
+collections:
+  projects:
+    output: true
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+exclude: ["artwork", "node_modules", "scss"]

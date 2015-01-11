@@ -1,0 +1,33 @@
+---
+layout: base
+---
+
+<header>
+  <div class="logo">
+    <div class="logo-icon"></div>
+    <div class="logo-label">
+      <div class="logo-label-title">Robin Andeer</div>
+      <div class="logo-label-subtitle">Clinical bioinformatician</div>
+    </div>
+  </div>
+</header>
+
+<div class="main">
+  <div class="projects">
+    {{ site.collection.projects }}
+    {% assign projects = site.collections.projects.docs | sort: 'weight' %}
+    {% for project in projects reversed %}
+      <div class="project">
+        <a href="{{ project.url }}">
+          <img src="/assets/img/{{ project.title }}-intro.jpg">
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<footer>
+  <p>I'm Robin; coder, gymnast, INTP, and designer of websites. I solve medical mysteries at <a href="http://www.scilifelab.se">SciLifeLab</a>.</p>
+
+  <p>Connect with me on <a href="https://twitter.com/robinandeer">Twitter</a> and <a href="https://github.com/robinandeer">GitHub</a>.</p>
+</footer>

@@ -1,0 +1,18 @@
+// +-------------------------------------------------------------------+
+// |  Site footer + Twitter bio
+// +-------------------------------------------------------------------+
+footer {
+  width: 80%;
+  max-width: 60rem - 8rem;
+  margin: 2rem auto;
+
+  @include respond-to(handheld-wide) {
+    margin: 4rem auto;
+    font-size: 1.1rem;
+  }
+
+  > p {
+    max-width: 30rem;
+    margin-left: auto;
+  }
+}
