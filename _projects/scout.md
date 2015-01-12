@@ -1,6 +1,6 @@
 ---
 layout: project-base
-permalink: /scout/
+permalink: /projects/scout/
 title: scout
 position: 3
 ---

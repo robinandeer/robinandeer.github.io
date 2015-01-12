@@ -1,6 +1,6 @@
 ---
 layout: project-base
-permalink: /chanjo/
+permalink: /projects/chanjo/
 title: chanjo
 weight: 8
 ---

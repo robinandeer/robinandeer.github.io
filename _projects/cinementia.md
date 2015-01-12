@@ -1,6 +1,6 @@
 ---
 layout: project-base
-permalink: /cinementia/
+permalink: /projects/cinementia/
 title: cinementia
 position: 5
 ---
