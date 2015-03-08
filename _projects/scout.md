@@ -5,4 +5,15 @@ title: scout
 position: 3
 ---
 
-This is my current focus project. More information coming soon. Stay tuned!
+## Tagline
+**Analyze VCFs quicker and easier.**
+
+## Concept
+Scout makes your life easier by letting you visualize mutiple VCFs in a browser. You can quickly triage variants in search of those sneeky disease causing mutations. Scout also connects your team by linking user comments to cases and variants. The project is developed completely in open source.
+
+## Links
+You can find the [code][repo] on GitHub and the official [documentation][docs] is also hosted on GitHub Pages.
+
+
+[repo]: https://github.com/Clinical-Genomics/scout
+[docs]: http://www.clinicalgenomics.se/scout/
