@@ -9,6 +9,7 @@
 
 # Ignore the build directory
 /build
+/profile
 
 # Ignore cache
 /.sass-cache

@@ -11,6 +11,7 @@ gem 'middleman-deploy', '~> 1.0'
 
 gem "redcarpet"
 gem "sitemap_generator"
+gem "ruby-prof"
 
 # For feed.xml.builder
 gem "builder", "~> 3.0"
