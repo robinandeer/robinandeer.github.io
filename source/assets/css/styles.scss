@@ -159,7 +159,7 @@ hr {
 .post-list-item {
     margin-bottom: 1rem;
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     align-items: center;
 
     + .post-list-item {
@@ -175,12 +175,44 @@ hr {
     font-size: 1.2rem;
     margin-right: 1rem;
     @include dotdotdot;
+    flex: 1;
+}
+
+.post-list-category {
+    border-radius: 3px;
+    background-color: $robinandeer-green;
+    color: #fff;
+    margin-right: 1rem;
+    padding: 0 .3rem;
+    font-size: .9rem;
+    display: none;
+    flex-basis: 4.5rem;
+    text-align: center;
+
+    @media screen and (min-width: 900px) {
+        display: block;
+    }
+}
+
+.thoughts {
+    background-color: #ffd600;
+}
+
+.tutorials {
+    background-color: #2196f3;
+}
+
+.tips {
+    background-color: #e91e63;
+}
+
+.work {
+    background-color: #4caf50;
 }
 
 .post-list-date {
-    font-size: 1rem;
-    color: $gray;
     flex-shrink: 0;
+    color: $gray;
 }
 
 // Post
