@@ -1,0 +1,234 @@
+$light-gray: #eee;
+$gray: #aaa;
+$blue: #5694f1;
+$dark-gray: rgba(46, 48, 58, .96);
+$scilifelab-green: #96C21E;
+$robinandeer-green: #00ACC1;
+$link-color: $robinandeer-green;
+
+@import "mixins";
+@import "normalize";
+@import "color-theme";
+@import "typography";
+
+html {
+    box-sizing: border-box;
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    top: 0 !important;
+}
+
+html, body {
+    height: 100%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+img {
+    vertical-align: middle;
+    border: 0;
+    height: auto;
+    max-width: 100%;
+    -ms-interpolation-mode: bicubic;
+}
+
+hr {
+    border-bottom: 2px solid $scilifelab-green;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    margin: 1rem auto;
+    width: 60%;
+    max-width: 400px;
+}
+
+.wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main {
+    padding: 1rem 1rem 0;
+    flex-shrink: 0;
+
+    @media screen and (min-width: 600px) {
+        padding: 2rem 2rem 0;
+    }
+
+    @media screen and (min-height: 600px) {
+        padding-top: 4rem;
+    }
+}
+
+//Index
+.logo {
+    height: 65px;
+    width: 65px;
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-end;
+
+    padding: 1rem;
+
+    // maintain bottom padding
+    flex-shrink: 0;
+}
+
+// Fab menu
+.fab-menu {
+    display: flex;
+
+    @media screen and (min-width: 900px) {
+        visibility: hidden;
+    }
+}
+
+.fab-menu-item {
+    padding: 1rem;
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    background-color: $robinandeer-green;
+    width: 65px;
+    height: 65px;
+    color: #fff;
+
+    @media screen and (min-width: 900px) {
+        background-color: #fff;
+        color: $robinandeer-green;
+    }
+}
+
+.fab-wrapper {
+    display: flex;
+
+    @media screen and (min-width: 900px) {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 1;
+    }
+
+    @media screen and (min-width: 900px) {
+        &:hover {
+            > .fab-menu {
+                visibility: visible;
+            }
+
+            + .fab-backdrop {
+                visibility: visible;
+                background-color: rgba($robinandeer-green, 1);
+            }
+        }
+    }
+}
+
+.fab-backdrop {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    transition: background-color .1s;
+}
+
+// Post list
+.post-list {
+    padding: 0;
+    margin: 0;
+
+    @media screen and (min-width: 600px) {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+.post-list-item {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    + .post-list-item {
+        padding-top: 1rem;
+        border-top: 1px solid #eee;
+    }
+}
+
+.post-list-title {
+    color: $dark-gray;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    @include dotdotdot;
+}
+
+.post-list-date {
+    font-size: 1rem;
+    color: $gray;
+    flex-shrink: 0;
+}
+
+// Post
+title {
+    font-size: 1.7rem;
+    margin: 0 0 1rem;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+.meta {
+    padding: 0 0 2rem;
+}
+
+%meta-data {
+    text-align: center;
+    color: $gray;
+}
+
+.meta-date {
+    @extend %meta-data;
+    font-size: .9rem;
+    text-transform: uppercase;
+}
+
+.meta-author {
+    @extend %meta-data;
+    margin-top: .5rem;
+    color: $scilifelab-green;
+    font-size: 1.2rem;
+}
+
+article {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+// About
+.about {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    padding-top: 3rem;
+}
+
+.about-content {
+    max-width: 30rem;
+}

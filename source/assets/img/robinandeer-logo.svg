@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="250px" height="250px" viewBox="0 0 250 250" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.1 (12002) - http://www.bohemiancoding.com/sketch -->
+    <title>logo-square-filled</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="logos" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="logo-square-filled" sketch:type="MSArtboardGroup">
+            <rect id="Rectangle-25" fill="#00ACC1" sketch:type="MSShapeGroup" x="0" y="0" width="250" height="250"></rect>
+            <path d="M101.275649,90.6335137 L76.2157288,115.693434 L76.4314575,115.909163 L76.2157288,116.124892 L120.275649,160.184812 L120.275649,160.184812 L88.7670273,191.693434 L102.909163,205.83557 L134.417785,174.326948 L146.926407,186.83557 L161.068542,172.693434 L148.559921,160.184812 L173.619841,135.124892 L173.404112,134.909163 L173.619841,134.693434 L129.559921,90.6335137 L161.068542,59.1248917 L146.926407,44.9827561 L115.417785,76.491378 L102.909163,63.9827561 L88.7670273,78.1248917 L101.275649,90.6335137 Z M115.417785,104.775649 L104.284271,115.909163 L104.284271,115.909163 L134.417785,146.042677 L145.551299,134.909163 L115.417785,104.775649 Z" id="logo" fill="#FFFFFF" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>
