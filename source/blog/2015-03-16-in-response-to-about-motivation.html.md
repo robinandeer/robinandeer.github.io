@@ -3,6 +3,7 @@ title: In response to "About motivation"
 category: thoughts
 author: Robin Andeer
 date: 2015-03-16
+tags: thought, response
 ---
 
 *This post is written as a follow-up to "[About motivation][about]" in which [@guillemch][guillem] writes about going through recurring cycles with lack of motivation. He shares his thought on why they take place as well as dealing out some general tips on how to lift yourself out of those rough patches.*

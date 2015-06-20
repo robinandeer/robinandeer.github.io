@@ -10,6 +10,7 @@ gem "middleman-autoprefixer"
 gem 'middleman-deploy', '~> 1.0'
 
 gem "redcarpet"
+gem "sitemap_generator"
 
 # For feed.xml.builder
 gem "builder", "~> 3.0"

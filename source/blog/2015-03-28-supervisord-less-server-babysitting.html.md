@@ -3,6 +3,7 @@ title: "Supervisord: less server babysitting"
 category: tutorials
 author: Robin Andeer
 date: 2015-03-28
+tags: tutorial
 ---
 
 [Supervisord][supervisord] is a simple monitoring tool. It consists of a server and an accompanying command line interface to manage and check the status of long running processes.

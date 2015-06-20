@@ -3,6 +3,7 @@ title: Open Source Portals
 category: work
 author: Robin Andeer
 date: 2014-09-02
+tags: work, announcement
 ---
 
 Open sourcing a software project is like owning a pet. Even though it involves a lot of work and responsibilities the benefits speak for themselves:

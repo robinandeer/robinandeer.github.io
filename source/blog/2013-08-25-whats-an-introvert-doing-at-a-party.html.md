@@ -3,6 +3,7 @@ title: What’s an introvert doing at a party?
 category: thoughts
 author: Robin Andeer
 date: 2013-08-25
+tags: thought
 ---
 
 [![Introvert backdrop](https://d262ilb51hltx0.cloudfront.net/fit/t/1600/672/0*Dgi3D_b5QDGYTnJB.png)](https://d262ilb51hltx0.cloudfront.net/fit/t/1600/672/0*Dgi3D_b5QDGYTnJB.png)

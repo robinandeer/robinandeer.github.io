@@ -122,6 +122,8 @@ GEM
     redcarpet (3.3.1)
     rouge (1.9.0)
     sass (3.4.14)
+    sitemap_generator (5.0.5)
+      builder
     sprockets (2.12.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -156,3 +158,4 @@ DEPENDENCIES
   middleman-livereload
   middleman-syntax
   redcarpet
+  sitemap_generator

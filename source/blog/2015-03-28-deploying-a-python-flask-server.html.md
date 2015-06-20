@@ -3,6 +3,7 @@ title: Deploying a Python Flask server
 category: tutorials
 author: Robin Andeer
 date: 2015-03-28
+tags: tutorial, python
 ---
 
 Recent changes [at work][work] has made it clear that our small team of 3 core developers really need to take charge of how we setup things and deployed across our IT infrastructure. I already know I will learn a lot and an important part in that process is to spread gained knowledge beyond simply myself.

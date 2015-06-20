@@ -1,14 +1,24 @@
+require 'extensions/sitemap.rb'
+
+###
+## Site-wide settings
+####
+
+set :full_name, "Robin Andeer"
+set :city, "Stockholm, Sweden"
+set :google_analytics_tracking_id, "UA-18017148-1"
+
+# Time.zone = "UTC"
+
 ###
 # Blog settings
 ###
-
-# Time.zone = "UTC"
 
 activate :blog do |blog|
   # This will add a prefix to all links, template references and source paths
   blog.prefix = "blog"
 
-  blog.permalink = "{category}/{title}"
+  blog.permalink = ":year/:month/:day/:title.html"
   # Matcher for blog source files
   # blog.sources = "{year}-{month}-{day}-{title}.html"
   # blog.taglink = "tags/{tag}.html"
@@ -32,17 +42,21 @@ end
 page "/blog/feed.xml", layout: false
 
 ###
-# Compass
+# Deployment settings
 ###
 
-# Change Compass configuration
-# compass_config do |config|
-#   config.output_style = :compact
-# end
+activate :deploy do |deploy|
+  deploy.method = :git
+  deploy.branch = "master"
+end
 
 ###
 # Page options, layouts, aliases and proxies
 ###
+
+# With no layout
+page "robots.txt", :layout => false
+page "humans.txt", :layout => false
 
 # Per-page layout changes:
 #
@@ -68,10 +82,15 @@ page "/blog/feed.xml", layout: false
 # Automatic image dimensions on image_tag helper
 # activate :automatic_image_sizes
 
+# Generate sitemap after build
+activate :sitemap_generator
+
 # Reload the browser automatically whenever files change
 activate :livereload
 
 # Syntax highlighting
+set :markdown_engine, :redcarpet
+set :markdown, :fenced_code_blocks => true, :smartypants => true
 activate :syntax, line_numbers: true
 
 # Autoprefix CSS
@@ -79,16 +98,6 @@ activate :autoprefixer
 
 # Pretty URLs
 activate :directory_indexes
-
-# Deploy to GitHub Pages
-activate :deploy do |deploy|
-  deploy.method = :git
-  # Optional Settings
-  # deploy.remote   = 'custom-remote' # remote name or git url, default: origin
-  # deploy.branch   = 'custom-branch' # default: gh-pages
-  # deploy.strategy = :submodule      # commit strategy: can be :force_push or :submodule, default: :force_push
-  # deploy.commit_message = 'custom-message'      # commit message (can be empty), default: Automated commit at `timestamp` by middleman-deploy `version`
-end
 
 # Methods defined in the helpers block are available in templates
 # helpers do
@@ -98,13 +107,8 @@ end
 # end
 
 set :css_dir, 'assets/css'
-
 set :js_dir, 'assets/js'
-
 set :images_dir, 'assets/img'
-
-set :markdown_engine, :redcarpet
-set :markdown, :fenced_code_blocks => true, :smartypants => true
 
 # Build-specific configuration
 configure :build do

@@ -3,6 +3,7 @@ title: 5 Functional Programming Tips in Python
 category: tips
 author: Robin Andeer
 date: 2014-09-28
+tags: tip, programming, python
 ---
 
 Learning about functional programming (FP) is well worth your time. The insights you acquire will put you straight on [the path to becoming a Python Guru](http://stackoverflow.com/questions/2573135/python-progression-path-from-apprentice-to-guru/2576240).
