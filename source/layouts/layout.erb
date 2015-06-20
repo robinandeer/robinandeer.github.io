@@ -1,65 +1,66 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <link type="text/plain" rel="author" href="/humans.txt" />
+	<head>
+		<meta charset="utf-8" />
+		<link type="text/plain" rel="author" href="/humans.txt" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui">
-    <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
-    <meta name="theme-color" content="#00acc1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui">
+		<meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
+		<meta name="theme-color" content="#00acc1">
 
-    <title><%= data.page.title ? full_name + ' | ' + data.page.title : full_name %></title>
+		<title><%= data.page.title ? full_name + ' | ' + data.page.title : full_name %></title>
 
-    <!-- include fonts here to avoid "jumps" -->
-    <script src="//use.typekit.net/efw5mkv.js"></script>
-    <script>try{Typekit.load();}catch(e){}</script>
+		<!-- include fonts here to avoid "jumps" -->
+		<script src="//use.typekit.net/efw5mkv.js"></script>
+		<script>try{Typekit.load();}catch(e){}</script>
 
-    <!-- compiled styles -->
-    <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
+		<!-- compiled styles -->
+		<link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
 
-    <!-- atom blog feed -->
-    <%= feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed" %>
+		<!-- atom blog feed -->
+		<%= feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed" %>
 
-    <!--[if !IE 7]>
-      <style type="text/css">
-        .wrapper { display: table; height: 100% }
-      </style>
-    <![endif]-->
+		<!--[if !IE 7]>
+			<style type="text/css">
+				.wrapper { display: table; height: 100% }
+			</style>
+		<![endif]-->
 
-    <!-- Pinterest -->
-    <meta name="p:domain_verify" content="e524fa0ba75fffacfdf7edc2eb42890a"/>
-  </head>
-  <body>
+		<!-- Pinterest -->
+		<meta name="p:domain_verify" content="e524fa0ba75fffacfdf7edc2eb42890a"/>
+	</head>
+	<body>
 
-    <div class="wrapper">
-      <div class="main" role="main" id="main">
-        <%= yield %>
-      </div>
+		<div class="wrapper">
+			<div class="main" role="main" id="main">
+				<%= yield %>
+			</div>
 
-      <footer class="footer">
-        <div class="fab-wrapper">
-          <div class="fab-menu">
-            <a class="fab-menu-item" href="/">Home</a>
-            <a class="fab-menu-item" href="/about">About</a>
-          </div>
+			<footer class="footer">
+				<div class="fab-wrapper">
+					<div class="fab-menu">
+						<a class="fab-menu-item" href="/">Home</a>
+						<a class="fab-menu-item" href="/about">About</a>
+					</div>
 
-          <a class="fab" href="/">
-            <img class="logo" src="/assets/img/robinandeer-logo.svg">
-          </a>
-        </div>
+					<a class="fab" href="/">
+						<img class="logo" src="/assets/img/robinandeer-logo.svg">
+					</a>
+				</div>
 
-        <div class="fab-backdrop"></div>
-      </footer>
-    </div>
+				<div class="fab-backdrop"></div>
+			</footer>
+		</div>
 
-    <script>
-      $(document).ready(function () {
-        <%= yield_content :onready %>
-        $(document).foundation();
-      });
-      // TODO: Set your Google Analytics code here
-      var _gaq=[['_setAccount','<%= google_analytics_tracking_id %>'],['_trackPageview']];
-      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'));
-    </script>
-  </body>
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+			ga('create', '<%= google_analytics_tracking_id %>', 'auto');
+			ga('send', 'pageview');
+
+		</script>
+	</body>
 </html>
