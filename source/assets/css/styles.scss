@@ -159,12 +159,18 @@ hr {
 .post-list-item {
     margin-bottom: 1rem;
     display: flex;
-    // justify-content: space-between;
     align-items: center;
+    position: relative;
 
     + .post-list-item {
         padding-top: 1rem;
         border-top: 1px solid #eee;
+    }
+
+    &:hover {
+      > .post-list-category-label {
+        opacity: 1;
+      }
     }
 }
 
@@ -179,19 +185,20 @@ hr {
 }
 
 .post-list-category {
-    border-radius: 3px;
-    background-color: $robinandeer-green;
-    color: #fff;
-    margin-right: 1rem;
-    padding: 0 .3rem;
-    font-size: .9rem;
-    display: none;
-    flex-basis: 4.5rem;
-    text-align: center;
+    border-radius: 100%;
+    width: 12px;
+    height: 12px;
+    margin-right: .5rem;
+}
 
-    @media screen and (min-width: 900px) {
-        display: block;
-    }
+.post-list-category-label {
+  width: 100px;
+  position: absolute;
+  left: -120px;
+  text-align: right;
+  color: $gray;
+  font-size: .9rem;
+  opacity: 0;
 }
 
 .thoughts {
