@@ -5,8 +5,11 @@ require 'extensions/sitemap.rb'
 ####
 
 set :full_name, "Robin Andeer"
+set :site_url, "http://www.robinandeer.com/"
 set :city, "Stockholm, Sweden"
 set :google_analytics_tracking_id, "UA-18017148-1"
+set :blog_title, "Unnamed"
+set :blog_subtitle, "A collection of guides and thoughts"
 
 # Time.zone = "UTC"
 
