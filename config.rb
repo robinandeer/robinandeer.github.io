@@ -97,7 +97,12 @@ set :markdown, :fenced_code_blocks => true, :smartypants => true
 activate :syntax, line_numbers: true
 
 # Autoprefix CSS
-activate :autoprefixer
+activate :autoprefixer do |config|
+  config.browsers = ['last 2 versions', 'Explorer >= 9']
+  config.remove   = false
+  config.cascade  = false
+  config.inline   = true
+end
 
 # Pretty URLs
 activate :directory_indexes
