@@ -38,6 +38,7 @@ GEM
     eventmachine (1.0.7)
     execjs (2.5.2)
     ffi (1.9.8)
+    gemoji (2.1.0)
     haml (4.0.6)
       tilt
     hike (1.2.3)
@@ -86,6 +87,9 @@ GEM
       middleman-core (>= 3.2)
       net-sftp
       ptools
+    middleman-gemoji (0.0.5)
+      gemoji (~> 2.1)
+      middleman (~> 3.3)
     middleman-livereload (3.1.1)
       em-websocket (>= 0.2.0)
       middleman-core (>= 3.0.2)
@@ -116,6 +120,7 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
+    rainbow (2.0.0)
     rb-fsevent (0.9.5)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
@@ -123,6 +128,9 @@ GEM
     rouge (1.9.0)
     ruby-prof (0.15.8)
     sass (3.4.14)
+    scss_lint (0.40.1)
+      rainbow (~> 2.0)
+      sass (~> 3.4.1)
     sitemap_generator (5.0.5)
       builder
     sprockets (2.12.3)
@@ -156,8 +164,13 @@ DEPENDENCIES
   middleman-autoprefixer
   middleman-blog (~> 3.5.3)
   middleman-deploy (~> 1.0)
+  middleman-gemoji
   middleman-livereload
   middleman-syntax
   redcarpet
   ruby-prof
+  scss_lint
   sitemap_generator
+
+BUNDLED WITH
+   1.10.5

@@ -91,6 +91,9 @@ activate :sitemap_generator
 # Reload the browser automatically whenever files change
 activate :livereload
 
+# Emojis :-)
+activate :gemoji, :size => 20, :style => "vertical-align: middle", :emoji_dir => "assets/img/emoji"
+
 # Syntax highlighting
 set :markdown_engine, :redcarpet
 set :markdown, :fenced_code_blocks => true, :smartypants => true
