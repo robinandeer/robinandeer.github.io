@@ -2,8 +2,8 @@ $light-gray: #eee;
 $gray: #aaa;
 $blue: #5694f1;
 $dark-gray: rgba(46, 48, 58, .96);
-$scilifelab-green: #96C21E;
-$robinandeer-green: #00ACC1;
+$scilifelab-green: #96c21e;
+$robinandeer-green: #00acc1;
 $link-color: $robinandeer-green;
 
 @import "mixins";
@@ -30,11 +30,11 @@ html, body {
 }
 
 img {
-  vertical-align: middle;
   border: 0;
   height: auto;
-  max-width: 100%;
   -ms-interpolation-mode: bicubic;
+  max-width: 100%;
+  vertical-align: middle;
 }
 
 hr {
