@@ -44,7 +44,12 @@ I have limited experience working in bioinformatics. However, I've come to reali
 
 We're also all aware that we are spreading our community efforts very thin. Everyone's developing their own pipeline and file formats. We need to come together around some key projects which can be allowed to grow and set excellent standards for the rest of the field. Then I have no doubts open source will prevail.
 
+---------------------
 
+Continue the [disscussion][hn-source] on Hacker News
+
+
+[hn-source]: https://news.ycombinator.com/item?id=9910267
 [lior-twitter]: https://twitter.com/lpachter
 [myths]: https://liorpachter.wordpress.com/2015/07/10/the-myths-of-bioinformatics-software/
 [titus-response]: http://ivory.idyll.org/blog/2015-response-to-software-myths.html
