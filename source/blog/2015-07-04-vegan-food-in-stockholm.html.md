@@ -46,4 +46,7 @@ The place is cosy and big. The waitress was very nice with me, speaking slowly i
 Very tasty vegetarian dumplings, mostly to-go for 92:-. I have yet to try the veggo salad which looks amazing.
 
 ## Babel Deli
-Reasonable prices, several vegan options which are clearly marked (!). Looks yummy and tastes great! Remember you can ask for quinoa instead of bulgur.
+**Middle Eastern** ($). Reasonable prices, several vegan options which are clearly marked (!). Looks yummy and tastes great! Remember you can ask for quinoa instead of bulgur.
+
+## Organic Green
+**Soul food** ($).Very nice, wholesome vegetarian soul food. It seems most dishes aren't 100% vegan but the ones that are probably beat most other options. Everything comes with hummous, sallad, and bread. And what bread - sublime. Grab an extra slice while your at it.
