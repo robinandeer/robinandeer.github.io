@@ -43,10 +43,13 @@ The place is cosy and big. The waitress was very nice with me, speaking slowly i
 **Korean** ($). My new favorite place. Have always order take-away though but they are very quick to order! Super tasty vegetarian bibimbap for only 78:-!
 
 ## Steam
-Very tasty vegetarian dumplings, mostly to-go for 92:-. I have yet to try the veggo salad which looks amazing.
+Very tasty vegetarian dumplings, mostly to-go for 92:-. I have yet to try the veggo salad which looks amazing. I did try the "Laotisk sojagryta", another winner!
 
 ## Babel Deli
-**Middle Eastern** ($). Reasonable prices, several vegan options which are clearly marked (!). Looks yummy and tastes great! Remember you can ask for quinoa instead of bulgur.
+**Middle eastern** ($). Reasonable prices, several vegan options which are clearly marked (!). Looks yummy and tastes great! Remember you can ask for quinoa instead of bulgur.
 
 ## Organic Green
 **Soul food** ($).Very nice, wholesome vegetarian soul food. It seems most dishes aren't 100% vegan but the ones that are probably beat most other options. Everything comes with hummous, sallad, and bread. And what bread - sublime. Grab an extra slice while your at it.
+
+## Reggev Hummus
+**Middle eastern** ($). The concept is hummus with something. Wonderfully simple *and* I love hummus. You also get bread and pickled vegetabels on the side. I will go here as often as I get the chance :smile:
