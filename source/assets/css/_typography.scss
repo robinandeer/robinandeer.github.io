@@ -46,8 +46,8 @@ h6 {
 a {
   $active-color: darken($link-color, 10%);
 
-  color: $link-color;
-  text-decoration: none;
+  color: currentColor;
+  text-decoration: underline;
   -webkit-transition: color 0.05s linear;
   -moz-transition: color 0.05s linear;
   transition: color 0.05s linear;
