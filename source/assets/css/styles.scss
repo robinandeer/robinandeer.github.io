@@ -6,6 +6,15 @@ $scilifelab-green: #96c21e;
 $robinandeer-green: #00acc1;
 $link-color: $robinandeer-green;
 
+$md-yellow: #ffd600;
+$md-blue: #2196f3;
+$md-pink: #e91e63;
+$md-green: #4caf50;
+$md-purple: #9c27b0;
+$md-teal: #009587;
+$md-cyan-200: #80deea;
+$md-cyan-500: #00bcd4;
+
 @import "mixins";
 @import "normalize";
 @import "color-theme";
@@ -73,6 +82,35 @@ hr {
   width: 85px;
 }
 
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pagination-bubble {
+  width: 14px;
+  height: 14px;
+  background-color: $md-cyan-200;
+  border-radius: 100%;
+
+  &:hover,
+  &.active {
+    background-color: $md-cyan-500;
+  }
+
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+
 .footer {
   display: flex;
   justify-content: flex-end;
@@ -103,6 +141,7 @@ hr {
   width: 85px;
   height: 85px;
   color: #fff;
+  text-decoration: none;
 
   @media screen and (min-width: 900px) {
     background-color: #fff;
@@ -202,23 +241,27 @@ hr {
 }
 
 .thoughts {
-  background-color: #ffd600;
+  background-color: $md-yellow;
 }
 
 .tutorials {
-  background-color: #2196f3;
+  background-color: $md-blue;
 }
 
 .tips {
-  background-color: #e91e63;
+  background-color: $md-pink;
 }
 
 .work {
-  background-color: #4caf50;
+  background-color: $md-green;
 }
 
 .reflections {
-  background-color: #9c27b0;
+  background-color: $md-purple;
+}
+
+.food {
+  background-color: $md-teal;
 }
 
 .post-list-date {

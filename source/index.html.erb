@@ -15,16 +15,20 @@ per_page: 10
   <% end %>
 </ul>
 
-<% if paginate && num_pages > 1 %>
-  <p>Page <%= page_number %> of <%= num_pages %></p>
+<div class="pagination-wrapper">
+	<ul class="pagination">
+		<% if prev_page == nil %>
+			<li class="pagination-bubble active"></li>
+		<% else %>
+			<a class="pagination-bubble" href="/"></a>
+		<% end %>
 
-  <% if prev_page %>
-    <p><%= link_to 'Previous page', prev_page %></p>
-  <% end %>
-<% end %>
-
-<% if paginate %>
-  <% if next_page %>
-    <p><%= link_to 'Next page', next_page %></p>
-  <% end %>
-<% end %>
+		<% for page_index in (2 .. num_pages) %>
+			<% if page_index == page_number %>
+				<li class="pagination-bubble active"></li>
+			<% else %>
+				<a class="pagination-bubble" href="<%= "/page/#{page_index}" %>"></a>
+			<% end %>
+		<% end %>
+	</ul>
+</div>
