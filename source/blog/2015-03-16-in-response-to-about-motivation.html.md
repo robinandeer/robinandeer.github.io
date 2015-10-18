@@ -50,6 +50,8 @@ I'm used to second guessing my every move. I often make simple choices out to be
 -------------
 Definitely read the [original article][about] and thank you for letting me share my response. Do reach out on [Twitter][twitter] or comment on [Hacker News][hacker] if you feel inspired to do so.
 
+<a href="https://news.ycombinator.com/submit" class="hn-button" data-title="In response to “About motivation”" data-url="http://www.robinandeer.com/blog/2015/03/16/in-response-to-about-motivation/" data-count="horizontal">Vote on Hacker News</a>
+
 
 
 [about]: http://mussol.org/2015/03/15/about-motivation/
