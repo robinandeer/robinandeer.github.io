@@ -92,3 +92,12 @@ Max has introduced a range of vegetarian burgers with one completely vegan optio
 
 ## [Falafelbaren](http://www.falafelbaren.se/) :herb:
 **Middle Eastern** ($). Wow! A real treat :yum: Reminds me of the awesome hummus shop _Reggev_. Serves large portions that are guaranteed to fill you up on tasty, tasty falafel. I recommended it wholeheartedly and will return shortly!
+
+## [Yuc!](http://yuc.se/) :herb:
+**Mexican** ($$). Fancy Mexican food. You order smaller dishes that you can share with your company. For a Mexican place, the vegan selection is rather good! The plating is not your usual humble, no-nonsese Mexican style but more fitting to the price range :wink: I do recommend a visit for a different but really good Mexican food experience.
+
+## Paradiset - [Delibruket](http://paradiset.com/foodcourt/delibruket-flatbread-sodermalm/) :seedling:
+**Italian** ($). Delibruket sells flatbread pizzas in the food court at Paradiset. There's one vegan and a number of vegetarian options. The optimum portion is of course between 1/2 and 1 pizza :sweat_smile: so split with a friend if you can! The pizza is quite delicious and without any of the boring fake vegan meat/cheese stuff.
+
+## [Indian Street Food & Co](http://www.indianstreetfood.se/en/home/) :herb:
+**Indian** ($). I was here for lunch with a friend and the service was _fast_ even if the place was crowded. I got a plate with a bunch of delicious small dishes. I've got a new-found love for Indian food so this was right up my alley! Highly recommended.
