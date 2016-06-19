@@ -8,9 +8,9 @@ tags: tutorial, python, testing, habits
 
 Reasons to test code are plentiful; performance, quality, usability, security, and stability. However, I’m going to focus on testing to **ensure expected behavior**.
 
-The main idea is that your suite of tests should **insprire confidence** that the code performs as expected. Any additional updates should pass all tests before being considered in the main branch. This way, developer who contribtute to the project don't fear breaking something.
+The main idea is that your suite of tests should **insprire confidence** that the code performs as expected. Any additional updates should pass all tests before being considered in the main branch. This way, developer who contribtute to the project don't fear breaking something 🐞.
 
-I decided to write a series of post on "How I test code". The first part will focus on how I motivate myself and general stategies that help when writing tests. In the upcoming parts I will get more detailed about Python testing but many of the concepts are general enough to apply to any language.
+I decided to write a series of post on "How I test code". The first part will focus on how I motivate myself and general stategies that help when writing tests. In the upcoming parts I will get more detailed about Python testing but many of the concepts are general enough to apply to any language 🌎.
 
 ![intro](/assets/img/lack-of-tests.png)
 
