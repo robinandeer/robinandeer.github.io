@@ -10,6 +10,8 @@ Reasons to test code are plentiful; performance, quality, usability, security, a
 
 The main idea is that your suite of tests should **insprire confidence** that the code performs as expected. Any additional updates should pass all tests before being considered in the main branch. This way, developer who contribtute to the project don't fear breaking something 🐞.
 
+**_One more thing_: when you write tests for your code, you write code which is easy to test. The result is functional, maintainable, and composable!**
+
 I decided to write a series of post on "How I test code". The first part will focus on how I motivate myself and general stategies that help when writing tests. In the upcoming parts I will get more detailed about Python testing but many of the concepts are general enough to apply to any language 🌎.
 
 ![intro](/assets/img/lack-of-tests.png)
