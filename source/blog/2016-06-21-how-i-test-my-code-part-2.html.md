@@ -4,13 +4,11 @@ category: tutorials
 author: Robin Andeer
 date: 2016-06-21
 tags: tutorial, python, testing, pytest, fixtures
-
-published: false
 ---
 
 This is part 2 in my series on "How I test code". [Part 1][part1] discusses testing habits and how to motivate yourself to write them. This post goes into more Python specific tools and conventions around testing.
 
-Python has a number of test runners to extend and simplify writing, specifically, unit tests. My personal preference is [pytest][pytest] which is super robust and feature rich. It let’s you write tests as simple "**asserts**", has a brilliant **plugin ecosystem** that "just works" after `pip install pytest-[somePlugin]`, and let's you leverage powerful **fixtures** to keep things DRY.
+Python has a number of test runners to extend and simplify writing (unit) tests. My personal preference is [pytest][pytest] which is super robust and feature rich. It let’s you write tests as simple "**asserts**", has a brilliant **plugin ecosystem** that "just works" after `pip install pytest-[somePlugin]`, and let's you leverage powerful **fixtures** to keep things DRY.
 
 A small flavor of what tests look like with _pytest_:
 
@@ -28,7 +26,7 @@ def test_perform_division():
 		perform_division(12, 0)
 ```
 
-Running your tests is then as easy as:
+Running your tests is as easy as:
 
 ```bash
 $ py.test --verbose
@@ -36,9 +34,9 @@ $ py.test --verbose
 
 ## Ogranizing tests
 
-_pytest_ does a great job of detecting tests. All you need to do is name test modules with a prefix: `test_*`. Inside modules, each test function should similarly be named `def test_*:`.
+_pytest_ does a great job of detecting tests. All you need to do is name test modules with a prefix: `test_*`. Each test function should similarly be named `def test_*:`.
 
-Furthermore, I like to organize test files to reflect my source code. The following source code organization:
+Furthermore, I like to organize test files to reflect my source code. The following package:
 
 ```
 myPackage
@@ -60,7 +58,12 @@ tests
 
 ## Test fixtures
 
-I think this is _the_ key concept to start mastering tests. Fixtures are pluggable components that can be shared across many tests to setup pre-conditions. They each have their own setup and tear down blocks and you control if they are reset on a function/module/session basis.
+I think this is the **key concept** to start mastering tests. Fixtures are pluggable components that can be shared across many tests to setup pre-conditions like:
+
+- setup a database connection
+- read in lines form a file
+
+They each have their own setup and tear down blocks and you control if they are reset on a function/module/session basis.
 
 Let's add a few items to our setup:
 
@@ -97,9 +100,9 @@ def test_add_row(db_connection):
 	assert db_connection.get_row(name=name).age == 34
 ```
 
-When _pytest_ runs the above function it will look for a fixture called `db_connection` and run it. Whatever is yielded (or returned) will be passed along to the test function. You can pass as many fixtures as you want to a test. We set the "scope" of the fixture to "function" so as soon as the test is complete, the block after the `yield` statement will run.
+When _pytest_ runs the above function it will look for a fixture called `db_connection` and run it. Whatever is yielded (or returned) will be passed along to the test function. We set the "scope" of the fixture to "function" so as soon as the test is complete, the block after the `yield` statement will run. You can pass as many fixtures as you want to a test.
 
-> Tip: test fixtures accept parameter-dependencies the same way as test functions. It's perfectly possible to nest test fixtures.
+> Tip: test fixtures accept parameter-dependencies the same way as test functions. It's perfectly possible to combine several test fixtures.
 
 Additional fixtures can be installed through plugins and _pytest_ itself comes with a few built in. For example there's the handy `tmpdir` fixture that provides unique temporary folders where you can test various side effects.
 
