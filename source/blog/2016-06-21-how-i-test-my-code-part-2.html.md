@@ -32,7 +32,7 @@ Running your tests is as easy as:
 $ py.test --verbose
 ```
 
-## Ogranizing tests
+## Organizing tests
 
 _pytest_ does a great job of detecting tests. All you need to do is name test modules with a prefix: `test_*`. Each test function should similarly be named `def test_*:`.
 
