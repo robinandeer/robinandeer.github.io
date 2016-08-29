@@ -8,9 +8,9 @@ tags: reflection, docker, containers, orchestration
 
 ![Day of Containers intro](/assets/img/day-of-containers-intro.jpg)
 
-> If you are naming your servers, you are doing it wrong. Don't treat your servers as pets! Treat them more like cattle. I'm sorry to say but if one cow gets sick - you kill it for the good of the flock.
+> If you are naming your servers, you are doing it wrong. Don't treat your servers as pets! Treat them more like cattle. I'm sorry to say but if one cow gets sick - you kill it for the good of the flock. -- [@vfarcic][vfarcic]
 
-This is how we will build systems in the future. You will have a swarm (🐝🐝🐝) of servers that act as a pool of resources to be allocated. How software is installed and where services are run in the cluster won't be your concern. One node can be shut down and replaced with another. One service can easily be scaled up and down to match demand.
+This might be how we will build systems in the future. You will have a swarm (🐝🐝🐝) of servers that act as a pool of resources to be allocated. How software is installed and where services are run in the cluster won't be your concern. One node can be shut down and replaced with another. One service can easily be scaled up and down to match demand.
 
 Last week, [**Day of Containers**][doc] brought prominent speakers from companies like Cloudbees (Jenkins) and Google to Stockholm to talk about the latest in the World of Docker and containers in general. The main topic was how to orchestrate systems with multiple servers and services using various orchestration tools.
 
@@ -20,7 +20,7 @@ It's fair to say that containers are here to stay. And containers = Docker. [And
 
 ## Container Orchestration
 
-So the biggest news of the latest Docker release (1.12) is the integration of [Swarm][swarm] with the Docker engine itself. [Docker Swarm][swarm] let's you manage running a bunch of containers (or services) in a cluster of production servers. For people familiar with how Swarm used to work - getting started is apparently _way_ easier now. For the uninitiated, like myself however, it seems just as confusing as setting up Docker on a Mac used to be before [Docker for Mac][dfm] came along.
+The biggest news of the latest Docker release (1.12) is the integration of [Swarm][swarm] with the Docker engine itself. [Docker Swarm][swarm] let's you manage running a bunch of containers (or services) in a cluster of production servers. For people familiar with how Swarm used to work - getting started is apparently _way_ easier now. For the uninitiated, like myself however, it seems just as confusing as setting up Docker on a Mac used to be before [Docker for Mac][dfm] came along.
 
 ![Docker Swarm logo](/assets/img/day-of-containers-swarm.png)
 
@@ -49,7 +49,7 @@ Docker containers is on the other hand completely self-contained and this takes 
 
 ## Conclusions
 
-The more experience I get building software and designing systems - the more convinced I am to focus on avoiding complexity. It might present itself in the **installation** (as is the case for many bioinformatics tools 😜) or in the **deployment** of a huge and tightly coupled systems with very specific requirements.
+The more experience I get building software and designing systems - the more convinced I am to focus on avoiding complexity. It might present itself in the **installation** (as is the case for many bioinformatics tools 😜) or in the **deployment** of huge and tightly coupled systems with very specific requirements.
 
 Docker makes installing, and just as important _uninstalling_, software very simple. It also makes setting up tools like databases and proxy servers much easier as they come pre-configured to run out of the box. It compels you to build systems of isolated and reusable building blocks that can work in many different situations.
 
@@ -81,3 +81,4 @@ _I feel compelled to point out that it's 2016 and we don't need to treat cattle.
 [kelsey]: https://twitter.com/kelseyhightower
 [kubernetes]: http://kubernetes.io/
 [marathon]: https://mesosphere.github.io/marathon/
+[vfarcic]: https://twitter.com/vfarcic
