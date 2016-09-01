@@ -1,9 +1,9 @@
 ---
-title: "Automatic PyPI deployment using Travis CI"
-category: guides
+title: Automatic PyPI releases using Travis CI
+category: tutorials
 author: Robin Andeer
 date: 2016-09-01
-tags: guide, continuous deployment, continuous integration, travis, python, pypi
+tags: tutorial, continuous deployment, continuous integration, travis, python, pypi
 ---
 
 Programming has always been about automating stuff that is either too boring or takes too long for regular humans to accomplish. Automating the automatable is something that drives me as a developer. It just feels right.
