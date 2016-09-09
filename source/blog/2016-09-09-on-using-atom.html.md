@@ -10,6 +10,8 @@ I'm composing this post in a slightly unfamiliar environment; [Atom][atom] - the
 
 Now I've been using it as my main editor for the past week and thought I'd share some of my experiences.
 
+[![Sublime vs. Atom](/assets/img/atom-sublime.png)](/assets/img/atom-sublime.png)
+
 ## The good
 
 Atom is a great editor. I like Atom. Since I first tried it out, it's matured really well. Visually it looks great! Especially after applying the Sublime-port of the material theme/syntax (`atom-material-ui`, `atom-material-syntax`) This is an important point, at least to me.
@@ -39,9 +41,9 @@ Unless...
 
 There's an excellent project manager in Atom (`project-manager`) that has been ported to Sublime. It's become deeply ingrained in my workflow. I'm used to switching projects at lightning speeds! What surprised me is how slow this seemingly simple task is in Atom. Most of the time I have to wait **5-7 seconds** for a few files to load. This is a more difficult issue to work around.
 
-## Conclusions
+## Conclusion
 
-Atom is great. Sublime is great. Neither one of them is going to hold you back. Of course the choice comes down to a matter of taste. A developer's editor is a deeply personal choice. As for me, **I will continue using and endorsing Sublime**.
+Atom is great. Sublime is great. Neither one of them is going to hold you back. A developer's editor is a deeply personal choice. As for me, **I will continue using and endorsing Sublime**.
 
 Yes, it's not open source, nor free. However, I'm not dogmatic about the former and I happily paid for my Sublime license. Supporting developers comes naturally for me.
 
