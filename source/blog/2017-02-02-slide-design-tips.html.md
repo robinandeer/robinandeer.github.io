@@ -2,7 +2,7 @@
 title: 5 simple tips to improve your slides
 category: thoughts
 author: Robin Andeer
-date: 2017-02-02
+date: 2017-02-06
 tags: thought, keynote, design, slides, presentation
 ---
 
