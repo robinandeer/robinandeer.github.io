@@ -72,7 +72,7 @@ Max has introduced a range of vegetarian burgers with one completely vegan optio
 ## [Abyssina](http://www.abyssinia.se/) :seedling:
 **Ethiopian** ($$). Another Ethiopian place with similar quality. The lunch is served as a buffé where half the options are vegan. You eat similarly as in Gojo. The proud owner and hostess was very welcoming :smile:
 
-## [Surfers](http://www.surfersstockholm.se/) :herb:
+## [Surfers](http://www.surfersstockholm.se/) :cherry_blossom:
 **Chinese** ($$$). Feels very much like a concept restaurant with clear ambitions - I like that. When you arrive, the waiters walk you through the menu. The setup is Chinese tapas and almost all options can be made vegan! A few already are. This is another place where it make sense to share to get a taste of everything. Whatever you do; don't miss the incredible deep fried tofu :heart_eyes:. Expensive but worth trying out.
 
 ## [Arirang](http://www.arirang.se/en/) :seedling:
@@ -104,3 +104,19 @@ Max has introduced a range of vegetarian burgers with one completely vegan optio
 
 ## [Vigårda](http://vigarda.se/) :seedling:
 **Fast food** ($). Decent vegan quinoa-based burger 🍔 at a good price. I really liked the bun tho - not soggy at all! That's about the options you have here as a vegan. But hey, if you are in Mall of Scandinavia or at K25 this is a pretty solid option.
+
+## [ESA sushi](https://www.facebook.com/EsaSushiSthm/) :cherry_blossom:
+**Japanese** ($$): Super nice veggie sushi! The decorations are awesome and the seaweed is especially delicious. I've been here many times although mostly to order take-away. Compared to the food, the locale is only decent.
+
+## 58 Dim Sum :seedling:
+**Chinese** ($). Very cheap dumplings that I remember as rather nice. The place is very barebones but also exactly what you expect. Give it a try!
+
+## [StikkiNikki](http://stikkinikki.com/)
+**Ice cream**: Technically they serve ice cream - and lots of it! They have plenty of interesting flavors but I would still suggest to order a single bowl 😉 or half of it will melt before you have time to chew it down.
+
+---------------------------------
+
+## Places I want to visit... 
+
+- [Farang](https://farang.se/?lang=en) (**Asian**): fine dining. I just need one good reason...
+- [Gro](http://grorestaurang.se/index.php) (**Scandinavian**): fine dining. Would be interesting to eat some Scandinavian vegan food for a change.
