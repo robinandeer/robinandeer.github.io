@@ -101,3 +101,6 @@ Max has introduced a range of vegetarian burgers with one completely vegan optio
 
 ## [Indian Street Food & Co](http://www.indianstreetfood.se/en/home/) :herb:
 **Indian** ($). I was here for lunch with a friend and the service was _fast_ even if the place was crowded. I got a plate with a bunch of delicious small dishes. I've got a new-found love for Indian food so this was right up my alley! Highly recommended.
+
+## [Vigårda](http://vigarda.se/) :seedling:
+**Fast food** ($). Decent vegan quinoa-based burger 🍔 at a good price. I really liked the bun tho - not soggy at all! That's about the options you have here as a vegan. But hey, if you are in Mall of Scandinavia or at K25 this is a pretty solid option.
