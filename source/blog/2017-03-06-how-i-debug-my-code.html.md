@@ -9,8 +9,6 @@ description: >
     The more code you write, the more time you also spend tracking down errors.
     That's why it's worthwhile to learn some debugging-skills!
 image: /assets/img/debug.png
-
-published: false
 ---
 
 The more code you write, the more time you also spend tracking down errors. That's why it's worthwhile to learn some debugging-skills!
