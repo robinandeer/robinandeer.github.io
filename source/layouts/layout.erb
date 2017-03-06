@@ -19,7 +19,9 @@
     	<meta property="og:site_name" content="Robin Andeer">
     	<meta property="og:title" content="<%= data.page.title %>">
     	<meta property="og:url" content="<%= site_url %><%= current_page.url %>">
-    	<meta property="og:description" content="<%= data.page.description %>">
+    	<% if data.page.description? %>
+  			<meta property="og:description" content="<%= data.page.description %>">
+		<% end %>
         <meta property="og:image" content="<%= site_url %><%= data.page.image or '/assets/img/robinandeer-logo.png' %>">
 
     	<!-- Twitter -->
@@ -27,7 +29,9 @@
     	<meta name="twitter:site" content="@robinandeer">
     	<meta name="twitter:creator" content="@robinandeer">
     	<meta name="twitter:title" content="<%= data.page.title %>">
-    	<meta name="twitter:description" content="<%= data.page.description %>">
+    	<% if data.page.description? %>
+  			<meta name="twitter:description" content="<%= data.page.description %>">
+		<% end %>
     	<meta name="twitter:url" content="<%= site_url %><%= current_page.url %>">
         <meta name="twitter:image" content="<%= site_url %>/assets/img/robinandeer-logo.png">
 
