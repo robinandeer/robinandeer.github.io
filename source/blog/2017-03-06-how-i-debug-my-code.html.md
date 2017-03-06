@@ -1,5 +1,5 @@
 ---
-title: Debugging Python Code
+title: How I Debug My Code
 category: tutorials
 author: Robin Andeer
 date: 2017-03-06
