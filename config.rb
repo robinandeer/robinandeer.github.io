@@ -5,7 +5,7 @@ require 'extensions/sitemap.rb'
 ####
 
 set :full_name, "Robin Andeer"
-set :site_url, "http://www.robinandeer.com/"
+set :site_url, "http://www.robinandeer.com"
 set :city, "Stockholm, Sweden"
 set :google_analytics_tracking_id, "UA-18017148-1"
 set :blog_title, "Unnamed"

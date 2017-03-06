@@ -4,6 +4,13 @@ category: tutorials
 author: Robin Andeer
 date: 2017-03-06
 tags: tutorial, python, debugging
+
+description: >
+    The more code you write, the more time you also spend tracking down errors.
+    That's why it's worthwhile to learn some debugging-skills!
+image: /assets/img/debug.png
+
+published: false
 ---
 
 The more code you write, the more time you also spend tracking down errors. That's why it's worthwhile to learn some debugging-skills!
