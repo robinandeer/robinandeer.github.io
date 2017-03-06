@@ -6,6 +6,7 @@ require 'extensions/sitemap.rb'
 
 set :full_name, "Robin Andeer"
 set :site_url, "http://www.robinandeer.com"
+set :site_description, "I'm a software engineer, climber, INTP, and designer of websites. I develop tools to solve medical mysteries at SciLifeLab. This is my blog."
 set :city, "Stockholm, Sweden"
 set :google_analytics_tracking_id, "UA-18017148-1"
 set :blog_title, "Unnamed"

@@ -9,7 +9,7 @@
 		<meta name="theme-color" content="#00acc1">		
 
 		<title><%= data.page.title ? full_name + ' | ' + data.page.title : full_name %></title>
-		<meta name="description" content="<%= data.page.description %>">
+		<meta name="description" content="<%= data.page.description or site_description %>">
     	<meta name="keywords" content="blog, Robin Andeer, robinandeer, <%= data.page.tags %>">
     	<meta name="author" content="Robin Andeer">
     	<link rel="author" href="https://twitter.com/robinandeer">
