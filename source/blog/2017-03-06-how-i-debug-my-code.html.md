@@ -62,7 +62,7 @@ You navigate around using a few special commands. These are the ones I use 99% o
 
 You can find a full list of commands by typing `help`.
 
-## Port mortem-mode / Debugging in iPython
+## Post mortem-mode / Debugging in iPython
 
 Early on in development I spend a lot of time in iPython importing my functions and testing them out. You can use some very handy magic function to facilitate debugging. First is **`%debug`**. When you run into an exception you can simply type in this command to activate the debugger (ipdb) and inspect the stack frame just after it exited. You can automate this to always be the case by instead enabling **`%pdb`** mode. Then every time some exception gets thrown you will be dropped into an interactive debugger.
 
