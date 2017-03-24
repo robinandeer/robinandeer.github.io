@@ -21,6 +21,13 @@ Do as much as possible upfront to facilitate discovery of bugs. First of all, if
 
 You can also employ your editor to highlight possible mistakes. These often sneak into Python code unnoticed because of Python's interpreted nature (no compilation) and only optional [typing support][typing]. A first stop when I write code is to employ a few [static code][pylint] [analysis tools][flake8]. They can help you spot for example broken imports and variables referenced before assignment. It should be fairly simple to integrate them in your editor to run every time you save a file!
 
+UPDATE! As suggested by [@joeyespo](https://twitter.com/joeyespo) you can also integrate flake8 with [py.test](http://doc.pytest.org/en/latest/) using a [handy plugin](https://github.com/tholo/pytest-flake8). All you need to do is install and run:
+
+```bash
+pip install pytest-flake8
+py.test --flake8
+```
+
 ## Breakpoints
 
 Logging + linting provide a nice start but sometimes you need more dedicated tools to do resolve bugs. When I run into an unforeseen issue, my first stop is to interactively investigate the code by setting a **breakpoint**. Now Python's interpreted nature becomes an asset! You can use the built-in `pdb` module but just like [`ipython`][ipython] replaces the standard `python` shell, you really should be using `ipdb`! Start by installing it:
