@@ -325,6 +325,10 @@ article {
 
 // Portfolio
 
+h2 {
+  margin-bottom: 1rem;
+}
+
 .project {
   max-width: 850px;
   margin: 0 auto 5rem;
@@ -344,7 +348,7 @@ article {
 }
 
 .photo-caption {
-  font-size: .9rem;
+  font-size: .95rem;
   margin-top: 1rem;
   padding: 0 1.5rem;
 }
