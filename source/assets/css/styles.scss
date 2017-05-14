@@ -322,3 +322,29 @@ article {
 .text-center {
   text-align: center;
 }
+
+// Portfolio
+
+.project {
+  max-width: 850px;
+  margin: 0 auto 5rem;
+}
+
+.photo-group {
+  margin-bottom: 3rem;
+}
+
+.photo-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.photo-item {
+  max-width: 400px;
+}
+
+.photo-caption {
+  font-size: .9rem;
+  margin-top: 1rem;
+  padding: 0 1.5rem;
+}
