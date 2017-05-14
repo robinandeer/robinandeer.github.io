@@ -181,7 +181,7 @@ hr {
   left: 0;
   right: 0;
   z-index: 0;
-  transition: background-color .1s;
+  transition: background-color .5s;
 }
 
 // Post list
@@ -325,6 +325,10 @@ article {
 
 // Portfolio
 
+h1 {
+  margin-bottom: 3rem;
+}
+
 h2 {
   margin-bottom: 1rem;
 }
@@ -340,11 +344,21 @@ h2 {
 
 .photo-row {
   display: flex;
-  justify-content: space-between;
+
+  justify-content: center;
+  flex-wrap: wrap;
+
+  @media screen and (min-width: 700px) {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
 }
 
 .photo-item {
   max-width: 400px;
+
+  flex-basis: 100%;
+  margin-bottom: 1rem;
 }
 
 .photo-caption {
