@@ -87,7 +87,7 @@ code {
   }
 }
 
-p, ul:not(.post-list, .pagination) {
+p, ul:not(.no-links) {
   margin: 0 0 1.71rem;
 
   a {
