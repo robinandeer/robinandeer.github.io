@@ -48,9 +48,6 @@ a {
 
   color: currentColor;
   text-decoration: underline;
-  -webkit-transition: color 0.05s linear;
-  -moz-transition: color 0.05s linear;
-  transition: color 0.05s linear;
 
   &:hover {
     color: $active-color;
@@ -92,6 +89,12 @@ code {
 
 p {
   margin: 0 0 1.71rem;
+
+  a {
+    text-decoration: none;
+    text-shadow: 1px 1px 0 #fff, -1px 1px 0 #fff, 2px 0 0 #fff, -2px 0 0 #fff;
+    box-shadow: inset 0 -1px 0 0 #fff, inset 0 -2px 0 0 lighten(#000, 50%);
+  }
 }
 
 blockquote {
