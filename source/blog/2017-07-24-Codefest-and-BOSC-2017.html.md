@@ -1,9 +1,9 @@
 ---
 title: "Codefest and BOSC 2017 in Prague 🏰🇨🇿"
-category: tutorials
+category: reflections
 author: Robin Andeer
 date: 2017-07-24
-tags: tutorial, python, authorization, authentication, flask
+tags: reflection, conference, codefest, tools, bioinformatics
 
 description: >
     Summary of my experiences at Codefest and BOSC 2017. I was here for the third year in a row  and it's been my most productive attendance yet!
