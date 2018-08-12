@@ -1,0 +1,8 @@
+/* TEAM */
+Developer: Robin Andeer
+Site: http://www.robinandeer.com
+Twitter: @robinadeer
+Location: Stockholm, Sweden
+
+/* SITE */
+Standards: HTML5, CSS3
