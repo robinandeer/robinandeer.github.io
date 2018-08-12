@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 const YearContainer = styled.div``;
 const YearTitle = styled.div`
 	text-align: center;
-	margin: -48px auto 0;
+	margin: -45px auto 0;
 	background-color: ${theme.colors.shades[0]};
 	border-radius: 24px;
 	width: 100px;
@@ -23,12 +23,11 @@ const YearTitle = styled.div`
 	font-size: 16px;
 `;
 
-const YearDivider = styled(Divider)`
-	margin-top: 64px;
-`;
+const YearDivider = styled(Divider)``;
 
 const PostPreviewBlock = styled(PostPreview)`
-	margin: 40px auto;
+	margin: 0 auto;
+	padding: 24px;
 `;
 
 export default withRouteData(({ years }) => (

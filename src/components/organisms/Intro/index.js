@@ -37,7 +37,7 @@ const FaceWrapper = styled.div`
 `;
 
 const IntroHeading = styled.h1`
-	margin: 0;
+	font-size: 32px;
 	font-weight: 500;
 	color: ${theme.colors.headings};
 
@@ -69,24 +69,32 @@ const ContactWrapper = styled.div`
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+	justify-content: center;
 	transition: transform 0.2s;
-	max-width: 500px;
-	margin: 0 auto;
+	margin: 32px 0 48px;
 
 	&:hover {
 		transform: scale(1.03);
 	}
+
+	${media.tablet`
+		flex-wrap: no-wrap;
+	`};
 `;
 const ContactItem = styled.a`
 	padding: 24px;
 	transition: all 0.2s;
-	flex-basis: 100%;
+	flex-basis: 200px;
+	background-color: rgba(255, 255, 255, 0.05);
+	border-radius: 2px;
 
-	${media.tablet`flex-basis: 50%;`};
+	&:not(:last-child) {
+		margin-right: 24px;
+	}
 
 	&:hover {
-		background-color: rgba(255, 255, 255, 0.05);
 		transform: scale(1.01);
+		background-color: rgba(255, 255, 255, 0.08);
 	}
 `;
 const ContactTitle = styled.h3`
@@ -159,7 +167,6 @@ export default class Intro extends React.Component {
 						in Stockholm.
 					</IntroText>
 				</IntroTextWrapper>
-				<Divider />
 				<ContactWrapper>
 					<ContactItem href="mailto:robin.andeer@gmail.com?subject=Hello">
 						<ContactTitle>robin.andeer@gmail.com</ContactTitle>

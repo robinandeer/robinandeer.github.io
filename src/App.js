@@ -1,25 +1,22 @@
 import React from "react";
 import { Router } from "react-static";
 import { injectGlobal } from "styled-components";
+import reset from "styled-reset";
 import "highlight.js/styles/tomorrow-night-eighties.css";
 //
 import Routes from "react-static-routes";
-import theme from "./theme";
+import theme, { media } from "./theme";
 import AppWrapper from "./components/templates/AppWrapper";
 
 injectGlobal`
   @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans');
+	${reset}
 
   html {
     box-sizing: border-box;
   }
   *, *:before, *:after {
     box-sizing: inherit;
-  }
-
-  html, body, #root {
-    height: 100%;
-    width: 100%;
   }
 
   body {
@@ -30,8 +27,6 @@ injectGlobal`
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-stroke: 0.45px;
 
-    margin: 0;
-    padding: 0;
     background-color: ${theme.colors.shades[0]};
     color: ${theme.colors.text};
   }
