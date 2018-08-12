@@ -42,6 +42,7 @@ export default {
 	siteRoot: "https://www.robinandeer.com",
 	getRoutes: async () => {
 		const { posts, home, about } = await jdown("content", { renderer });
+		// Convert dates to string repr here since they are not preserved
 		const preparedPosts = posts.map(preparePost);
 
 		const yearGroups = preparedPosts.reduce((groups, post) => {
