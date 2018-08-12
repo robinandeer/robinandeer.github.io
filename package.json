@@ -4,10 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "react-static start",
+    "dev": "react-static start",
     "stage": "react-static build --staging",
     "build": "react-static build",
-    "serve": "serve dist -p 3000"
+    "start": "serve dist -p 3000"
   },
   "dependencies": {
     "chokidar": "^2.0.4",
