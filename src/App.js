@@ -1,12 +1,11 @@
-import React from 'react'
-import { Router } from 'react-static'
-import { injectGlobal } from 'styled-components'
-import { hot } from 'react-hot-loader'
-import 'highlight.js/styles/tomorrow-night-eighties.css'
+import React from "react";
+import { Router } from "react-static";
+import { injectGlobal } from "styled-components";
+import "highlight.js/styles/tomorrow-night-eighties.css";
 //
-import Routes from 'react-static-routes'
-import theme from './theme'
-import AppWrapper from './components/templates/AppWrapper'
+import Routes from "react-static-routes";
+import theme from "./theme";
+import AppWrapper from "./components/templates/AppWrapper";
 
 injectGlobal`
   @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans');
@@ -40,14 +39,14 @@ injectGlobal`
   a {
     text-decoration: none;
   }
-`
+`;
 
 const App = () => (
-  <Router>
-    <AppWrapper>
-      <Routes />
-    </AppWrapper>
-  </Router>
-)
+	<Router autoScrollToTop>
+		<AppWrapper>
+			<Routes />
+		</AppWrapper>
+	</Router>
+);
 
-export default hot(module)(App)
+export default App;

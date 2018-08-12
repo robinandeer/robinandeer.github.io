@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { ServerStyleSheet } from "styled-components";
 import { reloadRoutes } from "react-static/node";
 import jdown from "jdown";
 import chokidar from "chokidar";
@@ -36,6 +35,7 @@ const preparePost = post => {
 };
 
 export default {
+	plugins: ["react-static-plugin-styled-components"],
 	getSiteData: () => ({
 		title: "Robin Andeer"
 	}),
@@ -89,15 +89,9 @@ export default {
 			}
 		];
 	},
-	renderToHtml: (render, Comp, meta) => {
-		const sheet = new ServerStyleSheet();
-		const html = render(sheet.collectStyles(<Comp />));
-		meta.styleTags = sheet.getStyleElement();
-		return html;
-	},
 	Document: class CustomHtml extends Component {
 		render() {
-			const { Html, Head, Body, children, renderMeta } = this.props;
+			const { Html, Head, Body, children } = this.props;
 
 			return (
 				<Html>
@@ -117,8 +111,6 @@ export default {
 						<meta name="keywords" content="blog, Robin Andeer, robinandeer" />
 						<meta name="author" content="Robin Andeer" />
 						<link rel="author" href="https://twitter.com/robinandeer" />
-
-						{renderMeta.styleTags}
 					</Head>
 					<Body>{children}</Body>
 				</Html>
