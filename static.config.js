@@ -41,9 +41,12 @@ export default {
 	}),
 	siteRoot: "https://www.robinandeer.com",
 	getRoutes: async () => {
-		const { posts, home, about } = await jdown("content", { renderer });
+		const { posts } = await jdown("content", { renderer });
+
+		const publishedPosts = posts.filter(post => post.published !== false);
+
 		// Convert dates to string repr here since they are not preserved
-		const preparedPosts = posts.map(preparePost);
+		const preparedPosts = publishedPosts.map(preparePost);
 
 		const yearGroups = preparedPosts.reduce((groups, post) => {
 			const yearStr = post.date.getFullYear();
@@ -54,41 +57,28 @@ export default {
 		const years = Object.values(yearGroups);
 		years.sort((a, b) => parseInt(b.year) - parseInt(a.year));
 
-		return [
+		const routes = [
 			{
 				path: "/",
-				component: "src/containers/Home",
+				component: "src/pages/Home",
 				getData: () => ({
-					...home,
 					years
 				})
 			},
 			{
-				path: "/about",
-				component: "src/containers/About",
-				getData: () => ({
-					...about
-				})
-			},
-			{
-				path: "/blog",
-				component: "src/containers/Blog",
-				getData: () => ({
-					posts: preparedPosts
-				}),
-				children: preparedPosts.map(post => ({
-					path: post.link,
-					component: "src/containers/Post",
-					getData: () => ({
-						post
-					})
-				}))
-			},
-			{
 				is404: true,
-				component: "src/containers/404"
-			}
+				component: "src/pages/404"
+			},
+			...preparedPosts.map(post => ({
+				path: `/blog${post.link}`,
+				component: "src/pages/Post",
+				getData: () => ({
+					post
+				})
+			}))
 		];
+
+		return routes;
 	},
 	Document: class CustomHtml extends Component {
 		render() {

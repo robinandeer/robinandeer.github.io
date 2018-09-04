@@ -5,9 +5,8 @@ category: tutorial
 author: Robin Andeer
 date: 2018-08-24
 tags: reflection, conference, codefest, tools, bioinformatics
+published: false
 ---
-
-# Snapshot testing
 
 I'm not super experienced with JavaScript testing.
 

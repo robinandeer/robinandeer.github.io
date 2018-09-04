@@ -1,11 +1,11 @@
 import React from "react";
 import { Router } from "react-static";
-import { injectGlobal } from "styled-components";
+import { injectGlobal, ThemeProvider } from "styled-components";
 import reset from "styled-reset";
 import "highlight.js/styles/tomorrow-night-eighties.css";
 //
 import Routes from "react-static-routes";
-import theme, { media } from "./theme";
+import theme from "./theme";
 import AppWrapper from "./components/templates/AppWrapper";
 
 injectGlobal`
@@ -38,9 +38,11 @@ injectGlobal`
 
 const App = () => (
 	<Router autoScrollToTop>
-		<AppWrapper>
-			<Routes />
-		</AppWrapper>
+		<ThemeProvider theme={theme}>
+			<AppWrapper>
+				<Routes />
+			</AppWrapper>
+		</ThemeProvider>
 	</Router>
 );
 

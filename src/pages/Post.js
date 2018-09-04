@@ -5,8 +5,8 @@ import styled from "styled-components";
 import { MdArrowBack } from "react-icons/md";
 
 import BlogPost from "../components/templates/BlogPost";
-import Header from "../components/organisms/Header";
-import theme, { media } from "../theme";
+import Header from "../components/Header";
+import { media } from "../theme";
 
 const PostHeader = styled.div`
 	text-align: center;
@@ -23,13 +23,13 @@ const Date = styled.div`
 	font-size: 14px;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
 		Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-	color: ${theme.colors.shades[5]};
+	color: ${props => props.theme.colors.shades[5]};
 `;
 
 const Divider = styled.hr`
 	border: 0;
 	height: 2px;
-	background-color: ${theme.colors.shades[0]};
+	background-color: ${props => props.theme.colors.shades[0]};
 	margin: 32px 0;
 `;
 
@@ -38,12 +38,12 @@ const BackLink = styled.div`
 	display: inline-flex;
 	align-items: center;
 	padding: 0 16px;
-	color: ${theme.colors.text};
-	border-right: 2px solid ${theme.colors.shades[0]};
+	color: ${props => props.theme.colors.text};
+	border-right: 2px solid ${props => props.theme.colors.shades[0]};
 
 	&:hover {
-		color: ${theme.colors.headings};
-		background-color: ${theme.colors.shades[4]};
+		color: ${props => props.theme.colors.headings};
+		background-color: ${props => props.theme.colors.shades[4]};
 	}
 
 	> svg {

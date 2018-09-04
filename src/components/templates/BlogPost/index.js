@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-import theme, { media } from "../../../theme";
+import { media } from "../../../theme";
 
 const BlogPost = styled.div`
-	background-color: ${theme.colors.background};
-	color: ${theme.colors.text};
+	background-color: ${props => props.theme.colors.background};
+	color: ${props => props.theme.colors.text};
 	font-size: 18px;
 	line-height: 1.7;
 	padding: 32px 0;
@@ -14,13 +14,13 @@ const BlogPost = styled.div`
 	h2,
 	h3,
 	h4 {
-		color: ${theme.colors.headings};
+		color: ${props => props.theme.colors.headings};
 		font-weight: 500;
 		margin-top: 24px;
 	}
 
 	strong {
-		color: ${theme.colors.headings};
+		color: ${props => props.theme.colors.headings};
 	}
 
 	p,
@@ -65,7 +65,7 @@ const BlogPost = styled.div`
 			monospace;
 		line-height: 1.6;
 		font-size: 14px;
-		background-color: ${theme.colors.shades[4]};
+		background-color: ${props => props.theme.colors.shades[4]};
 	}
 	code:not(.hljs) {
 		color: #cccccc;
@@ -82,7 +82,7 @@ const BlogPost = styled.div`
 	pre {
 		max-width: 1170px;
 		margin: 40px auto;
-		background-color: ${theme.colors.shades[4]};
+		background-color: ${props => props.theme.colors.shades[4]};
 
 		${media.giant`border-radius: 8px;`};
 
@@ -115,7 +115,7 @@ const BlogPost = styled.div`
 	hr {
 		border: 0;
 		height: 2px;
-		background-color: ${theme.colors.shades[0]};
+		background-color: ${props => props.theme.colors.shades[0]};
 		margin: 32px 0;
 	}
 
