@@ -5,12 +5,12 @@ Personal portfolio
 To deploy, just run the following again:
 
 ```console
-bundle exec middleman build
-bundle exec middleman deploy
+yarn build
+git checkout master
+\cp -r ./dist/ ./
+git commit -am "Update site"
+git push
 ```
-
-## Hacker News integration
-Create Hacker News buttons here: http://www.hn-button.com/
 
 ## Using a custom domain name
 Create a file `source/CNAME` containing your domain name:
