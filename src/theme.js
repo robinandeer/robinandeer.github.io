@@ -3,8 +3,8 @@ import { css } from "styled-components";
 export default {
 	colors: {
 		background: "#1d1d1d",
-		headings: "#cecece",
-		text: "#8a8a8a",
+		headings: "#eaeaea",
+		text: "#afafaf",
 		shades: ["#000000", "#131313", "#1d1d1d", "#242424", "#2a2a2a"],
 		green: "#2e7d32",
 		blue: "#1565c0",

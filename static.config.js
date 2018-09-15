@@ -7,6 +7,8 @@ import highlightjs from "highlight.js";
 
 import theme from "./src/theme";
 
+const DEV = process.env.REACT_STATIC_ENV === "development";
+
 // Create your custom renderer
 const renderer = new Renderer();
 renderer.code = (code, language) => {
@@ -43,7 +45,9 @@ export default {
 	getRoutes: async () => {
 		const { posts } = await jdown("content", { renderer });
 
-		const publishedPosts = posts.filter(post => post.published !== false);
+		const publishedPosts = posts.filter(
+			post => DEV || post.published !== false
+		);
 
 		// Convert dates to string repr here since they are not preserved
 		const preparedPosts = publishedPosts.map(preparePost);

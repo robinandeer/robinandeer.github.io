@@ -10,7 +10,6 @@ const BlogPost = styled.div`
 	padding: 32px 0;
 	font-weight: 400;
 
-	h1,
 	h2,
 	h3,
 	h4 {
@@ -21,6 +20,10 @@ const BlogPost = styled.div`
 
 	strong {
 		color: ${props => props.theme.colors.headings};
+	}
+
+	em {
+		font-style: italic;
 	}
 
 	p,
@@ -39,11 +42,6 @@ const BlogPost = styled.div`
 
 		padding: 0 24px;
 		${media.tablet`padding: 0;`};
-	}
-
-	h1 {
-		font-size: 32px;
-		${media.tablet`font-size: 40px;`};
 	}
 
 	h2 {
