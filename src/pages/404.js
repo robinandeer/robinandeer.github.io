@@ -29,7 +29,7 @@ const HomeLink = styled.div`
 	}
 `;
 
-export default () => (
+const Page404 = () => (
 	<Centered>
 		<Heading>
 			404 - Oh no's! We couldn't find that page{" "}
@@ -43,3 +43,5 @@ export default () => (
 		</Link>
 	</Centered>
 );
+
+export default Page404;

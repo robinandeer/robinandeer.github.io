@@ -4,7 +4,7 @@ import { withRouteData, Link } from "react-static";
 import PostList from "../components/PostList";
 import PostPreview from "../components/PostPreview";
 
-export default withRouteData(({ years }) => {
+const PostListContainer = ({ years }) => {
 	const groups = years.map(year => ({
 		title: year.year,
 		items: year.posts
@@ -23,4 +23,6 @@ export default withRouteData(({ years }) => {
 			)}
 		/>
 	);
-});
+};
+
+export default withRouteData(PostListContainer);
