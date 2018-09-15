@@ -67,7 +67,7 @@ const BackLink = styled.div`
 	`};
 `;
 
-export default withRouteData(({ post }) => (
+const PostPage = ({ post }) => (
 	<React.Fragment>
 		<Link exact to="/">
 			<BackLink>
@@ -83,4 +83,6 @@ export default withRouteData(({ post }) => (
 			{convert(post.contents)}
 		</BlogPost>
 	</React.Fragment>
-));
+);
+
+export default withRouteData(PostPage);
