@@ -3,9 +3,8 @@ title: Snapshot testing in JavaScript
 slug: snapshot-testing-in-javascript
 category: tutorial
 author: Robin Andeer
-date: 2018-08-24
+date: 2018-09-15
 tags: tools, tutorials, javascript, testing, jest
-published: false
 ---
 
 [Jest][jest] is an opinionated (as opposed to completely customizable) and powerful framework of tools for testing JavaScript. The developers behind Jest highlight three main feature on the official website:
