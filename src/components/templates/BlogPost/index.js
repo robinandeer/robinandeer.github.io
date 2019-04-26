@@ -32,10 +32,10 @@ const BlogPost = styled.div`
 	h3,
 	h4,
 	ol,
-	ul,
 	.instagram-media,
 	.caption,
-	pre > code {
+	pre > code,
+	table {
 		max-width: 600px;
 		margin-left: auto;
 		margin-right: auto;
@@ -54,6 +54,10 @@ const BlogPost = styled.div`
 
 	a {
 		color: #158ab5;
+	}
+
+	p {
+		margin-bottom: 32px;
 	}
 
 	code {
@@ -90,11 +94,21 @@ const BlogPost = styled.div`
 		}
 	}
 
+	table {
+		display: block;
+		margin-top: 24px;
+		margin-bottom: 24px;
+	}
+
 	ul,
 	ol {
 		padding-left: 48px;
 		${media.tablet`padding-left: 24px;`};
 		margin-bottom: 32px;
+
+		> li > p {
+			margin-bottom: 8px;
+		}
 	}
 
 	ul {
@@ -126,10 +140,6 @@ const BlogPost = styled.div`
 			display: block;
 			margin: 0 auto;
 		}
-	}
-
-	p {
-		margin-bottom: 32px;
 	}
 
 	blockquote {
