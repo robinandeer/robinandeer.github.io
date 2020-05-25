@@ -28,6 +28,6 @@
   "devDependencies": {
     "babel-plugin-styled-components": "1.7.1",
     "eslint-config-react-tools": "1.x.x",
-    "serve": "10.0.1"
+    "serve": "11.3.1"
   }
 }
