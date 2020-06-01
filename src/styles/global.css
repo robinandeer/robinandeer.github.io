@@ -1,0 +1,125 @@
+/* purgecss start ignore */
+@tailwind base;
+@tailwind components;
+/* purgecss end ignore */
+
+@tailwind utilities;
+
+:root {
+  --sat: env(safe-area-inset-top);
+  --sab: env(safe-area-inset-bottom);
+  --sal: env(safe-area-inset-left);
+  --sar: env(safe-area-inset-right);
+
+  --rose-color: hsl(2, 55%, 45%);
+  --pine-color: hsl(197, 49%, 35%);
+  --gold-color: hsl(35, 88%, 40%);
+  --gold-50-color: #f6c17780;
+  --foam-color: #9ccfd8ff;
+  --foam-50-color: #9ccfd880;
+  --iris-color: #c4a7e7ff;
+  --iris-50-color: #c4a7e780;
+  --heat-color: #eb6f92ff;
+  --heat-50-color: #eb6f9280;
+
+  --base-color: #191724ff;
+  --surface-color: #1f1d2eff;
+  --border-color: #26233aff;
+  --raised-base-color: #f6f6f9;
+  --raised-surface-color: #edecf3;
+
+  --text-color: #e0def4ff;
+  --soft-color: #706e86ff;
+  --soft-color-50: #706e8680;
+  --soft-color-40: #706e8666;
+  --soft-color-30: #706e864d;
+}
+
+.light {
+  --base-color: #f6f6f9;
+  --surface-color: #edecf3;
+  --border-color: #e1dfec;
+  --raised-base-color: #f6f6f9;
+  --raised-surface-color: #edecf3;
+
+  --pine-color: hsl(197, 49%, 35%);
+  --rose-color: hsl(2, 55%, 45%);
+  --gold-color: hsl(35, 88%, 40%);
+
+  --text-color: #0d0b22;
+  --soft-color: #706e86ff;
+  --soft-color-50: #706e8680;
+  --soft-color-40: #706e8666;
+  --soft-color-30: #706e864d;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --base-color: #191724ff;
+    --surface-color: #1f1d2eff;
+    --raised-surface-color: #1f1d2eff;
+    --border-color: #26233aff;
+    --raised-base-color: #1f1d2eff;
+    --raised-surface-color: #191724ff;
+
+    --pine-color: #31748fff;
+    --rose-color: #ebbcbaff;
+    --gold-color: #f6c177ff;
+
+    --text-color: #e0def4ff;
+    --soft-color: #706e86ff;
+    --soft-color-50: #706e8680;
+    --soft-color-40: #706e8666;
+    --soft-color-30: #706e864d;
+  }
+}
+
+.dark {
+  --base-color: #191724ff;
+  --surface-color: #1f1d2eff;
+  --border-color: #26233aff;
+  --raised-base-color: #1f1d2eff;
+  --raised-surface-color: #191724ff;
+
+  --pine-color: #31748fff;
+  --rose-color: #ebbcbaff;
+  --gold-color: #f6c177ff;
+
+  --text-color: #e0def4ff;
+  --soft-color: #706e86ff;
+  --soft-color-50: #706e8680;
+  --soft-color-40: #706e8666;
+  --soft-color-30: #706e864d;
+}
+
+
+body {
+  @apply min-h-full;
+  background-color: theme('backgroundColor.background');
+  color: theme('colors.text');
+
+  font-family: Manrope, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "calt" "case" "rlig";
+}
+
+.link {
+  background-size: 100% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: all 0.1s;
+  background-image: linear-gradient(90deg, currentColor, currentColor);
+}
+
+[data-reach-dialog-content] {
+  @apply fixed bottom-0 w-full max-w-2xl p-0 m-0;
+  background: theme('backgroundColor.transparent');
+}
+
+@screen sm {
+  [data-reach-dialog-content] {
+    @apply relative;
+    margin: 10vh auto;
+  }
+}
