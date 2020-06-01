@@ -1,0 +1,10 @@
+.container {
+  @apply flex flex-col h-full overflow-hidden rounded-t-lg shadow-2xl bg-raised-background;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+@screen sm {
+  .container {
+    @apply rounded-lg;
+  }
+}
