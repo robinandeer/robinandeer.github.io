@@ -1,7 +1,7 @@
 import { AnimatePresence, motion, useTransform, useViewportScroll } from 'framer-motion';
 import CommandPalette, { CommandItem, CommandItemContent, CommandList, CommandSeparator } from './command-palette';
 import { FaGithub, FaTwitter } from 'react-icons/fa';
-import { FiArrowRight, FiCommand, FiSun } from 'react-icons/fi';
+import { FiArrowRight, FiCommand, FiMoon, FiSun } from 'react-icons/fi';
 import React, { useCallback, useState } from 'react';
 
 import { Dialog } from '@reach/dialog';
@@ -92,7 +92,7 @@ const Layout: React.FC<{ title?: string }> = ({ children, title }) => {
                   >
                     {({ selected }): JSX.Element => (
                       <CommandItem selected={selected}>
-                        <CommandItemContent title="Toggle theme" Icon={FiSun} />
+                        <CommandItemContent title="Toggle theme" Icon={theme === 'dark' ? FiSun : FiMoon} />
                       </CommandItem>
                     )}
                   </KeyboardList.Item>
