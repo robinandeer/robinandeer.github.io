@@ -20,9 +20,7 @@ interface PageParams extends ParsedUrlQuery {
 
 export const getStaticPaths: GetStaticPaths<PageParams> = async () => {
   const posts = getSortedPosts();
-  const paths = posts
-    .filter((item) => process.env.NODE_ENV !== 'production' || item.draft !== true)
-    .map((item) => ({ params: { slug: item.slug } }));
+  const paths = posts.map((item) => ({ params: { slug: item.slug } }));
 
   return {
     paths,

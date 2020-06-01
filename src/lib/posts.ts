@@ -14,28 +14,30 @@ const postsDirectory = path.join(process.cwd(), 'posts');
 export function getSortedPosts(): BlogPostPreview[] {
   // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory);
-  const allPostsData = fileNames.map<BlogPostPreview>((fileName) => {
-    // Remove ".md" from file name to get id
-    const id = fileName.replace(/\.md$/, '');
+  const allPostsData = fileNames
+    .map<BlogPostPreview>((fileName) => {
+      // Remove ".md" from file name to get id
+      const id = fileName.replace(/\.md$/, '');
 
-    // Read markdown file as string
-    const fullPath = path.join(postsDirectory, fileName);
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
+      // Read markdown file as string
+      const fullPath = path.join(postsDirectory, fileName);
+      const fileContents = fs.readFileSync(fullPath, 'utf8');
 
-    const readTime = readingTime(fileContents);
+      const readTime = readingTime(fileContents);
 
-    // Use gray-matter to parse the post metadata section
-    const matterResult = matter(fileContents);
+      // Use gray-matter to parse the post metadata section
+      const matterResult = matter(fileContents);
 
-    // Combine the data with the id
-    return {
-      id,
-      readTime,
-      ...(matterResult.data as BlogPostMatter),
-      date: matterResult.data.date.toJSON(),
-      slug: [...id.split('-').slice(0, 3), id.split('-').slice(3).join('-')],
-    };
-  });
+      // Combine the data with the id
+      return {
+        id,
+        readTime,
+        ...(matterResult.data as BlogPostMatter),
+        date: matterResult.data.date.toJSON(),
+        slug: [...id.split('-').slice(0, 3), id.split('-').slice(3).join('-')],
+      };
+    })
+    .filter((item) => process.env.NODE_ENV !== 'production' || item.draft !== true);
 
   // Sort posts by date
   return allPostsData.sort((a, b) => {
