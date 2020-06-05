@@ -45,8 +45,12 @@
   @apply my-6 -mx-4;
 }
 
+.markdown pre {
+  @apply bg-surface;
+}
+
 .markdown pre code {
-  @apply px-6 py-4 text-sm rounded-sm;
+  @apply block px-6 py-4 text-sm rounded-sm;
 }
 
 .markdown p code {
