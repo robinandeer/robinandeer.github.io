@@ -22,9 +22,20 @@ module.exports = {
         soft: 'var(--soft-color)',
       },
       opacity: {
-        '3': '0.03',
-        '10': '0.1',
-        '20': '0.2',
+        3: '0.03',
+        10: '0.1',
+        20: '0.2',
+      },
+      gridTemplateRows: {
+        12: 'repeat(12, minmax(0, 1fr))',
+      },
+      gridRow: {
+        'span-7': 'span 7 / span 7',
+        'span-8': 'span 8 / span 8',
+        'span-9': 'span 9 / span 9',
+        'span-10': 'span 10 / span 10',
+        'span-11': 'span 11 / span 11',
+        'span-12': 'span 12 / span 12',
       },
     },
   },

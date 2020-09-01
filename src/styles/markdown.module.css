@@ -1,5 +1,5 @@
 .markdown {
-  @apply max-w-3xl mx-auto text-lg leading-relaxed;
+  @apply text-lg leading-relaxed;
 }
 
 .markdown p,
@@ -7,6 +7,10 @@
 .markdown ol,
 .markdown blockquote {
   @apply my-4 leading-8;
+}
+
+.markdown blockquote {
+  @apply pl-4 border-l-4 border-soft;
 }
 
 .markdown h2 {

@@ -112,6 +112,10 @@ body {
   background-image: linear-gradient(90deg, currentColor, currentColor);
 }
 
+[data-reach-accordion-item][data-state="open"] > button {
+  @apply bg-white rounded-b-none bg-opacity-3;
+}
+
 [data-reach-dialog-content] {
   @apply fixed bottom-0 w-full max-w-2xl p-0 m-0;
   background: theme('backgroundColor.transparent');

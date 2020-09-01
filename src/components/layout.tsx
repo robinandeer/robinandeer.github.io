@@ -1,24 +1,18 @@
-import { AnimatePresence, motion, useTransform, useViewportScroll } from 'framer-motion';
-import CommandPalette, { CommandItem, CommandItemContent, CommandList, CommandSeparator } from './command-palette';
-import { FaGithub, FaTwitter } from 'react-icons/fa';
-import { FiArrowRight, FiCommand, FiMoon, FiSun } from 'react-icons/fi';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
+import { motion, useTransform, useViewportScroll } from 'framer-motion';
 
-import { Dialog } from '@reach/dialog';
-import KeyboardList from './keyboard-list';
+import { FiCommand } from 'react-icons/fi';
 import Link from 'next/link';
 import Logo from './logo';
-import { useHotkeys } from 'react-hotkeys-hook';
+import { useCommandContext } from 'lib/command-context';
 import useMediaQuery from 'lib/use-media-query';
-import { useRouter } from 'next/router';
 import { useTheme } from 'lib/hooks';
 
 export const siteTitle = 'Robin Andeer';
 
 const Layout: React.FC<{ title?: string }> = ({ children, title }) => {
-  const router = useRouter();
-  const [theme, toggleTheme] = useTheme();
-  const [showModal, setShowModal] = useState(false);
+  const [theme] = useTheme();
+  const [, setShowModal] = useCommandContext();
 
   const matches = useMediaQuery('768px');
   const { scrollY } = useViewportScroll();
@@ -35,15 +29,7 @@ const Layout: React.FC<{ title?: string }> = ({ children, title }) => {
   const titlePercent = useTransform(scrollY, [128, 128 + 24], [50, 0]);
   const titleTranslateY = useTransform(titlePercent, (x: number) => `${x}%`);
 
-  useHotkeys('cmd+k', (event) => {
-    event.preventDefault();
-    setShowModal((prevValue) => !prevValue);
-  });
-
-  useHotkeys('esc', () => setShowModal(false));
-
   const openModal = useCallback(() => setShowModal(true), []);
-  const handleDismissModal = useCallback(() => setShowModal(false), []);
 
   return (
     <div>
@@ -76,82 +62,6 @@ const Layout: React.FC<{ title?: string }> = ({ children, title }) => {
         </div>
       </motion.header>
       <main>{children}</main>
-
-      <AnimatePresence>
-        {showModal && (
-          <Dialog onDismiss={handleDismissModal} aria-label="Command palette">
-            <KeyboardList>
-              <CommandPalette>
-                <CommandList>
-                  <KeyboardList.Item
-                    identifier="toggleTheme"
-                    onClick={(): void => {
-                      toggleTheme();
-                      handleDismissModal();
-                    }}
-                  >
-                    {({ selected }): JSX.Element => (
-                      <CommandItem selected={selected}>
-                        <CommandItemContent title="Toggle theme" Icon={theme === 'dark' ? FiSun : FiMoon} />
-                      </CommandItem>
-                    )}
-                  </KeyboardList.Item>
-                  <CommandSeparator>Navigation</CommandSeparator>
-                  <KeyboardList.Item
-                    identifier="linkHome"
-                    onClick={(): void => {
-                      router.push('/');
-                    }}
-                  >
-                    {({ selected }): JSX.Element => (
-                      <CommandItem selected={selected}>
-                        <CommandItemContent title="Home" Icon={FiArrowRight} />
-                      </CommandItem>
-                    )}
-                  </KeyboardList.Item>
-                  <KeyboardList.Item
-                    identifier="linkBlog"
-                    onClick={(): void => {
-                      router.push('/blog');
-                    }}
-                  >
-                    {({ selected }): JSX.Element => (
-                      <CommandItem selected={selected}>
-                        <CommandItemContent title="Blog" Icon={FiArrowRight} />
-                      </CommandItem>
-                    )}
-                  </KeyboardList.Item>
-                  <CommandSeparator>Social</CommandSeparator>
-                  <KeyboardList.Item
-                    identifier="linkTwitter"
-                    onClick={(): void => {
-                      window.open('https://twitter.com/robinandeer');
-                    }}
-                  >
-                    {({ selected }): JSX.Element => (
-                      <CommandItem selected={selected}>
-                        <CommandItemContent title="Twitter" Icon={FaTwitter} />
-                      </CommandItem>
-                    )}
-                  </KeyboardList.Item>
-                  <KeyboardList.Item
-                    identifier="linkGithub"
-                    onClick={(): void => {
-                      window.open('https://github.com/robinandeer/');
-                    }}
-                  >
-                    {({ selected }): JSX.Element => (
-                      <CommandItem selected={selected}>
-                        <CommandItemContent title="GitHub" Icon={FaGithub} />
-                      </CommandItem>
-                    )}
-                  </KeyboardList.Item>
-                </CommandList>
-              </CommandPalette>
-            </KeyboardList>
-          </Dialog>
-        )}
-      </AnimatePresence>
     </div>
   );
 };

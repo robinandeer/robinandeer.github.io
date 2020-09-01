@@ -1,14 +1,14 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import React, { useCallback } from 'react';
-import { getPostData, getSortedPosts } from '../../lib/posts';
+import { getPostData, getSortedPosts } from 'lib/posts';
 
 import { BlogPost } from 'types';
-import Date from '../../components/date';
+import Date from 'components/date';
 import { FiShare } from 'react-icons/fi';
 import Head from 'next/head';
-import Layout from '../../components/layout';
+import Layout from 'components/layout';
 import { ParsedUrlQuery } from 'querystring';
-import markdownStyles from '../../styles/markdown.module.css';
+import markdownStyles from 'styles/markdown.module.css';
 
 interface PostPageProps {
   postData: BlogPost;

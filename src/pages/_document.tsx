@@ -10,7 +10,6 @@ class MyDocument extends Document {
           <meta charSet="utf-8" />
           <meta httpEquiv="Content-Language" content="en" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, minimal-ui" />
           <link rel="manifest" href="/manifest.json" />
 
           <meta name="description" content="Personal site and blog of Robin Andeer." />

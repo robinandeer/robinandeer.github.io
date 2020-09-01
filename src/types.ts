@@ -31,3 +31,16 @@ export interface BlogPostGroup {
   year: number;
   posts: BlogPostPreview[];
 }
+
+export type Category = 'Tools' | 'Techniques' | 'Languages & Frameworks' | 'Platforms';
+export type Ring = 'Assess' | 'Trial' | 'Adopt' | 'Hold';
+
+export interface Technology {
+  id: number;
+  name: string;
+  category: Category;
+  ring: Ring;
+  notes: string | null;
+  html: string | null;
+  documentation: string | null;
+}
