@@ -6,7 +6,7 @@ date: 2017-03-06
 tags: tutorial, python, debugging
 
 intro: Learn valuable debugging skills in Python to track down errors quickly.
-image: /assets/img/debug.png
+image: /images/debug.png
 ---
 
 The more code you write, the more time you also spend tracking down errors. That's why it's worthwhile to learn some debugging-skills!

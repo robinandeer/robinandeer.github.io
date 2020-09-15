@@ -6,7 +6,7 @@ date: 2017-07-24
 tags: reflection, conference, codefest, tools, bioinformatics
 
 intro: Summary of my experiences from my most productive attendance yet!
-image: /assets/img/bosc-prague-2017.png
+image: /images/bosc-prague-2017.png
 ---
 
 This was the third year in a row(!) I attended Codefest and BOSC. I could say it's my favorite conference but I really haven't got too much to compare with 😅 On the other hand, I've been so happy with BOSC that I've stuck with it and deepened relationships with the other frequent attendees.
