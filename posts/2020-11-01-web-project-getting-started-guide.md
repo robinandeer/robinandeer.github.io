@@ -462,6 +462,6 @@ The complete example repo can be found here: <https://github.com/robinandeer/web
 
 Big thanks to the following resources that helped me out a lot:
 
-- <https://blog.codechem.com/an-easy-react-17-typescript-tailwind-css-nextjs-setup>
-- <https://www.kyrelldixon.com/blog/setup-jest-and-react-testing-library-with-nextjs>
-- <https://medium.com/frontend-digest/setting-up-testing-library-with-nextjs-a9702cbde32d>
+- [An easy React 17 + TypeScript + Tailwind CSS + NextJS setup](https://blog.codechem.com/an-easy-react-17-typescript-tailwind-css-nextjs-setup)
+- [How to Set Up Jest and React Testing Library with Next.js](https://www.kyrelldixon.com/blog/setup-jest-and-react-testing-library-with-nextjs)
+- [https://medium.com/frontend-digest/setting-up-testing-library-with-nextjs-a9702cbde32d](https://medium.com/frontend-digest/setting-up-testing-library-with-nextjs-a9702cbde32d)
