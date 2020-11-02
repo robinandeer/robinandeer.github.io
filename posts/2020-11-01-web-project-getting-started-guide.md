@@ -4,8 +4,13 @@ category: tutorial
 author: Robin Andeer
 date: 2020-11-01
 tags: tutorial, javascript, react, nextjs, tailwind
-intro: Learn how to setup a new web projects in 2020.
+intro: A step-by-step guide to setup TypeScript, Next.js, Tailwind CSS, ESLint, and Testing Library in 2020.
+image: /images/web-project-intro.png
 ---
+
+<figure><img src="/images/web-project-intro.png" alt="Graph of web frameworks"></figure>
+
+**tl;dr**: the complete example repo is here: <https://github.com/robinandeer/web-project>.
 
 I dislike using templates when I start new projects. The boilerplate code makes it hard to understand how all the pieces fit together. Taking the time to integrate the different tools really feels worth it to me. That way, I'm also confident that I stay up-to-date with the latest good practices.
 
