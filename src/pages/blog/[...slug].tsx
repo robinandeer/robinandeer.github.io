@@ -64,7 +64,9 @@ const PostPage: React.FC<PostPageProps> = ({ postData }) => {
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={postData.title} />
         <meta name="twitter:description" content={postData.intro} />
-        {postData.image && <meta name="twitter:image" content={postData.image} />}
+        {postData.image && (
+          <meta name="twitter:image" content={[process.env.NEXT_PUBLIC_SITE_URL, postData.image].join('')} />
+        )}
       </Head>
       <article className="max-w-3xl px-4 pt-6 pb-32 mx-auto space-y-10">
         <header>
