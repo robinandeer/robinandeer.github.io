@@ -1,5 +1,6 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 
+import { GA_MEASUREMENT_ID } from 'lib/gtag';
 import React from 'react';
 
 class MyDocument extends Document {
@@ -12,11 +13,12 @@ class MyDocument extends Document {
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           <link rel="manifest" href="/manifest.json" />
 
-          <meta name="description" content="Personal site and blog of Robin Andeer." />
-          <meta name="keywords" content="tech,javascript,react,blog,robinandeer" />
+          <meta name="description" content="Personal site and blog of Robin Andeer." key="description" />
+          <meta name="keywords" content="tech,javascript,react,blog,robinandeer" key="keywords" />
+
           <meta property="og:site_name" content="Robin Andeer" />
 
-          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:site" content="@robinandeer" />
 
           <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -35,6 +37,19 @@ class MyDocument extends Document {
           <meta name="msapplication-TileColor" content="#000000" />
 
           <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&display=swap" rel="stylesheet" />
+
+          {/* Global site tag (gtag.js) - Google Analytics */}
+          <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', ${GA_MEASUREMENT_ID});
+          `,
+            }}
+          />
         </Head>
         <body>
           <Main />

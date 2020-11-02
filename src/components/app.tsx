@@ -1,18 +1,22 @@
-import * as FullStory from '@fullstory/browser';
+import * as gtag from 'lib/gtag';
+
+import React, { useEffect } from 'react';
 
 import { AppProps } from 'next/app';
 import CommandBox from './command-box';
 import { CommandProvider } from 'lib/command-context';
 import Head from 'next/head';
-import React from 'react';
 import { ThemeProvider } from 'lib/hooks';
-
-FullStory.init({
-  orgId: process.env.NEXT_PUBLIC_FULLSTORY_ORG_ID,
-  devMode: process.env.NODE_ENV !== 'production',
-});
+import { useRouter } from 'next/router';
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
+  const router = useRouter();
+  useEffect(() => {
+    const handleRouteChange = (url: string) => gtag.pageview(url);
+    router.events.on('routeChangeComplete', handleRouteChange);
+    return () => router.events.off('routeChangeComplete', handleRouteChange);
+  }, [router.events]);
+
   return (
     <>
       <Head>
@@ -21,7 +25,6 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
       <ThemeProvider>
         <CommandProvider>
           <Component {...pageProps} />
-
           <CommandBox />
         </CommandProvider>
       </ThemeProvider>

@@ -1,13 +1,12 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
-import React, { useCallback } from 'react';
 import { getPostData, getSortedPosts } from 'lib/posts';
 
 import { BlogPost } from 'types';
 import Date from 'components/date';
-import { FiShare } from 'react-icons/fi';
 import Head from 'next/head';
 import Layout from 'components/layout';
 import { ParsedUrlQuery } from 'querystring';
+import React from 'react';
 import markdownStyles from 'styles/markdown.module.css';
 
 interface PostPageProps {
@@ -37,23 +36,12 @@ export const getStaticProps: GetStaticProps<PostPageProps> = async ({ params }) 
 };
 
 const PostPage: React.FC<PostPageProps> = ({ postData }) => {
-  const handleClickShare = useCallback(async () => {
-    try {
-      await navigator.share({
-        title: `Robin Andeer | ${postData.title}`,
-        url: window.location.href,
-      });
-    } catch (error) {
-      console.warn(error);
-    }
-  }, []);
-
   return (
     <Layout title={postData.title}>
       <Head>
         <title>{postData.title} - Robin Andeer</title>
-        <meta name="description" content={postData.intro} />
-        {postData.tags && <meta name="keywords" content={postData.tags} />}
+        <meta name="description" content={postData.intro} key="description" />
+        {postData.tags && <meta name="keywords" content={postData.tags} key="keywords" />}
 
         {/* Facebook/OpenGraph + Twitter */}
         <meta property="og:title" content={postData.title} />
@@ -81,16 +69,6 @@ const PostPage: React.FC<PostPageProps> = ({ postData }) => {
         <main>
           <div className={markdownStyles['markdown']} dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
         </main>
-        {navigator.share && (
-          <footer className="fixed bottom-0 right-0 p-4 lg:p-8">
-            <button
-              className="flex items-center justify-center w-16 h-16 space-x-2 text-lg font-bold transition-shadow duration-100 rounded-full shadow-lg hover:shadow-xl bg-rose"
-              onClick={handleClickShare}
-            >
-              <FiShare size="24" />
-            </button>
-          </footer>
-        )}
       </article>
     </Layout>
   );
