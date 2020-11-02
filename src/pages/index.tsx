@@ -20,7 +20,6 @@ export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
 };
 
 const HomePage: React.FC<HomePageProps> = ({ allPostsData }) => {
-  console.log(allPostsData);
   return (
     <Layout title={siteTitle}>
       <Head>
