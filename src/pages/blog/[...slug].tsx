@@ -58,15 +58,18 @@ const PostPage: React.FC<PostPageProps> = ({ postData }) => {
         {/* Facebook/OpenGraph + Twitter */}
         <meta property="og:title" content={postData.title} />
         <meta property="og:description" content={postData.intro} />
-        {postData.image && <meta property="og:image" content={postData.image} />}
+        <meta
+          property="og:image"
+          content={[process.env.NEXT_PUBLIC_SITE_URL, postData.image || '/images/twitter-card.png'].join('')}
+        />
         <meta property="og:url" content={`${process.env.NEXT_PUBLIC_SITE_URL}/blog/${postData.id}`} />
 
-        <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={postData.title} />
         <meta name="twitter:description" content={postData.intro} />
-        {postData.image && (
-          <meta name="twitter:image" content={[process.env.NEXT_PUBLIC_SITE_URL, postData.image].join('')} />
-        )}
+        <meta
+          name="twitter:image"
+          content={[process.env.NEXT_PUBLIC_SITE_URL, postData.image || '/images/twitter-card.png'].join('')}
+        />
       </Head>
       <article className="max-w-3xl px-4 pt-6 pb-32 mx-auto space-y-10">
         <header>

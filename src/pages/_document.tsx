@@ -15,12 +15,9 @@ class MyDocument extends Document {
           <meta name="description" content="Personal site and blog of Robin Andeer." />
           <meta name="keywords" content="tech,javascript,react,blog,robinandeer" />
           <meta property="og:site_name" content="Robin Andeer" />
+
+          <meta name="twitter:card" content="summary" />
           <meta name="twitter:site" content="@robinandeer" />
-          <meta
-            name="twitter:image"
-            content={[process.env.NEXT_PUBLIC_SITE_URL, '/images/twitter-card.png'].join('')}
-          />
-          <meta property="og:image" content={[process.env.NEXT_PUBLIC_SITE_URL, '/images/twitter-card.png'].join('')} />
 
           <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
           <link rel="alternate icon" href="/favicon.ico" />
