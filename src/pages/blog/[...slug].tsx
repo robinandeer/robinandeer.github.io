@@ -1,16 +1,19 @@
+import { BlogPost, BlogPostPreview } from 'types';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { getPostData, getSortedPosts } from 'lib/posts';
+import { getPostData, getPreviousAndNextPost, getSortedPosts } from 'lib/posts';
 
-import { BlogPost } from 'types';
 import Date from 'components/date';
 import Head from 'next/head';
 import Layout from 'components/layout';
+import Link from 'next/link';
 import { ParsedUrlQuery } from 'querystring';
 import React from 'react';
 import markdownStyles from 'styles/markdown.module.css';
 
 interface PostPageProps {
   postData: BlogPost;
+  prevPost: BlogPostPreview | null;
+  nextPost: BlogPostPreview | null;
 }
 
 interface PageParams extends ParsedUrlQuery {
@@ -30,12 +33,13 @@ export const getStaticPaths: GetStaticPaths<PageParams> = async () => {
 export const getStaticProps: GetStaticProps<PostPageProps> = async ({ params }) => {
   const id = (params.slug as string[]).join('-');
   const postData = await getPostData(id);
+  const prevAndNextPost = getPreviousAndNextPost(id);
   return {
-    props: { postData },
+    props: { postData, ...prevAndNextPost },
   };
 };
 
-const PostPage: React.FC<PostPageProps> = ({ postData }) => {
+const PostPage: React.FC<PostPageProps> = ({ postData, prevPost, nextPost }) => {
   return (
     <Layout title={postData.title}>
       <Head>
@@ -59,7 +63,8 @@ const PostPage: React.FC<PostPageProps> = ({ postData }) => {
           content={[process.env.NEXT_PUBLIC_SITE_URL, postData.image || '/images/twitter-card.png'].join('')}
         />
       </Head>
-      <article className="max-w-3xl px-4 pt-6 pb-32 mx-auto space-y-10">
+
+      <article className="max-w-3xl px-4 py-6 mx-auto space-y-10">
         <header>
           <h1 className="text-4xl font-bold">{postData.title}</h1>
           <div className="font-bold uppercase text-soft">
@@ -70,6 +75,31 @@ const PostPage: React.FC<PostPageProps> = ({ postData }) => {
           <div className={markdownStyles['markdown']} dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
         </main>
       </article>
+
+      <footer className="flex flex-col items-center justify-center max-w-4xl px-4 pt-16 pb-32 mx-auto space-y-6 border-t border-border sm:flex-row sm:justify-between sm:space-y-0">
+        {nextPost ? (
+          <div className="space-y-1">
+            <p className="pl-1 text-sm font-bold text-center text-soft sm:text-left">Next post</p>
+            <Link href="/blog/[...slug]" as={`/blog/${nextPost.slug.join('/')}`}>
+              <a className="block px-4 py-3 font-bold rounded-lg text-text bg-raised-background hover:bg-border">
+                {nextPost.title}
+              </a>
+            </Link>
+          </div>
+        ) : (
+          <div />
+        )}
+        {prevPost && (
+          <div className="space-y-1">
+            <p className="pr-1 text-sm font-bold text-center text-soft sm:text-right">Previous post</p>
+            <Link href="/blog/[...slug]" as={`/blog/${prevPost.slug.join('/')}`}>
+              <a className="block px-4 py-3 font-bold rounded-lg text-text bg-raised-background hover:bg-border">
+                {prevPost?.title}
+              </a>
+            </Link>
+          </div>
+        )}
+      </footer>
     </Layout>
   );
 };

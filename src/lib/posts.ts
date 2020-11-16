@@ -82,3 +82,15 @@ export async function getPostData(id: string): Promise<BlogPost> {
     readTime,
   };
 }
+
+export function getPreviousAndNextPost(
+  id: string,
+): { prevPost: BlogPostPreview | null; nextPost: BlogPostPreview | null } {
+  const posts = getSortedPosts();
+  const postIndex = posts.findIndex((item) => item.id === id);
+
+  return {
+    prevPost: posts[postIndex + 1] || null,
+    nextPost: posts[postIndex - 1] || null,
+  };
+}
