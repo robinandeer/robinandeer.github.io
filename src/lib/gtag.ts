@@ -6,3 +6,7 @@ export const pageview = (url: string): void => {
     page_path: url,
   });
 };
+
+export const tagEvent = (name: Gtag.EventNames | string, params?: Gtag.EventParams): void => {
+  window.gtag('event', name, params);
+};

@@ -6,6 +6,7 @@ import React, { useCallback } from 'react';
 import Dialog from '@reach/dialog';
 import { GiRadarSweep } from 'react-icons/gi';
 import KeyboardList from './keyboard-list';
+import { tagEvent } from 'lib/gtag';
 import { useCommandContext } from 'lib/command-context';
 import { useHotkeys } from 'react-hotkeys-hook';
 import { useRouter } from 'next/router';
@@ -19,10 +20,22 @@ const CommandBox: React.FC = () => {
 
   useHotkeys('cmd+k', (event) => {
     event.preventDefault();
-    setShowModal((prevValue) => !prevValue);
+    setShowModal((current) => {
+      tagEvent('user_engagement', {
+        event_category: 'hotKey',
+        event_label: current ? 'hideCommandBox' : 'showCommandBox',
+      });
+      return !current;
+    });
   });
 
-  useHotkeys('esc', () => setShowModal(false));
+  useHotkeys('esc', () => {
+    tagEvent('user_engagement', {
+      event_category: 'hotKey',
+      event_label: 'hideCommandBox',
+    });
+    setShowModal(false);
+  });
 
   const handleDismissModal = useCallback(() => setShowModal(false), []);
 

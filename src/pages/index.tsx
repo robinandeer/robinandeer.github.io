@@ -1,4 +1,5 @@
 import Layout, { siteTitle } from '../components/layout';
+import React, { useCallback, useMemo, useState } from 'react';
 
 import { BlogPostPreview } from 'types';
 import { FaArrowDown } from 'react-icons/fa';
@@ -6,9 +7,11 @@ import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import PostPreview from 'components/post-preview';
-import React from 'react';
 import { getSortedPosts } from '../lib/posts';
+import { tagEvent } from 'lib/gtag';
 import utilsStyles from 'styles/utils.module.css';
+
+const DEFAULT_POST_COUNT = 4;
 
 interface HomePageProps {
   allPostsData: BlogPostPreview[];
@@ -20,6 +23,24 @@ export const getStaticProps: GetStaticProps<HomePageProps> = async () => {
 };
 
 const HomePage: React.FC<HomePageProps> = ({ allPostsData }) => {
+  const [showAllPost, setShowAllPosts] = useState(false);
+
+  const postCount = useMemo(() => (showAllPost ? allPostsData.length : DEFAULT_POST_COUNT), [
+    showAllPost,
+    allPostsData.length,
+  ]);
+
+  const handleToggleAllPosts = useCallback(() => {
+    setShowAllPosts((current) => {
+      tagEvent('user_engagement', {
+        event_category: 'button',
+        event_label: current ? 'hideAllPosts' : 'showAllPosts',
+        screen_name: 'index',
+      });
+      return !current;
+    });
+  }, []);
+
   return (
     <Layout title={siteTitle}>
       <Head>
@@ -41,13 +62,14 @@ const HomePage: React.FC<HomePageProps> = ({ allPostsData }) => {
           </p>
         </section>
 
-        <section className="max-w-4xl px-4 mx-auto space-y-2">
+        <section className="max-w-4xl px-4 mx-auto space-y-4">
           <div className="flex items-center px-6 space-x-2 text-sm font-bold uppercase text-soft">
             <p>Start reading here</p>
             <FaArrowDown size="14" />
           </div>
+
           <ul className={utilsStyles.postGrid}>
-            {allPostsData.slice(0, 4).map((item, index) => (
+            {allPostsData.slice(0, postCount).map((item, index) => (
               <li key={item.id}>
                 <Link href="/blog/[...slug]" as={`/blog/${item.slug.join('/')}`}>
                   <a>
@@ -62,6 +84,13 @@ const HomePage: React.FC<HomePageProps> = ({ allPostsData }) => {
               </li>
             ))}
           </ul>
+
+          <button
+            onClick={handleToggleAllPosts}
+            className="w-full h-10 rounded-lg text-soft bg-surface hover:bg-border hover:text-text"
+          >
+            {showAllPost ? 'See fewer posts' : 'See all posts'}
+          </button>
         </section>
 
         <section />

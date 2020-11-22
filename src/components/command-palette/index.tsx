@@ -16,9 +16,7 @@ const CommandPalette: React.FC = ({ children }) => {
   );
 };
 
-export const CommandList: React.FC = ({ children }) => (
-  <ul className="flex-1 overflow-auto scrolling-touch">{children}</ul>
-);
+export const CommandList: React.FC = ({ children }) => <ul className="flex-1 overflow-auto">{children}</ul>;
 
 export const CommandItem: React.FC<{ selected?: boolean }> = ({ children, selected = false }) => (
   <li className={selected ? 'text-text font-bold bg-raised-surface' : 'text-soft'}>{children}</li>
