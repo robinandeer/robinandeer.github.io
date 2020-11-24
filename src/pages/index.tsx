@@ -8,7 +8,6 @@ import Head from 'next/head';
 import Link from 'next/link';
 import PostPreview from 'components/post-preview';
 import { getSortedPosts } from '../lib/posts';
-import { tagEvent } from 'lib/gtag';
 import utilsStyles from 'styles/utils.module.css';
 
 const DEFAULT_POST_COUNT = 4;
@@ -31,14 +30,7 @@ const HomePage: React.FC<HomePageProps> = ({ allPostsData }) => {
   ]);
 
   const handleToggleAllPosts = useCallback(() => {
-    setShowAllPosts((current) => {
-      tagEvent('user_engagement', {
-        event_category: 'button',
-        event_label: current ? 'hideAllPosts' : 'showAllPosts',
-        screen_name: 'index',
-      });
-      return !current;
-    });
+    setShowAllPosts((current) => !current);
   }, []);
 
   return (
@@ -88,6 +80,7 @@ const HomePage: React.FC<HomePageProps> = ({ allPostsData }) => {
           <button
             onClick={handleToggleAllPosts}
             className="w-full h-10 rounded-lg text-soft bg-surface hover:bg-border hover:text-text"
+            data-splitbee-event={showAllPost ? 'Hide All Posts' : 'Show All Posts'}
           >
             {showAllPost ? 'See fewer posts' : 'See all posts'}
           </button>

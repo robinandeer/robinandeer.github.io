@@ -1,6 +1,5 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 
-import { GA_MEASUREMENT_ID } from 'lib/gtag';
 import React from 'react';
 
 class MyDocument extends Document {
@@ -38,19 +37,7 @@ class MyDocument extends Document {
 
           <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&display=swap" rel="stylesheet" />
 
-          {/* Global site tag (gtag.js) - Google Analytics */}
-          <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${GA_MEASUREMENT_ID}');
-          `,
-            }}
-          />
-
+          {/* Splitbee */}
           <script async src="https://cdn.splitbee.io/sb.js" />
         </Head>
         <body>

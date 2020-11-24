@@ -4,7 +4,6 @@ import { motion, useTransform, useViewportScroll } from 'framer-motion';
 import { FiCommand } from 'react-icons/fi';
 import Link from 'next/link';
 import Logo from './logo';
-import { tagEvent } from 'lib/gtag';
 import { useCommandContext } from 'lib/command-context';
 import useMediaQuery from 'lib/use-media-query';
 import { useTheme } from 'lib/hooks';
@@ -31,10 +30,7 @@ const Layout: React.FC<{ title?: string }> = ({ children, title }) => {
   const titleTranslateY = useTransform(titlePercent, (x: number) => `${x}%`);
 
   const openModal = useCallback(() => {
-    tagEvent('user_engagement', {
-      event_category: 'button',
-      event_label: 'showCommandBox',
-    });
+    window.splitbee.track('Show Command Box', { type: 'click' });
     setShowModal(true);
   }, []);
 
