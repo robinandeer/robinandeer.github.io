@@ -50,6 +50,8 @@ class MyDocument extends Document {
           `,
             }}
           />
+
+          <script async src="https://cdn.splitbee.io/sb.js" />
         </Head>
         <body>
           <Main />
