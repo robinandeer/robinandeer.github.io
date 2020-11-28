@@ -9,9 +9,9 @@
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
   },
   "dependencies": {
-    "@reach/accordion": "^0.11.2",
-    "@reach/dialog": "^0.11.2",
-    "@reach/listbox": "^0.11.2",
+    "@reach/accordion": "^0.12.1",
+    "@reach/dialog": "^0.12.1",
+    "@reach/listbox": "^0.12.1",
     "airtable": "^0.10.1",
     "date-fns": "^2.16.1",
     "framer-motion": "^2.9.4",
@@ -20,7 +20,7 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-hotkeys-hook": "^2.4.0",
-    "react-icons": "^3.11.0",
+    "react-icons": "^4.1.0",
     "reading-time": "^1.2.1",
     "remark": "^13.0.0",
     "remark-highlight.js": "^6.0.0",
@@ -28,18 +28,18 @@
   },
   "devDependencies": {
     "@types/airtable": "^0.8.1",
-    "@types/node": "^14.14.9",
+    "@types/node": "^14.14.10",
     "@types/react": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^4.8.2",
     "@typescript-eslint/parser": "^4.8.2",
-    "autoprefixer": "^10.0.2",
+    "autoprefixer": "^10.0.4",
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.21.5",
     "postcss": "^8.1.10",
     "postcss-preset-env": "^6.7.0",
-    "prettier": "^2.2.0",
+    "prettier": "^2.2.1",
     "tailwindcss": "^2.0.1",
     "typescript": "^4.1.2"
   }
