@@ -11,7 +11,13 @@ image: /images/debug.png
 
 The more code you write, the more time you also spend tracking down errors. That's why it's worthwhile to learn some debugging-skills!
 
-<figure><img src="/images/debug.png" alt="Debugging Python"></figure>
+<Image
+  src="/images/debug.png"
+  alt="Debugging Python"
+  width={1920 }
+  height={800}
+  layout="responsive"
+/>
 
 ## Pre-empting errors
 
@@ -75,7 +81,7 @@ Early on in development I spend a lot of time in iPython importing my functions 
 
 Among my developer colleagues and friends, **linters** aren't particularly popular but I still believe they've helped me discover a lot of bugs and reminded me of best practices. When an issue slips through, I pull out my **ipdb** power tool to attack the problem in an interactive shell.
 
------------------------
+---
 
 ## Credits
 

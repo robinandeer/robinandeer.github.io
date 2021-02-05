@@ -1,7 +1,15 @@
-import '@reach/dialog/styles.css';
-import '@reach/accordion/styles.css';
-import '@reach/listbox/styles.css';
 import '../styles/global.css';
-import '../styles/highlightjs.atom-one-light.css';
 
-export { default } from 'components/app';
+import { AppProps } from 'next/app';
+import Head from 'next/head';
+
+export default function App({ Component, pageProps }: AppProps): JSX.Element {
+  return (
+    <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, minimal-ui" />
+      </Head>
+      <Component {...pageProps} />
+    </>
+  );
+}

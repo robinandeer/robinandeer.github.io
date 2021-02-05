@@ -1,5 +1,5 @@
 ---
-title: "How I test my code: pytest and fixtures (part 2)"
+title: 'How I test my code: pytest and fixtures (part 2)'
 category: tutorial
 author: Robin Andeer
 date: 2016-06-21
@@ -103,7 +103,7 @@ def test_add_row(db_connection):
 
 When _pytest_ runs the above function it will look for a fixture called `db_connection` and run it. Whatever is yielded (or returned) will be passed along to the test function. We set the "scope" of the fixture to "function" so as soon as the test is complete, the block after the `yield` statement will run. You can pass as many fixtures as you want to a test.
 
-> Tip: test fixtures accept parameter-dependencies the same way as test functions. It's perfectly possible to combine several test fixtures.
+> **Tip**: test fixtures accept parameter-dependencies the same way as test functions. It's perfectly possible to combine several test fixtures.
 
 Additional fixtures can be installed through plugins and _pytest_ itself comes with a few built in. For example there's the handy `tmpdir` fixture that provides unique temporary folders where you can test various side effects.
 

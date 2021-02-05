@@ -6,21 +6,21 @@ date: 2016-04-04
 tags: review, food
 ---
 
-_This will be a living document that I will keep updating as I explore more of the vegan options that Stockholm has to offer. The list includes anything from cafés, restaurants, supermarkets, etc._
+> This will be a living document that I will keep updating as I explore more of the vegan options that Stockholm has to offer. The list includes anything from cafés, restaurants, supermarkets, etc.
+>
+> Each restaurant is rated from: 🌱 to 🌿 to 🌸
 
-_Each restaurant is rated from_ 🌱 _to_ 🌿 _to_ 🌸.
-
-----------------------
+---
 
 Roughly in chronological order:
 
 ## [Lao Wai](http://www.laowai.se/) 🌸
 
-**Chinese** ($$). Absolutely fantastic food and great mood. They take lunch orders as well as provide a cozy atmosphere for a great dinner. If you're attending as a group make sure to order different plates and share! *Everything is vegan* with lots of soy variants. Small place, book ahead.
+**Chinese** ($$). Absolutely fantastic food and great mood. They take lunch orders as well as provide a cozy atmosphere for a great dinner. If you're attending as a group make sure to order different plates and share! _Everything is vegan_ with lots of soy variants. Small place, book ahead.
 
 ## [Hermitage](http://gastrogate.com/restaurang/hermitage/) 🌿
 
-**International** ($).Resonable price for the lunch buffé where almost everything is vegan. Very tasty and a place to come hungry and eat *a lot*. They also have a selection of vegan desserts that makes it a great option for a fika.
+**International** ($). Resonable price for the lunch buffé where almost everything is vegan. Very tasty and a place to come hungry and eat _a lot_. They also have a selection of vegan desserts that makes it a great option for a fika.
 
 ## Every vegan pizza place
 
@@ -28,7 +28,7 @@ So far disappointing. Everyone just tries to replace non-vegan ingredients with 
 
 ## [Texas Longhorn Steakhouse](http://www.texaslonghorn.se/restaurant/hornstull/) 🌱
 
-**American** ($$). Have a vegan double-burger that's not on the menu. One of the more expensive items, however. Comes with sides that add flavor to a pretty bland burger in my oppinion. Still nothing compared to something like Burgermeister in Berlin, hehe!
+**American** ($$). Have a vegan double-burger that's not on the menu. One of the more expensive items, however. Comes with sides that add flavor to a pretty bland burger in my opinion. Still nothing compared to something like Burgermeister in Berlin, hehe!
 
 **UPDATE**: this place is now closed permanently.
 
@@ -42,7 +42,7 @@ Feel a little posh and not very cozy. Big place. Has a number of vegan options t
 
 ## [Bagel Street](http://www.bagelstreet.se/) Hornstull by [@guillemch](https://twitter.com/guillemch) 🌿
 
-The place is cosy and big. The waitress was very nice with me, speaking slowly in swedish :).  The "maxi vegan" bagel was delicious! A bit difficult to eat though because it was packed of goods :_). Wifi and good coffee, what else? Perfect! Sliiightly expensive.
+The place is cosy and big. The waitress was very nice with me, speaking slowly in swedish :). The "maxi vegan" bagel was delicious! A bit difficult to eat though because it was packed of goods :\_). Wifi and good coffee, what else? Perfect! Sliiightly expensive.
 
 **UPDATE**: Bagel Street Hornstull has closed but opened a new café in Hötorget with the vegan options in tact!
 
@@ -72,11 +72,11 @@ Very tasty vegetarian dumplings, mostly to-go for 92:-. I have yet to try the ve
 
 ## Reggev Hummus 🌿
 
-**Middle eastern** ($). The concept is hummus with something. Wonderfully simple *and* I love hummus. You also get bread and pickled vegetabels on the side. I will go here as often as I get the chance :smile:
+**Middle eastern** ($). The concept is hummus with something. Wonderfully simple _and_ I love hummus. You also get bread and pickled vegetabels on the side. I will go here as often as I get the chance 🙂
 
 ## [Max](https://www.max.se/)
 
-Max has introduced a range of vegetarian burgers with one completely vegan option based on pulled Oumph. I'm not the biggest fan of "pull pork" in a burger context but I guess it's fine for what you can expect. Opt to remove the jalapeños unless you're a _serious_ fan :sweat_smile:
+Max has introduced a range of vegetarian burgers with one completely vegan option based on pulled Oumph. I'm not the biggest fan of "pull pork" in a burger context but I guess it's fine for what you can expect. Opt to remove the jalapeños unless you're a _serious_ fan 😅
 
 ## [Gojo](http://www.gojorestaurang.se/?page=start) 🌱
 
@@ -88,7 +88,7 @@ Max has introduced a range of vegetarian burgers with one completely vegan optio
 
 ## [Abyssina](http://www.abyssinia.se/) 🌱
 
-**Ethiopian** ($$). Another Ethiopian place with similar quality. The lunch is served as a buffé where half the options are vegan. You eat similarly as in Gojo. The proud owner and hostess was very welcoming :smile:
+**Ethiopian** ($$). Another Ethiopian place with similar quality. The lunch is served as a buffé where half the options are vegan. You eat similarly as in Gojo. The proud owner and hostess was very welcoming 🙂
 
 ## [Surfers](http://www.surfersstockholm.se/) 🌸
 
@@ -108,7 +108,7 @@ Max has introduced a range of vegetarian burgers with one completely vegan optio
 
 ## [Marco's](http://www.restaurangmarcos.se/)
 
-**Italian** ($$). They have two vegan Oumph! options; one pizza and one main dish. I went for their own creation. Everything tasted really nice, Oumph is what it is, but the portion was kind of tiny :stuck_out_tongue_winking_eye: A bit of a let down.
+**Italian** ($$). They have two vegan Oumph! options; one pizza and one main dish. I went for their own creation. Everything tasted really nice, Oumph is what it is, but the portion was kind of tiny 😜 A bit of a let down.
 
 ## [Mangiardino](http://www.mangiardino.se/) 🌱
 
@@ -146,9 +146,9 @@ Max has introduced a range of vegetarian burgers with one completely vegan optio
 
 **Ice cream**: Technically they serve ice cream - and lots of it! They have plenty of interesting flavors but I would still suggest to order a single bowl 😉 or half of it will melt before you have time to chew it down.
 
----------------------------------
+---
 
-## Places I want to visit...
+## Places I want to visit
 
 - [Farang](https://farang.se/?lang=en) (**Asian**): fine dining. I just need one good reason...
 - [Gro](http://grorestaurang.se/index.php) (**Scandinavian**): fine dining. Would be interesting to eat some Scandinavian vegan food for a change.

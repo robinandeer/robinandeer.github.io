@@ -6,7 +6,13 @@ date: 2013-08-25
 tags: thought
 ---
 
-<figure><img src="/images/introvert-banner.png" alt="Introvert backdrop"></figure>
+<Image
+  src="/images/introvert-banner.png"
+  alt="Introvert backdrop"
+  width={1600 }
+  height={671}
+  layout="responsive"
+/>
 
 > tl;dr Don’t feel like reading? Google “Susan Cain” and watch her TED talk.
 
@@ -45,6 +51,6 @@ _The night ultimately surpassed my (low) expectations. I spent some quality time
 
 “Well, you could certainly learn to enjoy parties more if you just put in some effort.” Of course! But if I don’t do it my own way I’m still going to run out of energy after an hour. Stay too long and the headache inevitably comes creeping. On top of that, I’ve realized I don’t have an innate interest in enjoying parties the way typical extroverts do. Probably simply because it doesn’t fill an essential need for me: building up energy. For that I turn to movies and personal projects. Now, those are the things I won’t give up. I might even schedule them for a friday night.
 
-------------
+---
 
 Are you an extrovert? Congratulations on making it this far! I’m kidding. Do I think you should leave us introverts alone? Not invite us to parties? Of course not. Quite the opposite. Extroverts should push their introverted friends to join social events. Don’t let us off too easy! In return, we promise to push you to do your best work if we happen to work on a project together. See, we get you’re not in your natural habitat quietly researching information. We’ve been there, remember?

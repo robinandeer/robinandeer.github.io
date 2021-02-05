@@ -12,9 +12,15 @@ To get the most out of this article you should grasp the basics of **pure functi
 
 ## 1. Use immutable data structures
 
-<figure><img src="http://img.svbtle.com/ygckjhtzktb78w.jpg" alt="mutability"></figure>
+<Image
+  src="/images/functional-programming-immutability.png"
+  alt="Stick figure meditating on immutability"
+  width={700 }
+  height={491}
+  layout="responsive"
+/>
 
-The most straightforward way of avoiding side effects is to use immutable data structures. Use them as often as possible. There aren't many immutable builtins but the standard library expands the roster a little. One surprisingly useful replacement for the builtin ``dict`` is the ``namedtuple``.
+The most straightforward way of avoiding side effects is to use immutable data structures. Use them as often as possible. There aren't many immutable builtins but the standard library expands the roster a little. One surprisingly useful replacement for the builtin `dict` is the `namedtuple`.
 
 ```python
 >>> from collections import namedtuple
@@ -47,7 +53,7 @@ Optional attributes aren't supported out-of-the-box but by [subclassing](http://
 
 ## 2. Trade methods for functions
 
-When you have to deal with mutable objects like the ``list``, it's important to treat them just like *immutable* objects.
+When you have to deal with mutable objects like the `list`, it's important to treat them just like _immutable_ objects.
 
 For this reason, it's not OK to sort a list in-place in FP.
 
@@ -58,14 +64,14 @@ For this reason, it's not OK to sort a list in-place in FP.
 ['Paul Thomas Anderson', 'Quentin Tarantino', 'Terrance Malik']
 ```
 
-It's better to use the ``sorted`` function which returns a copy of the list and avoids mutation.
+It's better to use the `sorted` function which returns a copy of the list and avoids mutation.
 
 ```python
 >>> sorted(directors, key=len)
 ['Terrance Malik', 'Quentin Tarantino', 'Paul Thomas Anderson']
 ```
 
-Strings are already immutable in Python but functions are still more flexible to use than methods in FP. Each string method is available as a complementary function under the ``str``/``unicode`` class.
+Strings are already immutable in Python but functions are still more flexible to use than methods in FP. Each string method is available as a complementary function under the `str`/`unicode` class.
 
 ```python
 >>> string = 'Magnolia, Boogie Nights, There Will Be Blood'
@@ -85,21 +91,21 @@ These three functions are all staple FP functions found in Python. They work on 
 ['Magnolia', 'Boogie Nights', 'There Will Be Blood']
 ```
 
-``map`` and ``filter`` are [curious cases](http://www.artima.com/weblogs/viewpost.jsp?thread=98196) in Python-land. It's worth noting that the internal implementation is equal to a list comprehension. Effectively the above expression is the same as the possibly more Pythonic:
+`map` and `filter` are [curious cases](http://www.artima.com/weblogs/viewpost.jsp?thread=98196) in Python-land. It's worth noting that the internal implementation is equal to a list comprehension. Effectively the above expression is the same as the possibly more Pythonic:
 
 ```python
 >>> [str.strip(title) for title in titles]
 ['Magnolia', 'Boogie Nights', 'There Will Be Blood']
 ```
 
-In Python 3 "map" has become lazy by default (like ``functools.imap``) and therefore the same as the complementary generator expression.
+In Python 3 "map" has become lazy by default (like `functools.imap`) and therefore the same as the complementary generator expression.
 
 ```python
 >>> (str.strip(title) for title in titles)
 <generator object <genexpr> at 0x7f81f24e2f00>
 ```
 
-``filter`` is in the same sense nothing more than a list comprehension + a conditional statement.
+`filter` is in the same sense nothing more than a list comprehension + a conditional statement.
 
 ```python
 >>> titles = ['Magnolia', ' Boogie Nights', ' There Will Be Blood']
@@ -116,7 +122,7 @@ In Python 3 "map" has become lazy by default (like ``functools.imap``) and there
 
 ## 4. Curry your functions
 
-Partial evaluation of functions is normally accomplished using ``functools.partial``.
+Partial evaluation of functions is normally accomplished using `functools.partial`.
 
 > ... currying is just syntactic sugar for partial evaluation. A curried function partially evaluates if it does not receive enough arguments to compute a result. Ref: <http://toolz.readthedocs.org/en/latest/curry.html>
 
@@ -135,7 +141,7 @@ The [toolz](toolz.readthedocs.org/en/latest/) library contains a very handy deco
 
 We'll soon see how we can use this trick to write very clean pipelines.
 
-## 5. Write pipelines with *toolz*
+## 5. Write pipelines with _toolz_
 
 We have now seen many of the utilities we need to really start taking advantage of FP. Let's implement a simple reader for a Tab-delimited stream (or file object). It will be lazy (memory efficient), linear (parallelizable), and easy to comprehend.
 

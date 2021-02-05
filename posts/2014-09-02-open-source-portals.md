@@ -16,7 +16,13 @@ Open sourcing a software project is like owning a pet. Even though it involves a
 
 They guys over at [LayerVault][layervault] have certainly understood the value of Open Source. One glowing example of this is [Cosmos][cosmos]; a collection of internally developed open source projects. Such a simple idea, but still something I'd never seen realized before with such finess and ambition.
 
-<figure><img src="/images/open-source-portals-cosmos.png" alt="LayerVault Cosmos"></figure>
+<Image
+  src="/images/open-source-portals-cosmos.png"
+  alt="LayerVault Cosmos"
+  width={1157 }
+  height={872}
+  layout="responsive"
+/>
 
 ## Our open source portal
 
@@ -26,7 +32,13 @@ SciLifeLab as well as the portal is heavily influenced by bioinformatics but sho
 
 **[http://opensource.scilifelab.se/][opensource]**
 
-<figure><img src="http://img.svbtle.com/7d1xlwp6heh14w.png" alt="SciLifeLab Open Source"></figure>
+<Image
+  src="/images/open-source-scilifelab.png"
+  alt="SciLifeLab Open Source screenshot"
+  width={1157 }
+  height={ 643}
+  layout="responsive"
+/>
 
 ## Motivation
 

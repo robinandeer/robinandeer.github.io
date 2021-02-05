@@ -14,13 +14,19 @@ One year ago, I left my comfortable web development groove to build a new cross-
 
 Since this is my first professional mobile app and React Native project, I wanted to share my learnings so far. I hope it will be a valuable read for any existing or prospective React Native developers. Read on for the takeaways.
 
-<figure><img src="/images/react-native-like-dislike.png" alt="React Native logo with like and dislike icons"></figure>
+<Image
+  src="/images/react-native-like-dislike.png"
+  alt="React Native logo with like and dislike icons"
+  width={1012 }
+  height={ 506}
+  layout="responsive"
+/>
 
 ## 1. Look for insider information
 
 Before starting new projects at Futurice, we are encouraged to set up one or more **Expert Exchange** sessions. We primarily reach out internally for colleagues with relevant professional experiences (in this case developing mobile apps) and ask them to share tips and possible challenges.
 
-Before deciding how to build the app in 2019 we had a great chat with a developer from our Helsinki office; [Axel Havukangas](https://github.com/aeirola). He gave us invaluable input on the **future plans 🔮** on some of the key community libraries like *React Navigation* and *React Native Firebase*. This led us to use beta-versions of both libraries right from the start. The new APIs weren't 100% stable but it meant we could go all-in on *React Hooks* as well as avoid bigger migrations between the existing versions and those that have since been officially released.
+Before deciding how to build the app in 2019 we had a great chat with a developer from our Helsinki office; [Axel Havukangas](https://github.com/aeirola). He gave us invaluable input on the **future plans 🔮** on some of the key community libraries like _React Navigation_ and _React Native Firebase_. This led us to use beta-versions of both libraries right from the start. The new APIs weren't 100% stable but it meant we could go all-in on _React Hooks_ as well as avoid bigger migrations between the existing versions and those that have since been officially released.
 
 > React Native rewards early adopters. Your project will benefit if you buy into the evolving nature of the framework.
 
@@ -32,7 +38,7 @@ Axel also insisted we use **TypeScript**. Specifically to benefit from the advan
 
 Your app will often interact with native components (image picker, in-app browser, storage, etc.) All these use cases require a JavaScript-to-native API as well as code to account for platform differences. The benefits of relying on community libraries for these abstractions rather than implementing them yourself quickly become apparent.
 
-This means you will be installing *a lot* of 3rd party dependencies - a **natural consequence** of writing cross-platform and non-native code. Luckily bundle size is less of a concern for mobile apps compared to web apps. However, every added dependency still comes at a cost to added **uncertainty**.
+This means you will be installing _a lot_ of 3rd party dependencies - a **natural consequence** of writing cross-platform and non-native code. Luckily bundle size is less of a concern for mobile apps compared to web apps. However, every added dependency still comes at a cost to added **uncertainty**.
 
 - Can I trust that someone else's code works as advertised?
 - Will the dependencies be maintained for as long as my app is in production?
@@ -47,7 +53,7 @@ Coming into the project, I only had brief experience building mobile apps with [
 
 > Fight the fear of booting up Android Studio! Get comfortable before you run into the trickier problems.
 
-I had the pleasure of working on this project alongside an experienced iOS developer that took care of 90% of the initial setup of the iOS/Android projects. It has made me an order of magnitude more confident that we are doing things *the canonical way*.
+I had the pleasure of working on this project alongside an experienced iOS developer that took care of 90% of the initial setup of the iOS/Android projects. It has made me an order of magnitude more confident that we are doing things _the canonical way_.
 
 Having said that, don't give up, fellow web developer! I know from first-hand experience how overwhelmed native developers are when getting into web development. It's fundamentally the same learning process when you first try to navigate and understand the bits and pieces of an Xcode-project. You just need to give it time and gain experience.
 
@@ -65,11 +71,11 @@ Over time we have also developed a better understanding of the setup, including 
 
 The most frustrating things about developing with React Native is **debugging** and **testing**.
 
-I do most of my debugging using [*React Native Debugger*](https://github.com/jhen0409/react-native-debugger) which doesn't require any setup and has served me well. However, from time to time you need to boot up Xcode or Android Studio to dig deeper into a particularly tricky issue. I would much prefer having a unified debugging experience. Instead, React Native developers are forced to master three separate debug environments to cover all their needs.
+I do most of my debugging using [_React Native Debugger_](https://github.com/jhen0409/react-native-debugger) which doesn't require any setup and has served me well. However, from time to time you need to boot up Xcode or Android Studio to dig deeper into a particularly tricky issue. I would much prefer having a unified debugging experience. Instead, React Native developers are forced to master three separate debug environments to cover all their needs.
 
 Even more frustrating, however, has been to setup a working test infrastructure. The first challenge is to figure out how to correctly configure TypeScript and Jest. Then add in React Native to the mix and you're in for a real treat! And don't forget that you also need to mock every library that interacts with native code. Luckily, some of them ship their own mocks 🙇‍♂️ while others leave you to google for hours to resolve the cryptic error messages 🤔.
 
-With everything up and running, I find myself asking "after I mock 50% of the code that runs in my app - what am I *really* testing?" Even when all tests pass, I simply don't feel confident that things are indeed working. At this point I would normally re-focus my efforts to end-2-end tests but that's a whole other beast when it comes to mobile apps. It's especially difficult since our test APIs are only available behind a VPN 🤦‍♂️ which means we can't automate such tests using 3rd-party services.
+With everything up and running, I find myself asking "after I mock 50% of the code that runs in my app - what am I _really_ testing?" Even when all tests pass, I simply don't feel confident that things are indeed working. At this point I would normally re-focus my efforts to end-2-end tests but that's a whole other beast when it comes to mobile apps. It's especially difficult since our test APIs are only available behind a VPN 🤦‍♂️ which means we can't automate such tests using 3rd-party services.
 
 **Take away**: prepare yourself for a debugging experience that's a little schizophrenic (React Native Debugger, Xcode, Android Studio). Bring a great deal of patience when setting up your tests for the first time. Take your time to understand it and avoid shortcuts. Invest in end-2-end tests if you have the opportunity.
 
@@ -77,9 +83,9 @@ With everything up and running, I find myself asking "after I mock 50% of the co
 
 Working with React Native has been a mixed bag. I love it ❤️ and I hate it 😖. So should you pick it for your next project?
 
-**Write once, deploy anywhere**. React Native does enable you to deploy to both Android and iOS from a single codebase. However, it's not React Native's biggest strength. You still want to tailor the app experience to feel *native* to users of each platform. Over time, this adds complexity that is hard to estimate. No matter what, don't use React Native as an excuse to avoid customizations!
+**Write once, deploy anywhere**. React Native does enable you to deploy to both Android and iOS from a single codebase. However, it's not React Native's biggest strength. You still want to tailor the app experience to feel _native_ to users of each platform. Over time, this adds complexity that is hard to estimate. No matter what, don't use React Native as an excuse to avoid customizations!
 
-**Learn once, write anywhere**. The official framework tagline does a good job of explaining its main benefits. It lets you leverage the component-based UI model and [fast refresh](https://reactnative.dev/docs/fast-refresh) capability proven to appeal to an increasingly large number of developers across *various* platforms. If the project was to develop only an iOS app, I would personally choose React Native over UIKit (and it's imperative MVC model) any day of the week.
+**Learn once, write anywhere**. The official framework tagline does a good job of explaining its main benefits. It lets you leverage the component-based UI model and [fast refresh](https://reactnative.dev/docs/fast-refresh) capability proven to appeal to an increasingly large number of developers across _various_ platforms. If the project was to develop only an iOS app, I would personally choose React Native over UIKit (and it's imperative MVC model) any day of the week.
 
 Ultimately you should **let your team decide** which way to go. Play to their strengths and devotions as developers.
 

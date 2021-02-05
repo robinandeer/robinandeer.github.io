@@ -44,3 +44,17 @@ export interface Technology {
   html: string | null;
   documentation: string | null;
 }
+
+export interface FrontMatter {
+  title: string;
+  category: string;
+  date: Date;
+  tags: string;
+  intro?: string;
+  image?: string;
+  draft?: boolean;
+}
+
+export type EncodableFrontMatter = Omit<FrontMatter, 'date'> & {
+  date: string;
+};

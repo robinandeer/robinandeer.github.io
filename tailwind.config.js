@@ -1,26 +1,105 @@
+const colors = require('tailwindcss/colors');
+
 module.exports = {
+  darkMode: 'media',
   theme: {
     extend: {
       colors: {
-        background: 'var(--base-color)',
-        surface: 'var(--surface-color)',
-        'raised-background': 'var(--raised-base-color)',
-        'raised-surface': 'var(--raised-surface-color)',
-        border: 'var(--border-color)',
-        rose: 'var(--rose-color)',
-        pine: 'var(--pine-color)',
-        'pine-50': 'var(--pine-50-color)',
-        gold: 'var(--gold-color)',
-        'gold-50': 'var(--gold-50-color)',
-        foam: 'var(--foam-color)',
-        'foam-50': 'var(--foam-50-color)',
-        iris: 'var(--iris-color)',
-        'iris-50': 'var(--iris-50-color)',
-        heat: 'var(--heat-color)',
-        'heat-50': 'var(--heat-50-color)',
-        text: 'var(--text-color)',
-        soft: 'var(--soft-color)',
+        coolGray: colors.coolGray,
+        trueGray: colors.trueGray,
+        warmGray: colors.warmGray,
+        emerald: colors.emerald,
+        cyan: colors.cyan,
+        teal: colors.teal,
+        indigo: colors.indigo,
+        fuchsia: colors.fuchsia,
+        rose: colors.rose,
       },
+      // typography: (theme) => ({
+      //   DEFAULT: {
+      //     css: {
+      //       blockquote: {
+      //         color: theme('colors.fuchsia.500'),
+      //         quotes: 'none',
+      //         paddingLeft: 0,
+      //         borderLeftWidth: 0,
+      //       },
+      //       h2: {
+      //         fontWeight: 600,
+      //       },
+      //       hr: {
+      //         borderColor: theme('colors.warmGray.300'),
+      //       },
+      //       a: {
+      //         color: theme('colors.rose.400'),
+      //         fontWeight: 'bold',
+      //         textDecoration: 'none',
+      //         '&:hover': {
+      //           textDecoration: 'underline',
+      //           color: theme('colors.rose.400'),
+      //         },
+      //       },
+      //       code: {
+      //         display: 'inline-block',
+      //         letterSpacing: '-0.5px',
+      //         padding: '2px 6px',
+      //         margin: '1px 0px',
+      //         backgroundColor: theme('colors.warmGray.600'),
+      //         color: theme('colors.warmGray.200'),
+      //         borderRadius: theme('borderRadius.md'),
+      //         '&::before': {
+      //           content: '""',
+      //         },
+      //         '&::after': {
+      //           content: '""',
+      //         },
+      //       },
+      //     },
+      //   },
+      //   lg: {
+      //     css: {
+      //       blockquote: {
+      //         paddingLeft: 0,
+      //         '> p': {
+      //           fontSize: '1.25rem',
+      //         },
+      //       },
+      //     },
+      //   },
+      //   xl: {
+      //     css: {
+      //       blockquote: {
+      //         paddingLeft: 0,
+      //       },
+      //     },
+      //   },
+      //   dark: {
+      //     css: {
+      //       color: theme('colors.warmGray.200'),
+      //       strong: {
+      //         color: theme('colors.warmGray.100'),
+      //       },
+      //       blockquote: {
+      //         color: theme('colors.fuchsia.400'),
+      //       },
+      //       hr: {
+      //         borderColor: theme('colors.warmGray.600'),
+      //       },
+      //       h2: {
+      //         color: theme('colors.warmGray.200'),
+      //       },
+      //       a: {
+      //         color: theme('colors.rose.400'),
+      //         fontWeight: 'bold',
+      //         textDecoration: 'none',
+      //         '&:hover': {
+      //           textDecoration: 'underline',
+      //           color: theme('colors.rose.400'),
+      //         },
+      //       },
+      //     },
+      //   },
+      // }),
       opacity: {
         3: '0.03',
         10: '0.1',
@@ -39,7 +118,12 @@ module.exports = {
       },
     },
   },
-  variants: {},
+  variants: {
+    extend: {
+      borderOpacity: ['dark'],
+      translate: ['group-hover'],
+    },
+  },
   plugins: [],
   purge: ['./src/components/**/*.tsx', './src/pages/**/*.tsx'],
 };

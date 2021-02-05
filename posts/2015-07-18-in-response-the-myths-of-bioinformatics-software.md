@@ -1,5 +1,5 @@
 ---
-title: "In response: The myths of bioinformatics software"
+title: 'In response: The myths of bioinformatics software'
 category: conference
 author: Robin Andeer
 date: 2015-07-18
@@ -20,7 +20,7 @@ I've built a few open source tools and tried to push for collaboration at work. 
 
 ### 2. You should have assembled a team to build your software
 
-I don't agree that scientific and commercial software development *should be* different. I believe in a future with more pure computer science overlap in bioinformatics. I think moving beyond the single developer to small teams would be a huge improvement on it's own. I actually don't know why it wouldn't be exiting to contribute to an existing academic project of high quality?
+I don't agree that scientific and commercial software development _should be_ different. I believe in a future with more pure computer science overlap in bioinformatics. I think moving beyond the single developer to small teams would be a huge improvement on it's own. I actually don't know why it wouldn't be exiting to contribute to an existing academic project of high quality?
 
 ### 3. If you choose the right license more people will use and build on your program
 
@@ -38,13 +38,13 @@ Be honest with yourself and your users. There's nothing wrong about being upfron
 
 Don't see where Lior get's this from really. However, I totally agree that you need to be open as a developer to the needs of your users. It's often a really bad idea to enforce certain usage on your users. Be humble and open to other people's perspectives.
 
-It's interesting that we seem to be facing this issue with the advent of Dockerized  containers. It's inevitably abstracting away the actual tool interfaces. You certainly aren't an "idiot" for not seeing the benefits of running a tool in Docker. Many times a simple "pip install" will do just fine! Let's cater to users :thumbsup:
+It's interesting that we seem to be facing this issue with the advent of Dockerized containers. It's inevitably abstracting away the actual tool interfaces. You certainly aren't an "idiot" for not seeing the benefits of running a tool in Docker. Many times a simple "pip install" will do just fine! Let's cater to users 👍
 
 ### 8. You used the right programming language for the task
 
 This is a known myth in all of software development. Just start hacking, build something.
 
----------------------
+---
 
 So what about the overall sentiment that we should all just give up already and accept that software in bioinformatics will remain crappy? To be honest, I'm not terribly positive about the future prospects as of right now. In a lot of sense I agree with the likes of Pjotr Prins that we are in a "crisis". I don't doubt that we have the talent and drive to takes us out of it but I think we need to be open to more aggressively adopting common strategies from commercial software development teams.
 
@@ -52,7 +52,17 @@ I have limited experience working in bioinformatics. However, I've come to reali
 
 We're also all aware that we are spreading our community efforts very thin. Everyone's developing their own pipeline and file formats. We need to come together around some key projects which can be allowed to grow and set excellent standards for the rest of the field. Then I have no doubts open source will prevail.
 
-<a href="https://news.ycombinator.com/submit" class="hn-button" data-title="  In response: The myths of bioinformatics software" data-url="http://www.robinandeer.com/blog/2015/07/18/in-response-the-myths-of-bioinformatics-software/" data-count="horizontal">Vote on Hacker News</a>
+---
+
+<br />
+<a
+  href="https://news.ycombinator.com/submit"
+  className="hn-button"
+  data-title="In response: The myths of bioinformatics software"
+  data-url="http://www.robinandeer.com/blog/2015/07/18/in-response-the-myths-of-bioinformatics-software/"
+  data-count="horizontal">
+Vote on Hacker News
+</a>
 
 [lior-twitter]: https://twitter.com/lpachter
 [myths]: https://liorpachter.wordpress.com/2015/07/10/the-myths-of-bioinformatics-software/

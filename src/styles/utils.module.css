@@ -1,9 +1,0 @@
-.postGrid {
-  @apply grid grid-cols-1 gap-4;
-}
-
-@screen md {
-  .postGrid {
-    @apply grid-cols-2;
-  }
-}

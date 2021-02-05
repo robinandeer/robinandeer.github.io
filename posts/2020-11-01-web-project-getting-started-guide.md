@@ -8,7 +8,13 @@ intro: A step-by-step guide to setup TypeScript, Next.js, Tailwind CSS, ESLint, 
 image: /images/web-project-intro.png
 ---
 
-<figure><img src="/images/web-project-intro.png" alt="Graph of web frameworks"></figure>
+<Image
+  src="/images/web-project-intro.png"
+  alt="Graph of web frameworks"
+  width={2024 }
+  height={1012}
+  layout="responsive"
+/>
 
 **tl;dr**: the complete example repo is here: <https://github.com/robinandeer/web-project>.
 
@@ -54,11 +60,7 @@ Configure TypeScript by adding a `tsconfig.json` file in the root of the project
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": false,
     "skipLibCheck": true,
     "strict": true,
@@ -72,14 +74,8 @@ Configure TypeScript by adding a `tsconfig.json` file in the root of the project
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }
 ```
 
@@ -103,7 +99,7 @@ In `package.json`, add the following NPM scripts:
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
-  },
+  }
 }
 ```
 
@@ -135,8 +131,8 @@ Enable [absolute imports](https://nextjs.org/docs/advanced-features/module-path-
 
 {
   "compilerOptions": {
-    "baseUrl": "./src",
-  },
+    "baseUrl": "./src"
+  }
 }
 ```
 
@@ -146,7 +142,7 @@ You should now be able to start the development server and go to [`http://localh
 yarn dev
 ```
 
-<figure><img src="/images/web-project-setup-next.png" alt="Browser window with heading"></figure>
+<figure><img src="/images/web-project-setup-next.png" alt="Browser window with heading" /></figure>
 
 ## Setup Tailwind CSS
 
@@ -184,9 +180,7 @@ Since Tailwind is a PostCSS plugin, add a `postcss.config.js` file to configure 
 // postcss.config.js
 
 module.exports = {
-  plugins: [
-    'tailwindcss',
-  ],
+  plugins: ['tailwindcss'],
 };
 ```
 
@@ -260,7 +254,7 @@ Finally, update the index page to include a Tailwind CSS utility class:
 
 Run `yarn dev` and go to [`http://localhost:3000/`](http://localhost:3000/). You should see a small, purple text appear on the page.
 
-<figure><img src="/images/web-project-setup-tailwind.png" alt="Browser window with purple heading"></figure>
+<figure><img src="/images/web-project-setup-tailwind.png" alt="Browser window with purple heading" /></figure>
 
 ## Setup Eslint
 
@@ -283,11 +277,7 @@ Create an ESLint config file `.eslintrc.js`:
 
 module.exports = {
   parser: '@typescript-eslint/parser',
-  extends: [
-    'plugin:react/recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react-hooks/recommended',
-  ],
+  extends: ['plugin:react/recommended', 'plugin:@typescript-eslint/recommended', 'plugin:react-hooks/recommended'],
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: 'module',
@@ -330,13 +320,13 @@ Create a new `.prettierrc.js` file in the root directory:
 ```javascript
 // .prettierrc.js
 
-module.exports =  {
+module.exports = {
   semi: true,
   trailingComma: 'all',
   singleQuote: true,
   printWidth: 120,
   tabWidth: 2,
-  quoteProps: 'preserve'
+  quoteProps: 'preserve',
 };
 ```
 
@@ -383,7 +373,7 @@ Add a few new NPM scripts to the `package.json` file.
     "lint": "eslint ./src --ext ts --ext tsx",
     "test": "jest",
     "test-all": "yarn lint && yarn type-check && yarn test"
-  },
+  }
 }
 ```
 
@@ -392,15 +382,15 @@ Next, create a new file `test/testUtils.ts`:
 ```typescript
 // test/testUtils.ts
 
-import { RenderOptions, RenderResult, render } from '@testing-library/react'
+import { RenderOptions, RenderResult, render } from '@testing-library/react';
 
-const customRender = (ui: React.ReactElement, options: RenderOptions = {}): RenderResult => render(ui, { ...options })
+const customRender = (ui: React.ReactElement, options: RenderOptions = {}): RenderResult => render(ui, { ...options });
 
 // re-export everything
-export * from '@testing-library/react'
+export * from '@testing-library/react';
 
 // override render method
-export { customRender as render }
+export { customRender as render };
 ```
 
 Add the first basic test by creating another file `test/pages/index.test.tsx`:
@@ -408,15 +398,15 @@ Add the first basic test by creating another file `test/pages/index.test.tsx`:
 ```typescript
 // test/pages/index.test.tsx
 
-import IndexPage from 'pages/index'
-import { render } from '../testUtils'
+import IndexPage from 'pages/index';
+import { render } from '../testUtils';
 
 describe('Index page', () => {
   it('matches snapshot', () => {
-    const { asFragment } = render(<IndexPage />, {})
-    expect(asFragment()).toMatchSnapshot()
-  })
-})
+    const { asFragment } = render(<IndexPage />, {});
+    expect(asFragment()).toMatchSnapshot();
+  });
+});
 ```
 
 Add a file `jest.config.js` to complete the Jest setup:
@@ -435,7 +425,7 @@ module.exports = {
   moduleNameMapper: {
     '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
   },
-}
+};
 ```
 
 To support absolute imports, add the following to the Jest config:
@@ -445,7 +435,7 @@ To support absolute imports, add the following to the Jest config:
 
 module.exports = {
   moduleDirectories: ['node_modules', 'src'],
-}
+};
 ```
 
 Make sure that everything works by running:
@@ -454,7 +444,7 @@ Make sure that everything works by running:
 yarn test-all
 ```
 
---------
+---
 
 That's it! Hopefully I managed to demystify how to setup a new web project just a little bit. Your preferred setup might differ slightly but you should still be able to jump into the section that interests you. If you do get stuck, I recommend you turn to the official [Next.js examples](https://github.com/vercel/next.js/tree/canary/examples).
 

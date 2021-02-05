@@ -1,5 +1,5 @@
 ---
-title: "Day of Containers: 🐮🐮, swarm, and orchestration"
+title: 'Day of Containers: 🐮🐮, swarm, and orchestration'
 category: conference
 author: Robin Andeer
 date: 2016-08-26
@@ -7,7 +7,13 @@ tags: reflections, docker, containers, orchestration
 intro: Notes from my favorite talks at the 2016 conference.
 ---
 
-<figure><img src="/images/day-of-containers/intro.jpg" alt="Day of Containers intro"></figure>
+<Image
+  src="/images/day-of-containers/intro.jpg"
+  alt="Day of Containers intro"
+  width={1200 }
+  height={ 651}
+  layout="responsive"
+/>
 
 > If you are naming your servers, you are doing it wrong. Don't treat your servers as pets! Treat them more like cattle. I'm sorry to say but if one cow gets sick - you kill it for the good of the flock. -- [@vfarcic][vfarcic]
 
@@ -23,7 +29,13 @@ It's fair to say that containers are here to stay. And containers = Docker. [And
 
 The biggest news of the latest Docker release (1.12) is the integration of [Swarm][swarm] with the Docker engine itself. [Docker Swarm][swarm] let's you manage running a bunch of containers (or services) in a cluster of production servers. For people familiar with how Swarm used to work - getting started is apparently _way_ easier now. For the uninitiated, like myself however, it seems just as confusing as setting up Docker on a Mac used to be before [Docker for Mac][dfm] came along.
 
-<figure><img src="/images/day-of-containers/swarm.png" alt="Docker Swarm logo"></figure>
+<Image
+  src="/images/day-of-containers/swarm.png"
+  alt="Docker Swarm logo"
+  width={1322 }
+  height={595}
+  layout="responsive"
+/>
 
 Anyways, [Gergo Horanyi][ghoranyi] showed off a _live_ demo of a (needlessly) complicated [voting app][voting-app] to determine if people prefer cats or dogs. It was certainly fun and impressive to see the result running in AWS and get the traffic visualized by just adding a couple of extra container services. Really, the promise of Docker in a nutshell; besides making software super easy to install, they also come pre-configured by experts to work out of the box!
 
@@ -54,19 +66,23 @@ The more experience I get building software and designing systems - the more con
 
 Docker makes installing, and just as important _uninstalling_, software very simple. It also makes setting up tools like databases and proxy servers much easier as they come pre-configured to run out of the box. It compels you to build systems of isolated and reusable building blocks that can work in many different situations.
 
-<figure><img src="/images/day-of-containers/fun.jpg" alt="Day of Containers turd"></figure>
+<Image
+  src="/images/day-of-containers/fun.jpg"
+  alt="Day of Containers turd"
+  width={1200 }
+  height={618}
+  layout="responsive"
+/>
 
 However, in "solving" the issues above we've shifted complication to orchestrating a system of microservices. I'm honestly not sold yet which solution will result in the least complicated system _overall_. So far I'm leaning towards a middle ground, where microservices are replaced with more competent yet still isolated "apps" - but that's for a different post 😉
 
-------------------
+---
 
 What place do you think containers will have in the future? Please share your thoughts! I'm [@robinandeer][twitter] on Twitter.
 
-------------------
+---
 
-_I feel compelled to point out that it's 2016 and we don't need to treat cattle... well like "cattle". I hope that we can come up with a more humane analogy for the future of containerized server architecture..._ 😕
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/4w5zyZ6VRqo?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+> I feel compelled to point out that it's 2016 and we don't need to treat cattle... well like "cattle". I hope that we can come up with a more humane analogy for the future of containerized server architecture... 😕
 
 [swarm]: https://docs.docker.com/swarm/overview/
 [compose]: https://docs.docker.com/compose/overview/

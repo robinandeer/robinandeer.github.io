@@ -11,7 +11,13 @@ I'm composing this post in a slightly unfamiliar environment; [Atom][atom] - the
 
 Now I've been using it as my main editor for the past week and thought I'd share some of my experiences.
 
-<figure><img src="/images/atom-sublime.png" alt="Sublime vs. Atom"></figure>
+<Image
+  src="/images/atom-sublime.png"
+  alt="Sublime vs. Atom"
+  width={1200 }
+  height={504}
+  layout="responsive"
+/>
 
 ## The good
 

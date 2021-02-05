@@ -11,7 +11,7 @@ Did you know that Contentful has a [migration tool](https://github.com/contentfu
 
 In this guide I'll go over the motivation behind automating migrations, give you an intro to how they are scripted, and finally point you to some additional resources.
 
-*Not sure what Contentful is? Have a look at this [intro to headless CMS:s](https://headlesscms.org/about).*
+> Not sure what Contentful is? Have a look at this [intro to headless CMS:s](https://headlesscms.org/about).
 
 ## What is this tool about? 🤔
 
@@ -21,11 +21,11 @@ As Contentful puts it: the migration tool helps you "describe and execute change
 
 - **Documented and versioned content types**
 
-  Contentful's web UI is great for exploring all the options available to you. However, defining your content types in code helps you document the specifics of your setup, version it, and makes it possible to automatically setup a new space/environment with *one single command*.
+  Contentful's web UI is great for exploring all the options available to you. However, defining your content types in code helps you document the specifics of your setup, version it, and makes it possible to automatically setup a new space/environment with _one single command_.
 
 - **Automated and predictable migrations**
 
-  Whenever you make changes to your models or content, you can describe what should happen, make sure it will work as expected, execute the updates it in one command, and repeat the *exact same updates* to any environment.
+  Whenever you make changes to your models or content, you can describe what should happen, make sure it will work as expected, execute the updates it in one command, and repeat the _exact same updates_ to any environment.
 
 ## How to script Contentful migrations ✅
 
@@ -59,29 +59,18 @@ To give you an idea of the migration language, here's an example of how we can s
 
 module.exports = (migration, context) => {
   // 1. create a new blog post content type
-  const blogPost = migration.createContentType("blogPost")
-    .name("Blog Post")
-    .description("Blog post model")
+  const blogPost = migration.createContentType('blogPost').name('Blog Post').description('Blog post model');
 
   // 2. add fields to our content type
-  blogPost.createField("title")
-    .type("Symbol")
-    .name("Title")
-    .required(true)
+  blogPost.createField('title').type('Symbol').name('Title').required(true);
 
-  blogPost.createField("body")
-    .type("Text")
-    .name("Body")
-    .required(true)
+  blogPost.createField('body').type('Text').name('Body').required(true);
 
-  blogPost.createField("author")
-    .type("Text")
-    .name("Author name")
-    .required(true)
+  blogPost.createField('author').type('Text').name('Author name').required(true);
 
   // 3. make the "title" field, the display field property
-  blogPost.displayField("title")
-}
+  blogPost.displayField('title');
+};
 ```
 
 ### 3. Apply the migration using the CLI
@@ -101,48 +90,43 @@ Let's say that we've outgrown our first content model. We realize that we want t
 ```javascript
 // 02-add-author.js
 
-module.exports = migration => {
+module.exports = (migration) => {
   // 1. create a new content type for our author model
-  const author = migration.createContentType("author")
-    .name("Author")
-    .description("A blog post author")
+  const author = migration.createContentType('author').name('Author').description('A blog post author');
 
-  author.createField("firstName").type("Symbol").name("First name")
-  author.createField("lastName").type("Symbol").name("Last name")
-  author.displayField("firstName")
+  author.createField('firstName').type('Symbol').name('First name');
+  author.createField('lastName').type('Symbol').name('Last name');
+  author.displayField('firstName');
 
   // 2. grab a reference to our existing blog post model
-  const blogPost = migration.editContentType("blogPost")
+  const blogPost = migration.editContentType('blogPost');
 
   // 3. create a new placeholder field for the blog post/author link
-  blogPost.createField("authorRef")
-    .type("Link")
-    .linkType("Entry")
-    .name("The author")
+  blogPost.createField('authorRef').type('Link').linkType('Entry').name('The author');
 
   // 4. perform the migration by creating and linking authors to blog posts
   migration.deriveLinkedEntries({
-    contentType: "blogPost",
-    derivedContentType: "author",
-    from: ["author"],
-    toReferenceField: "authorRef",
-    derivedFields: ["firstName", "lastName"],
-    identityKey: fromFields => {
+    contentType: 'blogPost',
+    derivedContentType: 'author',
+    from: ['author'],
+    toReferenceField: 'authorRef',
+    derivedFields: ['firstName', 'lastName'],
+    identityKey: (fromFields) => {
       // define the criterion for when to create a new author and when to
       // link an already created "author" entry.
-      return fromFields.author["en-US"].toLowerCase(" ", "-")
+      return fromFields.author['en-US'].toLowerCase(' ', '-');
     },
     shouldPublish: true,
     derivedEntryForLocale: (inputFields, locale) => {
-      const [firstName, lastName] = inputFields.author[locale].split(" ")
-      return { firstName, lastName }
-    }
-  })
+      const [firstName, lastName] = inputFields.author[locale].split(' ');
+      return { firstName, lastName };
+    },
+  });
 
   // 5. delete and replace the old author field with the new one
-  blogPost.deleteField("author")
-  blogPost.changeField("authorRef", "author")
-}
+  blogPost.deleteField('author');
+  blogPost.changeField('authorRef', 'author');
+};
 ```
 
 We can now run the migration like before:
@@ -162,6 +146,6 @@ It might also be worth noting that the changes are not applied atomically so it 
 - You will also refer to the [JS library documentation](https://github.com/contentful/contentful-migration) on GitHub.
 - Finally, there is a [folder with examples](https://github.com/contentful/contentful-migration/tree/master/examples) for some of the more advanced use cases.
 
--------------
+---
 
 I hope you found this tutorial useful! If you learned something new, please consider sharing it with your friends and colleagues 💬
