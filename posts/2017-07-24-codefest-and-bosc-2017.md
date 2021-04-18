@@ -1,5 +1,5 @@
 ---
-title: "Codefest and BOSC 2017 in Prague 🏰🇨🇿"
+title: 'Codefest and BOSC 2017 in Prague 🏰🇨🇿'
 category: conference
 author: Robin Andeer
 date: 2017-07-24
@@ -11,7 +11,7 @@ image: /images/bosc-prague-2017.png
 
 This was the third year in a row(!) I attended Codefest and BOSC. I could say it's my favorite conference but I really haven't got too much to compare with 😅 On the other hand, I've been so happy with BOSC that I've stuck with it and deepened relationships with the other frequent attendees.
 
-<figure><img src="/images/bosc-prague-2017.jpg" alt="BOSC lecture"></figure>
+<figure><img src="/images/bosc-prague-2017.jpg" alt="BOSC lecture" /></figure>
 
 Prague hosted us this year - a lovely city with nice accommodations, cheap food, and a walkable city center. Now that I think of it, besides the warm weather, basically the opposite of 2016's host: [Orlando](http://www.robinandeer.com/blog/2016/07/12/bosc-2016/)...
 
@@ -33,7 +33,7 @@ The group collaborated really well and worked productively with a final tally of
 
 A big thanks to [Brad Chapman](https://twitter.com/chapmanb) and [Heather Wiencko](https://twitter.com/HLWiencko) who once again put together a great event - BOSC wouldn't be the same without it! Also big thanks to [Matúš Kalaš](https://twitter.com/matuskalas), our awesome "local" (actually Slovak) guide who showed us some very nice food/beer spots and handled communication with the locals.
 
-<figure><img src="/images/bosc-prague-2017-restaurant.jpg" alt="Cross Club Cafe"></figure>
+<figure><img src="/images/bosc-prague-2017-restaurant.jpg" alt="Cross Club Cafe" /></figure>
 
 ## Bioinformatics Open Source Conference (BOSC) 2017
 
@@ -69,7 +69,7 @@ Furthermore, I came away from the conference with a long list of links to invest
 
 Finally I also learned that if I want to publish papers I should start with [Journal of Open Source Software](http://joss.theoj.org/) (JOSS); nicely introduced at BOSC by [Pjotr Prins](https://twitter.com/pjotrprins) and edited by, among others, [Roman "full-stack" Valls](https://twitter.com/braincode).
 
---------------------------
+---
 
 Thanks everyone who presented, organized, attended, chatted, coded, entertained, drank beer, and lent me money during these days in Prague! Who knows, maybe we meet next year in Portland, Oregon.
 

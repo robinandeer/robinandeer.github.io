@@ -1,0 +1,14 @@
+{
+  "name": "Robin Andeer",
+  "short_name": "Robin ⦾",
+  "description": "Personal website and blog of Robin Andeer",
+  "lang": "en-US",
+  "icons": [
+    { "src": "/icons/android-chrome-192x192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icons/android-chrome-512x512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#D1D1D1",
+  "background_color": "#D1D1D1",
+  "display": "standalone",
+  "orientation": "portrait-primary"
+}

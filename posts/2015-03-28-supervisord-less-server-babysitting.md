@@ -1,12 +1,12 @@
 ---
-title: "Supervisord: less server babysitting"
+title: 'Supervisord: less server babysitting'
 category: tutorial
 author: Robin Andeer
 date: 2015-03-28
 tags: tutorial, devops
 ---
 
-[Supervisord][supervisord] is a simple monitoring tool. It consists of a server and an accompanying command line interface to manage and check the status of long running processes.
+[Supervisord](http://supervisord.org/) is a simple monitoring tool. It consists of a server and an accompanying command line interface to manage and check the status of long running processes.
 
 ## Motivations for adding complexity
 
@@ -16,7 +16,7 @@ Having said that, here are a few really nice benefits you get from using supervi
 
 - A unified interface for starting, stopping, and reloading your processes
 - Automatic restarts if your processes go down
-- Ability to define startup scripts using intuitive yet powerful ``ini`` files
+- Ability to define startup scripts using intuitive yet powerful `ini` files
 
 ## Installation
 
@@ -46,8 +46,8 @@ directory = /home/www/flask_server
 autostart = true
 ```
 
-- ``directory`` setting will make sure supervisord cd's to that path before executing the ``command``.
-- ``autostart`` will start that process automatically as soon as supervisord is initialized.
+- `directory` setting will make sure supervisord cd's to that path before executing the `command`.
+- `autostart` will start that process automatically as soon as supervisord is initialized.
 
 ### Boilerplate settings
 
@@ -71,7 +71,7 @@ serverurli = http://127.0.0.1:9001
 
 Let's complete our supervisor config by adding some additional settings to the server to track logs as well as including the MongoDB server which the Flask server communicates with.
 
-> Note here that ``mongod`` handles logging on it's own. This is all defined in the ``mongo.conf`` settings file.
+> Note here that `mongod` handles logging on it's own. This is all defined in the `mongo.conf` settings file.
 
 ```ini
 # ...
@@ -92,9 +92,9 @@ stderr_logfile=/home/www/logs/flask_server.err.log
 # ...
 ```
 
-By specifying ``autorestart = true`` we can make sure that if the server goes down for any unexpected reason it will be automatically restarted without any manual intervention! This can also be used in other clever ways like killing the server to issue a git pull before supervisord automatically restarts the Flask server again.
+By specifying `autorestart = true` we can make sure that if the server goes down for any unexpected reason it will be automatically restarted without any manual intervention! This can also be used in other clever ways like killing the server to issue a git pull before supervisord automatically restarts the Flask server again.
 
-> One thing I learned was that supervisord wants you to run *long running processes*. In case of ``mongod``, this means that you shouldn't let is fork the process to run in the background; let supervisord worry about that!
+> One thing I learned was that supervisord wants you to run _long running processes_. In case of `mongod`, this means that you shouldn't let is fork the process to run in the background; let supervisord worry about that!
 
 ## Usage
 
@@ -104,7 +104,7 @@ Now we only need to start the supervisord server to get everything up and runnin
 supervisord --config /home/www/setup/supervisord.conf
 ```
 
-Next up we can manage processes using ``supervisorctl``. We can for example easily check the status of all processes (programs) in the config file.
+Next up we can manage processes using `supervisorctl`. We can for example easily check the status of all processes (programs) in the config file.
 
 ```sh
 $ supervisord --config /home/www/setup/supervisord.conf status
@@ -112,7 +112,7 @@ mongod              RUNNING   pid 39188, uptime 23:27:51
 flask_server        RUNNING   pid 39237, uptime 23:27:28
 ```
 
-One thing I really like is how ``supervisorctl`` can be used as a unified interface for starting, restarting, and stopping services which is really easy to define and share with your team.
+One thing I really like is how `supervisorctl` can be used as a unified interface for starting, restarting, and stopping services which is really easy to define and share with your team.
 
 ```sh
 $ supervisorctl --config /home/www/setup/supervisord.conf restart flask_server
@@ -155,6 +155,3 @@ stderr_logfile=/home/www/logs/flask_server.err.log
 # use an http:// url to specify an inet socket
 serverurli = http://127.0.0.1:9001
 ```
-
-[supervisord]: http://supervisord.org/
-[uwsgi]: https://uwsgi-docs.readthedocs.org/en/latest/

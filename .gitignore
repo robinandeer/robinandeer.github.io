@@ -39,3 +39,5 @@ yarn-error.log*
 .next
 .vercel
 .vscode
+
+*.code-workspace

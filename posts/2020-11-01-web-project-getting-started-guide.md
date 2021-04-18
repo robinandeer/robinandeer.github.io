@@ -8,14 +8,6 @@ intro: A step-by-step guide to setup TypeScript, Next.js, Tailwind CSS, ESLint, 
 image: /images/web-project-intro.png
 ---
 
-<Image
-  src="/images/web-project-intro.png"
-  alt="Graph of web frameworks"
-  width={2024 }
-  height={1012}
-  layout="responsive"
-/>
-
 **tl;dr**: the complete example repo is here: <https://github.com/robinandeer/web-project>.
 
 I dislike using templates when I start new projects. The boilerplate code makes it hard to understand how all the pieces fit together. Taking the time to integrate the different tools really feels worth it to me. That way, I'm also confident that I stay up-to-date with the latest good practices.
@@ -31,6 +23,14 @@ This post will be a no-nonsense step-by-step setup guide to start a new web proj
 - [Jest](https://jestjs.io/) + [Testing Library](https://testing-library.com/)
 
 Let's get started!
+
+<Image
+  src="/images/web-project-intro.png"
+  alt="Graph of web frameworks"
+  width={2024 }
+  height={1012}
+  layout="responsive"
+/>
 
 ## Create a new project
 
@@ -116,10 +116,10 @@ Add an initial Next.js page:
 // src/pages/index.tsx
 
 const IndexPage: React.FC = () => {
-  return <h1>Hello, Next!</h1>;
-};
+  return <h1>Hello, Next!</h1>
+}
 
-export default IndexPage;
+export default IndexPage
 ```
 
 I like to collect all the source files under a `src` directory but you do as you wish.
@@ -167,7 +167,7 @@ module.exports = {
   theme: {},
   variants: {},
   plugins: [],
-};
+}
 ```
 
 The "future" section enables upcoming Tailwind features that will make future migrations easier.
@@ -181,7 +181,7 @@ Since Tailwind is a PostCSS plugin, add a `postcss.config.js` file to configure 
 
 module.exports = {
   plugins: ['tailwindcss'],
-};
+}
 ```
 
 Also install the `postcss-preset-env` module which transforms modern CSS into something most browsers understand.
@@ -205,7 +205,7 @@ module.exports = {
       },
     ],
   ],
-};
+}
 ```
 
 Finally, add a global CSS file:
@@ -235,13 +235,13 @@ Override the root Next.js App component and import the global CSS file in `src/p
 ```typescript
 // src/pages/_app.tsx
 
-import '../styles/global.css';
+import '../styles/global.css'
 
-import { AppProps } from 'next/app';
+import { AppProps } from 'next/app'
 
-const App: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => <Component {...pageProps} />;
+const App: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => <Component {...pageProps} />
 
-export default App;
+export default App
 ```
 
 Finally, update the index page to include a Tailwind CSS utility class:
@@ -290,7 +290,7 @@ module.exports = {
       version: 'detect',
     },
   },
-};
+}
 ```
 
 As of React 17 we no longer need to import React in `.tsx` files so we can tell ESLint to not complain about that:
@@ -302,7 +302,7 @@ module.exports = {
   rules: {
     'react/react-in-jsx-scope': 'off',
   },
-};
+}
 ```
 
 ## Setup Prettier
@@ -327,7 +327,7 @@ module.exports = {
   printWidth: 120,
   tabWidth: 2,
   quoteProps: 'preserve',
-};
+}
 ```
 
 Edit `.eslintrc.js` to complete the ESLint + Prettier integration:
@@ -341,7 +341,7 @@ module.exports = {
     'prettier/@typescript-eslint',
     'plugin:prettier/recommended',
   ],
-};
+}
 ```
 
 ## Setup Jest and Testing Library
@@ -382,15 +382,15 @@ Next, create a new file `test/testUtils.ts`:
 ```typescript
 // test/testUtils.ts
 
-import { RenderOptions, RenderResult, render } from '@testing-library/react';
+import { RenderOptions, RenderResult, render } from '@testing-library/react'
 
-const customRender = (ui: React.ReactElement, options: RenderOptions = {}): RenderResult => render(ui, { ...options });
+const customRender = (ui: React.ReactElement, options: RenderOptions = {}): RenderResult => render(ui, { ...options })
 
 // re-export everything
-export * from '@testing-library/react';
+export * from '@testing-library/react'
 
 // override render method
-export { customRender as render };
+export { customRender as render }
 ```
 
 Add the first basic test by creating another file `test/pages/index.test.tsx`:
@@ -398,15 +398,15 @@ Add the first basic test by creating another file `test/pages/index.test.tsx`:
 ```typescript
 // test/pages/index.test.tsx
 
-import IndexPage from 'pages/index';
-import { render } from '../testUtils';
+import IndexPage from 'pages/index'
+import { render } from '../testUtils'
 
 describe('Index page', () => {
   it('matches snapshot', () => {
-    const { asFragment } = render(<IndexPage />, {});
-    expect(asFragment()).toMatchSnapshot();
-  });
-});
+    const { asFragment } = render(<IndexPage />, {})
+    expect(asFragment()).toMatchSnapshot()
+  })
+})
 ```
 
 Add a file `jest.config.js` to complete the Jest setup:
@@ -425,7 +425,7 @@ module.exports = {
   moduleNameMapper: {
     '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
   },
-};
+}
 ```
 
 To support absolute imports, add the following to the Jest config:
@@ -435,7 +435,7 @@ To support absolute imports, add the following to the Jest config:
 
 module.exports = {
   moduleDirectories: ['node_modules', 'src'],
-};
+}
 ```
 
 Make sure that everything works by running:

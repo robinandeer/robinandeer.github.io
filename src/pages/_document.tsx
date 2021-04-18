@@ -1,6 +1,8 @@
-import Document, { Head, Html, Main, NextScript } from 'next/document';
+import Document, { Head, Html, Main, NextScript } from 'next/document'
 
-import React from 'react';
+import React from 'react'
+
+const SITE_DESCRIPTION = 'Personal site and blog of Robin Andeer.'
 
 class MyDocument extends Document {
   render(): JSX.Element {
@@ -9,21 +11,31 @@ class MyDocument extends Document {
         <Head>
           <meta charSet="utf-8" />
           <meta httpEquiv="Content-Language" content="en" />
-          <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-          <link rel="manifest" href="/manifest.json" />
+          <meta httpEquiv="x-ua-compatible" content="ie=edge" />
 
-          <meta name="description" content="Personal site and blog of Robin Andeer." key="description" />
-          <meta name="keywords" content="tech,javascript,react,blog,robinandeer" key="keywords" />
+          <meta name="robots" content="follow, index" />
 
+          <meta name="description" content={SITE_DESCRIPTION} key="description" />
+          <meta name="keywords" content="tech,javascript,react,blog,robinandeer,sourdough bread" key="keywords" />
+
+          <link rel="canonical" href={process.env.NEXT_PUBLIC_SITE_URL} />
+          <meta property="og:url" content={process.env.NEXT_PUBLIC_SITE_URL} />
+          <meta property="og:title" content="Robin Andeer" />
           <meta property="og:site_name" content="Robin Andeer" />
+          <meta property="og:description" content={SITE_DESCRIPTION} />
 
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:site" content="@robinandeer" />
+          <meta name="twitter:title" content="Robin Andeer" />
 
-          <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-          <link rel="alternate icon" href="/favicon.ico" />
-          <link rel="mask-icon" href="/favicon.svg" color="#000000" />
-          <link rel="icon shortcut" type="image/x-icon" href="/favicon.ico" />
+          <link href="/site.webmanifest" rel="manifest" />
+          <link href="/icons/favicon.ico" rel="shortcut icon" />
+          <link href="/icons/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+          <link href="/icons/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+          <link href="/icons/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+          <link href="/icons/favicon.svg" rel="icon" type="image/svg+xml" />
+          <link href="/icons/favicon.ico" rel="alternate icon" />
+          <link href="/icons/favicon.svg" rel="mask-icon" color="#D1D1D1" />
 
           <meta name="msapplication-tap-highlight" content="no" />
 
@@ -32,14 +44,8 @@ class MyDocument extends Document {
           <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
           <meta name="apple-mobile-web-app-title" content="Robin Andeer" />
 
-          <meta name="theme-color" content="#000" />
-          <meta name="msapplication-TileColor" content="#000000" />
-
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300,0,400;0,500;0,600;0,700;1,400&display=swap"
-            rel="stylesheet"
-          />
+          <meta name="theme-color" content="#D1D1D1" />
+          <meta name="msapplication-TileColor" content="#D1D1D1" />
 
           {/* Splitbee */}
           <script async src="https://cdn.splitbee.io/sb.js" />
@@ -49,8 +55,8 @@ class MyDocument extends Document {
           <NextScript />
         </body>
       </Html>
-    );
+    )
   }
 }
 
-export default MyDocument;
+export default MyDocument

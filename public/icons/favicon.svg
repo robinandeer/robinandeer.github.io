@@ -1,0 +1,12 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    rect { fill: #D1D1D1; }
+
+    @media (prefers-color-scheme: dark) {
+      rect { fill: #171717; }
+    }
+  </style>
+
+  <rect width="512" height="512" />
+  <circle cx="256" cy="256" r="128" fill="#FAFA37" />
+</svg>

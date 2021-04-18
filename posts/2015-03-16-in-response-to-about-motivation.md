@@ -6,13 +6,13 @@ date: 2015-03-16
 tags: thought, response
 ---
 
-This post is written as a follow-up to "[About motivation][about]" in which [@guillemch][guillem] writes about going through recurring cycles with lack of motivation. He shares his thought on why they take place as well as dealing out some general tips on how to lift yourself out of those rough patches.
+This post is written as a follow-up to "[About motivation](http://mussol.org/2015/03/15/about-motivation/)" in which [@guillemch](https://twitter.com/guillemch) writes about going through recurring cycles with lack of motivation. He shares his thought on why they take place as well as dealing out some general tips on how to lift yourself out of those rough patches.
 
 ---
 
 > From mid December to mid February, I entered some kind of vicious cycle of demotivation [...] this is not the first time that happens to me, and I know that this is a common issue, [e]specially among programmers, so I started thinking about the cause of these demotivation peaks."
 
-Motivation is a tricky subject, overlapping with [procrastination][procrast], inspiration, productivity, and [discipline][discipline]. Let's see if I can stay on topic.
+Motivation is a tricky subject, overlapping with [procrastination](https://even.li/the-shortest-way-to-stop-procrastinating/), inspiration, productivity, and [discipline](http://www.wisdomination.com/screw-motivation-what-you-need-is-discipline/). Let's see if I can stay on topic.
 
 ## What makes me lose motivation
 
@@ -20,7 +20,7 @@ I can emphasize with all three main points the original author brings up for why
 
 ### Lack of context
 
-Solving big enough problems require us to break them down into smaller pieces. Preferably encapsulated components with their own state. If I can't grasp the full context of a problem at hand, my attention quickly dissipates. The idea comes from the [_The Guerrilla Guide to Interviewing_][guerrilla] in which the author argues that keeping many abstract things in your head is a skill that separates average programmers from great programmers. Possible causes for losing context include interruption, too tightly coupled systems (poor engineering), and being spread too thin across several unrelated tasks.
+Solving big enough problems require us to break them down into smaller pieces. Preferably encapsulated components with their own state. If I can't grasp the full context of a problem at hand, my attention quickly dissipates. The idea comes from the [_The Guerrilla Guide to Interviewing_](http://www.joelonsoftware.com/articles/GuerrillaInterviewing3.html) in which the author argues that keeping many abstract things in your head is a skill that separates average programmers from great programmers. Possible causes for losing context include interruption, too tightly coupled systems (poor engineering), and being spread too thin across several unrelated tasks.
 
 ### Draining mental energy
 
@@ -32,7 +32,7 @@ One problem I have is that I make small, often meaningless, choices constantly. 
 
 > "It is difficult, but be strong, sit down and work on that task as soon as possible."
 
-A while ago I found a [short opinion piece][procrast] that I can see myself coming back to every now and again just to remind myself of these wise words: _Just fucking do it_.
+A while ago I found a [short opinion piece](https://even.li/the-shortest-way-to-stop-procrastinating/) that I can see myself coming back to every now and again just to remind myself of these wise words: _Just fucking do it_.
 
 > "[avoid] down-prioritizing it in your TODO list".
 
@@ -52,14 +52,6 @@ I'm used to second guessing my every move. I often make simple choices out to be
 
 ---
 
-Definitely read the [original article][about] and thank you for letting me share my response. Do reach out on [Twitter][twitter] or comment on [Hacker News][hacker] if you feel inspired to do so.
+Definitely read the [original article](http://mussol.org/2015/03/15/about-motivation/) and thank you for letting me share my response. Do reach out on [Twitter](https://twitter.com/robinandeer) or comment on [Hacker News](https://news.ycombinator.com/item?id=9226050) if you feel inspired to do so.
 
 <a href="https://news.ycombinator.com/submit" className="hn-button" data-title="In response to “About motivation”" data-url="http://www.robinandeer.com/blog/2015/03/16/in-response-to-about-motivation/" data-count="horizontal">Vote on Hacker News</a>
-
-[about]: http://mussol.org/2015/03/15/about-motivation/
-[guillem]: https://twitter.com/guillemch
-[procrast]: https://even.li/the-shortest-way-to-stop-procrastinating/
-[discipline]: http://www.wisdomination.com/screw-motivation-what-you-need-is-discipline/
-[guerrilla]: http://www.joelonsoftware.com/articles/GuerrillaInterviewing3.html
-[twitter]: https://twitter.com/robinandeer
-[hacker]: https://news.ycombinator.com/item?id=9226050

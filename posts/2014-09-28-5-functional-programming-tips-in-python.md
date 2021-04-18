@@ -192,4 +192,4 @@ Lazy, linear, and without side effects. Beautiful.
 
 Thanks for your interest. Reach out [@robinandeer](https://twitter.com/robinandeer).
 
-<a href="https://news.ycombinator.com/submit" class="hn-button" data-title="5 Functional Programming Tips in Python" data-url="http://www.robinandeer.com/blog/2014/09/28/5-functional-programming-tips-in-python/" data-count="horizontal">Vote on Hacker News</a>
+<a href="https://news.ycombinator.com/submit" className="hn-button" data-title="5 Functional Programming Tips in Python" data-url="http://www.robinandeer.com/blog/2014/09/28/5-functional-programming-tips-in-python/" data-count="horizontal">Vote on Hacker News</a>

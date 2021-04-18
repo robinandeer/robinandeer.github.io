@@ -1,89 +1,212 @@
-import * as React from 'react';
+import styled from '@emotion/styled'
+import Image, { ImageProps } from 'next/image'
+import * as React from 'react'
 
-import { HiArrowNarrowRight } from 'react-icons/hi';
+import { HiArrowNarrowRight } from 'react-icons/hi'
+import { MarkdownContent } from './markdown-post'
+import { Main as PostScreenMain } from 'screens/post/components'
 
 export interface BaseElementProps {
-  className?: string;
+  className?: string
 }
 
-export const Paragraph: React.FC<BaseElementProps> = ({ children, className }) => (
-  <p className={['text-lg leading-relaxed text-gray-800 dark:text-gray-200', className].join(' ')}>{children}</p>
-);
-
-export const Heading2: React.FC<BaseElementProps> = ({ children, className }) => (
-  <h2 className={['text-3xl font-medium text-indigo-800 dark:text-yellow-400', className].join(' ')}>{children}</h2>
-);
-
-export const Heading3: React.FC<BaseElementProps> = ({ children, className }) => (
-  <h3 className={['text-xl font-medium text-black dark:text-gray-200', className].join(' ')}>{children}</h3>
-);
-
-export const List: React.FC = ({ children }) => <ul className="space-y-4">{children}</ul>;
+export const List = styled.ul`
+  ${MarkdownContent} & {
+    margin-bottom: 0;
+  }
+`
 
 export const OrderedList: React.FC = ({ children }) => (
-  <ol className="space-y-4">
+  <List as="ol">
     {React.Children.map(children, (child, index) =>
       React.isValidElement(child) ? React.cloneElement(child, { order: index + 1 }) : child,
     )}
-  </ol>
-);
+  </List>
+)
+
+const UnorderedListItemContainer = styled.li`
+  display: flex;
+  flex-direction: row;
+
+  ${List} & + & {
+    margin-top: 1rem;
+  }
+`
+
+const UnorderedListItemIcon = styled(HiArrowNarrowRight)`
+  flex-shrink: 0;
+  color: var(--color-text-yellow);
+  margin-right: 0.5rem;
+`
+
+const UnorderedListItemContent = styled.div`
+  position: relative;
+  top: -0.3rem;
+`
 
 const UnorderedListItem: React.FC = ({ children }) => (
-  <li className="flex flex-row space-x-4 list-none">
-    <HiArrowNarrowRight className="flex-shrink-0 text-fuchsia-700 dark:text-fuchsia-600" />
-    <div className="relative -top-1.5">
+  <UnorderedListItemContainer>
+    <UnorderedListItemIcon />
+    <UnorderedListItemContent>
       <Paragraph>{children}</Paragraph>
-    </div>
-  </li>
-);
+    </UnorderedListItemContent>
+  </UnorderedListItemContainer>
+)
+
+const OrderedListItemContainer = styled.li`
+  display: flex;
+  flex-direction: row;
+
+  ${List} & + & {
+    margin-top: 1rem;
+  }
+`
+
+const OrderedListItemNumber = styled.div`
+  margin-right: 0.5rem;
+
+  position: relative;
+  top: 2px;
+  color: var(--color-text-yellow);
+`
 
 const OrderedListItem: React.FC<{ order: number }> = ({ children, order }) => (
-  <li className="flex flex-row space-x-4 list-none">
-    <div className="relative mt-px text-sm font-medium top-1 text-fuchsia-700 dark:text-fuchsia-600">{order}.</div>
+  <OrderedListItemContainer>
+    <OrderedListItemNumber>{order}.</OrderedListItemNumber>
     <Paragraph>{children}</Paragraph>
-  </li>
-);
+  </OrderedListItemContainer>
+)
 
 export const ListItem: React.FC<{ order?: number }> = ({ order, ...props }) =>
-  order ? <OrderedListItem order={order} {...props} /> : <UnorderedListItem {...props} />;
+  order ? <OrderedListItem order={order} {...props} /> : <UnorderedListItem {...props} />
 
-export const PreformattedText: React.FC<BaseElementProps> = ({ children, className }) => (
-  <pre className={['md:rounded', className].join(' ')}>{children}</pre>
-);
+export const EmphasisText = styled.em`
+  font-style: italic;
+`
 
-export const EmphasisText: React.FC<BaseElementProps> = ({ children, className }) => (
-  <em className={['text-rose-600 dark:text-indigo-500', className].join(' ')}>{children}</em>
-);
+export const InlineCode = styled.code`
+  background-color: var(--color-bg-code);
+  padding: 0.1rem 0.3rem 0.2rem;
+  border-radius: 3px;
+  font-size: 0.9em;
+  white-space: nowrap;
+  position: relative;
+  top: -1px;
+`
 
-export const InlineCode: React.FC<BaseElementProps> = ({ children, className }) => (
-  <code
-    className={[
-      'py-1 px-2 bg-coolGray-200 rounded text-base whitespace-nowrap dark:bg-coolGray-700 dark:text-gray-300',
-      className,
-    ].join(' ')}
-  >
-    {children}
-  </code>
-);
+export const Anchor = styled.a`
+  color: var(--color-text-link);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 1px;
+`
 
-export const Anchor: React.FC<React.HTMLProps<HTMLAnchorElement>> = ({ className, ...props }) => (
-  <a className={['text-indigo-500 dark:text-rose-500 hover:underline', className].join(' ')} {...props} />
-);
+export const ExternalLink = styled(Anchor)``
+ExternalLink.defaultProps = { target: '_blank', rel: 'noopener' }
 
-export const StrongText: React.FC<BaseElementProps> = ({ children, className }) => (
-  <strong className={['font-medium', className].join(' ')}>{children}</strong>
-);
+export const StrongText = styled.strong`
+  font-weight: 700;
+`
 
-export const HorizontalRule: React.FC<BaseElementProps> = ({ className }) => (
-  <hr className={['border-2 border-warmGray-200 dark:border-warmGray-800', className].join(' ')} />
-);
+export const HorizontalRule = styled.hr`
+  border-width: 0;
+  border-bottom-width: 2px;
+  border-color: var(--color-border-primary);
 
-export const Blockquote: React.FC<BaseElementProps> = ({ children, className }) => (
-  <blockquote
-    className={['border-l-8 dark:bg-warmGray-800 bg-coolGray-100 p-4 border-warmGray-700 md:rounded', className].join(
-      ' ',
-    )}
-  >
-    {children}
-  </blockquote>
-);
+  ${MarkdownContent} & {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  ${PostScreenMain} & {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+  }
+`
+
+const ImageContainer = styled.div`
+  ${PostScreenMain} & {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+  }
+`
+
+export function ProseImage(props: ImageProps): JSX.Element {
+  return (
+    <ImageContainer>
+      <Image {...props} />
+    </ImageContainer>
+  )
+}
+
+export const Paragraph = styled.p`
+  line-height: 1.6;
+
+  .remark-highlight + &,
+  & + .remark-highlight {
+    margin-top: 1rem;
+  }
+`
+
+export const Blockquote = styled.blockquote`
+  padding-left: 1rem;
+  border-left: 3px solid var(--color-text-yellow);
+
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  letter-spacing: -0.5px;
+
+  & ${Paragraph} {
+    font-size: 0.9em;
+  }
+
+  ${Paragraph} & {
+    margin-top: 0.5rem;
+  }
+`
+
+export const Heading2 = styled.h2`
+  font-size: 1.4em;
+  font-weight: 500;
+
+  ${MarkdownContent} & {
+    margin-bottom: 0.5rem;
+    margin-top: 3rem;
+
+    & + ${Paragraph} {
+      margin-top: 0;
+    }
+
+    & + ${List} {
+      margin-top: 1rem;
+    }
+  }
+`
+
+export const Heading3 = styled.h3`
+  font-size: 1.2em;
+  font-weight: 500;
+
+  ${MarkdownContent} & {
+    margin-bottom: 0.5rem;
+    margin-top: 2rem;
+
+    & + ${Paragraph} {
+      margin-top: 0;
+    }
+  }
+`
+
+export const Heading4 = styled.h4`
+  font-size: 1em;
+  text-transform: uppercase;
+  font-weight: 600;
+
+  ${MarkdownContent} & {
+    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
+
+    & + ${Paragraph} {
+      margin-top: 0;
+    }
+  }
+`

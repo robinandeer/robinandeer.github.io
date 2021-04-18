@@ -1,0 +1,208 @@
+/*
+Name:   Duotone Light
+Author: Simurai, adapted from DuoTone themes for Atom (http://simurai.com/projects/2016/01/01/duotone-themes)
+Conversion: Bram de Haan (http://atelierbram.github.io/Base2Tone-prism/output/prism/prism-base2tone-morning-light.css)
+Generated with Base16 Builder (https://github.com/base16-builder/base16-builder)
+*/
+
+:root {
+  --prism-color-text: #728fcb;
+  --prism-color-selection: #faf8f5;
+  --prism-color-comment: #b6ad9a;
+  --prism-color-tag: #063289;
+  --prism-color-property: #b29762;
+  --prism-color-selector: #2d2006;
+  --prism-color-attr-name: #896724;
+  --prism-color-boolean: #728fcb;
+  --prism-color-placeholder: #93abdc;
+  --prism-color-inserted: #2d2006;
+  --prism-color-important: #896724;
+  --prism-color-outline: #896724;
+  --prism-color-numbers: #ece8de;
+  --prism-color-numbers-text: #cdc4b1;
+  --prism-color-line-bg: 45, 32, 6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --prism-color-text: #9a86fd;
+    --prism-color-selection: #6a51e6;
+    --prism-color-comment: #6c6783;
+    --prism-color-tag: #e09142;
+    --prism-color-property: #9a86fd;
+    --prism-color-selector: #eeebff;
+    --prism-color-attr-name: #c4b9fe;
+    --prism-color-boolean: #ffcc99;
+    --prism-color-placeholder: #ffcc99;
+    --prism-color-inserted: #eeebff;
+    --prism-color-important: #c4b9fe;
+    --prism-color-outline: #8a75f5;
+    --prism-color-numbers: #2c2937;
+    --prism-color-numbers-text: #3c3949;
+    --prism-color-line-bg: 224, 145, 66;
+  }
+}
+
+code[class*='language-'],
+pre[class*='language-'] {
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+
+  tab-size: 4;
+
+  hyphens: none;
+  color: var(--prism-color-text);
+}
+
+pre > code[class*='language-'] {
+  font-size: 1em;
+}
+
+pre[class*='language-']::-moz-selection,
+pre[class*='language-'] ::-moz-selection,
+code[class*='language-']::-moz-selection,
+code[class*='language-'] ::-moz-selection {
+  text-shadow: none;
+  background: var(--prism-color-selection);
+}
+
+pre[class*='language-']::selection,
+pre[class*='language-'] ::selection,
+code[class*='language-']::selection,
+code[class*='language-'] ::selection {
+  text-shadow: none;
+  background: var(--prism-color-selection);
+}
+
+/* Code blocks */
+pre[class*='language-'] {
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+}
+
+/* Inline code */
+:not(pre) > code[class*='language-'] {
+  padding: 0.1em;
+  border-radius: 0.3em;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: var(--prism-color-comment);
+}
+
+.token.punctuation {
+  color: var(--prism-color-comment);
+}
+
+.token.namespace {
+  opacity: 0.7;
+}
+
+.token.tag,
+.token.operator,
+.token.number {
+  color: var(--prism-color-tag);
+}
+
+.token.property,
+.token.function {
+  color: var(--prism-color-property);
+}
+
+.token.tag-id,
+.token.selector,
+.token.atrule-id {
+  color: var(--prism-color-selector);
+}
+
+code.language-javascript,
+.token.attr-name {
+  color: var(--prism-color-attr-name);
+}
+
+code.language-css,
+code.language-scss,
+.token.boolean,
+.token.string,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.language-scss .token.string,
+.style .token.string,
+.token.attr-value,
+.token.keyword,
+.token.control,
+.token.directive,
+.token.unit,
+.token.statement,
+.token.regex,
+.token.atrule {
+  color: var(--prism-color-boolean);
+}
+
+.token.placeholder,
+.token.variable {
+  color: var(--prism-color-placeholder);
+}
+
+.token.deleted {
+  text-decoration: line-through;
+}
+
+.token.inserted {
+  border-bottom: 1px dotted var(--prism-color-inserted);
+  text-decoration: none;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.important {
+  color: var(--prism-color-important);
+}
+
+.token.entity {
+  cursor: help;
+}
+
+pre > code.highlight {
+  outline: 0.4em solid var(--prism-color-outline);
+  outline-offset: 0.4em;
+}
+
+/* overrides color-values for the Line Numbers plugin
+ * http://prismjs.com/plugins/line-numbers/
+ */
+.line-numbers .line-numbers-rows {
+  border-right-color: var(--prism-color-numbers);
+}
+
+.line-numbers-rows > span:before {
+  color: var(--prism-color-numbers-text);
+}
+
+/* overrides color-values for the Line Highlight plugin
+ * http://prismjs.com/plugins/line-highlight/
+ */
+.line-highlight {
+  background: rgba(var(--prism-color-line-bg), 0.2);
+  background: -webkit-linear-gradient(
+    left,
+    rgba(var(--prism-color-line-bg), 0.2) 70%,
+    rgba(var(--prism-color-line-bg), 0)
+  );
+  background: linear-gradient(to right, rgba(var(--prism-color-line-bg), 0.2) 70%, rgba(var(--prism-color-line-bg), 0));
+}

@@ -14,7 +14,7 @@ Open sourcing a software project is like owning a pet. Even though it involves a
 
 ## Inspiration
 
-They guys over at [LayerVault][layervault] have certainly understood the value of Open Source. One glowing example of this is [Cosmos][cosmos]; a collection of internally developed open source projects. Such a simple idea, but still something I'd never seen realized before with such finess and ambition.
+They guys over at [LayerVault](https://layervault.com/) have certainly understood the value of Open Source. One glowing example of this is [Cosmos](http://cosmos.layervault.com/); a collection of internally developed open source projects. Such a simple idea, but still something I'd never seen realized before with such finess and ambition.
 
 <Image
   src="/images/open-source-portals-cosmos.png"
@@ -26,11 +26,11 @@ They guys over at [LayerVault][layervault] have certainly understood the value o
 
 ## Our open source portal
 
-The concept stuck with me as I picked up my first real pay check at my current employer ([SciLifeLab][scilife]). By mid 2014 I finally pitched the first draft of our very own [Open Source Portal][opensource] to a few developer colleagues. I might still have some people to convince but the joint initial effort has been really positive.
+The concept stuck with me as I picked up my first real pay check at my current employer ([SciLifeLab](http://www.scilifelab.se/)). By mid 2014 I finally pitched the first draft of our very own [Open Source Portal](http://opensource.scilifelab.se/) to a few developer colleagues. I might still have some people to convince but the joint initial effort has been really positive.
 
 SciLifeLab as well as the portal is heavily influenced by bioinformatics but should also leave room for the odd general purpose Python utility. You are most welcome to check out what we have to offer!
 
-**[http://opensource.scilifelab.se/][opensource]**
+**[http://opensource.scilifelab.se/](http://opensource.scilifelab.se/)**
 
 <Image
   src="/images/open-source-scilifelab.png"
@@ -51,12 +51,5 @@ A site to collect projects like this can:
 
 List of similar projects:
 
-- [Cosmos][cosmos] by LayerVault
-- [Open Source][thoughtbot] by thoughtbot
-
-[layervault]: https://layervault.com/
-[cosmos]: http://cosmos.layervault.com/
-[opensource]: http://opensource.scilifelab.se/
-[scilife]: http://www.scilifelab.se/
-[thoughtbot]: http://thoughtbot.com/open-source
-[clinical-genomics]: http://www.scilifelab.se/facilities/clinical-genomics/
+- [Cosmos](http://cosmos.layervault.com/) by LayerVault
+- [Open Source](http://thoughtbot.com/open-source) by Thoughtbot
