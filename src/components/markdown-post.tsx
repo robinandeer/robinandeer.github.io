@@ -78,8 +78,10 @@ export const MarkdownContent = styled.div`
     }
   }
 
-  ul {
+  ul,
+  ol {
     margin-bottom: 0;
+    padding-left: 0.5rem;
   }
 
   strong {

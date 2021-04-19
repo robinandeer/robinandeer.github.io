@@ -40,9 +40,7 @@ const UnorderedListItemContent = styled.div`
 const UnorderedListItem: React.FC = ({ children }) => (
   <UnorderedListItemContainer>
     <UnorderedListItemIcon />
-    <UnorderedListItemContent>
-      <p>{children}</p>
-    </UnorderedListItemContent>
+    <UnorderedListItemContent>{children}</UnorderedListItemContent>
   </UnorderedListItemContainer>
 )
 
@@ -56,7 +54,8 @@ const OrderedListItemContainer = styled.li`
 `
 
 const OrderedListItemNumber = styled.div`
-  margin-right: 0.5rem;
+  margin-right: 0.75rem;
+  margin-left: 0.25rem;
 
   position: relative;
   top: 2px;
@@ -66,7 +65,7 @@ const OrderedListItemNumber = styled.div`
 const OrderedListItem: React.FC<{ order: number }> = ({ children, order }) => (
   <OrderedListItemContainer>
     <OrderedListItemNumber>{order}.</OrderedListItemNumber>
-    <p>{children}</p>
+    {children}
   </OrderedListItemContainer>
 )
 
