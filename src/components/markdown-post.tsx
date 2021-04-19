@@ -17,6 +17,116 @@ export const MarkdownContent = styled.div`
     font-size: 1.2rem;
   }
 
+  p {
+    line-height: 1.6;
+
+    .remark-highlight + &,
+    & + .remark-highlight {
+      margin-top: 1rem;
+    }
+
+    code {
+      background-color: var(--color-bg-code);
+      padding: 0.1rem 0.3rem 0.2rem;
+      border-radius: 3px;
+      font-size: 0.9em;
+      white-space: nowrap;
+      position: relative;
+      top: -1px;
+    }
+  }
+
+  h2 {
+    font-size: 1.4em;
+    font-weight: 500;
+
+    margin-bottom: 0.5rem;
+    margin-top: 3rem;
+
+    & + p {
+      margin-top: 0;
+    }
+
+    & + ul,
+    & + ol {
+      margin-top: 1rem;
+    }
+  }
+
+  h3 {
+    font-size: 1.2em;
+    font-weight: 500;
+
+    margin-bottom: 0.5rem;
+    margin-top: 2rem;
+
+    & + p {
+      margin-top: 0;
+    }
+  }
+
+  h4 {
+    font-size: 1em;
+    text-transform: uppercase;
+    font-weight: 600;
+
+    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
+
+    & + p {
+      margin-top: 0;
+    }
+  }
+
+  ul {
+    margin-bottom: 0;
+  }
+
+  strong {
+    font-weight: 700;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  a {
+    color: var(--color-text-link);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 1px;
+  }
+
+  hr {
+    border-width: 0;
+    border-bottom-width: 2px;
+    border-color: var(--color-border-primary);
+
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+    ${PostScreenMain} & {
+      margin-left: -1.5rem;
+      margin-right: -1.5rem;
+    }
+  }
+
+  blockquote {
+    padding-left: 1rem;
+    border-left: 3px solid var(--color-text-yellow);
+
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    letter-spacing: -0.5px;
+
+    & p {
+      font-size: 0.9em;
+    }
+
+    p & {
+      margin-top: 0.5rem;
+    }
+  }
+
   ${PostScreenMain} & .remark-highlight {
     margin-left: -1.5rem;
     margin-right: -1.5rem;

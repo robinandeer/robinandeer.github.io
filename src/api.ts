@@ -5,8 +5,8 @@ import matter from 'gray-matter'
 import renderToString from 'next-mdx-remote/render-to-string'
 import prism from 'remark-prism'
 import { FrontMatter, BlogPostMetadata } from 'types'
-import { MARKDOWN_COMPONENTS } from 'markdown'
 import { MdxRemote } from 'next-mdx-remote/types'
+import { MARKDOWN_COMPONENTS } from 'markdown'
 
 const IS_NOT_PRODUCTION_BUILD = process.env.NODE_ENV !== 'production'
 

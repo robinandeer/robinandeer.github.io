@@ -1,8 +1,54 @@
 import { Global, css } from '@emotion/react'
 
-export const resetStyles = (
+const AMERICAN_SILVER = '209, 209, 209'
+const MATTE_BLACK = '23, 23, 23'
+const GHOST_WHITE = '#F6F9FF'
+const MAXIMUM_YELLOW = '#FAFA37'
+
+export const globalStyles = (
   <Global
     styles={css`
+      :root {
+        --color-bg-canvas: rgb(${AMERICAN_SILVER});
+        --color-bg-overlay: #bbbbbe;
+
+        --color-bg-code: #faf8f5;
+        --color-border-primary: #444c56;
+
+        --color-text-primary: rgb(${MATTE_BLACK});
+        --color-text-secondary: hsl(210deg 10% 40%);
+        --color-text-link: #4184e4;
+
+        --color-text-yellow: ${MAXIMUM_YELLOW};
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --color-bg-canvas: rgb(35, 35, 35);
+          --color-bg-overlay: #373e47;
+
+          --color-bg-code: rgba(255, 255, 255, 0.05);
+          --color-border-primary: #444c56;
+
+          --color-text-primary: ${GHOST_WHITE};
+          --color-text-secondary: #768390;
+        }
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+          'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+        text-rendering: optimizeLegibility;
+        -moz-osx-font-smoothing: grayscale;
+        font-feature-settings: 'calt' 'case' 'rlig';
+
+        font-size: 16px;
+        line-height: 1.5;
+
+        background-color: var(--color-bg-canvas);
+        color: var(--color-text-primary);
+      }
+
       /* Box sizing rules */
       *,
       *::before,
@@ -77,64 +123,6 @@ export const resetStyles = (
           animation-iteration-count: 1 !important;
           transition-duration: 0.01ms !important;
           scroll-behavior: auto !important;
-        }
-      }
-    `}
-  />
-)
-
-export const globalStyles = (
-  <Global
-    styles={css`
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
-          'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
-        text-rendering: optimizeLegibility;
-        -moz-osx-font-smoothing: grayscale;
-        font-feature-settings: 'calt' 'case' 'rlig';
-
-        font-size: 16px;
-        line-height: 1.5;
-
-        background-color: var(--color-bg-canvas);
-        color: var(--color-text-primary);
-      }
-    `}
-  />
-)
-
-const AMERICAN_SILVER = '209, 209, 209'
-const MATTE_BLACK = '23, 23, 23'
-const GHOST_WHITE = '#F6F9FF'
-const MAXIMUM_YELLOW = '#FAFA37'
-
-export const themeStyles = (
-  <Global
-    styles={css`
-      :root {
-        --color-bg-canvas: rgb(${AMERICAN_SILVER});
-        --color-bg-overlay: #bbbbbe;
-
-        --color-bg-code: #faf8f5;
-        --color-border-primary: #444c56;
-
-        --color-text-primary: rgb(${MATTE_BLACK});
-        --color-text-secondary: hsl(210deg 10% 40%);
-        --color-text-link: #4184e4;
-
-        --color-text-yellow: ${MAXIMUM_YELLOW};
-      }
-
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --color-bg-canvas: rgb(35, 35, 35);
-          --color-bg-overlay: #373e47;
-
-          --color-bg-code: rgba(255, 255, 255, 0.05);
-          --color-border-primary: #444c56;
-
-          --color-text-primary: ${GHOST_WHITE};
-          --color-text-secondary: #768390;
         }
       }
     `}
