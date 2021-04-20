@@ -3,10 +3,11 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 
 import { BlogPostMetadata, EncodableBlogPostMetadata } from 'types'
 import { ParsedUrlQuery } from 'querystring'
-import { getBlogPost, getBlogPostPaths } from 'api'
+import { getMarkdownRecipe, getRecipePaths } from 'api'
 import BlogPost from 'utils/blog-post'
-import PostScreen from 'screens/post'
 import { MdxRemote } from 'next-mdx-remote/types'
+import { RECIPES_PATH } from 'utils/files'
+import RecipeScreen from 'screens/recipe'
 import Head from 'next/head'
 
 interface PageProps {
@@ -19,24 +20,20 @@ interface PageParams extends ParsedUrlQuery {
 }
 
 export const getStaticProps: GetStaticProps<PageProps, PageParams> = async ({ params }) => {
-  const [markdown, data] = await getBlogPost(params.slug.join('-'))
+  const [markdown, data] = await getMarkdownRecipe(`${RECIPES_PATH}/${params.slug.join('-')}.md`)
   return { props: { markdown, data: BlogPost.jsonify(data) } }
 }
 
-export const getStaticPaths: GetStaticPaths<PageParams> = async () => {
-  const slugs = getBlogPostPaths()
+export const getStaticPaths: GetStaticPaths<PageParams> = async () => ({
+  paths: getRecipePaths().map((slug) => ({ params: { slug: slug.split('/') } })),
+  fallback: false,
+})
 
-  return {
-    paths: slugs.map((slug) => ({ params: { slug: slug.split('/') } })),
-    fallback: false,
-  }
-}
-
-const BlogPostPage: React.FC<PageProps> = ({ data, markdown }) => {
+const RecipePage: React.FC<PageProps> = ({ data, markdown }) => {
   const metadata = React.useMemo<BlogPostMetadata>(() => BlogPost.parse(data), [data])
 
   const pageTitle = `${data.title} - Robin Andeer`
-  const pageUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${data.slug}`
+  const pageUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/food/${data.slug}`
 
   return (
     <>
@@ -55,9 +52,10 @@ const BlogPostPage: React.FC<PageProps> = ({ data, markdown }) => {
         <meta name="twitter:description" content={data.intro} />
         {data.image && <meta name="twitter:image" content={data.image} />}
       </Head>
-      <PostScreen data={metadata} markdown={markdown} />
+
+      <RecipeScreen data={metadata} markdown={markdown} />
     </>
   )
 }
 
-export default BlogPostPage
+export default RecipePage

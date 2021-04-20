@@ -16,20 +16,28 @@ export const getStaticProps: GetStaticProps<PageProps> = async () => {
   return { props: { posts } }
 }
 
-const TITLE = 'Blog - Robin Andeer'
-const URL = `${process.env.NEXT_PUBLIC_SITE_URL}/blog`
+const PAGE_TITLE = 'Blog - Robin Andeer'
+const PAGE_DESCRIPTION = 'Thoughts on programming, tech, and my personal life.'
+const PAGE_URL = `${process.env.NEXT_PUBLIC_SITE_URL}/blog`
 
 const BlogPage: React.FC<PageProps> = ({ posts }) => {
   const blogPosts = React.useMemo(() => posts.map(BlogPost.parse), [posts])
   return (
     <>
       <Head>
-        <title>{TITLE}</title>
-        <link rel="canonical" href={URL} />
-        <meta property="og:url" content={URL} />
-        <meta property="og:title" content={TITLE} />
-        <meta name="twitter:title" content={TITLE} />
+        <title>{PAGE_TITLE}</title>
+        <meta name="description" content={PAGE_DESCRIPTION} />
+        <link rel="canonical" href={PAGE_URL} />
+
+        <meta property="og:title" content={PAGE_TITLE} />
+        <meta property="og:description" content={PAGE_DESCRIPTION} />
+        <meta property="og:url" content={PAGE_URL} />
+        <meta property="og:type" content="website" />
+
+        <meta name="twitter:title" content={PAGE_TITLE} />
+        <meta name="twitter:description" content={PAGE_DESCRIPTION} />
       </Head>
+
       <BlogScreen posts={blogPosts} />
     </>
   )

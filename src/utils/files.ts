@@ -11,3 +11,9 @@ export const postFilePaths = fs
   // Only include md(x) files
   .filter((fileName) => /\.mdx?$/.test(fileName))
   .map((fileName) => path.join(POSTS_PATH, fileName))
+
+export const recipeFilePaths = fs
+  .readdirSync(RECIPES_PATH)
+  // Only include md(x) files
+  .filter((fileName) => /\.mdx?$/.test(fileName))
+  .map((fileName) => path.join(RECIPES_PATH, fileName))

@@ -1,4 +1,4 @@
-import { postFilePaths, POSTS_PATH } from 'utils/files'
+import { postFilePaths, POSTS_PATH, recipeFilePaths, RECIPES_PATH } from 'utils/files'
 
 import fs from 'fs'
 import matter from 'gray-matter'
@@ -31,6 +31,11 @@ function slugifyPath(path: string) {
   return [...fileName.split('-').slice(0, 3), fileName.split('-').slice(3).join('-')].join('/')
 }
 
+function slugifyRecipePath(path: string) {
+  const fileName = path.split('/').pop().replace(/\.md$/, '')
+  return fileName.split('-').join('-')
+}
+
 function parseMetadata<Data = unknown>(path: string): [string, Data] {
   const source = fileSource(path)
   return extractData<Data>(source)
@@ -42,6 +47,10 @@ function mapFrontMatter(path: string): [string, FrontMatter, string] {
 
 function mapMetadata(content: string, data: FrontMatter, path: string): [string, BlogPostMetadata] {
   return [content, { ...data, slug: slugifyPath(path) }]
+}
+
+function mapRecipeMetadata(content: string, data: FrontMatter, path: string): [string, BlogPostMetadata] {
+  return [content, { ...data, slug: slugifyRecipePath(path) }]
 }
 
 async function mapBlogPost(content: string, data: BlogPostMetadata): Promise<[MdxRemote.Source, BlogPostMetadata]> {
@@ -72,8 +81,15 @@ export async function getBlogPost(fileName: string): Promise<[MdxRemote.Source, 
   return await mapBlogPost(content, data)
 }
 
-export async function getMarkdown(filePath: string): Promise<[MdxRemote.Source, BlogPostMetadata]> {
+export function getRecipePaths(): string[] {
+  return recipeFilePaths
+    .map(mapFrontMatter)
+    .filter(([, data]) => IS_NOT_PRODUCTION_BUILD || data.draft !== true)
+    .map(([, , path]) => slugifyRecipePath(path))
+}
+
+export async function getMarkdownRecipe(filePath: string): Promise<[MdxRemote.Source, BlogPostMetadata]> {
   const [content, frontMatter] = mapFrontMatter(filePath)
-  const [, data] = mapMetadata(content, frontMatter, filePath)
+  const [, data] = mapRecipeMetadata(content, frontMatter, filePath)
   return await mapBlogPost(content, data)
 }
