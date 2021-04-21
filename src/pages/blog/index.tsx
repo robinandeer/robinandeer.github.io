@@ -5,23 +5,34 @@ import { GetStaticProps } from 'next'
 import { EncodableBlogPostMetadata } from 'types'
 import BlogPost from 'utils/blog-post'
 import BlogScreen from 'screens/blog'
+import { getPopularBlogPosts } from 'database'
 
 interface PageProps {
   posts: EncodableBlogPostMetadata[]
+  popularPosts: EncodableBlogPostMetadata[]
 }
 
 export const getStaticProps: GetStaticProps<PageProps> = async () => {
   const result = getBlogPostPreviews()
   const posts = result.map(BlogPost.jsonify)
-  return { props: { posts } }
+  const byPopularity = await getPopularBlogPosts()
+
+  const popularPosts = byPopularity
+    .map((item) => posts.find((post) => post.slug === item.slug))
+    .filter((post) => post !== undefined)
+    .slice(0, 3)
+
+  return { props: { posts, popularPosts }, revalidate: 60 * 60 * 24 * 7 }
 }
 
 const PAGE_TITLE = 'Blog - Robin Andeer'
 const PAGE_DESCRIPTION = 'Thoughts on programming, tech, and my personal life.'
 const PAGE_URL = `${process.env.NEXT_PUBLIC_SITE_URL}/blog`
 
-const BlogPage: React.FC<PageProps> = ({ posts }) => {
+const BlogPage: React.FC<PageProps> = ({ posts, popularPosts }) => {
   const blogPosts = React.useMemo(() => posts.map(BlogPost.parse), [posts])
+  const popularBlogPosts = React.useMemo(() => popularPosts.map(BlogPost.parse), [popularPosts])
+
   return (
     <>
       <Head>
@@ -38,7 +49,7 @@ const BlogPage: React.FC<PageProps> = ({ posts }) => {
         <meta name="twitter:description" content={PAGE_DESCRIPTION} />
       </Head>
 
-      <BlogScreen posts={blogPosts} />
+      <BlogScreen posts={blogPosts} popular={popularBlogPosts} />
     </>
   )
 }

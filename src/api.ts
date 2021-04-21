@@ -1,4 +1,4 @@
-import { postFilePaths, POSTS_PATH, recipeFilePaths, RECIPES_PATH } from 'utils/files'
+import { postFilePaths, POSTS_PATH, recipeFilePaths } from 'utils/files'
 
 import fs from 'fs'
 import matter from 'gray-matter'

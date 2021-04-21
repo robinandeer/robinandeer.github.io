@@ -12,13 +12,26 @@ export const Main = styled.main`
   }
 `
 
-export const TitleContainer = styled.div`
-  display: flex;
-  justify-content: center;
+export const PageTitle = styled.h1`
+  font-size: calc(1.5rem + 3vw);
+  line-height: 1.3;
+  font-weight: 700;
+`
 
+export const TitleContainer = styled.div`
   padding-bottom: 3rem;
 
   ${mediaQuery[1]} {
     padding-bottom: 5rem;
+  }
+`
+
+export const BlogPostsContainer = styled.div`
+  & + & {
+    margin-top: 3rem;
+  }
+
+  > * + * {
+    margin-top: 0.5rem;
   }
 `
