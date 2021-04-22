@@ -27,6 +27,11 @@ const PostPreview = styled.div`
       background-color: rgba(0, 0, 0, 0.02);
     }
   }
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-text-yellow);
+  }
 `
 
 export const StyledArrowRight = styled(RiArrowRightLine)`

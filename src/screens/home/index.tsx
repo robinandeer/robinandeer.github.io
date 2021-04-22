@@ -53,7 +53,7 @@ const HomeScreen: React.FC<Props> = ({ posts }) => {
           </Text>
           <Text type="muted">
             so do try my{' '}
-            <Link passHref href="/food/sourdough-bread">
+            <Link passHref href="/food/basic-sourdough-bread">
               <Anchor>sourdough recipe</Anchor>
             </Link>
             .

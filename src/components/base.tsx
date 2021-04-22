@@ -65,7 +65,7 @@ const OrderedListItemNumber = styled.div`
 const OrderedListItem: React.FC<{ order: number }> = ({ children, order }) => (
   <OrderedListItemContainer>
     <OrderedListItemNumber>{order}.</OrderedListItemNumber>
-    {children}
+    <div>{children}</div>
   </OrderedListItemContainer>
 )
 

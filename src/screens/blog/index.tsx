@@ -1,18 +1,41 @@
 import React from 'react'
 import { BlogPostMetadata } from 'types'
-import { TitleContainer, Main, BlogPostsContainer, PageTitle } from './components'
+import { TitleContainer, Main, BlogPostsContainer, PageTitle, Input } from './components'
 import Link from 'next/link'
 import PostPreview, { StyledArrowRight } from 'components/post-preview'
 import PostPreviewList from 'components/post-preview-list'
 import Text from 'components/text'
 import PageHeader, { Navigation } from 'components/page-header'
+import useDebounce from 'utils/use-debounce'
 
 interface Props {
   posts: BlogPostMetadata[]
   popular: BlogPostMetadata[]
 }
 
+function matchPost(query: string, item: BlogPostMetadata): boolean {
+  const searchQuery = query.toLocaleLowerCase()
+  return (
+    item.title.toLowerCase().includes(searchQuery) ||
+    item.intro?.toLowerCase().includes(searchQuery) ||
+    item.tags.includes(searchQuery)
+  )
+}
+
 const BlogScreen: React.FC<Props> = ({ posts, popular }) => {
+  const [query, setQuery] = React.useState('')
+  const debouncedQuery = useDebounce(query, 300)
+
+  const filteredPosts = React.useMemo(
+    () => (debouncedQuery.length > 2 ? posts.filter((item) => matchPost(debouncedQuery, item)) : posts),
+    [debouncedQuery],
+  )
+
+  const filteredPopularPosts = React.useMemo(
+    () => (debouncedQuery.length > 2 ? popular.filter((item) => matchPost(debouncedQuery, item)) : popular),
+    [debouncedQuery],
+  )
+
   return (
     <>
       <PageHeader>
@@ -26,35 +49,44 @@ const BlogScreen: React.FC<Props> = ({ posts, popular }) => {
         <TitleContainer>
           <PageTitle>Blog</PageTitle>
           <Text type="muted">
-            I mostly cover web development and related learnings. In total, I've written {`${posts.length} `}
-            articles on this site.
+            I mostly cover web development and related learnings. In total, I&apos;ve written {`${posts.length} `}
+            articles on this site. Use the search below to filter articles.
           </Text>
+
+          <Input
+            type="search"
+            value={query}
+            onChange={({ target: { value } }) => setQuery(value)}
+            placeholder="Search articles"
+          />
         </TitleContainer>
 
-        <BlogPostsContainer>
-          <Text size="large" as="h2">
-            Most Popular ✨
-          </Text>
-          <PostPreviewList>
-            {popular.map((item) => (
-              <Link key={item.slug} href={`/blog/${item.slug}`} passHref>
-                <PostPreview as="a">
-                  <StyledArrowRight size={40} />
+        {filteredPopularPosts.length > 0 && (
+          <BlogPostsContainer>
+            <Text size="large" as="h2">
+              Most Popular ✨
+            </Text>
+            <PostPreviewList>
+              {filteredPopularPosts.map((item) => (
+                <Link key={item.slug} href={`/blog/${item.slug}`} passHref>
+                  <PostPreview as="a">
+                    <StyledArrowRight size={40} />
 
-                  <Text as="h3">{item.title}</Text>
-                  <Text type="muted">{item.intro}</Text>
-                </PostPreview>
-              </Link>
-            ))}
-          </PostPreviewList>
-        </BlogPostsContainer>
+                    <Text as="h3">{item.title}</Text>
+                    <Text type="muted">{item.intro}</Text>
+                  </PostPreview>
+                </Link>
+              ))}
+            </PostPreviewList>
+          </BlogPostsContainer>
+        )}
 
         <BlogPostsContainer>
           <Text size="large" as="h2">
             All Articles 🗃
           </Text>
           <PostPreviewList>
-            {posts.map((item) => (
+            {filteredPosts.map((item) => (
               <Link key={item.slug} href={`/blog/${item.slug}`} passHref>
                 <PostPreview as="a">
                   <StyledArrowRight size={40} />
