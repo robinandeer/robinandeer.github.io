@@ -6,6 +6,7 @@ import { EncodableBlogPostMetadata } from 'types'
 import BlogPost from 'utils/blog-post'
 import BlogScreen from 'screens/blog'
 import { getPopularBlogPosts } from 'database'
+import SocialTags from 'components/social-tags'
 
 interface PageProps {
   posts: EncodableBlogPostMetadata[]
@@ -36,17 +37,7 @@ const BlogPage: React.FC<PageProps> = ({ posts, popularPosts }) => {
   return (
     <>
       <Head>
-        <title>{PAGE_TITLE}</title>
-        <meta name="description" content={PAGE_DESCRIPTION} />
-        <link rel="canonical" href={PAGE_URL} />
-
-        <meta property="og:title" content={PAGE_TITLE} />
-        <meta property="og:description" content={PAGE_DESCRIPTION} />
-        <meta property="og:url" content={PAGE_URL} />
-        <meta property="og:type" content="website" />
-
-        <meta name="twitter:title" content={PAGE_TITLE} />
-        <meta name="twitter:description" content={PAGE_DESCRIPTION} />
+        <SocialTags title={PAGE_TITLE} description={PAGE_DESCRIPTION} url={PAGE_URL} type="website" />
       </Head>
 
       <BlogScreen posts={blogPosts} popular={popularBlogPosts} />

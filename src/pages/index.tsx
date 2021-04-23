@@ -6,6 +6,7 @@ import { EncodableBlogPostMetadata } from 'types'
 import BlogPost from 'utils/blog-post'
 import Head from 'next/head'
 import { SITE_TITLE, SITE_DESCRIPTION } from 'config'
+import SocialTags from 'components/social-tags'
 
 interface PageProps {
   posts: EncodableBlogPostMetadata[]
@@ -22,17 +23,12 @@ const IndexPage: React.FC<PageProps> = ({ posts }) => {
   return (
     <>
       <Head>
-        <title>{SITE_TITLE}</title>
-        <meta name="description" content={SITE_DESCRIPTION} />
-        <link rel="canonical" href={process.env.NEXT_PUBLIC_SITE_URL} />
-
-        <meta property="og:title" content={SITE_TITLE} />
-        <meta property="og:description" content={SITE_DESCRIPTION} />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={process.env.NEXT_PUBLIC_SITE_URL} />
-
-        <meta name="twitter:title" content={SITE_TITLE} />
-        <meta name="twitter:description" content={SITE_DESCRIPTION} />
+        <SocialTags
+          title={SITE_TITLE}
+          description={SITE_DESCRIPTION}
+          url={process.env.NEXT_PUBLIC_SITE_URL}
+          type="website"
+        />
       </Head>
       <HomeScreen posts={blogPosts} />
     </>

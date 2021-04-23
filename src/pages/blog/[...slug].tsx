@@ -8,6 +8,7 @@ import BlogPost from 'utils/blog-post'
 import PostScreen from 'screens/post'
 import { MdxRemote } from 'next-mdx-remote/types'
 import Head from 'next/head'
+import SocialTags from 'components/social-tags'
 
 interface PageProps {
   data: EncodableBlogPostMetadata
@@ -41,19 +42,7 @@ const BlogPostPage: React.FC<PageProps> = ({ data, markdown }) => {
   return (
     <>
       <Head>
-        <title>{pageTitle}</title>
-        <meta name="description" content={data.intro} />
-        <link rel="canonical" href={pageUrl} />
-
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={data.intro} />
-        {data.image && <meta property="og:image" content={data.image} />}
-        <meta property="og:url" content={pageUrl} />
-        <meta property="og:type" content="article" />
-
-        <meta name="twitter:title" content={pageTitle} />
-        <meta name="twitter:description" content={data.intro} />
-        {data.image && <meta name="twitter:image" content={data.image} />}
+        <SocialTags title={pageTitle} description={data.intro} url={pageUrl} type="article" image={data.image} />
       </Head>
       <PostScreen data={metadata} markdown={markdown} />
     </>
