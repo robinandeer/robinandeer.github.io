@@ -1,5 +1,5 @@
 import React from 'react'
-import { BlogPostMetadata } from 'types'
+import { MarkdownMetadata } from 'types'
 import { TitleContainer, Main, BlogPostsContainer, PageTitle, Input } from './components'
 import Link from 'next/link'
 import PostPreview, { StyledArrowRight } from 'components/post-preview'
@@ -8,8 +8,8 @@ import Text from 'components/text'
 import PageHeader, { Navigation } from 'components/page-header'
 
 interface Props {
-  posts: BlogPostMetadata[]
-  popular: BlogPostMetadata[]
+  posts: MarkdownMetadata[]
+  popular: MarkdownMetadata[]
 }
 
 function useDebounce<T>(value: T, delay: number): T {
@@ -23,7 +23,7 @@ function useDebounce<T>(value: T, delay: number): T {
   return internalValue
 }
 
-function matchPost(query: string, item: BlogPostMetadata): boolean {
+function matchPost(query: string, item: MarkdownMetadata): boolean {
   const searchQuery = query.toLocaleLowerCase()
   return (
     item.title.toLowerCase().includes(searchQuery) ||

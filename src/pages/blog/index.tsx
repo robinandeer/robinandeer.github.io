@@ -1,21 +1,23 @@
 import React from 'react'
 import Head from 'next/head'
-import { getBlogPostPreviews } from 'api'
 import { GetStaticProps } from 'next'
-import { EncodableBlogPostMetadata } from 'types'
-import BlogPost from 'utils/blog-post'
+
+import { EncodableMarkdownMetadata } from 'types'
+import getPopularBlogPosts from 'database/get-popular-blog-posts'
+import Markdown from 'markdown'
+import MarkdownSerializer from 'markdown/serialize'
 import BlogScreen from 'screens/blog'
-import { getPopularBlogPosts } from 'database'
 import SocialTags from 'components/social-tags'
 
+import { BLOG_POSTS_PATH } from 'config'
+
 interface PageProps {
-  posts: EncodableBlogPostMetadata[]
-  popularPosts: EncodableBlogPostMetadata[]
+  posts: EncodableMarkdownMetadata[]
+  popularPosts: EncodableMarkdownMetadata[]
 }
 
 export const getStaticProps: GetStaticProps<PageProps> = async () => {
-  const result = getBlogPostPreviews()
-  const posts = result.map(BlogPost.jsonify)
+  const posts = Markdown.getFiles(BLOG_POSTS_PATH).map(MarkdownSerializer.jsonify)
   const byPopularity = await getPopularBlogPosts()
 
   const popularPosts = byPopularity
@@ -31,8 +33,8 @@ const PAGE_DESCRIPTION = 'Thoughts on programming, tech, and my personal life.'
 const PAGE_URL = `${process.env.NEXT_PUBLIC_SITE_URL}/blog`
 
 const BlogPage: React.FC<PageProps> = ({ posts, popularPosts }) => {
-  const blogPosts = React.useMemo(() => posts.map(BlogPost.parse), [posts])
-  const popularBlogPosts = React.useMemo(() => popularPosts.map(BlogPost.parse), [popularPosts])
+  const blogPosts = React.useMemo(() => posts.map(MarkdownSerializer.parse), [posts])
+  const popularBlogPosts = React.useMemo(() => popularPosts.map(MarkdownSerializer.parse), [popularPosts])
 
   return (
     <>

@@ -1,25 +1,27 @@
 import React from 'react'
-import { getBlogPostPreviews } from 'api'
 import { GetStaticProps } from 'next'
-import HomeScreen from 'screens/home'
-import { EncodableBlogPostMetadata } from 'types'
-import BlogPost from 'utils/blog-post'
 import Head from 'next/head'
-import { SITE_TITLE, SITE_DESCRIPTION } from 'config'
+
+import { EncodableMarkdownMetadata } from 'types'
+import Markdown from 'markdown'
+import MarkdownSerializer from 'markdown/serialize'
+import HomeScreen from 'screens/home'
 import SocialTags from 'components/social-tags'
 
+import { SITE_TITLE, SITE_DESCRIPTION, BLOG_POSTS_PATH } from 'config'
+
 interface PageProps {
-  posts: EncodableBlogPostMetadata[]
+  posts: EncodableMarkdownMetadata[]
 }
 
 export const getStaticProps: GetStaticProps<PageProps> = async () => {
-  const result = getBlogPostPreviews()
-  const posts = result.slice(0, 3).map(BlogPost.jsonify)
+  const posts = Markdown.getFiles(BLOG_POSTS_PATH).slice(0, 3).map(MarkdownSerializer.jsonify)
   return { props: { posts } }
 }
 
 const IndexPage: React.FC<PageProps> = ({ posts }) => {
-  const blogPosts = React.useMemo(() => posts.map(BlogPost.parse), [posts])
+  const blogPosts = React.useMemo(() => posts.map(MarkdownSerializer.parse), [posts])
+
   return (
     <>
       <Head>

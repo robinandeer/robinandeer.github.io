@@ -1,11 +1,18 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { BlogPostMetadata } from 'types'
-import { parseJSX } from 'markdown'
+import { MarkdownMetadata } from 'types'
 import { MdxRemote } from 'next-mdx-remote/types'
+import hydrate from 'next-mdx-remote/hydrate'
 import { Main as PostScreenMain } from 'screens/post/components'
 import { mediaQuery } from 'styles/theme'
 import Text from './text'
+import { ListItem, OrderedList, ProseImage } from './base'
+
+export const MARKDOWN_COMPONENTS = {
+  Image: ProseImage,
+  li: ListItem,
+  ol: OrderedList,
+}
 
 export const MarkdownContainer = styled.div``
 
@@ -174,12 +181,12 @@ function formatDate(date: Date): string {
 }
 
 interface Props {
-  data: BlogPostMetadata
+  data: MarkdownMetadata
   markdown: MdxRemote.Source
 }
 
 const MarkdownPost: React.FC<Props> = ({ data, markdown }) => {
-  const content = parseJSX(markdown)
+  const content = hydrate(markdown, { components: MARKDOWN_COMPONENTS })
 
   return (
     <MarkdownContainer>

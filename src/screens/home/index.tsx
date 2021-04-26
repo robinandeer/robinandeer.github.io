@@ -1,5 +1,5 @@
 import React from 'react'
-import { BlogPostMetadata } from 'types'
+import { MarkdownMetadata } from 'types'
 import { Main, HomeSection, SectionAside, SectionBody } from './components'
 import Link from 'next/link'
 import TwitterLogo from 'components/twitter-logo'
@@ -13,7 +13,7 @@ import PostPreviewList from 'components/post-preview-list'
 import PostPreview, { StyledArrowRight } from 'components/post-preview'
 
 interface Props {
-  posts: BlogPostMetadata[]
+  posts: MarkdownMetadata[]
 }
 
 const HomeScreen: React.FC<Props> = ({ posts }) => {
@@ -53,7 +53,7 @@ const HomeScreen: React.FC<Props> = ({ posts }) => {
           </Text>
           <Text type="muted">
             so do try my{' '}
-            <Link passHref href="/food/basic-sourdough-bread">
+            <Link passHref href="/food/2021/04/15/basic-sourdough-bread">
               <Anchor>sourdough recipe</Anchor>
             </Link>
             .

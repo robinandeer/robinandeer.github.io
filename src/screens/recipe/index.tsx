@@ -1,5 +1,5 @@
 import React from 'react'
-import { BlogPostMetadata } from 'types'
+import { MarkdownMetadata } from 'types'
 import MarkdownPost from 'components/markdown-post'
 import { Main } from '../post/components'
 import { MdxRemote } from 'next-mdx-remote/types'
@@ -8,7 +8,7 @@ import Link from 'next/link'
 import PageHeader, { Navigation } from 'components/page-header'
 
 interface Props {
-  data: BlogPostMetadata
+  data: MarkdownMetadata
   markdown: MdxRemote.Source
 }
 
