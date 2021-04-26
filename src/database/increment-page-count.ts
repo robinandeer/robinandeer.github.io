@@ -1,3 +1,14 @@
+import client from './client'
+
+export async function incrementPageCount(url: string): Promise<void> {
+  const [year, week] = getWeekNumber()
+  await client.incr(getPageKey(url, year, week))
+}
+
+function getPageKey(url: string, year: number, week: number): string {
+  return `page:${url}:${year}-${week}`
+}
+
 /* For a given date, get the ISO week number
  *
  * Based on information at:

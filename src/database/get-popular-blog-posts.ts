@@ -1,13 +1,11 @@
-import Redis from 'ioredis'
+import client from './client'
 
 interface PageStats {
   slug: string
   views: number
 }
 
-const client = new Redis(process.env.REDIS_CONNECTION_STRING)
-
-export async function getPopularBlogPosts(): Promise<PageStats[]> {
+export default async function getPopularBlogPosts(): Promise<PageStats[]> {
   const keys = await client.keys('page:/blog/*')
   const values = await client.mget(keys)
 

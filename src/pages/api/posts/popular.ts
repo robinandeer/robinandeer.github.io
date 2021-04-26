@@ -1,4 +1,4 @@
-import { getPopularBlogPosts } from 'database'
+import getPopularBlogPosts from 'database/get-popular-blog-posts'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {

@@ -6,11 +6,21 @@ import PostPreview, { StyledArrowRight } from 'components/post-preview'
 import PostPreviewList from 'components/post-preview-list'
 import Text from 'components/text'
 import PageHeader, { Navigation } from 'components/page-header'
-import useDebounce from 'utils/use-debounce'
 
 interface Props {
   posts: BlogPostMetadata[]
   popular: BlogPostMetadata[]
+}
+
+function useDebounce<T>(value: T, delay: number): T {
+  const [internalValue, setInternalValue] = React.useState(value)
+
+  React.useEffect(() => {
+    const handler = setTimeout(() => setInternalValue(value), delay)
+    return () => clearTimeout(handler)
+  }, [value, delay])
+
+  return internalValue
 }
 
 function matchPost(query: string, item: BlogPostMetadata): boolean {
