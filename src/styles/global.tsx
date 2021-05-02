@@ -37,6 +37,10 @@ export const globalStyles = (
         }
       }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
           'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
