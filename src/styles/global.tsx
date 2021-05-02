@@ -13,7 +13,7 @@ export const globalStyles = (
         --color-bg-canvas: rgb(${AMERICAN_SILVER});
         --color-bg-overlay: #bbbbbe;
 
-        --color-bg-code: #faf8f5;
+        --color-bg-code: rgb(49, 51, 76);
         --color-border-primary: #444c56;
 
         --color-text-primary: rgb(${MATTE_BLACK});
@@ -29,7 +29,6 @@ export const globalStyles = (
           --color-bg-canvas: rgb(35, 35, 35);
           --color-bg-overlay: #373e47;
 
-          --color-bg-code: rgba(255, 255, 255, 0.05);
           --color-border-primary: #444c56;
 
           --color-text-primary: ${GHOST_WHITE};
