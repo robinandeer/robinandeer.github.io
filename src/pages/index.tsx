@@ -1,6 +1,5 @@
 import React from 'react'
 import { GetStaticProps } from 'next'
-import Head from 'next/head'
 
 import { EncodableMarkdownMetadata } from 'types'
 import Markdown from 'markdown'
@@ -24,14 +23,12 @@ const IndexPage: React.FC<PageProps> = ({ posts }) => {
 
   return (
     <>
-      <Head>
-        <SocialTags
-          title={SITE_TITLE}
-          description={SITE_DESCRIPTION}
-          url={process.env.NEXT_PUBLIC_SITE_URL}
-          type="website"
-        />
-      </Head>
+      <SocialTags
+        title={SITE_TITLE}
+        description={SITE_DESCRIPTION}
+        url={process.env.NEXT_PUBLIC_SITE_URL}
+        type="website"
+      />
       <HomeScreen posts={blogPosts} />
     </>
   )

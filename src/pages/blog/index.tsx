@@ -1,5 +1,4 @@
 import React from 'react'
-import Head from 'next/head'
 import { GetStaticProps } from 'next'
 
 import { EncodableMarkdownMetadata } from 'types'
@@ -38,10 +37,7 @@ const BlogPage: React.FC<PageProps> = ({ posts, popularPosts }) => {
 
   return (
     <>
-      <Head>
-        <SocialTags title={PAGE_TITLE} description={PAGE_DESCRIPTION} url={PAGE_URL} type="website" />
-      </Head>
-
+      <SocialTags title={PAGE_TITLE} description={PAGE_DESCRIPTION} url={PAGE_URL} type="website" />
       <BlogScreen posts={blogPosts} popular={popularBlogPosts} />
     </>
   )

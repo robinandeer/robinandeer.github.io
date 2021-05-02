@@ -1,5 +1,4 @@
 import React from 'react'
-import Head from 'next/head'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 import { MdxRemote } from 'next-mdx-remote/types'
@@ -45,9 +44,7 @@ const BlogPostPage: React.FC<PageProps> = ({ data, markdown }) => {
 
   return (
     <>
-      <Head>
-        <SocialTags title={pageTitle} description={data.intro} url={pageUrl} type="article" image={data.image} />
-      </Head>
+      <SocialTags title={pageTitle} description={data.intro} url={pageUrl} type="article" image={data.image} />
       <PostScreen data={metadata} markdown={markdown} />
     </>
   )

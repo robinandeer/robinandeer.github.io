@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import { SITE_BANNER } from 'config'
 
 interface Props {
@@ -12,7 +13,7 @@ export default function SocialTags(props: Props): JSX.Element {
   const { title, description, image = SITE_BANNER, url, type } = props
 
   return (
-    <>
+    <Head>
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={url} />
@@ -26,6 +27,6 @@ export default function SocialTags(props: Props): JSX.Element {
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
-    </>
+    </Head>
   )
 }
