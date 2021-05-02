@@ -2,7 +2,7 @@
 title: My Brief History of Programming Principles
 category: thoughts
 author: Robin Andeer
-date: 2021-04-29
+date: 2021-05-02
 tags: thoughts, programming, dry, aha programming, zen of python
 intro: A discussion on the programming principles that have influenced me most of the years.
 image: /images/programming-principles-banner.jpg
