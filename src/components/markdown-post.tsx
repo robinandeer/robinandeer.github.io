@@ -26,6 +26,7 @@ export const MarkdownContent = styled.div`
 
   p {
     line-height: 1.6;
+    color: var(--color-text-body);
 
     .remark-highlight + &,
     & + .remark-highlight {
@@ -43,7 +44,26 @@ export const MarkdownContent = styled.div`
     }
   }
 
+  h2,
+  h3 {
+    & > a {
+      opacity: 0;
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      margin-left: 0.5rem;
+
+      ::after {
+        content: '#';
+      }
+    }
+
+    &:hover a {
+      opacity: 1;
+    }
+  }
+
   h2 {
+    color: var(--color-text-primary);
     font-size: 1.4em;
     font-weight: 500;
 
@@ -61,6 +81,7 @@ export const MarkdownContent = styled.div`
   }
 
   h3 {
+    color: var(--color-text-primary);
     font-size: 1.2em;
     font-weight: 500;
 
@@ -73,6 +94,7 @@ export const MarkdownContent = styled.div`
   }
 
   h4 {
+    color: var(--color-text-primary);
     font-size: 1em;
     text-transform: uppercase;
     font-weight: 600;
@@ -127,11 +149,11 @@ export const MarkdownContent = styled.div`
     font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
     letter-spacing: -0.5px;
 
-    & p {
+    & > p {
       font-size: 0.9em;
     }
 
-    p & {
+    p + & {
       margin-top: 0.5rem;
     }
   }

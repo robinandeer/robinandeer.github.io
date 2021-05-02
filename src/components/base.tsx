@@ -35,6 +35,10 @@ const UnorderedListItemIcon = styled(HiArrowNarrowRight)`
 const UnorderedListItemContent = styled.div`
   position: relative;
   top: -0.3rem;
+
+  > * + * {
+    margin-top: 1em;
+  }
 `
 
 const UnorderedListItem: React.FC = ({ children }) => (

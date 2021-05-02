@@ -4,6 +4,7 @@ import { breakpoint, mediaQuery } from 'styles/theme'
 const PageHeader = styled.header`
   background-color: var(--color-bg-overlay);
   height: 4rem;
+
   display: flex;
   align-items: center;
 `
@@ -26,6 +27,11 @@ export const Navigation = styled.nav`
     gap: 1rem;
     grid-auto-flow: column;
     justify-content: flex-start;
+  }
+
+  ${PageHeader} & {
+    position: relative;
+    top: -3px;
   }
 `
 

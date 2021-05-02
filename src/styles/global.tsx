@@ -3,6 +3,7 @@ import { Global, css } from '@emotion/react'
 const AMERICAN_SILVER = '209, 209, 209'
 const MATTE_BLACK = '23, 23, 23'
 const GHOST_WHITE = '#F6F9FF'
+const GHOST_WHITE_BODY = 'hsl(218deg 80% 98% / 90%)'
 const MAXIMUM_YELLOW = '#FAFA37'
 
 export const globalStyles = (
@@ -18,6 +19,7 @@ export const globalStyles = (
         --color-text-primary: rgb(${MATTE_BLACK});
         --color-text-secondary: hsl(210deg 10% 40%);
         --color-text-link: #4184e4;
+        --color-text-body: rgba(${MATTE_BLACK}, 0.9);
 
         --color-text-yellow: ${MAXIMUM_YELLOW};
       }
@@ -31,7 +33,8 @@ export const globalStyles = (
           --color-border-primary: #444c56;
 
           --color-text-primary: ${GHOST_WHITE};
-          --color-text-secondary: #768390;
+          --color-text-secondary: #808b99;
+          --color-text-body: ${GHOST_WHITE_BODY};
         }
       }
 
