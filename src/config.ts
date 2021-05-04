@@ -6,3 +6,5 @@ export const SITE_BANNER = '/icons/banner.png'
 
 export const BLOG_POSTS_PATH = path.join(process.cwd(), 'posts')
 export const RECIPES_PATH = path.join(process.cwd(), 'recipes')
+
+export const CHANGELOG_PATH = path.join(process.cwd(), 'CHANGELOG.md')

@@ -3,7 +3,7 @@ import renderToString from 'next-mdx-remote/render-to-string'
 import prism from 'remark-prism'
 import autolinkHeadings from 'rehype-autolink-headings'
 import slug from 'rehype-slug'
-import { MARKDOWN_COMPONENTS } from 'components/markdown-post'
+import { MARKDOWN_COMPONENTS } from 'components/markdown-content'
 
 export async function convertMarkdown(content: string): Promise<MdxRemote.Source> {
   return await renderToString(content, {
