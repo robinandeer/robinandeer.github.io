@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: robinandeer.com
+Token: 03cc5337cdb09c2d01d198dbb4c36605451393d80f2b8fa769a0bd872bdd9a05
