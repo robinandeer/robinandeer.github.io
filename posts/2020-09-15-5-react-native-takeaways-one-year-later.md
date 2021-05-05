@@ -6,6 +6,9 @@ date: 2020-09-29
 tags: reflection, javascript, react native, native, app
 intro: Learnings and tips to work productively with React Native.
 image: /images/react-native-like-dislike.png
+imageAlt: React Native logo with like and dislike icons
+imageWidth: 1012
+imageHeight: 506
 ---
 
 > This article was originally posted on the [Futurice Blog](https://futurice.com/blog/5-react-native-takeaways-one-year-later).
@@ -13,14 +16,6 @@ image: /images/react-native-like-dislike.png
 One year ago, I left my comfortable web development groove to build a new cross-platform mobile app for a large Nordic bank. Since then, I've faced many new professional challenges working side-by-side with [Deniz Eroglu](https://github.com/denizeroglu), an experienced iOS-developer.
 
 Since this is my first professional mobile app and React Native project, I wanted to share my learnings so far. I hope it will be a valuable read for any existing or prospective React Native developers. Read on for the takeaways.
-
-<Image
-  src="/images/react-native-like-dislike.png"
-  alt="React Native logo with like and dislike icons"
-  width={1012 }
-  height={ 506}
-  layout="responsive"
-/>
 
 ## 1. Look for insider information
 

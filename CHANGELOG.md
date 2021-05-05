@@ -4,7 +4,13 @@ All notable changes to this website will be documented here.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## 2.6.0 - 2021-05-05
+## 2.6.1 - 2021-05-05
+
+### Changed
+
+- Updated blog post layout with intro image
+
+## 2.6.0 - 2021-05-04
 
 ### Added
 

@@ -5,15 +5,11 @@ author: Robin Andeer
 date: 2016-08-26
 tags: reflections, docker, containers, orchestration
 intro: Notes from my favorite talks at the 2016 conference.
+image: /images/day-of-containers/intro.jpg
+imageAlt: Day of Containers intro
+imageWidth: 1200
+imageHeight: 651
 ---
-
-<Image
-  src="/images/day-of-containers/intro.jpg"
-  alt="Day of Containers intro"
-  width={1200 }
-  height={ 651}
-  layout="responsive"
-/>
 
 > If you are naming your servers, you are doing it wrong. Don't treat your servers as pets! Treat them more like cattle. I'm sorry to say but if one cow gets sick - you kill it for the good of the flock. -- [@vfarcic][vfarcic]
 

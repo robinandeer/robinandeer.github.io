@@ -28,6 +28,9 @@ export interface FrontMatter {
   tags: string
   intro?: string
   image?: string
+  imageHeight?: number
+  imageWidth?: number
+  imageAlt?: string
   draft?: boolean
 }
 

@@ -6,6 +6,9 @@ date: 2020-11-01
 tags: tutorial, javascript, react, nextjs, tailwind
 intro: A step-by-step guide to setup TypeScript, Next.js, Tailwind CSS, ESLint, and Testing Library in 2020.
 image: /images/web-project-intro.png
+imageAlt: Graph of web frameworks
+imageWidth: 2024
+imageHeight: 1012
 ---
 
 **tl;dr**: the complete example repo is here: <https://github.com/robinandeer/web-project>.
@@ -23,14 +26,6 @@ This post will be a no-nonsense step-by-step setup guide to start a new web proj
 - [Jest](https://jestjs.io/) + [Testing Library](https://testing-library.com/)
 
 Let's get started!
-
-<Image
-  src="/images/web-project-intro.png"
-  alt="Graph of web frameworks"
-  width={2024 }
-  height={1012}
-  layout="responsive"
-/>
 
 ## Create a new project
 

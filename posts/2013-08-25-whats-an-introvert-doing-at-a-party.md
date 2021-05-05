@@ -4,15 +4,11 @@ category: reflections
 author: Robin Andeer
 date: 2013-08-25
 tags: thought
+image: /images/introvert-banner.png
+imageAlt: Introvert backdrop
+imageWidth: 1600
+imageHeight: 671
 ---
-
-<Image
-  src="/images/introvert-banner.png"
-  alt="Introvert backdrop"
-  width={1600 }
-  height={671}
-  layout="responsive"
-/>
 
 > tl;dr Don’t feel like reading? Google “Susan Cain” and watch her TED talk.
 

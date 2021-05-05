@@ -4,20 +4,14 @@ category: tutorial
 author: Robin Andeer
 date: 2017-03-06
 tags: tutorial, python, debugging
-
 intro: Learn valuable debugging skills in Python to track down errors quickly.
 image: /images/debug.png
+imageAlt: Debugging Python
+imageWidth: 1920
+imageHeight: 800
 ---
 
 The more code you write, the more time you also spend tracking down errors. That's why it's worthwhile to learn some debugging-skills!
-
-<Image
-  src="/images/debug.png"
-  alt="Debugging Python"
-  width={1920 }
-  height={800}
-  layout="responsive"
-/>
 
 ## Pre-empting errors
 

@@ -6,6 +6,9 @@ date: 2021-05-02
 tags: thoughts, programming, dry, aha programming, zen of python
 intro: A discussion on the programming principles that have influenced me most of the years.
 image: /images/programming-principles-banner.jpg
+imageHeight: 882
+imageWidth: 1600
+imageAlt: Space background with direction sign
 ---
 
 It's not hard to debunk cliched phrases like _Don't repeat yourself_. It's clear they don't apply across all possible scenarios, however, they've still guided and shaped me as a developer.
@@ -18,14 +21,6 @@ I want to discuss a few programming principles that have influenced me, in chron
 - [Optimizing for testability](#optimizing-for-testability)
 - [AHA programming - Avoid Hasty Abstractions](#aha-programming---avoid-hasty-abstractions)
 - [Optimizing for deleteability](#optimizing-for-deleteability)
-
-<Image
-  src="/images/programming-principles-banner.jpg"
-  alt="Space background with direction sign"
-  width={1600 }
-  height={882}
-  layout="responsive"
-/>
 
 ## DRY - Don't repeat yourself
 

@@ -1,11 +1,12 @@
 import styled from '@emotion/styled'
-import { breakpoint, mediaQuery } from 'styles/theme'
+import { mediaQuery } from 'styles/theme'
 
 export const Main = styled.main`
-  padding: 10vw 1.5rem;
+  padding: 5vw 1.5rem;
 
-  max-width: ${breakpoint[3]}px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   ${mediaQuery[1]} {
     padding-left: 3rem;

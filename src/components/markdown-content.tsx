@@ -13,7 +13,6 @@ export const MARKDOWN_COMPONENTS = {
 }
 
 const StyledContainer = styled.div`
-  max-width: 45rem;
   font-size: 1.1rem;
 
   ${mediaQuery[2]} {
