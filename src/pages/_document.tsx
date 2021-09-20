@@ -1,48 +1,50 @@
-import Document, { Head, Html, Main, NextScript } from 'next/document'
-
-import React from 'react'
+import Document, {Html, Head, Main, NextScript} from 'next/document';
+import type {DocumentContext} from 'next/document';
 
 class MyDocument extends Document {
-  render(): JSX.Element {
-    return (
-      <Html lang="en">
-        <Head>
-          <meta httpEquiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	static async getInitialProps(context: DocumentContext) {
+		const initialProps = await Document.getInitialProps(context);
+		return {...initialProps};
+	}
 
-          <link href="/site.webmanifest" rel="manifest" />
+	render() {
+		return (
+			<Html lang="en">
+				<Head>
+					<link href="/site.webmanifest" rel="manifest" />
 
-          {/* SEO */}
+					{/* SEO */}
           <meta name="robots" content="follow, index" />
-          <meta name="keywords" content="tech,javascript,react,blog,robinandeer,sourdough bread" key="keywords" />
+          <meta name="keywords" content="tech,javascript,react,blog,robinandeer" key="keywords" />
 
-          {/* Social */}
+					{/* Social */}
           <meta property="og:site_name" content="Robin Andeer" />
 
-          <meta name="twitter:card" content="summary_large_image" />
+					<meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:site" content="@robinandeer" />
 
-          {/* Favicons */}
+					{/* Favicons */}
           <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg" />
           <link rel="icon" sizes="32x32" type="image/png" href="/icons/favicon-32x32.png" />
           <link rel="icon" sizes="16x16" type="image/png" href="/icons/favicon-16x16.png" />
           <link rel="alternate icon" href="/icons/favicon.ico" />
-          <link rel="mask-icon" href="/icons/favicon.svg" color="#D1D1D1" />
+					<link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#fff" />
           <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
 
           {/* Theme */}
-          <meta name="theme-color" content="#D1D1D1" />
-          <meta name="msapplication-TileColor" content="#D1D1D1" />
+          <meta name="theme-color" content="#fff"/>
+          <meta name="msapplication-TileColor" content="#fff" />
 
           {/* Splitbee */}
           <script async src="https://cdn.splitbee.io/sb.js" />
-        </Head>
-        <body>
-          <Main />
-          <NextScript />
-        </body>
-      </Html>
-    )
-  }
+				</Head>
+				<body>
+					<Main/>
+					<NextScript/>
+				</body>
+			</Html>
+		);
+	}
 }
 
-export default MyDocument
+export default MyDocument;

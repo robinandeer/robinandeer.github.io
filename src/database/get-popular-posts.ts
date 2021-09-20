@@ -5,13 +5,18 @@ interface PageStats {
   views: number
 }
 
-export default async function getPopularBlogPosts(): Promise<PageStats[]> {
+export default async function getPopularPosts(): Promise<PageStats[]> {
   const keys = await client.keys('page:/blog/*')
   const values = await client.mget(keys)
 
   const groupedStats = keys.reduce<{ [key: string]: number }>((data, key, index) => {
     const slug = key.split(':')[1].replace('/blog/', '')
-    data[slug] = parseInt(values[index])
+
+    const pageValue = values[index]
+    if (pageValue) {
+      data[slug] = parseInt(pageValue)
+    }
+
     return data
   }, {})
 

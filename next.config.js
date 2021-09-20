@@ -1,8 +1,5 @@
 module.exports = {
-  images: {
-    domains: ['i.imgur.com'],
-  },
-  future: {
-    webpack5: true,
-  },
-}
+	experimental: {esmExternals: true, scrollRestoration: true},
+	reactStrictMode: true,
+	webpack5: true,
+};

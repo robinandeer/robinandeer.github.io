@@ -1,10 +1,10 @@
-import '../styles/prism-duotone.css'
-
+import 'styles/global.css';
+import 'styles/prism-duotone.css';
 import React from 'react'
-import { AppProps } from 'next/app'
-import Head from 'next/head'
-import { globalStyles } from 'styles/global'
-import { useRouter } from 'next/router'
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import type {AppProps} from 'next/app';
+import type {FC} from 'react';
 
 const logPageVisit = async (url: string) => {
   if (process.env.NODE_ENV === 'production') {
@@ -20,28 +20,26 @@ const logPageVisit = async (url: string) => {
   }
 }
 
-export default function App({ Component, pageProps }: AppProps): JSX.Element {
-  const router = useRouter()
+const MyApp: FC<AppProps> = ({Component, pageProps}) => {
+	const router = useRouter()
 
   React.useEffect(() => {
     logPageVisit(router.asPath)
-
     router.events.on('routeChangeStart', logPageVisit)
     return () => router.events.off('routeChangeStart', logPageVisit)
   }, [])
 
-  return (
-    <>
-      <Head>
-        <meta
+	return (
+		<>
+			<Head>
+				<meta
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover, minimal-ui"
         />
-      </Head>
-
-      {globalStyles}
-
-      <Component {...pageProps} />
-    </>
-  )
+			</Head>
+			<Component {...pageProps}/>
+		</>
+	)
 }
+
+export default MyApp;

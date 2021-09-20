@@ -3,7 +3,7 @@ import { SITE_BANNER } from 'config'
 
 interface Props {
   title: string
-  description: string
+  description?: string
   image?: string
   url: string
   type: 'article' | 'website'

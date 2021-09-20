@@ -1,4 +1,4 @@
-import { incrementPageCount } from 'database/increment-page-count'
+import incrementPageCount from 'database/increment-page-count'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {

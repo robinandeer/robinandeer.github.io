@@ -4,6 +4,8 @@ intro: Easy bake recipe that you can vary with any seeds, nuts, that strikes you
 date: 2021-04-15
 ---
 
+Based on: https://www.youtube.com/watch?v=hNzJLP61nnQ
+
 This is my base sourdough bread recipe. My go to. When folding it up, I like to get creative with seeds or spice it up with [ssamjang](https://mykoreankitchen.com/ssamjang-sauce/).
 
 ## Instructions - One loaf

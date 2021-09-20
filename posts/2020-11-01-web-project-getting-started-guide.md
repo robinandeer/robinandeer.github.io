@@ -11,7 +11,7 @@ imageWidth: 2024
 imageHeight: 1012
 ---
 
-**tl;dr**: the complete example repo is here: <https://github.com/robinandeer/web-project>.
+**tl;dr**: the complete example repo is here: [robinandeer/web-project](https://github.com/robinandeer/web-project).
 
 I dislike using templates when I start new projects. The boilerplate code makes it hard to understand how all the pieces fit together. Taking the time to integrate the different tools really feels worth it to me. That way, I'm also confident that I stay up-to-date with the latest good practices.
 
@@ -443,7 +443,7 @@ yarn test-all
 
 That's it! Hopefully I managed to demystify how to setup a new web project just a little bit. Your preferred setup might differ slightly but you should still be able to jump into the section that interests you. If you do get stuck, I recommend you turn to the official [Next.js examples](https://github.com/vercel/next.js/tree/canary/examples).
 
-The complete example repo can be found here: <https://github.com/robinandeer/web-project>.
+The complete example repo can be found here: [robinandeer/web-project](https://github.com/robinandeer/web-project).
 
 Big thanks to the following resources that helped me out a lot:
 

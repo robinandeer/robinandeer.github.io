@@ -1,53 +1,86 @@
-import React from 'react'
-import { GetStaticPaths, GetStaticProps } from 'next'
-import { ParsedUrlQuery } from 'querystring'
-import { MdxRemote } from 'next-mdx-remote/types'
+import {getAllPosts, getSinglePost} from 'mdx/files';
+import {useMemo} from 'react';
+import {getMDXComponent} from 'mdx-bundler/client';
+import {Post} from 'types';
 
-import { MarkdownMetadata, EncodableMarkdownMetadata } from 'types'
-import Markdown from 'markdown'
-import MarkdownSerializer from 'markdown/serialize'
-import PostScreen from 'screens/post'
-import SocialTags from 'components/social-tags'
+import type {FC} from 'react';
+import type {GetStaticPaths, GetStaticProps} from 'next';
+// eslint-disable-next-line no-restricted-imports
+import type {ParsedUrlQuery} from 'querystring';
+import Link from 'next/link';
+import Anchor from 'components/anchor';
+import Image from 'next/image';
+import IntroCard from 'components/intro-card';
+import BackLink from 'components/back-link';
+import SocialTags from 'components/social-tags';
+import { SITE_URL } from 'config';
 
-import { BLOG_POSTS_PATH } from 'config'
+type Props = Post & { slug: string };
 
-interface PageProps {
-  data: EncodableMarkdownMetadata
-  markdown: MdxRemote.Source
-}
-
-interface PageParams extends ParsedUrlQuery {
+interface Params extends ParsedUrlQuery {
   slug: string[]
 }
 
-export const getStaticProps: GetStaticProps<PageProps, PageParams> = async ({ params }) => {
-  const filePath = `${BLOG_POSTS_PATH}/${params.slug.join('-')}.md`
-  const [content, data] = Markdown.getFile(filePath)
-  const markdown = await Markdown.convert(content)
-  return { props: { markdown, data: MarkdownSerializer.jsonify(data) } }
-}
+export const getStaticProps: GetStaticProps<Props, Params> = async ({params}) => {
+	if (params === undefined) {
+		throw new Error('Params is undefined');
+	}
 
-export const getStaticPaths: GetStaticPaths<PageParams> = async () => {
-  const slugs = Markdown.getFiles(BLOG_POSTS_PATH).map((item) => item.slug)
+	const slug = params.slug.join('-')
+	return {
+		props: {
+			...(await getSinglePost(slug)),
+			slug,
+		},
+	};
+};
 
-  return {
-    paths: slugs.map((slug) => ({ params: { slug: slug.split('/') } })),
-    fallback: false,
-  }
-}
+export const getStaticPaths: GetStaticPaths<Params> = async () => {
+	const posts = getAllPosts();
 
-const BlogPostPage: React.FC<PageProps> = ({ data, markdown }) => {
-  const metadata = React.useMemo<MarkdownMetadata>(() => MarkdownSerializer.parse(data), [data])
+	return {
+		paths: posts.map(item => ({params: {slug: item.slug.split('/')}})),
+		fallback: false,
+	};
+};
 
-  const pageTitle = `${data.title} - Robin Andeer`
-  const pageUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${data.slug}`
+const BlogPostPage: FC<Props> = ({code, meta, slug}) => {
+	const Component = useMemo(() => getMDXComponent(code), [code]);
 
-  return (
-    <>
-      <SocialTags title={pageTitle} description={data.intro} url={pageUrl} type="article" image={data.image} />
-      <PostScreen data={metadata} markdown={markdown} />
-    </>
-  )
-}
+	const pageTitle = `${meta.title} - Robin Andeer`
+  const pageUrl = `${SITE_URL}/blog/${slug}`
 
-export default BlogPostPage
+	return (
+		<div className="p-5 sm:p-6 flex flex-col gap-10 lg:gap-16">
+			<SocialTags title={pageTitle} description={meta.intro} url={pageUrl} type="article" image={meta.image} />
+
+			<header>
+				<Link passHref href="/blog">
+					<BackLink>Posts</BackLink>
+				</Link>
+			</header>
+			<div className="min-h-screen">
+				<article className="flex flex-col gap-10 lg:gap-16 max-w-2xl mx-auto">
+					<header className="flex flex-col gap-2">
+						<h1 className="text-3xl lg:text-5xl font-semibold lg:leading-tight">{meta.title}</h1>
+						<p className="text-xs lg:text-base font-medium text-gray-500 dark:text-gray-200 uppercase">
+							{new Date(meta.date).toLocaleDateString(undefined, {year: 'numeric', month: 'long', day: 'numeric'})}
+						</p>
+					</header>
+					<div className="prose prose-yellow dark:prose-light">
+						{/* @ts-ignore stop complaining about missing Image props */}
+						<Component components={{Image}}/>
+					</div>
+				</article>
+			</div>
+			<footer className="max-w-2xl mx-auto w-full">
+				<IntroCard>
+					If you liked this post, <Anchor href={`https://twitter.com/intent/tweet?text=${meta.title} by @robinandeer&url=`}>tell me on Twitter</Anchor>!
+				</IntroCard>
+			</footer>
+			<div className="h-10"/>
+		</div>
+	);
+};
+
+export default BlogPostPage;
