@@ -124,7 +124,7 @@ In Python 3 "map" has become lazy by default (like `functools.imap`) and therefo
 
 Partial evaluation of functions is normally accomplished using `functools.partial`.
 
-> ... currying is just syntactic sugar for partial evaluation. A curried function partially evaluates if it does not receive enough arguments to compute a result. Ref: <http://toolz.readthedocs.org/en/latest/curry.html>
+> ... currying is just syntactic sugar for partial evaluation. A curried function partially evaluates if it does not receive enough arguments to compute a result. Ref: [http://toolz.readthedocs.org/en/latest/curry.html](http://toolz.readthedocs.org/en/latest/curry.html)
 
 The [toolz](toolz.readthedocs.org/en/latest/) library contains a very handy decorators to automatically curry regular functions.
 
