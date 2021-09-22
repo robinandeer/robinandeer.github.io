@@ -6,6 +6,7 @@ export interface Frontmatter {
   imageAlt?: string;
   imageWidth?: number;
   imageHeight?: number;
+  draft?: boolean;
 }
 
 export type PostMeta = Omit<Frontmatter, 'date'> & {

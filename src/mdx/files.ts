@@ -7,6 +7,7 @@ import matter from 'gray-matter';
 import path from 'path';
 import {Frontmatter, PostItem, Post} from 'types';
 
+const IS_NOT_PRODUCTION_BUILD = process.env.NODE_ENV !== 'production'
 const POSTS_PATH = path.join(process.cwd(), 'posts');
 
 function getAllPostFiles() {
@@ -58,6 +59,7 @@ export function getAllPosts(): Array<PostItem> {
 			const data = result.data as Frontmatter;
 			return {data, slug: slugs[index]};
 		})
+		.filter((item) => IS_NOT_PRODUCTION_BUILD || item.data.draft !== true)
 		.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
 		.map<PostItem>(({data, slug}) => ({
 			slug,
