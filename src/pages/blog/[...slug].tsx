@@ -59,6 +59,18 @@ const BlogPostPage: FC<Props> = ({code, meta, slug}) => {
 					<BackLink>Posts</BackLink>
 				</Link>
 			</header>
+
+			{meta.image && (
+				<div className="max-w-4xl mx-auto w-full">
+					<Image
+					src={meta.image}
+					width={meta.imageWidth}
+					height={meta.imageHeight}
+					alt={meta.imageAlt} />
+				</div>
+				)
+			}
+
 			<div className="min-h-screen">
 				<article className="flex flex-col gap-10 lg:gap-16 max-w-2xl mx-auto">
 					<header className="flex flex-col gap-2">
@@ -73,7 +85,7 @@ const BlogPostPage: FC<Props> = ({code, meta, slug}) => {
 					</div>
 				</article>
 			</div>
-			<footer className="max-w-2xl mx-auto w-full">
+			<footer className="max-w-3xl mx-auto w-full">
 				<IntroCard>
 					If you liked this post, <Anchor href={`https://twitter.com/intent/tweet?text=${meta.title} by @robinandeer&url=`}>tell me on Twitter</Anchor>!
 				</IntroCard>
