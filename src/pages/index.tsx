@@ -37,7 +37,7 @@ const Home: FC<Props> = ({latestPost}) => (
 
 				<div className="flex flex-col items-center gap-6 card">
 					<p>
-						I make up ⅓ of the web team at <Anchor href="https://www.hedvig.com/" target="_blank">Hedvig</Anchor>. We onboard new members to a digital insurance that gives back to charity.
+						I make up 1⁄6 of the web team at <Anchor href="https://www.hedvig.com/" target="_blank">Hedvig</Anchor>. We onboard new members to a digital insurance that gives back to charity.
 					</p>
 
 					<HedvigLogo/>

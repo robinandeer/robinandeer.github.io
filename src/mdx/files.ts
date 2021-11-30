@@ -33,7 +33,8 @@ function slugifyPath(filePath: string): string {
 export async function getSinglePost(slug: string): Promise<Post> {
 	const filePath = `${POSTS_PATH}/${slug}.md`;
 	const source = fs.readFileSync(filePath, 'utf8');
-	const {code, ...result} = await bundleMDX(source, {
+	const {code, ...result} = await bundleMDX({
+		source,
 		xdmOptions(options) {
 			// @ts-ignore - incorrect plugin type
 			options.remarkPlugins = [...(options.remarkPlugins ?? []), prism];
