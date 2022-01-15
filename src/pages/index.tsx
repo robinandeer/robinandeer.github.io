@@ -1,14 +1,15 @@
-import {getAllPosts} from 'mdx/files';
-import type {GetStaticProps} from 'next';
-import type {PostItem} from 'types';
-import type {FC} from 'react';
-import Button from 'components/button';
-import HedvigLogo from 'components/hedvig-logo';
-import Anchor from 'components/anchor';
-import {RiTwitterFill, RiGithubFill, RiBookmarkFill} from 'react-icons/ri';
-import IntroCard from 'components/intro-card';
+import {RiBookmarkFill, RiGithubFill, RiTwitterFill} from 'react-icons/ri';
 import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from 'config';
+
+import Anchor from 'components/anchor';
+import Button from 'components/button';
+import type {FC} from 'react';
+import type {GetStaticProps} from 'next';
+import HedvigLogo from 'components/hedvig-logo';
+import IntroCard from 'components/intro-card';
+import type {PostItem} from 'types';
 import SocialTags from 'components/social-tags';
+import {getAllPosts} from 'mdx/files';
 
 interface Props {
   posts: Array<PostItem>
@@ -60,11 +61,11 @@ const Home: FC<Props> = ({latestPost}) => (
 						Where you can reach me 👇
 					</p>
 					<div className="flex flex-col gap-3">
-						<Button href="https://twitter.com/robinandeer" className="bg-twitterBlue dark:bg-twitterBlue flex items-center gap-2 justify-center focus:ring-twitterBlue">
+						<Button href="https://twitter.com/robinandeer" className="bg-twitter-blue dark:bg-twitter-blue flex items-center gap-2 justify-center focus:ring-twitter-blue">
 							<RiTwitterFill className="w-5 h-5 text-white"/>
 							<p className="text-white">Say hi on Twitter</p>
 						</Button>
-						<Button href="https://github.com/robinandeer" className="bg-gray-800 dark:bg-gray-900 flex items-center gap-2 justify-center focus:ring-gray-800">
+						<Button href="https://github.com/robinandeer" className="!bg-gray-800 dark:!bg-gray-900 flex items-center gap-2 justify-center focus:!ring-gray-800">
 							<RiGithubFill className="w-5 h-5 text-white"/>
 							<p className="text-white">Check my code on GitHub</p>
 						</Button>

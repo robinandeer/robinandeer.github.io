@@ -1,6 +1,5 @@
 module.exports = {
-	purge: ['./src/pages/**/*.{js,ts,jsx,tsx}', './src/components/**/*.{js,ts,jsx,tsx}'],
-	darkMode: 'media',
+	content: ['./src/pages/**/*.{js,ts,jsx,tsx}', './src/components/**/*.{js,ts,jsx,tsx}'],
 	theme: {
 		extend: {
 			colors: {
@@ -16,9 +15,7 @@ module.exports = {
 					800: '#2d333b',
 					900: '#22272e',
 				},
-				twitterBlue: {
-					DEFAULT: '#1DA1F2',
-				},
+				'twitter-blue': '#1DA1F2',
 			},
 			typography: theme => ({
 				DEFAULT: {
@@ -97,17 +94,6 @@ module.exports = {
 					],
 				},
 			}),
-		},
-	},
-	variants: {
-		extend: {
-			backgroundOpacity: ['active'],
-			backgroundColor: ['active'],
-			translate: ['active', 'group-hover'],
-			typography: ['dark'],
-			ringWidth: ['focus-visible'],
-			ringColor: ['focus-visible'],
-			ringOpacity: ['focus-visible'],
 		},
 	},
 	plugins: [
