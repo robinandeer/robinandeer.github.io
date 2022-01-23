@@ -1,5 +1,5 @@
 import {RiBookmarkFill, RiGithubFill, RiTwitterFill} from 'react-icons/ri';
-import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from 'config';
+import {SITE_DESCRIPTION, SITE_TITLE, SITE_URL} from 'config';
 
 import Anchor from 'components/anchor';
 import Button from 'components/button';
@@ -12,7 +12,6 @@ import SocialTags from 'components/social-tags';
 import {getAllPosts} from 'mdx/files';
 
 interface Props {
-  posts: Array<PostItem>
 	latestPost: PostItem
 }
 
@@ -20,13 +19,13 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 	const posts = getAllPosts();
 	const latestPost = posts[0];
 	return {
-		props: {posts, latestPost},
+		props: {latestPost},
 	};
 };
 
 const Home: FC<Props> = ({latestPost}) => (
 	<>
-		<SocialTags title={SITE_TITLE} description={SITE_DESCRIPTION} url={SITE_URL} type="website" />
+		<SocialTags title={SITE_TITLE} description={SITE_DESCRIPTION} url={SITE_URL} type="website"/>
 
 		<div className="px-4 py-6 sm:px-6 sm:py-9">
 			<div className="flex flex-col gap-5 sm:gap-6 w-full max-w-md mx-auto">
@@ -61,7 +60,7 @@ const Home: FC<Props> = ({latestPost}) => (
 						Where you can reach me 👇
 					</p>
 					<div className="flex flex-col gap-3">
-						<Button href="https://twitter.com/robinandeer" className="bg-twitter-blue dark:bg-twitter-blue flex items-center gap-2 justify-center focus:ring-twitter-blue">
+						<Button href="https://twitter.com/robinandeer" className="!bg-twitter-blue dark:!bg-twitter-blue flex items-center gap-2 justify-center focus:!ring-twitter-blue">
 							<RiTwitterFill className="w-5 h-5 text-white"/>
 							<p className="text-white">Say hi on Twitter</p>
 						</Button>

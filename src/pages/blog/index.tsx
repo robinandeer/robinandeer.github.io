@@ -1,16 +1,16 @@
-import {getAllPosts} from 'mdx/files';
-import Link from 'next/link';
-import type {GetStaticProps} from 'next';
-import type {PostItem} from 'types';
-import type {FC} from 'react';
-import Image from 'next/image';
 import BackLink from 'components/back-link';
+import type {FC} from 'react';
+import type {GetStaticProps} from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
+import type {PostItem} from 'types';
+import {SITE_URL} from 'config';
 import SocialTags from 'components/social-tags';
-import { SITE_URL } from 'config';
+import {getAllPosts} from 'mdx/files';
 
-const PAGE_TITLE = 'Blog - Robin Andeer'
-const PAGE_DESCRIPTION = 'Thoughts on programming, tech, and personal life.'
-const PAGE_URL = `${SITE_URL}/blog`
+const PAGE_TITLE = 'Blog - Robin Andeer';
+const PAGE_DESCRIPTION = 'Thoughts on programming, tech, and personal life.';
+const PAGE_URL = `${SITE_URL}/blog`;
 
 interface Props {
   posts: Array<PostItem>
@@ -25,7 +25,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 
 const Blog: FC<Props> = ({posts}) => (
 	<div className="p-5 sm:p-6 flex flex-col gap-5 sm:gap-6">
-		<SocialTags title={PAGE_TITLE} description={PAGE_DESCRIPTION} url={PAGE_URL} type="website" />
+		<SocialTags title={PAGE_TITLE} description={PAGE_DESCRIPTION} url={PAGE_URL} type="website"/>
 
 		<header>
 			<Link passHref href="/">

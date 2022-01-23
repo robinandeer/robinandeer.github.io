@@ -15,19 +15,19 @@
  *      2012/1/1   is Sunday in week 52 of 2011
  */
 export default function getWeekNumber(date: Date = new Date()): [number, number] {
-  // Copy date so don't modify original
-  const internalDate = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()))
+	// Copy date so don't modify original
+	const internalDate = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
 
-  // Set to nearest Thursday: current date + 4 - current day number
-  // Make Sunday's day number 7
-  internalDate.setUTCDate(internalDate.getUTCDate() + 4 - (internalDate.getUTCDay() || 7))
+	// Set to nearest Thursday: current date + 4 - current day number
+	// Make Sunday's day number 7
+	internalDate.setUTCDate(internalDate.getUTCDate() + 4 - (internalDate.getUTCDay() || 7));
 
-  // Get first day of year
-  const yearStart = new Date(Date.UTC(internalDate.getUTCFullYear(), 0, 1))
+	// Get first day of year
+	const yearStart = new Date(Date.UTC(internalDate.getUTCFullYear(), 0, 1));
 
-  // Calculate full weeks to nearest Thursday
-  const weekNo = Math.ceil(((internalDate.getTime() - yearStart.getTime()) / 86400000 + 1) / 7)
+	// Calculate full weeks to nearest Thursday
+	const weekNo = Math.ceil((((internalDate.getTime() - yearStart.getTime()) / 86400000) + 1) / 7);
 
-  // Return array of year and week number
-  return [internalDate.getUTCFullYear(), weekNo]
+	// Return array of year and week number
+	return [internalDate.getUTCFullYear(), weekNo];
 }

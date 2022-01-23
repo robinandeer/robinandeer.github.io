@@ -1,19 +1,19 @@
-import {getAllPosts, getSinglePost} from 'mdx/files';
-import {useMemo} from 'react';
-import {getMDXComponent} from 'mdx-bundler/client';
-import {Post} from 'types';
-
-import type {FC} from 'react';
 import type {GetStaticPaths, GetStaticProps} from 'next';
-// eslint-disable-next-line no-restricted-imports
-import type {ParsedUrlQuery} from 'querystring';
-import Link from 'next/link';
+import {getAllPosts, getSinglePost} from 'mdx/files';
+
 import Anchor from 'components/anchor';
+import BackLink from 'components/back-link';
+import type {FC} from 'react';
 import Image from 'next/image';
 import IntroCard from 'components/intro-card';
-import BackLink from 'components/back-link';
+import Link from 'next/link';
+// eslint-disable-next-line no-restricted-imports
+import type {ParsedUrlQuery} from 'querystring';
+import {Post} from 'types';
+import {SITE_URL} from 'config';
 import SocialTags from 'components/social-tags';
-import { SITE_URL } from 'config';
+import {getMDXComponent} from 'mdx-bundler/client';
+import {useMemo} from 'react';
 
 type Props = Post & { slug: string };
 
@@ -26,7 +26,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({params}) =>
 		throw new Error('Params is undefined');
 	}
 
-	const slug = params.slug.join('-')
+	const slug = params.slug.join('-');
 	return {
 		props: {
 			...(await getSinglePost(slug)),
@@ -47,12 +47,12 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
 const BlogPostPage: FC<Props> = ({code, meta, slug}) => {
 	const Component = useMemo(() => getMDXComponent(code), [code]);
 
-	const pageTitle = `${meta.title} - Robin Andeer`
-  const pageUrl = `${SITE_URL}/blog/${slug}`
+	const pageTitle = `${meta.title} - Robin Andeer`;
+	const pageUrl = `${SITE_URL}/blog/${slug}`;
 
 	return (
 		<div className="p-5 sm:p-6 flex flex-col gap-10 lg:gap-16">
-			<SocialTags title={pageTitle} description={meta.intro} url={pageUrl} type="article" image={meta.image} />
+			<SocialTags title={pageTitle} description={meta.intro} url={pageUrl} type="article" image={meta.image}/>
 
 			<header>
 				<Link passHref href="/blog">
@@ -63,13 +63,12 @@ const BlogPostPage: FC<Props> = ({code, meta, slug}) => {
 			{meta.image && (
 				<div className="max-w-4xl mx-auto w-full">
 					<Image
-					src={meta.image}
-					width={meta.imageWidth}
-					height={meta.imageHeight}
-					alt={meta.imageAlt} />
+						src={meta.image}
+						width={meta.imageWidth}
+						height={meta.imageHeight}
+						alt={meta.imageAlt}/>
 				</div>
-				)
-			}
+			)}
 
 			<div className="min-h-screen">
 				<article className="flex flex-col gap-10 lg:gap-16 max-w-2xl mx-auto">

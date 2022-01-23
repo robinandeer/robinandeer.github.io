@@ -1,13 +1,14 @@
-import fs from 'fs';
+import {Frontmatter, Post, PostItem} from 'types';
+
+import autolinkHeadings from 'rehype-autolink-headings';
 import {bundleMDX} from 'mdx-bundler';
-import prism from 'remark-prism'
-import autolinkHeadings from 'rehype-autolink-headings'
-import rehypeSlug from 'rehype-slug'
+import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
-import {Frontmatter, PostItem, Post} from 'types';
+import prism from 'remark-prism';
+import rehypeSlug from 'rehype-slug';
 
-const IS_NOT_PRODUCTION_BUILD = process.env.NODE_ENV !== 'production'
+const IS_NOT_PRODUCTION_BUILD = process.env.NODE_ENV !== 'production';
 const POSTS_PATH = path.join(process.cwd(), 'posts');
 
 function getAllPostFiles() {
@@ -41,9 +42,9 @@ export async function getSinglePost(slug: string): Promise<Post> {
 			options.rehypePlugins = [
 				...(options.rehypePlugins ?? []),
 				rehypeSlug,
-				[autolinkHeadings, { behavior: 'append' }]
+				[autolinkHeadings, {behavior: 'append'}],
 			];
-			return options
+			return options;
 		},
 	});
 	const frontmatter = result.frontmatter as Frontmatter;
@@ -60,7 +61,7 @@ export function getAllPosts(): Array<PostItem> {
 			const data = result.data as Frontmatter;
 			return {data, slug: slugs[index]};
 		})
-		.filter((item) => IS_NOT_PRODUCTION_BUILD || item.data.draft !== true)
+		.filter(item => IS_NOT_PRODUCTION_BUILD || item.data.draft !== true)
 		.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
 		.map<PostItem>(({data, slug}) => ({
 			slug,
