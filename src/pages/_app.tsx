@@ -1,5 +1,5 @@
 import 'styles/global.css';
-import 'styles/prism-duotone.css';
+import 'styles/prism-theme.css';
 
 import type {AppProps} from 'next/app';
 import type {FC} from 'react';

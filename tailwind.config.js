@@ -57,6 +57,9 @@ module.exports = {
 							blockquote: {
 								color: theme('colors.gray.200'),
 								borderLeftColor: theme('colors.gray.600'),
+								'p::before': {
+									content: '""',
+								},
 							},
 							h1: {
 								color: theme('colors.white'),
