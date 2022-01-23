@@ -17,7 +17,7 @@ My initial impressions are very possitive. The framework has certainly come a lo
 
 ## [Next.js](https://nextjs.org/), my go-to framework
 
-Next.js has been my baseline for any web project for the past 4-5 years. Every new release continues to surprise and impress me. It's developed into a highy polished and versetile framework and there's really no going wrong with it. I especially appreciate how closely it tracks the official React roadmap.
+Next.js has served as the baseline for all my web projects in the past 4-5 years. Every new release continues to surprise and impress me. It's developed into a highy polished and versetile framework and there's really no going wrong with it. I especially appreciate how closely it tracks the official React roadmap.
 
 ## Head to head
 
@@ -26,9 +26,7 @@ Remix borrows a lot from Next.js (the file-based routing, module export API, etc
 You can see the end-result in the following repo:
 
 - Remix: [robinandeer/remix-concepts-in-nextjs/tree/remix](https://github.com/robinandeer/remix-concepts-in-nextjs/tree/remix)
-- Next.js: [robinandeer/remix-concepts-in-nextjs](https://github.com/robinandeer/remix-concepts-in-nextjs) ([deployment](https://remix-concepts-in-nextjs.vercel.app))
-
-> According to the Remix Discord it's not possible to deploy the Remix version to platforms like [Vercel](https://vercel.com/), [Fly.io](https://fly.io/), or [render.com](https://render.com/). It does feel dissapointing that the official tutorial isn't directly deployable to most of the modern platforms 🤷‍♂️. Still the same file system-based markdown storage was compatible with Next.js/Vercel.
+- Next.js: [robinandeer/remix-concepts-in-nextjs](https://github.com/robinandeer/remix-concepts-in-nextjs)
 
 Let's break down the main areas where I see Remix innovating so far, and how to accomplish the same things in Next.js.
 
@@ -38,11 +36,11 @@ If you are not yet familiar with forms in Remix, I recommend first getting up to
 
 I've really enjoyed working with forms in Remix. By relying on web standards, they are able to simplify things while enabling progressive enhancement. I've struggled _a lot_ with forms in React so I'm happy they adress this topic.
 
-What I especially like is how doing form handling and validation server-side is a great _separation of concern_. Bundling some version of [Joi](https://github.com/sideway/joi) in the browser to validate inputs client-side never felt quite right to me. And now I think I might never do so again.
+What I especially like is how doing form handling and validation server-side is a great _separation of concern_. Bundling some version of [Joi](https://github.com/sideway/joi) in the browser to validate inputs client-side never felt quite right to me. And now I think I will never do so again.
 
 ### Remix-forms in Next.js
 
-So can we achieve something like this in Next.js? It's not so far off as you might think. I believe we have all the building blocks already. We can even make the form work with JavaScript disabled - just like in Remix!
+So can we achieve something like this in Next.js? It's not so far off as you might think. I believe we have all the building blocks. We can even make the form work with JavaScript disabled - just like in Remix!
 
 Here's the solution I came up with in a Page-component that renders a simplified "new post form":
 
@@ -121,7 +119,7 @@ First we need a generic hook that does the following:
 1. Returning validation errors reported by the server
 1. Forwarding any redirects that the server responds with
 
-This replaces the main functionality provided through the Remix-hooks as well as the `<Form />` component.
+This replaces the basic functionality provided through the Remix-hooks as well as the `<Form />` component.
 
 ### Using an API route to handle form submission
 
@@ -153,9 +151,9 @@ Again, start by making sure you know how Remix handles [Data Loading](https://re
 
 If you chose the red JAMStack-pill, you might be sceptical about server-rendering. However, [Ryan](https://twitter.com/ryanflorence), [Michael](https://twitter.com/mjackson), and [Kent](https://twitter.com/kentcdodds) makes a convincing argument that [SSR is the way to go](https://remix.run/blog/remix-vs-next#why-the-apps-are-fast). There's some liberty in that. Instead of deciding between SSR, SSG, or ISG for each page I can get on with my life and focus on more domain-specific problems.
 
-The theme here really is a return to how things used to work (server rendered and relying on web standards) but with the twist that React is just one hook away to progressively add interactivity to any page. A quite elegant by-product is how much of the Remix site works even with JavaScript disabled. Especially for projects that are less apps and more websites this approach makes a great deal of sense.
+The theme here really is a return to how things used to work; server rendered and relying on web standards. However, React is just one hook away to progressively add interactivity to any page. A quite elegant by-product is how much of the Remix site works even with JavaScript disabled. Especially for projects that are less app and more website, this approach makes a great deal of sense.
 
-[Lee Robinson](https://twitter.com/leeerob) provides some nuance in this Twitter-thread claiming the benefits or static hosting when availability is your primary concern:
+For some nuance, [Lee Robinson](https://twitter.com/leeerob) provides some counter argument in this Twitter-thread claiming the benefits or static hosting when availability is your primary concern:
 
 <blockquote className="twitter-tweet"><p lang="en" dir="ltr">1/ How can I optimize my frontend for the best availability? <br /><br />I want to guarantee customers will almost never see a broken page.<br /><br />What would the architecture and infrastructure look like?</p>&mdash; Lee Robinson (@leeerob) <a href="https://twitter.com/leeerob/status/1484668682445930500?ref_src=twsrc%5Etfw">January 21, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -221,6 +219,6 @@ That was a lot! Thanks for sticking with it to the end. I certainly learned a lo
 
 > If you wanna dig deeper into the "remixed" Next.js-version of the developer blog, do check out [the full project repo](https://github.com/robinandeer/remix-concepts-in-nextjs).
 
-I will keep an eye on Remix for sure. They've come a long way but Next.js is still more mature (Fast Refresh), more feature complete (i18n), and more closely tracks the future of React which is why I will probably stick with it for the time being. However, I will keep learning and stealing the best Remix ideas to improve my own projects.
+I will keep an eye on Remix for sure. They've come a long way but Next.js is still the more mature option (proven, huge community etc.) and more feature complete (Fast Refresh, i18n) which is why I will probably stick with it for the time being. However, I will keep learning and stealing the best Remix ideas to improve my own projects.
 
 <blockquote className="twitter-tweet"><p lang="en" dir="ltr">Remix started with the hard part (the bridge between the client and server) and is working its way further up and down the stack from there.<a href="https://twitter.com/remix_run?ref_src=twsrc%5Etfw">@remix_run</a> isn&#39;t done, but the hard part is. And you can feel it when you&#39;re building/using remix apps.<a href="https://t.co/EYM4eajR41">https://t.co/EYM4eajR41</a></p>&mdash; Kent C. Dodds 💿 (@kentcdodds) <a href="https://twitter.com/kentcdodds/status/1482847024101740547?ref_src=twsrc%5Etfw">January 16, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
