@@ -37,7 +37,7 @@ const Blog: FC<Props> = ({posts}) => (
 			{posts.map(({slug, meta}) => (
 				<Link key={slug} href={`/blog/${slug}`}>
 					<a className="group max-w-lg w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500 focus-visible:ring-opacity-50 rounded-lg">
-						<div className="card group-hover:bg-gray-50 dark:group-hover:bg-gray-600 transform transition-all group-hover:-translate-y-1 active:translate-y-0 flex flex-col gap-4">
+						<div className="card padded group-hover:bg-gray-50 dark:group-hover:bg-gray-600 transform transition-all group-hover:-translate-y-1 active:translate-y-0 flex flex-col gap-4">
 							{meta.image
 								? <Image src={meta.image} alt={meta.imageAlt} width={meta.imageWidth} height={meta.imageHeight} className="rounded-lg"/>
 								: null}

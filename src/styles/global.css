@@ -10,7 +10,7 @@ body {
 
 @layer components {
   .card {
-    @apply p-4 sm:p-5 bg-white dark:bg-gray-700 rounded-lg;
+    @apply bg-white dark:bg-gray-700 rounded-lg;
 
     box-shadow:
       0 0.7px 2.2px rgba(0, 0, 0, 0.011),
@@ -21,6 +21,10 @@ body {
       0 24px 80px rgba(0, 0, 0, 0.04)
     ;
   }
+
+  .padded {
+    @apply p-4 sm:p-5;
+  }
 }
 
 .remark-highlight {
@@ -29,7 +33,7 @@ body {
   background: #2E3440;
 }
 
-@screen md {
+@screen sm {
   .remark-highlight {
     @apply rounded;
   }

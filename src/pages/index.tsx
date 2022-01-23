@@ -6,6 +6,7 @@ import Button from 'components/button';
 import type {FC} from 'react';
 import type {GetStaticProps} from 'next';
 import HedvigLogo from 'components/hedvig-logo';
+import Image from 'next/image';
 import IntroCard from 'components/intro-card';
 import type {PostItem} from 'types';
 import SocialTags from 'components/social-tags';
@@ -35,7 +36,7 @@ const Home: FC<Props> = ({latestPost}) => (
 					User Interface Engineer &amp; Baker.
 				</IntroCard>
 
-				<div className="flex flex-col items-center gap-6 card">
+				<div className="flex flex-col items-center gap-6 card padded">
 					<p>
 						I make up 1⁄6 of the web team at <Anchor href="https://www.hedvig.com/" target="_blank">Hedvig</Anchor>. We onboard new members to a digital insurance that gives back to charity.
 					</p>
@@ -44,18 +45,32 @@ const Home: FC<Props> = ({latestPost}) => (
 				</div>
 
 				<div className="card">
-					<div className="flex flex-col gap-6">
-						<p>
-							My latest post is <Anchor href={`/blog/${latestPost.slug}`}>{latestPost.meta.title}</Anchor> — {latestPost.meta.intro}
-						</p>
-						<Button href="/blog" className="flex items-center gap-2 justify-center">
+					{latestPost.meta.image && <Image
+						src={latestPost.meta.image}
+						width={latestPost.meta.imageWidth}
+						height={latestPost.meta.imageHeight}
+						alt={latestPost.meta.imageAlt}
+						className="rounded-t-lg"
+					/>}
+
+					<div className="flex flex-col">
+						<div className="px-4 sm:px-4 pt-4 sm:pt-4 pb-5 sm:pb-6">
+							<p className="uppercase text-xs text-gray-600 dark:text-gray-200">Latest post</p>
+							<Anchor href={`/blog/${latestPost.slug}`} className="no-underline">
+								<h3 className="text-lg font-medium">{latestPost.meta.title}</h3>
+							</Anchor>
+							<p className="text-gray-600 dark:text-gray-200">
+								{latestPost.meta.intro}
+							</p>
+						</div>
+						<Button href="/blog" className="flex items-center gap-2 justify-center rounded-t-none">
 							<RiBookmarkFill className="w-4 h-4"/>
 							Read all posts
 						</Button>
 					</div>
 				</div>
 
-				<div className="card flex flex-col gap-6">
+				<div className="card padded flex flex-col gap-6">
 					<p className="text-center font-medium">
 						Where you can reach me 👇
 					</p>

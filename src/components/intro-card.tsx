@@ -2,7 +2,7 @@ import {CgCrowdfire} from 'react-icons/cg';
 import React from 'react';
 
 const IntroCard: React.FC = ({children}) => (
-	<div className="flex flex-row gap-3 sm:gap-6 items-center card">
+	<div className="flex flex-row gap-3 sm:gap-6 items-center card padded">
 		<div className="rounded-full w-12 h-12 bg-black flex-shrink-0 flex items-center justify-center">
 			<CgCrowdfire className="text-white w-8 h-8"/>
 		</div>
