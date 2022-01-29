@@ -8,6 +8,7 @@ import type {GetStaticProps} from 'next';
 import HedvigLogo from 'components/hedvig-logo';
 import Image from 'next/image';
 import IntroCard from 'components/intro-card';
+import Link from 'next/link';
 import type {PostItem} from 'types';
 import SocialTags from 'components/social-tags';
 import {getAllPosts} from 'mdx/files';
@@ -45,29 +46,34 @@ const Home: FC<Props> = ({latestPost}) => (
 				</div>
 
 				<div className="card">
-					{latestPost.meta.image && <Image
-						src={latestPost.meta.image}
-						width={latestPost.meta.imageWidth}
-						height={latestPost.meta.imageHeight}
-						alt={latestPost.meta.imageAlt}
-						className="rounded-t-lg"
-					/>}
+					<Link href={`/blog/${latestPost.slug}`}>
+						<a>
+							{latestPost.meta.image && <Image
+								src={latestPost.meta.image}
+								width={latestPost.meta.imageWidth}
+								height={latestPost.meta.imageHeight}
+								alt={latestPost.meta.imageAlt}
+								className="rounded-t-lg"
+							/>}
 
-					<div className="flex flex-col">
-						<div className="px-4 sm:px-4 pt-4 sm:pt-4 pb-5 sm:pb-6">
-							<p className="uppercase text-xs text-gray-600 dark:text-gray-200">Latest post</p>
-							<Anchor href={`/blog/${latestPost.slug}`} className="no-underline">
-								<h3 className="text-lg font-medium">{latestPost.meta.title}</h3>
-							</Anchor>
-							<p className="text-gray-600 dark:text-gray-200">
-								{latestPost.meta.intro}
-							</p>
-						</div>
-						<Button href="/blog" className="flex items-center gap-2 justify-center rounded-t-none">
-							<RiBookmarkFill className="w-4 h-4"/>
-							Read all posts
-						</Button>
-					</div>
+							<div className="flex flex-col">
+								<a>
+									<div className="px-4 sm:px-4 pt-4 sm:pt-4 pb-5 sm:pb-6">
+										<p className="uppercase text-xs text-gray-600 dark:text-gray-200">Latest post</p>
+										<h3 className="text-lg font-medium">{latestPost.meta.title}</h3>
+										<p className="text-gray-600 dark:text-gray-200">
+											{latestPost.meta.intro}
+										</p>
+									</div>
+								</a>
+							</div>
+						</a>
+					</Link>
+
+					<Button href="/blog" className="flex items-center gap-2 justify-center rounded-t-none">
+						<RiBookmarkFill className="w-4 h-4"/>
+						Read all posts
+					</Button>
 				</div>
 
 				<div className="card padded flex flex-col gap-6">
