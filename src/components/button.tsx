@@ -41,12 +41,10 @@ const Button: FC<Props> = ({className, ...props}) => {
 			...(props.href?.startsWith('http') ? {target: '_blank', rel: 'noopener noreferrer'} : {}),
 		};
 
-		// eslint-disable-next-line react/jsx-no-target-blank
 		return <a {...props} {...baseProps} {...extraProps}/>;
 	}
 
 	// @ts-ignore - button type mismatch
-	// eslint-disable-next-line react/button-has-type
 	return <button {...props} {...baseProps}/>;
 };
 

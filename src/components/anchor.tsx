@@ -9,7 +9,6 @@ const Anchor: React.FC<Props> = ({className, ...props}) => {
 	};
 
 	return (
-		// eslint-disable-next-line react/jsx-no-target-blank
 		<a
 			className={[
 				'font-medium',

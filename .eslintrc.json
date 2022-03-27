@@ -1,8 +1,7 @@
 {
   "extends": [
     "next/core-web-vitals",
-    "xo",
-    "xo-react"
+    "xo"
   ],
   "rules": {
     "react/prop-types": "off",
