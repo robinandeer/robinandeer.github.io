@@ -2,6 +2,9 @@
   "name": "nextjs-blog",
   "version": "2.6.1",
   "private": true,
+  "engines": {
+    "node":">=14.19"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
