@@ -44,7 +44,7 @@ const Blog: FC<Props> = ({posts}) => (
 
 							<div className="flex flex-col gap-px">
 								<p className="text-xs font-medium text-gray-500 dark:text-gray-200 uppercase">
-									{new Date(meta.date).toLocaleDateString(undefined, {year: 'numeric', month: 'long', day: 'numeric'})}
+									{new Date(meta.date).toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric'})}
 								</p>
 
 								<h2 className="text-base font-medium text-gray-900 dark:text-gray-50 active:bg-op">

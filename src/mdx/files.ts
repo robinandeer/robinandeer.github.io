@@ -36,8 +36,7 @@ export async function getSinglePost(slug: string): Promise<Post> {
 	const source = fs.readFileSync(filePath, 'utf8');
 	const {code, ...result} = await bundleMDX({
 		source,
-		xdmOptions(options) {
-			// @ts-ignore - incorrect plugin type
+		mdxOptions(options) {
 			options.remarkPlugins = [...(options.remarkPlugins ?? []), prism];
 			options.rehypePlugins = [
 				...(options.rehypePlugins ?? []),
