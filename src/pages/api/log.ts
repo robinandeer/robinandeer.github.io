@@ -1,5 +1,9 @@
 import type {NextApiRequest, NextApiResponse} from 'next';
 
+export const config = {
+	runtime: 'experimental-edge',
+};
+
 import incrementPageCount from 'database/increment-page-count';
 
 const log = async (req: NextApiRequest, res: NextApiResponse) => {

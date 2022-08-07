@@ -51,17 +51,17 @@ const BlogPostPage: FC<Props> = ({code, meta, slug}) => {
 	const pageUrl = `${SITE_URL}/blog/${slug}`;
 
 	return (
-		<div className="p-5 sm:p-6 flex flex-col gap-10 lg:gap-16">
-			<SocialTags title={pageTitle} description={meta.intro} url={pageUrl} type="article" image={meta.image}/>
+		<div className='p-5 sm:p-6 flex flex-col gap-10 lg:gap-16'>
+			<SocialTags title={pageTitle} description={meta.intro} url={pageUrl} type='article' image={meta.image}/>
 
 			<header>
-				<Link passHref href="/blog">
+				<Link passHref href='/blog'>
 					<BackLink>Posts</BackLink>
 				</Link>
 			</header>
 
 			{meta.image && (
-				<div className="max-w-4xl mx-auto w-full">
+				<div className='max-w-4xl mx-auto w-full'>
 					<Image
 						src={meta.image}
 						width={meta.imageWidth}
@@ -70,26 +70,25 @@ const BlogPostPage: FC<Props> = ({code, meta, slug}) => {
 				</div>
 			)}
 
-			<div className="min-h-screen">
-				<article className="flex flex-col gap-10 lg:gap-16 max-w-2xl mx-auto">
-					<header className="flex flex-col gap-2">
-						<h1 className="text-3xl lg:text-5xl font-semibold lg:leading-tight">{meta.title}</h1>
-						<p className="text-xs lg:text-base font-medium text-gray-500 dark:text-gray-200 uppercase">
-							{new Date(meta.date).toLocaleDateString(undefined, {year: 'numeric', month: 'long', day: 'numeric'})}
+			<div className='min-h-screen'>
+				<article className='flex flex-col gap-10 lg:gap-16 max-w-2xl mx-auto'>
+					<header className='flex flex-col gap-2'>
+						<h1 className='text-3xl lg:text-5xl font-semibold lg:leading-tight'>{meta.title}</h1>
+						<p className='text-xs lg:text-base font-medium text-gray-500 dark:text-gray-200 uppercase'>
+							{new Date(meta.date).toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric'})}
 						</p>
 					</header>
-					<div className="prose prose-yellow dark:prose-light">
-						{/* @ts-ignore stop complaining about missing Image props */}
+					<div className='prose prose-yellow dark:prose-light'>
 						<Component components={{Image}}/>
 					</div>
 				</article>
 			</div>
-			<footer className="max-w-3xl mx-auto w-full">
+			<footer className='max-w-3xl mx-auto w-full'>
 				<IntroCard>
 					If you liked this post, <Anchor href={`https://twitter.com/intent/tweet?text=${meta.title} by @robinandeer&url=`}>tell me on Twitter</Anchor>!
 				</IntroCard>
 			</footer>
-			<div className="h-10"/>
+			<div className='h-10'/>
 		</div>
 	);
 };

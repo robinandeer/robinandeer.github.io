@@ -52,7 +52,10 @@ module.exports = {
 								backgroundColor: theme('colors.gray.600'),
 							},
 							hr: {
-								borderColor: theme('colors.gray.200'),
+								borderWidth: 0,
+								height: 3,
+								backgroundColor: theme('colors.gray.600'),
+								borderRadius: 2,
 							},
 							blockquote: {
 								color: theme('colors.gray.200'),
