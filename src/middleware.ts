@@ -3,7 +3,7 @@ import type {NextRequest} from 'next/server';
 
 const logPageVisit = async (url: string) => {
 	if (process.env.NODE_ENV === 'production') {
-		await fetch('/api/log', {
+		await fetch(`${process.env.VERCEL_URL}/api/log`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
@@ -16,7 +16,13 @@ const logPageVisit = async (url: string) => {
 };
 
 export async function middleware(request: NextRequest) {
-	await logPageVisit(request.nextUrl.pathname);
+	try {
+		await logPageVisit(request.nextUrl.pathname);
+	} catch (error) {
+		console.error('Middleware error');
+		console.error(error);
+	}
+
 	return NextResponse.next();
 }
 
