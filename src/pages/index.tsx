@@ -47,12 +47,11 @@ const Home: FC<Props> = ({latestPost}) => (
 
 				<div className='card'>
 					<Link href={`/blog/${latestPost.slug}`}>
-						<a>
-							{latestPost.meta.image && <Image
+						{latestPost.meta.image && <Image
 								src={latestPost.meta.image}
 								width={latestPost.meta.imageWidth}
 								height={latestPost.meta.imageHeight}
-								alt={latestPost.meta.imageAlt}
+								alt={latestPost.meta.imageAlt || ''}
 								className='rounded-t-lg'
 							/>}
 
@@ -65,7 +64,6 @@ const Home: FC<Props> = ({latestPost}) => (
 									</p>
 								</div>
 							</div>
-						</a>
 					</Link>
 
 					<Link href='/blog'>

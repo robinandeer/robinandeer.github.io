@@ -28,18 +28,24 @@ const Blog: FC<Props> = ({posts}) => (
 		<SocialTags title={PAGE_TITLE} description={PAGE_DESCRIPTION} url={PAGE_URL} type='website'/>
 
 		<header>
-			<Link passHref href='/'>
+			<Link href='/'>
 				<BackLink>Home</BackLink>
 			</Link>
 		</header>
 
 		<main className='flex flex-col gap-5 sm:gap-6 items-center'>
-			{posts.map(({slug, meta}) => (
-				<Link key={slug} href={`/blog/${slug}`}>
-					<a className='group max-w-lg w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500 focus-visible:ring-opacity-50 rounded-lg'>
-						<div className='card padded group-hover:bg-gray-50 group-hover:bg-opacity-5 dark:group-hover:bg-gray-600 transform transition-all group-hover:-translate-y-1 active:translate-y-0 flex flex-col gap-4'>
+			{posts.map(({slug, meta}, index) => (
+				<Link key={slug} href={`/blog/${slug}`} className='group max-w-lg w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-500 focus-visible:ring-opacity-50 rounded-lg'>
+					<div className='card padded group-hover:bg-gray-50 group-hover:bg-opacity-5 dark:group-hover:bg-gray-600 transform transition-all group-hover:-translate-y-1 active:translate-y-0 flex flex-col gap-4'>
 							{meta.image
-								? <Image src={meta.image} alt={meta.imageAlt} width={meta.imageWidth} height={meta.imageHeight} className='rounded-lg'/>
+								? <Image
+										src={meta.image}
+										alt={meta.imageAlt || ''}
+										width={meta.imageWidth}
+										height={meta.imageHeight}
+										className='rounded-lg'
+										priority={index === 0}
+									/>
 								: null}
 
 							<div className='flex flex-col gap-px'>
@@ -58,7 +64,6 @@ const Blog: FC<Props> = ({posts}) => (
 								) : null}
 							</div>
 						</div>
-					</a>
 				</Link>
 			))}
 		</main>

@@ -7,7 +7,7 @@ import type {FC} from 'react';
 import Image from 'next/image';
 import IntroCard from 'components/intro-card';
 import Link from 'next/link';
-// eslint-disable-next-line no-restricted-imports
+// @ts-ignore
 import type {ParsedUrlQuery} from 'querystring';
 import {Post} from 'types';
 import {SITE_URL} from 'config';
@@ -66,7 +66,7 @@ const BlogPostPage: FC<Props> = ({code, meta, slug}) => {
 						src={meta.image}
 						width={meta.imageWidth}
 						height={meta.imageHeight}
-						alt={meta.imageAlt}/>
+						alt={meta.imageAlt || ''}/>
 				</div>
 			)}
 
