@@ -48,22 +48,22 @@ const Home: FC<Props> = ({latestPost}) => (
 				<div className='card'>
 					<Link href={`/blog/${latestPost.slug}`}>
 						{latestPost.meta.image && <Image
-								src={latestPost.meta.image}
-								width={latestPost.meta.imageWidth}
-								height={latestPost.meta.imageHeight}
-								alt={latestPost.meta.imageAlt || ''}
-								className='rounded-t-lg'
-							/>}
+							src={latestPost.meta.image}
+							width={latestPost.meta.imageWidth}
+							height={latestPost.meta.imageHeight}
+							alt={latestPost.meta.imageAlt || ''}
+							className='rounded-t-lg'
+						/>}
 
-							<div className='flex flex-col'>
-								<div className='px-4 sm:px-4 pt-4 sm:pt-4 pb-5 sm:pb-6'>
-									<p className='uppercase text-xs text-gray-600 dark:text-gray-200'>Latest post</p>
-									<h3 className='text-lg font-medium'>{latestPost.meta.title}</h3>
-									<p className='text-gray-600 dark:text-gray-100'>
-										{latestPost.meta.intro}
-									</p>
-								</div>
+						<div className='flex flex-col'>
+							<div className='px-4 sm:px-4 pt-4 sm:pt-4 pb-5 sm:pb-6'>
+								<p className='uppercase text-xs text-gray-600 dark:text-gray-200'>Latest post</p>
+								<h3 className='text-lg font-medium'>{latestPost.meta.title}</h3>
+								<p className='text-gray-600 dark:text-gray-100'>
+									{latestPost.meta.intro}
+								</p>
 							</div>
+						</div>
 					</Link>
 
 					<Link href='/blog'>

@@ -7,8 +7,6 @@ import type {FC} from 'react';
 import Image from 'next/image';
 import IntroCard from 'components/intro-card';
 import Link from 'next/link';
-// @ts-ignore
-import type {ParsedUrlQuery} from 'querystring';
 import {Post} from 'types';
 import {SITE_URL} from 'config';
 import SocialTags from 'components/social-tags';
@@ -17,16 +15,17 @@ import {useMemo} from 'react';
 
 type Props = Post & { slug: string };
 
-interface Params extends ParsedUrlQuery {
-  slug: string[]
-}
-
-export const getStaticProps: GetStaticProps<Props, Params> = async ({params}) => {
+export const getStaticProps: GetStaticProps<Props> = async ({params}) => {
 	if (params === undefined) {
 		throw new Error('Params is undefined');
 	}
 
-	const slug = params.slug.join('-');
+	const slugParam = params.slug;
+	if (!Array.isArray(slugParam)) {
+		throw new Error('Slug is undefined');
+	}
+
+	const slug = slugParam.join('-');
 	return {
 		props: {
 			...(await getSinglePost(slug)),
@@ -35,7 +34,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async ({params}) =>
 	};
 };
 
-export const getStaticPaths: GetStaticPaths<Params> = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
 	const posts = getAllPosts();
 
 	return {
