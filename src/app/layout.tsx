@@ -1,10 +1,9 @@
 import 'styles/global.css';
 import 'styles/prism-theme.css';
 
-import {SITE_DESCRIPTION, SITE_TITLE, SITE_URL, SITE_BANNER} from 'config';
+import {SITE_DESCRIPTION, SITE_TITLE, SITE_BANNER} from 'config';
 import AnalyticsWrapper from 'components/analytics-wrapper';
 import {type ReactNode} from 'react';
-import path from 'path';
 
 type Props = { children: ReactNode };
 
@@ -41,7 +40,7 @@ export const metadata = {
 		type: 'website',
 		images: [
 			{
-				url: path.join(SITE_URL, SITE_BANNER),
+				url: SITE_BANNER,
 				width: 1600,
 				height: 837,
 			},
