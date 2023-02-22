@@ -4,6 +4,7 @@ import path from 'path';
 import fs from 'fs/promises';
 import {compileMDX} from 'next-mdx-remote/rsc';
 import {Frontmatter} from 'types';
+// @ts-ignore
 import rehypePrism from '@mapbox/rehype-prism';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 
