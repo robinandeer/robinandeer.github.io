@@ -22,7 +22,7 @@ Having said that, here are a few really nice benefits you get from using supervi
 
 Supervisord is really simple to install:
 
-```sh
+```bash
 $ sudo apt-get install supervisor
 # or
 $ pip install supervisor
@@ -100,13 +100,13 @@ By specifying `autorestart = true` we can make sure that if the server goes down
 
 Now we only need to start the supervisord server to get everything up and running.
 
-```sh
+```bash
 supervisord --config /home/www/setup/supervisord.conf
 ```
 
 Next up we can manage processes using `supervisorctl`. We can for example easily check the status of all processes (programs) in the config file.
 
-```sh
+```bash
 $ supervisord --config /home/www/setup/supervisord.conf status
 mongod              RUNNING   pid 39188, uptime 23:27:51
 flask_server        RUNNING   pid 39237, uptime 23:27:28
@@ -114,7 +114,7 @@ flask_server        RUNNING   pid 39237, uptime 23:27:28
 
 One thing I really like is how `supervisorctl` can be used as a unified interface for starting, restarting, and stopping services which is really easy to define and share with your team.
 
-```sh
+```bash
 $ supervisorctl --config /home/www/setup/supervisord.conf restart flask_server
 flask_server: stopped
 flask_server: started

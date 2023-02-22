@@ -1,34 +1,16 @@
-import {RiGithubFill, RiTwitterFill} from 'react-icons/ri';
-import {SITE_DESCRIPTION, SITE_TITLE, SITE_URL} from 'config';
-
 import Anchor from 'components/anchor';
 import Button from 'components/button';
-import type {FC} from 'react';
-import type {GetStaticProps} from 'next';
 import HedvigLogo from 'components/hedvig-logo';
-import Image from 'next/image';
 import IntroCard from 'components/intro-card';
+import {RiGithubFill, RiTwitterFill} from 'react-icons/ri';
 import Link from 'next/link';
-import type {PostItem} from 'types';
-import SocialTags from 'components/social-tags';
-import {getAllPosts} from 'mdx/files';
+import Image from 'next/image';
+import {getLatestPostMeta} from 'mdx/mdx.helpers';
 
-interface Props {
-	latestPost: PostItem
-}
+export default async function Page() {
+	const latestPostMeta = await getLatestPostMeta();
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
-	const posts = getAllPosts();
-	const latestPost = posts[0];
-	return {
-		props: {latestPost},
-	};
-};
-
-const Home: FC<Props> = ({latestPost}) => (
-	<>
-		<SocialTags title={SITE_TITLE} description={SITE_DESCRIPTION} url={SITE_URL} type='website'/>
-
+	return (
 		<div className='px-4 py-6 sm:px-6 sm:py-9'>
 			<div className='flex flex-col gap-5 sm:gap-6 w-full max-w-md mx-auto'>
 				<div/>
@@ -39,33 +21,33 @@ const Home: FC<Props> = ({latestPost}) => (
 
 				<div className='flex flex-col items-center gap-6 card padded'>
 					<p>
-						I make up 1⁄6 of the web team at <Anchor href='https://www.hedvig.com/' target='_blank'>Hedvig</Anchor>. We onboard new members to a digital insurance that gives back to charity.
+						I make up 1/6 of the web team at <Anchor href='https://www.hedvig.com/' target='_blank'>Hedvig</Anchor>. We onboard new members to a digital insurance that gives back to charity.
 					</p>
 
 					<HedvigLogo/>
 				</div>
 
 				<div className='card'>
-					<Link href={`/blog/${latestPost.slug}`}>
-						{latestPost.meta.image && <Image
-							src={latestPost.meta.image}
-							width={latestPost.meta.imageWidth}
-							height={latestPost.meta.imageHeight}
-							alt={latestPost.meta.imageAlt || ''}
+					<Link href={`/blog/${latestPostMeta.slug}`}>
+						{latestPostMeta.image && <Image
+							priority={true}
+							src={latestPostMeta.image}
+							width={latestPostMeta.imageWidth}
+							height={latestPostMeta.imageHeight}
+							alt={latestPostMeta.imageAlt || ''}
 							className='rounded-t-lg'
 						/>}
 
 						<div className='flex flex-col'>
 							<div className='px-4 sm:px-4 pt-4 sm:pt-4 pb-5 sm:pb-6'>
 								<p className='uppercase text-xs text-gray-600 dark:text-gray-200'>Latest post</p>
-								<h3 className='text-lg font-medium'>{latestPost.meta.title}</h3>
+								<h3 className='text-lg font-medium'>{latestPostMeta.title}</h3>
 								<p className='text-gray-600 dark:text-gray-100'>
-									{latestPost.meta.intro}
+									{latestPostMeta.intro}
 								</p>
 							</div>
 						</div>
 					</Link>
-
 					<Link href='/blog'>
 						<div className='rounded rounded-t-none border-t border-gray-50 dark:border-gray-400 text-gray-200 hover:text-gray-400 dark:hover:text-gray-50 text-center p-3 cursor-pointer'>
 							Read all posts
@@ -96,7 +78,5 @@ const Home: FC<Props> = ({latestPost}) => (
 				<div/>
 			</div>
 		</div>
-	</>
-);
-
-export default Home;
+	);
+}

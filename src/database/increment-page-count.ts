@@ -1,4 +1,4 @@
-import client from './client';
+import {Redis} from '@upstash/redis';
 import getWeekNumber from './get-week-number';
 
 function getPageKey(url: string, year: number, week: number): string {
@@ -7,5 +7,6 @@ function getPageKey(url: string, year: number, week: number): string {
 
 export default async function incrementPageCount(url: string): Promise<void> {
 	const [year, week] = getWeekNumber();
-	await client.incr(getPageKey(url, year, week));
+	const redis = Redis.fromEnv();
+	await redis.incr(getPageKey(url, year, week));
 }

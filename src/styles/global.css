@@ -27,14 +27,14 @@ body {
   }
 }
 
-.remark-highlight {
+pre[class^='language-'] {
   @apply -ml-5 -mr-5;
 
   background: #2E3440;
 }
 
 @screen sm {
-  .remark-highlight {
+  pre[class^='language-'] {
     @apply rounded;
   }
 }
