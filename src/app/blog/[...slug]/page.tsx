@@ -66,7 +66,7 @@ export async function generateMetadata({params: {slug}}: Props) {
 	const description = post.intro;
 	const images = post.image ? [
 		{
-			url: path.join(SITE_URL, post.image),
+			url: [SITE_URL, post.image].join(''),
 			width: post.imageWidth,
 			height: post.imageHeight,
 			alt: post.imageAlt || '',
@@ -77,7 +77,7 @@ export async function generateMetadata({params: {slug}}: Props) {
 		title,
 		description,
 		openGraph: {
-			url: path.join(SITE_URL, 'blog', ...slug),
+			url: `${SITE_URL}/${path.join('blog', ...slug)}`,
 			type: 'article',
 			publishedTime: post.date.toISOString(),
 			images,
