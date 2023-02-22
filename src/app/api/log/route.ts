@@ -6,5 +6,3 @@ export async function POST(request: Request) {
 	await incrementPageCount(data.url);
 	return NextResponse.json({status: 'OK'});
 }
-
-export const runtime = 'experimental-edge';
