@@ -2,7 +2,7 @@ import 'styles/global.css';
 import 'styles/prism-theme.css';
 
 import {SITE_DESCRIPTION, SITE_TITLE, SITE_URL, SITE_BANNER} from 'config';
-import AnalyticsWrapper from '../components/analytics-wrapper';
+import AnalyticsWrapper from 'components/analytics-wrapper';
 import {type ReactNode} from 'react';
 import path from 'path';
 
