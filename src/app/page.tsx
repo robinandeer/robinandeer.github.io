@@ -40,8 +40,8 @@ export default async function Page() {
 
 						<div className='flex flex-col'>
 							<div className='px-4 sm:px-4 pt-4 sm:pt-4 pb-5 sm:pb-6'>
-								<p className='uppercase text-xs text-gray-600 dark:text-gray-200'>Latest post</p>
-								<h3 className='text-lg font-medium'>{latestPostMeta.title}</h3>
+								<p className='uppercase text-sm text-gray-600 dark:text-gray-100'>Latest post</p>
+								<h2 className='text-lg font-medium'>{latestPostMeta.title}</h2>
 								<p className='text-gray-600 dark:text-gray-100'>
 									{latestPostMeta.intro}
 								</p>
@@ -49,7 +49,7 @@ export default async function Page() {
 						</div>
 					</Link>
 					<Link href='/blog'>
-						<div className='rounded rounded-t-none border-t border-gray-50 dark:border-gray-400 text-gray-200 hover:text-gray-400 dark:hover:text-gray-50 text-center p-3 cursor-pointer'>
+						<div className='rounded rounded-t-none border-t border-gray-50 dark:border-gray-500 text-gray-200 dark:text-gray-100 hover:text-gray-400 dark:hover:text-gray-50 text-center p-3 cursor-pointer'>
 							Read all posts
 						</div>
 					</Link>
@@ -71,7 +71,7 @@ export default async function Page() {
 					</div>
 				</div>
 
-				<p className='text-center font-normal text-sm text-gray-500 dark:text-gray-300'>
+				<p className='text-center font-normal text-sm text-gray-500 dark:text-gray-200'>
 					Made with <Anchor href='https://nextjs.org' target='_blank'>Next.js</Anchor>, deployed on <Anchor href='https://vercel.com' target='_blank'>Vercel</Anchor>.
 				</p>
 

@@ -12,9 +12,9 @@ const IntroCard = ({children}: Props) => (
 		</div>
 		<div>
 			<div className='flex items-center gap-1'>
-				<h1 className='text-xl font-medium'>Hey, I’m Robin</h1>
+				<h1 className='text-xl font-medium'>Hey, I&rsquo;m Robin</h1>
 			</div>
-			<p className='text-base text-gray-600 dark:text-gray-200'>{children}</p>
+			<p className='text-base text-gray-600 dark:text-gray-100'>{children}</p>
 		</div>
 	</div>
 );

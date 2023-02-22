@@ -35,7 +35,7 @@ export default async function BlogPage() {
 								: null}
 
 							<div className='flex flex-col gap-px'>
-								<p className='text-xs font-medium text-gray-500 dark:text-gray-200 uppercase'>
+								<p className='text-sm font-medium text-gray-500 dark:text-gray-100 uppercase'>
 									{new Date(meta.date).toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric'})}
 								</p>
 
@@ -44,7 +44,7 @@ export default async function BlogPage() {
 								</h2>
 
 								{meta.intro ? (
-									<p className='text-base text-gray-500 dark:text-gray-200 font-normal'>
+									<p className='text-base text-gray-500 dark:text-gray-100 font-normal'>
 										{meta.intro}
 									</p>
 								) : null}

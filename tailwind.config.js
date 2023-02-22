@@ -18,7 +18,7 @@ module.exports = {
 					800: '#2d333b',
 					900: '#22272e',
 				},
-				'twitter-blue': '#1DA1F2',
+				'twitter-blue': '#075D92',
 			},
 			typography: theme => ({
 				DEFAULT: {
