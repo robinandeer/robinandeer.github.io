@@ -9,4 +9,4 @@ export const RECIPES_PATH = path.join(process.cwd(), 'recipes');
 
 export const CHANGELOG_PATH = path.join(process.cwd(), 'CHANGELOG.md');
 
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || process.env.VERCEL_URL || 'http://localhost:3000';

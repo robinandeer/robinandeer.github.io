@@ -77,7 +77,7 @@ export async function generateMetadata({params: {slug}}: Props) {
 		title,
 		description,
 		openGraph: {
-			url: `${SITE_URL}/blog/${slug}`,
+			url: path.join(SITE_URL, 'blog', ...slug),
 			type: 'article',
 			publishedTime: post.date.toISOString(),
 			images,
