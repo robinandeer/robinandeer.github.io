@@ -4,4 +4,4 @@ export const SITE_URL
 
 export const SITE_TITLE = 'Robin Andeer - Developer and writer.';
 export const SITE_DESCRIPTION = 'Front-end developer, React aficionado, and aspiring baker.';
-export const SITE_BANNER = [`${SITE_URL}/icons/banner.png`];
+export const SITE_BANNER = `${SITE_URL}/icons/banner.png`;

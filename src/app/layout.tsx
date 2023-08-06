@@ -1,8 +1,8 @@
 import 'styles/global.css';
 import 'styles/prism-theme.css';
 
-import {SITE_DESCRIPTION, SITE_TITLE, SITE_BANNER} from 'config';
-import AnalyticsWrapper from 'components/analytics-wrapper';
+import {SITE_URL, SITE_DESCRIPTION, SITE_TITLE, SITE_BANNER} from 'config';
+import {Analytics} from '@vercel/analytics/react';
 import {type ReactNode} from 'react';
 
 type Props = { children: ReactNode };
@@ -12,13 +12,14 @@ export default function RootLayout({children}: Props) {
 		<html lang='en'>
 			<body>
 				{children}
-				<AnalyticsWrapper />
+				<Analytics />
 			</body>
 		</html>
 	);
 }
 
 export const metadata = {
+	metadataBase: new URL(SITE_URL),
 	title: SITE_TITLE,
 	description: SITE_DESCRIPTION,
 	keywords: ['tech', 'javascript', 'react', 'blog', 'robinandeer'],
@@ -52,18 +53,5 @@ export const metadata = {
 		title: SITE_TITLE,
 		description: SITE_DESCRIPTION,
 		creator: '@robinandeer',
-	},
-
-	icons: {
-		icon: [
-			{url: '/icons/favicon.svg', type: 'image/svg+xml'},
-			{url: '/icons/favicon-32x32.png', sizes: '32x32', type: 'image/png'},
-			{url: '/icons/favicon-16x16.png', sizes: '16x16', type: 'image/png'},
-		],
-		alternate: '/icons/favicon.ico',
-		apple: [
-			{url: '/icons/apple-touch-icon.png', sizes: '180x180', type: 'image/png'},
-		],
-		mask: '/icons/safari-pinned-tab.svg',
 	},
 };

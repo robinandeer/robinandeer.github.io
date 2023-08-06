@@ -25,8 +25,6 @@ export async function getPostMeta(filePath: string) {
 	const source = await fs.readFile(filePath, 'utf8');
 	const {content, frontmatter} = await compileMDX({
 		source,
-		// Not sure why this is needed...
-		compiledSource: '',
 		components: {Image},
 		options: {
 			parseFrontmatter: true,
