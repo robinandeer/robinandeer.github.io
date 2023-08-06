@@ -1,9 +1,9 @@
-import Image from 'next/image';
+import Image, {type ImageProps} from 'next/image';
 import rehypeSlug from 'rehype-slug';
 import path from 'path';
 import fs from 'fs/promises';
 import {compileMDX} from 'next-mdx-remote/rsc';
-import {Frontmatter} from 'types';
+import {type Frontmatter} from 'types';
 // @ts-ignore
 import rehypePrism from '@mapbox/rehype-prism';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
@@ -25,7 +25,9 @@ export async function getPostMeta(filePath: string) {
 	const source = await fs.readFile(filePath, 'utf8');
 	const {content, frontmatter} = await compileMDX({
 		source,
-		components: {Image},
+		components: {
+			Image: (props: ImageProps) => <Image {...props} alt={props.alt ?? ''} />,
+		},
 		options: {
 			parseFrontmatter: true,
 			mdxOptions: {
