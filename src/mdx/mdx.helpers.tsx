@@ -52,13 +52,20 @@ export async function getPost(postId: string) {
 export async function getAllPostsMeta() {
 	const allPosts = await getAllPostPaths();
 	const allPostsMeta = await Promise.all(allPosts.map(getPostMeta));
-	return allPostsMeta.filter(item => IS_NOT_PRODUCTION_BUILD || item.draft !== true);
+	return allPostsMeta.filter(item => IS_NOT_PRODUCTION_BUILD || !item.draft);
 }
 
 export async function getLatestPostMeta() {
 	const allPosts = await getAllPostPaths();
-	const latestPost = allPosts[0];
-	return getPostMeta(latestPost);
+	for (const postPath of allPosts) {
+		// eslint-disable-next-line no-await-in-loop -- exit early on first non-draft post
+		const post = await getPostMeta(postPath);
+		if (IS_NOT_PRODUCTION_BUILD || !post.draft) {
+			return post;
+		}
+	}
+
+	throw new Error('Latest post not found');
 }
 
 function slugifyPath(filePath: string): string {
