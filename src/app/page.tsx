@@ -16,7 +16,7 @@ export default async function Page() {
 				<div/>
 
 				<IntroCard>
-					User Interface Engineer &amp; Baker.
+					Product Engineer &amp; competetive badminton player.
 				</IntroCard>
 
 				<div className='flex flex-col items-center gap-6 card padded'>
