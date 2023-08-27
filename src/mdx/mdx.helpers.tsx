@@ -7,11 +7,12 @@ import {type Frontmatter} from 'types';
 // @ts-ignore
 import rehypePrism from '@mapbox/rehype-prism';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import {ReactElement} from 'react';
 
 const IS_NOT_PRODUCTION_BUILD = process.env.NODE_ENV !== 'production';
 const POSTS_PATH = path.join(process.cwd(), 'posts');
 
-async function getAllPostPaths() {
+async function getAllPostPaths(): Promise<Array<string>> {
 	const directories = await fs.readdir(POSTS_PATH);
 	const posts = directories
 		.filter(fileName => /\.mdx?$/.test(fileName))
@@ -21,7 +22,12 @@ async function getAllPostPaths() {
 	return posts;
 }
 
-export async function getPostMeta(filePath: string) {
+type PostMeta = Frontmatter & {
+	slug: string,
+	content: ReactElement,
+}
+
+export async function getPostMeta(filePath: string): Promise<PostMeta> {
 	const source = await fs.readFile(filePath, 'utf8');
 	const {content, frontmatter} = await compileMDX({
 		source,
@@ -41,21 +47,21 @@ export async function getPostMeta(filePath: string) {
 		slug: slugifyPath(filePath),
 		...meta,
 		content,
-	} as const;
+	};
 }
 
-export async function getPost(postId: string) {
+export async function getPost(postId: string): Promise<PostMeta> {
 	const filePath = `${POSTS_PATH}/${postId}.md`;
 	return getPostMeta(filePath);
 }
 
-export async function getAllPostsMeta() {
+export async function getAllPostsMeta(): Promise<Array<PostMeta>> {
 	const allPosts = await getAllPostPaths();
 	const allPostsMeta = await Promise.all(allPosts.map(getPostMeta));
 	return allPostsMeta.filter(item => IS_NOT_PRODUCTION_BUILD || !item.draft);
 }
 
-export async function getLatestPostMeta() {
+export async function getLatestPostMeta(): Promise<PostMeta> {
 	const allPosts = await getAllPostPaths();
 	for (const postPath of allPosts) {
 		// eslint-disable-next-line no-await-in-loop -- exit early on first non-draft post
