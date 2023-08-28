@@ -3,7 +3,7 @@ import {RiDonutChartFill, RiGithubFill, RiLinkedinBoxFill} from 'react-icons/ri'
 export default function Page() {
 	return (
 		<div className='max-w-4xl mx-auto bg-white text-gray-900'>
-			<div className='grid grid-cols-[1fr_2fr] gap-2 min-h-screen'>
+			<div className='grid grid-cols-[1fr_2fr] space-x-2 min-h-screen'>
 				<aside className='space-y-6 bg-teal-600 pt-6'>
 					<header id='intro' className='px-6'>
 						<h1 className='text-4xl text-white font-semibold'>Robin Andeer</h1>
@@ -41,20 +41,20 @@ export default function Page() {
 
 					<section id='skills' className='space-y-4'>
 						<h2 className='font-medium text-white pl-6 py-1 bg-teal-700'>Skills</h2>
-						<ul className='flex gap-2 flex-wrap px-6'>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm'>TypeScript</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm'>React</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm'>Node.js</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm'>Next.js</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm'>REST API</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm'>GraphQL</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm'>CI/CD</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm'>AWS</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm'>Datadog</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm'>Vue.js</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm'>Python</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm'>React Native</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm'>SQL</li>
+						<ul className='flex flex-wrap px-6'>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-1 mb-1'>TypeScript</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-1 mb-1'>React</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-1 mb-1'>Node.js</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-1 mb-1'>Next.js</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-1 mb-1'>REST API</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-1 mb-1'>GraphQL</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-1 mb-1'>CI/CD</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-1 mb-1'>AWS</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-1 mb-1'>Datadog</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-1 mb-1'>Vue.js</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-1 mb-1'>Python</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-1 mb-1'>React Native</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-1 mb-1'>SQL</li>
 						</ul>
 					</section>
 
@@ -64,7 +64,7 @@ export default function Page() {
 							<div>
 								<h3 className='font-bold text-white'>Master of Science Engineering</h3>
 								<p className='text-teal-100'>KTH Royal Institute of Technology</p>
-								<div className='flex gap-1 items-center'>
+								<div className='flex items-center space-x-1'>
 									<p className='text-teal-100'>
                     2008 — 2013
 									</p>
@@ -196,7 +196,7 @@ function Work(props: WorkProps) {
 						{props.startDate} — {props.endDate}
 					</span>
 				</h3>
-				<div className='flex items-center gap-1 text-gray-300'>
+				<div className='flex items-center space-x-1 text-gray-300'>
 					<a href={props.href} target='_blank' rel='noreferrer'>{props.company}</a>
 					<RiDonutChartFill size={16} />
 					<p>{props.location}</p>
