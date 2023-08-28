@@ -42,19 +42,19 @@ export default function Page() {
 					<section id='skills' className='space-y-4'>
 						<h2 className='font-medium text-white pl-6 py-1 bg-teal-700'>Skills</h2>
 						<ul className='flex flex-wrap px-6'>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-1 mb-1'>TypeScript</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-1 mb-1'>React</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-1 mb-1'>Node.js</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-1 mb-1'>Next.js</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-1 mb-1'>REST API</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-1 mb-1'>GraphQL</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-1 mb-1'>CI/CD</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-1 mb-1'>AWS</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-1 mb-1'>Datadog</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-1 mb-1'>Vue.js</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-1 mb-1'>Python</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-1 mb-1'>React Native</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-1 mb-1'>SQL</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-2 mb-2'>TypeScript</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-2 mb-2'>React</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-2 mb-2'>Node.js</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-2 mb-2'>Next.js</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-2 mb-2'>REST API</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-2 mb-2'>GraphQL</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-2 mb-2'>CI/CD</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-2 mb-2'>AWS</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-2 mb-2'>Datadog</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-2 mb-2'>Vue.js</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-2 mb-2'>Python</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-2 mb-2'>React Native</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-sm mr-2 mb-2'>SQL</li>
 						</ul>
 					</section>
 
