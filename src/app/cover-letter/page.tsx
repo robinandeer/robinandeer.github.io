@@ -35,7 +35,7 @@ export default function Page({searchParams}: {searchParams: Record<string, strin
 				</p>
 
 				<p className='max-w-2xl'>
-					Please accept my application for the {role} position with {company}. I hope to bring my 10 years of software engineering experience to your team. In the past years I have gained expertise in TypeScript, React, web accessibility, and API design. I believe I would be an excellent addition to the {company} engineering team.
+					Please accept my application for the {role} position with {company}. I hope to bring my 10 years of software engineering experience to your team. In the past years, I have gained expertise in TypeScript, React, web accessibility, and API design. I believe I would be an excellent addition to the {company} engineering team.
 				</p>
 
 				<p className='max-w-2xl'>
@@ -43,7 +43,7 @@ export default function Page({searchParams}: {searchParams: Record<string, strin
 				</p>
 
 				<p className='max-w-2xl'>
-          I am currently based in Stockholm, Sweden but will move to New York in December, 2023. I’m authorized to work under an L-2 Visa as a dependent on my husband.
+          I am currently based in Stockholm, Sweden but will move to New York in December 2023. I’m authorized to work under an L-2 Visa as a dependent on my husband.
 				</p>
 
 				<p className='max-w-2xl'>
