@@ -148,7 +148,7 @@ export default function Page() {
 							company='SciLifeLab'
 							href='https://www.scilifelab.se'
 							location='Stockholm'
-							startDate='Jan 2014'
+							startDate='Jul 2014'
 							endDate='Dec 2017'
 							description={[
 								'Developed a secure web portal for clinicians to efficiently manage analysis results from DNA sequencing.',
