@@ -5,7 +5,7 @@ export default function Page() {
 	return (
 		<div className='max-w-4xl mx-auto bg-white text-gray-900'>
 			<div className='grid grid-cols-[1fr_2fr] space-x-2 min-h-screen'>
-				<aside className='space-y-4 bg-teal-600 pt-4 pb-10 h-full'>
+				<aside className='space-y-4 bg-teal-600 pt-4 pb-16 h-full'>
 					<header id='intro' className='px-4'>
 						<h1 className='text-3xl text-white font-semibold'>Robin Andeer</h1>
 						<h2 className='text-xl text-teal-100'>Staff Web Engineer</h2>
