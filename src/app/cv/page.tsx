@@ -168,7 +168,7 @@ export default function Page() {
 							startDate='May 2021'
 							endDate='Present'
 							description={[
-								'Collaborate with a cross-functional agile team spanning design, product management, and engineering to design, build, evaluate, and ship features to increase Hedvig’s growth. Such features include a new e-commerse marketplace, new product and market launches, and personalized cross-sales.',
+								'Collaborate with a cross-functional agile team spanning design, product management, and engineering to design, build, evaluate, and ship features to increase Hedvig’s growth. Such features include a new e-commerce marketplace, new product and market launches, and personalized cross-sales.',
 								<p key='domain'>
 									With the rest of my team maintain, operate, monitor, and troubleshoot the <a href='https://www.hedvig.com' className='underline'>Hedvig.com</a>-domain and APIs.
 								</p>,
@@ -186,7 +186,7 @@ export default function Page() {
 							startDate='Jan 2018'
 							endDate='May 2021'
 							description={[
-								'Develop and maintain micro-frontends using React and Node.js for an airline company. Educate the client in agile best practises.',
+								'Develop and maintain micro-frontends using React and Node.js for an airline company. Educate the client in agile best practices.',
 								'Architect and launch a greenfield cross-platform React Native app with FaceID login and a comprehensive end-to-end test suite for a Nordic bank.',
 								'Lead development of public and internal web apps using React and Next.js. Design and implement serverless GraphQL APIs in AWS.',
 								'Mentor junior engineers in React and web development and lead external workshops around Contentful CMS',
@@ -216,7 +216,7 @@ export default function Page() {
 							startDate='Aug 2013'
 							endDate='Jul 2014'
 							description={[
-								'Maintain and developed Chanjo, an open-source DNA sequencing analysis tool used at Karolinska Hospital and Harvard School of Public Health.',
+								'Maintain and develop Chanjo, an open-source DNA sequencing analysis tool used at Karolinska Hospital and Harvard School of Public Health.',
 							]}
 						/>
 
