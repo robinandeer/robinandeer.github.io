@@ -7,7 +7,7 @@ export default function Page() {
 			<div className='grid grid-cols-[1fr_2fr] space-x-2 min-h-screen'>
 				<aside className='space-y-4 bg-teal-600 pt-4 pb-10 h-full'>
 					<header id='intro' className='px-4'>
-						<h1 className='text-4xl text-white font-semibold'>Robin Andeer</h1>
+						<h1 className='text-3xl text-white font-semibold'>Robin Andeer</h1>
 						<h2 className='text-xl text-teal-100'>Staff Web Engineer</h2>
 					</header>
 
@@ -30,7 +30,7 @@ export default function Page() {
 
 							<li className='flex justify-between'>
 								<p>Availability</p>
-								<p className='text-white'>December ’23-</p>
+								<p className='text-white'>December, 2023</p>
 							</li>
 
 							<li className='flex justify-between'>
@@ -45,19 +45,20 @@ export default function Page() {
 					<section id='skills' className='space-y-4'>
 						<SidebarHeading>Skills</SidebarHeading>
 						<ul className='flex flex-wrap px-4'>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-2 mb-2'>TypeScript</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-2 mb-2'>React</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-2 mb-2'>Node.js</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-2 mb-2'>Next.js</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-2 mb-2'>REST API</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-2 mb-2'>GraphQL</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-2 mb-2'>CI/CD</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-2 mb-2'>AWS</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-2 mb-2'>Datadog</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-2 mb-2'>Vue.js</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-2 mb-2'>Python</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-2 mb-2'>React Native</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-2 mb-2'>SQL</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-1 mb-1'>TypeScript</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-1 mb-1'>JavaScript</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-1 mb-1'>React</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-1 mb-1'>Node.js</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-1 mb-1'>Next.js</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-1 mb-1'>REST API</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-1 mb-1'>GraphQL</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-1 mb-1'>CI/CD</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-1 mb-1'>AWS</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-1 mb-1'>Datadog</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-1 mb-1'>Vue.js</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-1 mb-1'>Python</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-1 mb-1'>React Native</li>
+							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-1 mb-1'>SQL</li>
 						</ul>
 					</section>
 
@@ -153,9 +154,9 @@ export default function Page() {
 					</section>
 				</aside>
 
-				<main className='space-y-4 py-4'>
-					<section id='work-experience' className='px-4 space-y-6'>
-						<h2 className='text-2xl font-bold flex items-center'>
+				<main className='py-4'>
+					<section id='work-experience' className='px-4 space-y-4'>
+						<h2 className='text-xl font-bold flex items-center'>
               Work experience
 						</h2>
 
@@ -238,7 +239,7 @@ type WorkProps = {
 
 function Work(props: WorkProps) {
 	return (
-		<div className='space-y-4'>
+		<div className='space-y-2'>
 			<header>
 				<h3>
 					<b>{props.title}</b>{' '}
