@@ -24,7 +24,7 @@ It all serves the same purpose: to make it easier to maintain the code.
 
 What makes code maintainable? You can think of the most common activities you on a daily basis:
 
-- Building new features. 
+- Building new features.
 
 - Deletability. The best code is the code you don't have to write. The second best code is the code you can delete.
 
