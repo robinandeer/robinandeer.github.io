@@ -21,7 +21,7 @@ export default async function Page() {
 
 				<div className='flex flex-col items-center gap-6 card padded'>
 					<p>
-						I make up 1/6 of the web team at <Anchor href='https://www.hedvig.com/' target='_blank'>Hedvig</Anchor>. We onboard new members to a digital insurance that gives back to charity.
+						I make up 1/5 of the web team at <Anchor href='https://www.hedvig.com/' target='_blank'>Hedvig</Anchor>. We onboard new members to a digital insurance that gives back to charity.
 					</p>
 
 					<HedvigLogo/>

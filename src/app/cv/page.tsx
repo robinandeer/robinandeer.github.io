@@ -34,7 +34,7 @@ export default function Page() {
 							</li>
 
 							<li className='flex justify-between'>
-								<p>Relocation</p>
+								<p>US Visa</p>
 								<p className='text-white text-right'>
 									Yes (L-2 Visa)
 								</p>
@@ -168,13 +168,21 @@ export default function Page() {
 							startDate='May 2021'
 							endDate='Present'
 							description={[
-								'Collaborate with a cross-functional agile team spanning design, product management, and engineering to design, build, evaluate, and ship features to increase Hedvig’s growth. Such features include a new e-commerce marketplace, new product and market launches, and personalized cross-sales.',
-								<p key='domain'>
-									With the rest of my team maintain, operate, monitor, and troubleshoot the <a href='https://www.hedvig.com' className='underline'>Hedvig.com</a>-domain and APIs.
+								<p key='innovative-growth'>
+									<strong>Innovative Growth</strong>: Leading agile teams, I drive feature development, including a successful e-commerce marketplace launch and personalized cross-sales, fueling Hedvig’s expansion.
 								</p>,
-								'Promote and role-model best practices of frontend and GraphQL development throughout Hedvig and personally mentor multiple engineers in the team.',
-								'Participate in the hiring and onboarding processes for new engineers and engineering managers.',
-								'As part of Hedvig’s engineering leadership team, define the technical priorities that help our organization maintain and improve technical quality and engineer productivity.',
+								<p key='opperational-excellence'>
+									<strong>Operational Excellence</strong>: Oversee <a href='https://www.hedvig.com' className='underline'>Hedvig.com</a> and APIs, ensuring robust performance through active maintenance, monitoring, and troubleshooting.
+								</p>,
+								<p key='leadership'>
+									<strong>Leadership and Mentorship</strong>: Actively contribute to the engineering leadership team, defining technical priorities. Mentor multiple team members, fostering a culture of best practices.
+								</p>,
+								<p key='onboarding'>
+									<strong>Talent and Onboarding</strong>: Play a key role in hiring and onboarding new engineers and managers, contributing to team growth and cohesion.
+								</p>,
+								<p key='improvement'>
+									<strong>Continuous Improvement</strong>: Collaborate on refining best practices, and fostering a culture of continuous improvement to enhance technical quality and productivity.
+								</p>,
 							]}
 						/>
 
@@ -186,11 +194,18 @@ export default function Page() {
 							startDate='Jan 2018'
 							endDate='May 2021'
 							description={[
-								'Develop and maintain micro-frontends using React and Node.js for an airline company. Educate the client in agile best practices.',
-								'Architect and launch a greenfield cross-platform React Native app with FaceID login and a comprehensive end-to-end test suite for a Nordic bank.',
-								'Lead development of public and internal web apps using React and Next.js. Design and implement serverless GraphQL APIs in AWS.',
-								'Mentor junior engineers in React and web development and lead external workshops around Contentful CMS',
-								'Participate in the hiring and evaluation process for new engineers.',
+								<p key='versetile'>
+									<strong>Versatile Solutions</strong>: Developed and maintained micro-frontends for an airline company, launched a React Native app for a Nordic bank with FaceID-login, and led React and Next.js web app development.
+								</p>,
+								<p key='leadership'>
+									<strong>Agile Leadership</strong>: Educated clients on agile best practices, led workshops on Contentful CMS, and mentored junior engineers in React and web development.
+								</p>,
+								<p key='innovative'>
+									<strong>Innovative Technology</strong>: Architected cross-platform solutions, including serverless GraphQL APIs in AWS, demonstrating a commitment to cutting-edge technology.
+								</p>,
+								<p key='hiring'>
+									<strong>Hiring and Evaluation</strong>: Played a key role in hiring and evaluating new engineers, contributing to the growth and success of the team.
+								</p>,
 							]}
 						/>
 
@@ -202,9 +217,15 @@ export default function Page() {
 							startDate='Jul 2014'
 							endDate='Dec 2017'
 							description={[
-								'Develop a secure web portal for clinicians to efficiently manage analysis results from DNA sequencing.',
-								'Create an extensive suite of internal tools to automate processing and analysis of large-scale clinical genomics data.',
-								'Ensure software and automation compliance with ISO/IEC 17025 accreditation requirements.',
+								<p key='efficiency'>
+									<strong>Clinical Efficiency</strong>: Developed a secure web portal for clinicians, streamlining the management of DNA sequencing analysis results.
+								</p>,
+								<p key='expertise'>
+									<strong>Automation Expertise</strong>: Created a suite of internal tools for the automated processing and analysis of large-scale clinical genomics data.
+								</p>,
+								<p key='assurance'>
+									<strong>Compliance Assurance</strong>: Ensured software and automation compliance with ISO/IEC 17025 accreditation requirements, maintaining high standards.
+								</p>,
 							]}
 						/>
 
@@ -216,7 +237,7 @@ export default function Page() {
 							startDate='Aug 2013'
 							endDate='Jul 2014'
 							description={[
-								'Maintain and develop Chanjo, an open-source DNA sequencing analysis tool used at Karolinska Hospital and Harvard School of Public Health.',
+								'Maintained and developed Chanjo, an open-source DNA sequencing analysis tool used at Karolinska Hospital and Harvard School of Public Health.',
 							]}
 						/>
 
