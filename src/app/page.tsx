@@ -21,7 +21,7 @@ export default async function Page() {
 
 				<div className='flex flex-col items-center gap-6 card padded'>
 					<p>
-						I'm part of the product engineering team at <Anchor href='https://www.runwayml.com/' target='_blank'>Runway</Anchor>. We're building tools for human imagination.
+						I&apos;m a product engineer at <Anchor href='https://www.runwayml.com/' target='_blank'>Runway</Anchor>. We&apos;re building tools for human imagination.
 					</p>
 
 					<RunwayLogo />

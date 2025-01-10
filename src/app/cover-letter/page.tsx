@@ -1,8 +1,14 @@
 const PORTFOLIO_URL = 'https://www.robinandeer.com/';
 const LINKEDIN_URL = 'https://www.linkedin.com/in/robinandeer';
 
-export default function Page({searchParams}: {searchParams: Record<string, string | undefined>}) {
-	const {role, company, contactName = 'Hiring Manager'} = searchParams;
+type SearchParams = Promise<{
+	role: string;
+	company: string;
+	contactName?: string;
+}>;
+
+export default async function Page({searchParams}: {searchParams: SearchParams}) {
+	const {role, company, contactName = 'Hiring Manager'} = await searchParams;
 
 	return (
 		<div className='bg-white min-h-screen text-gray-900 space-y-4'>
