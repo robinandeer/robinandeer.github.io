@@ -1,6 +1,6 @@
 import Anchor from 'components/anchor';
 import Button from 'components/button';
-import HedvigLogo from 'components/hedvig-logo';
+import RunwayLogo from 'components/runway-logo';
 import IntroCard from 'components/intro-card';
 import {RiGithubFill, RiTwitterFill} from 'react-icons/ri';
 import Link from 'next/link';
@@ -21,10 +21,10 @@ export default async function Page() {
 
 				<div className='flex flex-col items-center gap-6 card padded'>
 					<p>
-						I make up 1/5 of the web team at <Anchor href='https://www.hedvig.com/' target='_blank'>Hedvig</Anchor>. We onboard new members to a digital insurance that gives back to charity.
+						I'm part of the product engineering team at <Anchor href='https://www.runwayml.com/' target='_blank'>Runway</Anchor>. We're building tools for human imagination.
 					</p>
 
-					<HedvigLogo/>
+					<RunwayLogo />
 				</div>
 
 				<div className='card'>

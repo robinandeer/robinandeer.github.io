@@ -29,7 +29,7 @@ type PostMeta = Frontmatter & {
 
 export async function getPostMeta(filePath: string): Promise<PostMeta> {
 	const source = await fs.readFile(filePath, 'utf8');
-	const {content, frontmatter} = await compileMDX({
+	const {content, frontmatter} = await compileMDX<Frontmatter>({
 		source,
 		components: {
 			Image: (props: ImageProps) => <Image {...props} alt={props.alt ?? ''} />,
@@ -42,10 +42,9 @@ export async function getPostMeta(filePath: string): Promise<PostMeta> {
 		},
 	});
 
-	const meta = frontmatter as unknown as Frontmatter;
 	return {
 		slug: slugifyPath(filePath),
-		...meta,
+		...frontmatter,
 		content,
 	};
 }

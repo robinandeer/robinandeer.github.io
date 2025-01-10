@@ -1,7 +1,7 @@
 export interface Frontmatter {
   title: string;
   intro?: string;
-  date: Date;
+  date: string;
   image?: string;
   imageAlt?: string;
   imageWidth?: number;

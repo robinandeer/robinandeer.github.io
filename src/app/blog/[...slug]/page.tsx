@@ -7,14 +7,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import path from 'path';
 
-type Props = { params: { slug: string[] }};
-
 export async function generateStaticParams() {
 	const slugs = await getAllPostsMeta();
 	return slugs.map(item => ({slug: item.slug.split('/')}));
 }
 
-export default async function BlogPostPage({params: {slug}}: Props) {
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string[] }> }) {
+	const { slug } = await params;
 	const post = await getPost(slug.join('-'));
 
 	return (
@@ -59,7 +58,8 @@ export default async function BlogPostPage({params: {slug}}: Props) {
 	);
 }
 
-export async function generateMetadata({params: {slug}}: Props) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string[] }> }) {
+	const { slug } = await params;
 	const post = await getPost(slug.join('-'));
 
 	const title = `${post.title} - Robin Andeer`;
@@ -79,7 +79,7 @@ export async function generateMetadata({params: {slug}}: Props) {
 		openGraph: {
 			url: `${SITE_URL}/${path.join('blog', ...slug)}`,
 			type: 'article',
-			publishedTime: post.date.toISOString(),
+			publishedTime: post.date,
 			images,
 		},
 		twitter: {

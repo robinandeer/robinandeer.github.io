@@ -1,6 +1,7 @@
 import 'styles/global.css';
 import 'styles/prism-theme.css';
 
+import type { Viewport, Metadata } from 'next'
 import {SITE_URL, SITE_DESCRIPTION, SITE_TITLE, SITE_BANNER} from 'config';
 import {Analytics} from '@vercel/analytics/react';
 import {type ReactNode} from 'react';
@@ -18,15 +19,17 @@ export default function RootLayout({children}: Props) {
 	);
 }
 
-export const metadata = {
+export const viewport: Viewport = {
+	themeColor: '#fff',
+};
+
+export const metadata: Metadata = {
 	metadataBase: new URL(SITE_URL),
 	title: SITE_TITLE,
 	description: SITE_DESCRIPTION,
 	keywords: ['tech', 'javascript', 'react', 'blog', 'robinandeer'],
 	creator: 'Robin Andeer',
 	publisher: 'Robin Andeer',
-
-	themeColor: '#fff',
 
 	robots: {
 		index: true,

@@ -9,6 +9,7 @@ const nextConfig = {
 		typedRoutes: true,
 	},
 	reactStrictMode: true,
+	transpilePackages: ['next-mdx-remote'],
 };
 
 module.exports = nextConfig;
