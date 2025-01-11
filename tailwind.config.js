@@ -85,6 +85,13 @@ module.exports = {
 							code: {
 								color: theme('colors.white'),
 							},
+							'p code': {
+								backgroundColor: theme('colors.gray.700'),
+								padding: '0.2rem 0.3rem',
+								borderRadius: '0.2rem',
+								fontWeight: 500,
+								fontSize: '0.8rem',
+							},
 							'a code': {
 								color: theme('colors.white'),
 							},

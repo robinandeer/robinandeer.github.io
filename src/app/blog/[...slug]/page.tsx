@@ -43,7 +43,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 							{new Date(post.date).toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric'})}
 						</p>
 					</header>
-					<div className='prose prose-yellow dark:prose-light'>
+					<div className='prose prose-yellow dark:prose-light prose-code:before:content-none prose-code:after:content-none'>
 						{post.content}
 					</div>
 				</article>
