@@ -1,14 +1,13 @@
 import 'styles/global.css';
-import 'styles/prism-theme.css';
 
-import type { Viewport, Metadata } from 'next'
-import {SITE_URL, SITE_DESCRIPTION, SITE_TITLE, SITE_BANNER} from 'config';
-import {Analytics} from '@vercel/analytics/react';
-import {type ReactNode} from 'react';
+import { Analytics } from '@vercel/analytics/react';
+import { SITE_BANNER, SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from 'config';
+import type { Metadata, Viewport } from 'next';
+import type { ReactNode } from 'react';
 
 type Props = { children: ReactNode };
 
-export default function RootLayout({children}: Props) {
+export default function RootLayout({ children }: Props) {
 	return (
 		<html lang='en'>
 			<body>

@@ -6,8 +6,8 @@ const nextConfig = {
 		esmExternals: true,
 		scrollRestoration: true,
 		mdxRs: true,
-		typedRoutes: true,
 	},
+	typedRoutes: true,
 	reactStrictMode: true,
 	transpilePackages: ['next-mdx-remote'],
 };

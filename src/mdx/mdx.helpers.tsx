@@ -1,13 +1,12 @@
-import Image, {type ImageProps} from 'next/image';
-import rehypeSlug from 'rehype-slug';
-import path from 'path';
 import fs from 'fs/promises';
-import {compileMDX} from 'next-mdx-remote/rsc';
-import {type Frontmatter} from 'types';
-// @ts-ignore
-import rehypePrism from '@mapbox/rehype-prism';
+import Image, { type ImageProps } from 'next/image';
+import { compileMDX } from 'next-mdx-remote/rsc';
+import path from 'path';
+import type { ReactElement } from 'react';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import {ReactElement} from 'react';
+import rehypePrettyCode from 'rehype-pretty-code';
+import rehypeSlug from 'rehype-slug';
+import type { Frontmatter } from 'types';
 
 const IS_NOT_PRODUCTION_BUILD = process.env.NODE_ENV !== 'production';
 const POSTS_PATH = path.join(process.cwd(), 'posts');
@@ -15,21 +14,21 @@ const POSTS_PATH = path.join(process.cwd(), 'posts');
 async function getAllPostPaths(): Promise<Array<string>> {
 	const directories = await fs.readdir(POSTS_PATH);
 	const posts = directories
-		.filter(fileName => /\.mdx?$/.test(fileName))
+		.filter((fileName) => /\.mdx?$/.test(fileName))
 		.reverse()
-		.map(fileName => path.join(POSTS_PATH, fileName));
+		.map((fileName) => path.join(POSTS_PATH, fileName));
 
 	return posts;
 }
 
 type PostMeta = Frontmatter & {
-	slug: string,
-	content: ReactElement,
-}
+	slug: string;
+	content: ReactElement;
+};
 
 export async function getPostMeta(filePath: string): Promise<PostMeta> {
 	const source = await fs.readFile(filePath, 'utf8');
-	const {content, frontmatter} = await compileMDX<Frontmatter>({
+	const { content, frontmatter } = await compileMDX<Frontmatter>({
 		source,
 		components: {
 			Image: (props: ImageProps) => <Image {...props} alt={props.alt ?? ''} />,
@@ -37,7 +36,11 @@ export async function getPostMeta(filePath: string): Promise<PostMeta> {
 		options: {
 			parseFrontmatter: true,
 			mdxOptions: {
-				rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, {behavior: 'append'}], rehypePrism],
+				rehypePlugins: [
+					rehypeSlug,
+					[rehypeAutolinkHeadings, { behavior: 'append' }],
+					[rehypePrettyCode, { theme: 'github-dark' }],
+				],
 			},
 		},
 	});
@@ -57,7 +60,7 @@ export async function getPost(postId: string): Promise<PostMeta> {
 export async function getAllPostsMeta(): Promise<Array<PostMeta>> {
 	const allPosts = await getAllPostPaths();
 	const allPostsMeta = await Promise.all(allPosts.map(getPostMeta));
-	return allPostsMeta.filter(item => IS_NOT_PRODUCTION_BUILD || !item.draft);
+	return allPostsMeta.filter((item) => IS_NOT_PRODUCTION_BUILD || !item.draft);
 }
 
 export async function getLatestPostMeta(): Promise<PostMeta> {

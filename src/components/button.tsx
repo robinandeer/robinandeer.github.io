@@ -1,16 +1,16 @@
-import type {ComponentPropsWithoutRef, FC} from 'react';
+import type { ComponentPropsWithoutRef, FC } from 'react';
 
 type ButtonProps = ComponentPropsWithoutRef<'button'> & {
-  type: ComponentPropsWithoutRef<'button'>['type']
-}
+	type: ComponentPropsWithoutRef<'button'>['type'];
+};
 
-type LinkProps = ComponentPropsWithoutRef<'a'>
+type LinkProps = ComponentPropsWithoutRef<'a'>;
 
-type Props = ButtonProps | LinkProps
+type Props = ButtonProps | LinkProps;
 
 const hasHref = (props: Props): props is LinkProps => 'href' in props;
 
-const Button: FC<Props> = ({className, ...props}) => {
+const Button: FC<Props> = ({ className, ...props }) => {
 	const baseProps = {
 		className: [
 			'rounded-lg',
@@ -38,14 +38,16 @@ const Button: FC<Props> = ({className, ...props}) => {
 
 	if (hasHref(props)) {
 		const extraProps = {
-			...(props.href?.startsWith('http') ? {target: '_blank', rel: 'noopener noreferrer'} : {}),
+			...(props.href?.startsWith('http')
+				? { target: '_blank', rel: 'noopener noreferrer' }
+				: {}),
 		};
 
-		return <a {...props} {...baseProps} {...extraProps}/>;
+		return <a {...props} {...baseProps} {...extraProps} />;
 	}
 
-	// @ts-ignore - button type mismatch
-	return <button {...props} {...baseProps}/>;
+	// @ts-expect-error - button type mismatch
+	return <button {...props} {...baseProps} />;
 };
 
 export default Button;

@@ -1,18 +1,22 @@
 import Anchor from 'components/anchor';
 import BackLink from 'components/back-link';
 import IntroCard from 'components/intro-card';
-import {SITE_URL} from 'config';
-import {getAllPostsMeta, getPost} from 'mdx/mdx.helpers';
+import { SITE_URL } from 'config';
+import { getAllPostsMeta, getPost } from 'mdx/mdx.helpers';
 import Image from 'next/image';
 import Link from 'next/link';
 import path from 'path';
 
 export async function generateStaticParams() {
 	const slugs = await getAllPostsMeta();
-	return slugs.map(item => ({slug: item.slug.split('/')}));
+	return slugs.map((item) => ({ slug: item.slug.split('/') }));
 }
 
-export default async function BlogPostPage({ params }: { params: Promise<{ slug: string[] }> }) {
+export default async function BlogPostPage({
+	params,
+}: {
+	params: Promise<{ slug: string[] }>;
+}) {
 	const { slug } = await params;
 	const post = await getPost(slug.join('-'));
 
@@ -31,47 +35,66 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 						src={post.image}
 						width={post.imageWidth}
 						height={post.imageHeight}
-						alt={post.imageAlt || ''}/>
+						alt={post.imageAlt || ''}
+					/>
 				</div>
 			)}
 
 			<div className='min-h-screen'>
 				<article className='flex flex-col gap-10 lg:gap-16 max-w-2xl mx-auto'>
 					<header className='flex flex-col gap-2'>
-						<h1 className='text-3xl lg:text-5xl font-semibold lg:leading-tight'>{post.title}</h1>
+						<h1 className='text-3xl lg:text-5xl font-semibold lg:leading-tight'>
+							{post.title}
+						</h1>
 						<p className='text-xs lg:text-base font-medium text-gray-500 dark:text-gray-200 uppercase'>
-							{new Date(post.date).toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric'})}
+							{new Date(post.date).toLocaleDateString('en-US', {
+								year: 'numeric',
+								month: 'long',
+								day: 'numeric',
+							})}
 						</p>
 					</header>
-					<div className='prose prose-yellow dark:prose-light prose-code:before:content-none prose-code:after:content-none'>
+					<div className='prose prose-yellow prose-code:before:content-none prose-code:after:content-none'>
 						{post.content}
 					</div>
 				</article>
 			</div>
 			<footer className='max-w-3xl mx-auto w-full'>
 				<IntroCard>
-					If you liked this post, <Anchor href={`https://twitter.com/intent/tweet?text=${post.title} by @robinandeer&url=`}>tell me on Twitter</Anchor>!
+					If you liked this post,{' '}
+					<Anchor
+						href={`https://twitter.com/intent/tweet?text=${post.title} by @robinandeer&url=`}
+					>
+						tell me on Twitter
+					</Anchor>
+					!
 				</IntroCard>
 			</footer>
-			<div className='h-10'/>
+			<div className='h-10' />
 		</div>
 	);
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string[] }> }) {
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ slug: string[] }>;
+}) {
 	const { slug } = await params;
 	const post = await getPost(slug.join('-'));
 
 	const title = `${post.title} - Robin Andeer`;
 	const description = post.intro;
-	const images = post.image ? [
-		{
-			url: [SITE_URL, post.image].join(''),
-			width: post.imageWidth,
-			height: post.imageHeight,
-			alt: post.imageAlt || '',
-		},
-	] : undefined;
+	const images = post.image
+		? [
+				{
+					url: [SITE_URL, post.image].join(''),
+					width: post.imageWidth,
+					height: post.imageHeight,
+					alt: post.imageAlt || '',
+				},
+			]
+		: undefined;
 
 	return {
 		title,

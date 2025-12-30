@@ -1,6 +1,19 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-gray-50: #cdd9e5;
+  --color-gray-100: #adbac7;
+  --color-gray-200: #909dab;
+  --color-gray-300: #768390;
+  --color-gray-400: #636e7b;
+  --color-gray-500: #545d68;
+  --color-gray-600: #444c56;
+  --color-gray-700: #373e47;
+  --color-gray-800: #2d333b;
+  --color-gray-900: #22272e;
+  --color-twitter-blue: #075D92;
+}
 
 body {
   @apply bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-50;
@@ -27,14 +40,118 @@ body {
   }
 }
 
-pre[class^='language-'] {
-  @apply -mx-5 px-5;
-
-  background: hsl(220deg 16% 8%);
+/* Typography base customizations */
+.prose h2 {
+  font-size: 1.4rem;
+  font-weight: 500;
 }
 
-@screen sm {
-  pre[class^='language-'] {
+.prose a {
+  text-decoration: none;
+}
+
+.prose a:hover {
+  text-decoration: underline;
+}
+
+/* Dark mode typography styles */
+@media (prefers-color-scheme: dark) {
+  .prose {
+    color: var(--color-gray-50);
+  }
+
+  .prose [class~="lead"] {
+    color: white;
+  }
+
+  .prose a {
+    color: var(--color-yellow-500);
+  }
+
+  .prose strong,
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4,
+  .prose code {
+    color: white;
+  }
+
+  .prose ol > li::marker {
+    color: var(--color-gray-300);
+  }
+
+  .prose ul > li::marker {
+    color: var(--color-gray-600);
+  }
+
+  .prose hr {
+    border-width: 0;
+    height: 3px;
+    background-color: var(--color-gray-600);
+    border-radius: 2px;
+  }
+
+  .prose blockquote {
+    color: var(--color-gray-200);
+    border-left-color: var(--color-gray-600);
+  }
+
+  .prose blockquote p::before {
+    content: "";
+  }
+
+  .prose figure figcaption {
+    color: var(--color-gray-400);
+  }
+
+  .prose p code {
+    background-color: var(--color-gray-700);
+    padding: 0.2rem 0.3rem;
+    border-radius: 0.2rem;
+    font-weight: 500;
+    font-size: 0.8rem;
+  }
+
+  .prose a code {
+    color: white;
+  }
+
+  .prose pre {
+    color: var(--color-gray-200);
+    background-color: var(--color-gray-800);
+  }
+
+  .prose thead {
+    color: white;
+    border-bottom-color: var(--color-gray-400);
+  }
+
+  .prose tbody tr {
+    border-bottom-color: var(--color-gray-600);
+  }
+}
+
+/* Code block styling (rehype-pretty-code) */
+[data-rehype-pretty-code-figure] pre {
+  @apply -mx-5 px-5 py-4;
+}
+
+@media (width >= 640px) {
+  [data-rehype-pretty-code-figure] pre {
     @apply rounded;
   }
+}
+
+/* Ensure code spans don't have extra styling */
+[data-rehype-pretty-code-figure] code {
+  background: transparent;
+  padding: 0;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+[data-rehype-pretty-code-figure] code [data-line] {
+  padding: 0 1rem;
+  margin: 0 -1rem;
 }

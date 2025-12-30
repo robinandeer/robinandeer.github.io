@@ -1,8 +1,8 @@
-import React from 'react';
+import type React from 'react';
 
-type Props = React.HTMLProps<HTMLAnchorElement>
+type Props = React.HTMLProps<HTMLAnchorElement>;
 
-const Anchor: React.FC<Props> = ({className, ...props}) => {
+const Anchor: React.FC<Props> = ({ className, ...props }) => {
 	const allProps: Props = {
 		...props,
 		rel: props.target === '_blank' ? 'noopener noreferrer' : props.rel,
