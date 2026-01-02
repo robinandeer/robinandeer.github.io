@@ -1,6 +1,7 @@
 import 'styles/global.css';
 
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { SITE_BANNER, SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from 'config';
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
@@ -11,6 +12,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 			<body>
 				{children}
 				<Analytics />
+				<SpeedInsights />
 			</body>
 		</html>
 	);
