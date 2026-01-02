@@ -1,29 +1,18 @@
-import type React from 'react';
+import type { ComponentPropsWithoutRef } from 'react';
+import { cn } from 'utils/cn';
 
-type Props = React.HTMLProps<HTMLAnchorElement>;
+type Props = ComponentPropsWithoutRef<'a'>;
 
-const Anchor: React.FC<Props> = ({ className, ...props }) => {
-	const allProps: Props = {
-		...props,
-		rel: props.target === '_blank' ? 'noopener noreferrer' : props.rel,
-	};
-
+export function Anchor({ className, target, rel, ...props }: Props) {
 	return (
 		<a
-			className={[
-				'font-medium',
-				'rounded',
-				'cursor-pointer',
-				'underline',
-				'focus:outline-none',
-				'focus:ring-2',
-				'focus:ring-yellow-500',
-				'focus:ring-opacity-50',
+			className={cn(
+				'font-medium rounded cursor-pointer underline focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50',
 				className,
-			].join(' ')}
-			{...allProps}
+			)}
+			target={target}
+			rel={target === '_blank' ? 'noopener noreferrer' : rel}
+			{...props}
 		/>
 	);
-};
-
-export default Anchor;
+}

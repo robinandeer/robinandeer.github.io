@@ -1,4 +1,4 @@
-import BackLink from 'components/back-link';
+import { BackLink } from 'components/back-link';
 import { getAllPostsMeta } from 'mdx/mdx.helpers';
 import Image from 'next/image';
 import Link from 'next/link';

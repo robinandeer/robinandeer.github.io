@@ -1,11 +1,11 @@
-import Anchor from 'components/anchor';
-import BackLink from 'components/back-link';
-import IntroCard from 'components/intro-card';
+import path from 'node:path';
+import { Anchor } from 'components/anchor';
+import { BackLink } from 'components/back-link';
+import { IntroCard } from 'components/intro-card';
 import { SITE_URL } from 'config';
 import { getAllPostsMeta, getPost } from 'mdx/mdx.helpers';
 import Image from 'next/image';
 import Link from 'next/link';
-import path from 'path';
 
 export async function generateStaticParams() {
 	const slugs = await getAllPostsMeta();

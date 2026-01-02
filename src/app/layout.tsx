@@ -5,11 +5,9 @@ import { SITE_BANNER, SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from 'config';
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
 
-type Props = { children: ReactNode };
-
-export default function RootLayout({ children }: Props) {
+export default function RootLayout({ children }: { children: ReactNode }) {
 	return (
-		<html lang='en'>
+		<html lang='en' suppressHydrationWarning>
 			<body>
 				{children}
 				<Analytics />

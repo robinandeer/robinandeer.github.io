@@ -8,17 +8,3 @@ export interface Frontmatter {
 	imageHeight?: number;
 	draft?: boolean;
 }
-
-export type PostMeta = Omit<Frontmatter, 'date'> & {
-	date: string;
-};
-
-export interface PostItem {
-	slug: string;
-	meta: PostMeta;
-}
-
-export interface Post {
-	code: string;
-	meta: PostMeta;
-}

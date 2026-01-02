@@ -10,8 +10,7 @@
 				"useHookAtTopLevel": "error"
 			},
 			"style": {
-				"noNonNullAssertion": "off",
-				"useNodejsImportProtocol": "off"
+				"noNonNullAssertion": "off"
 			},
 			"suspicious": {
 				"noExplicitAny": "off",
@@ -36,8 +35,7 @@
 		"formatter": {
 			"quoteStyle": "single",
 			"jsxQuoteStyle": "single"
-		},
-		"globals": ["React"]
+		}
 	},
 	"css": {
 		"linter": {
@@ -48,6 +46,12 @@
 		}
 	},
 	"files": {
-		"includes": ["src/**/*.ts", "src/**/*.tsx", "*.config.js", "*.config.mjs"]
+		"includes": [
+			"src/**/*.ts",
+			"src/**/*.tsx",
+			"*.config.js",
+			"*.config.mjs",
+			"*.config.ts"
+		]
 	}
 }

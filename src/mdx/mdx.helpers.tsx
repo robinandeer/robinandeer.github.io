@@ -1,7 +1,8 @@
-import fs from 'fs/promises';
-import Image, { type ImageProps } from 'next/image';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import type { ImageProps } from 'next/image';
+import Image from 'next/image';
 import { compileMDX } from 'next-mdx-remote/rsc';
-import path from 'path';
 import type { ReactElement } from 'react';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypePrettyCode from 'rehype-pretty-code';
@@ -21,7 +22,7 @@ async function getAllPostPaths(): Promise<Array<string>> {
 	return posts;
 }
 
-type PostMeta = Frontmatter & {
+export type PostMeta = Frontmatter & {
 	slug: string;
 	content: ReactElement;
 };

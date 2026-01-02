@@ -1,8 +1,8 @@
-import Anchor from 'components/anchor';
-import Button from 'components/button';
-import IntroCard from 'components/intro-card';
-import RunwayLogo from 'components/runway-logo';
-import { GithubIcon, TwitterIcon } from 'lucide-react';
+import { Anchor } from 'components/anchor';
+import { ButtonLink } from 'components/button';
+import { IntroCard } from 'components/intro-card';
+import { RunwayLogo } from 'components/runway-logo';
+import { GitHubIcon, XIcon } from 'components/social-icons';
 import { getLatestPostMeta } from 'mdx/mdx.helpers';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -15,9 +15,7 @@ export default async function Page() {
 			<div className='flex flex-col gap-5 sm:gap-6 w-full max-w-md mx-auto'>
 				<div />
 
-				<IntroCard>
-					Product Engineer &amp; competetive badminton player.
-				</IntroCard>
+				<IntroCard>Member of Technical Staff at Runway.</IntroCard>
 
 				<div className='flex flex-col items-center gap-6 card padded'>
 					<p>
@@ -66,20 +64,20 @@ export default async function Page() {
 				<div className='card padded flex flex-col gap-6'>
 					<p className='text-center font-medium'>Where you can reach me 👇</p>
 					<div className='flex flex-col gap-3'>
-						<Button
-							href='https://twitter.com/robinandeer'
-							className='bg-twitter-blue! dark:bg-twitter-blue! flex items-center gap-2 justify-center focus:ring-twitter-blue!'
+						<ButtonLink
+							href='https://x.com/robinandeer'
+							className='bg-gray-900! dark:bg-gray-800! flex items-center gap-2 justify-center focus:ring-gray-900!'
 						>
-							<TwitterIcon className='w-5 h-5 text-white' />
-							<p className='text-white'>Say hi on Twitter</p>
-						</Button>
-						<Button
+							<XIcon className='w-4 h-4 text-white' />
+							<p className='text-white'>Say hi</p>
+						</ButtonLink>
+						<ButtonLink
 							href='https://github.com/robinandeer'
 							className='bg-gray-800! dark:bg-gray-900! flex items-center gap-2 justify-center focus:ring-gray-800!'
 						>
-							<GithubIcon className='w-5 h-5 text-white' />
-							<p className='text-white'>Check my code on GitHub</p>
-						</Button>
+							<GitHubIcon className='w-5 h-5 text-white' />
+							<p className='text-white'>Check my code</p>
+						</ButtonLink>
 					</div>
 				</div>
 
