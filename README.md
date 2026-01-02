@@ -1,13 +1,13 @@
 # robinandeer.com
 
-My personal blog. Built with [Next.js](https://vercel.com/) and deployed to [Vercel](https://vercel.com/).
+My personal blog. Built with [Next.js](https://nextjs.org/) and deployed to [Vercel](https://vercel.com/) using the [Bun runtime](https://vercel.com/docs/functions/runtimes/bun).
 
 ## Getting Started
 
 First, run the development server:
 
 ```bash
-pnpm dev
+bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -18,5 +18,3 @@ To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/zeit/next.js/) - your feedback and contributions are welcome!
