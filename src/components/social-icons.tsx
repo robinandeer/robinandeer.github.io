@@ -32,4 +32,3 @@ export function XIcon({ className, ...props }: IconProps) {
 		</svg>
 	);
 }
-
