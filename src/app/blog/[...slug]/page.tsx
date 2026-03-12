@@ -21,7 +21,7 @@ export default async function BlogPostPage({
 	const post = await getPost(slug.join('-'));
 
 	return (
-		<div className='p-5 sm:p-6 flex flex-col gap-10 lg:gap-16'>
+		<div className='flex flex-col gap-10 lg:gap-16'>
 			<header>
 				<Link passHref href='/blog'>
 					<BackLink>Posts</BackLink>
@@ -63,9 +63,9 @@ export default async function BlogPostPage({
 				<IntroCard>
 					If you liked this post,{' '}
 					<Anchor
-						href={`https://twitter.com/intent/tweet?text=${post.title} by @robinandeer&url=`}
+						href={`https://x.com/intent/tweet?text=${encodeURIComponent(`${post.title} by @robinandeer`)}&url=${encodeURIComponent(`${SITE_URL}/blog/${slug.join('/')}`)}`}
 					>
-						tell me on Twitter
+						tell me on X
 					</Anchor>
 					!
 				</IntroCard>

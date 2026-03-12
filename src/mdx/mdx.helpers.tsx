@@ -67,7 +67,6 @@ export async function getAllPostsMeta(): Promise<Array<PostMeta>> {
 export async function getLatestPostMeta(): Promise<PostMeta> {
 	const allPosts = await getAllPostPaths();
 	for (const postPath of allPosts) {
-		// eslint-disable-next-line no-await-in-loop -- exit early on first non-draft post
 		const post = await getPostMeta(postPath);
 		if (IS_NOT_PRODUCTION_BUILD || !post.draft) {
 			return post;

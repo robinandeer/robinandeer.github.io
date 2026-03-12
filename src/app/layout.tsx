@@ -30,9 +30,10 @@ export const metadata: Metadata = {
 	creator: 'Robin Andeer',
 	publisher: 'Robin Andeer',
 
-	robots: {
-		index: true,
-		follow: true,
+	alternates: {
+		types: {
+			'application/rss+xml': '/feed.xml',
+		},
 	},
 
 	openGraph: {

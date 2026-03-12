@@ -5,7 +5,7 @@ const getBaseUrl = () => {
 };
 
 export const SITE_URL = getBaseUrl();
-export const SITE_TITLE = 'Robin Andeer - Developer and writer.';
+export const SITE_TITLE = 'Robin Andeer - Product Engineer';
 export const SITE_DESCRIPTION =
-	'Front-end developer, React aficionado, and aspiring baker.';
+	'Product engineer at Runway. Writing about web development, React, and building tools for human imagination.';
 export const SITE_BANNER = `${SITE_URL}/icons/banner.png`;

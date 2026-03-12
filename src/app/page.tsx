@@ -54,10 +54,11 @@ export default async function Page() {
 							</div>
 						</div>
 					</Link>
-					<Link href='/blog'>
-						<div className='rounded rounded-t-none border-t border-gray-50 dark:border-gray-500 text-gray-200 dark:text-gray-100 hover:text-gray-400 dark:hover:text-gray-50 text-center p-3 cursor-pointer'>
-							Read all posts
-						</div>
+					<Link
+						href='/blog'
+						className='block rounded rounded-t-none border-t border-gray-50 dark:border-gray-500 text-gray-200 dark:text-gray-100 hover:text-gray-400 dark:hover:text-gray-50 text-center p-3'
+					>
+						Read all posts
 					</Link>
 				</div>
 

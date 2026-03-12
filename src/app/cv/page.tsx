@@ -3,26 +3,26 @@ import type { ReactNode } from 'react';
 
 export default function Page() {
 	return (
-		<div className='max-w-4xl mx-auto bg-white text-gray-900'>
+		<div className='max-w-4xl mx-auto bg-white text-gray-900 print:text-black'>
 			<div className='grid grid-cols-[1fr_2fr] space-x-2 min-h-screen'>
 				<aside className='space-y-4 bg-teal-600 pt-4 pb-20 h-full'>
 					<header id='intro' className='px-4'>
 						<h1 className='text-3xl text-white font-semibold'>Robin Andeer</h1>
-						<h2 className='text-xl text-teal-100'>Staff Web Engineer</h2>
+						<h2 className='text-xl text-teal-100'>Product Engineer</h2>
 					</header>
 
 					<section id='contact-information' className='space-y-2'>
 						<SidebarHeading>Contact</SidebarHeading>
 						<ul className='pl-4 text-teal-100 text-xs'>
-							<p>
+							<li>
 								<a href='mailto:robin.andeer@gmail.com'>
 									robin.andeer@gmail.com
 								</a>
-							</p>
-							<p>
+							</li>
+							<li>
 								<a href='tel:+46700423833'>+46 70 042 38 33</a>
-							</p>
-							<p>Stockholm, Sweden</p>
+							</li>
+							<li>New York, NY</li>
 						</ul>
 					</section>
 
@@ -31,17 +31,7 @@ export default function Page() {
 						<ul className='space-y-1 px-4 text-teal-100 text-xs'>
 							<li className='flex justify-between'>
 								<p>Experience</p>
-								<p className='text-white'>9+ years</p>
-							</li>
-
-							<li className='flex justify-between'>
-								<p>Availability</p>
-								<p className='text-white'>December, 2023</p>
-							</li>
-
-							<li className='flex justify-between'>
-								<p>US Visa</p>
-								<p className='text-white text-right'>Yes (L-2 Visa)</p>
+								<p className='text-white'>12+ years</p>
 							</li>
 						</ul>
 					</section>
@@ -49,53 +39,34 @@ export default function Page() {
 					<section id='skills' className='space-y-4'>
 						<SidebarHeading>Skills</SidebarHeading>
 						<ul className='flex flex-wrap px-4'>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-1 mb-1'>
-								TypeScript
-							</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-1 mb-1'>
-								JavaScript
-							</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-1 mb-1'>
-								React
-							</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-1 mb-1'>
-								Node.js
-							</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-1 mb-1'>
-								Next.js
-							</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-1 mb-1'>
-								REST API
-							</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-1 mb-1'>
-								GraphQL
-							</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-1 mb-1'>
-								CI/CD
-							</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-1 mb-1'>
-								AWS
-							</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-1 mb-1'>
-								Datadog
-							</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-1 mb-1'>
-								Vue.js
-							</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-1 mb-1'>
-								Python
-							</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-1 mb-1'>
-								React Native
-							</li>
-							<li className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-1 mb-1'>
-								SQL
-							</li>
+							{[
+								'TypeScript',
+								'React',
+								'Next.js',
+								'Node.js',
+								'GraphQL',
+								'REST API',
+								'AI/ML Integration',
+								'React Native',
+								'AWS',
+								'CI/CD',
+								'Python',
+								'SQL',
+								'Datadog',
+								'Vue.js',
+							].map((skill) => (
+								<li
+									key={skill}
+									className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-1 mb-1'
+								>
+									{skill}
+								</li>
+							))}
 						</ul>
 					</section>
 
-					<section id='achivements' className='space-y-2'>
-						<SidebarHeading>Achivements</SidebarHeading>
+					<section id='achievements' className='space-y-2'>
+						<SidebarHeading>Achievements</SidebarHeading>
 						<ul className='space-y-2 px-4 text-teal-100 text-xs'>
 							<li>
 								<div className='flex items-center space-x-1 font-medium text-white'>
@@ -103,20 +74,18 @@ export default function Page() {
 									<CircleIcon className='w-4 h-4' />
 									<p>Contentful Meetup</p>
 								</div>
-								<div>
-									<p>
-										Presented{' '}
-										<a
-											className='underline'
-											href='https://www.facebook.com/watch/live/?v=402638810331653'
-											target='_blank'
-											rel='noopener'
-										>
-											a talk
-										</a>{' '}
-										about building and testing UI extensions for Contentful CMS.
-									</p>
-								</div>
+								<p>
+									Presented{' '}
+									<a
+										className='underline'
+										href='https://www.facebook.com/watch/live/?v=402638810331653'
+										target='_blank'
+										rel='noopener noreferrer'
+									>
+										a talk
+									</a>{' '}
+									about building and testing UI extensions for Contentful CMS.
+								</p>
 							</li>
 
 							<li>
@@ -125,21 +94,19 @@ export default function Page() {
 									<CircleIcon className='w-4 h-4' />
 									<p>Hack for Sweden</p>
 								</div>
-								<div>
-									<p>
-										<a
-											href='https://www.mynewsdesk.com/se/digg-myndigheten-foer-digital-foervaltning/pressreleases/vinnarna-av-hack-for-sweden-2018-2478241'
-											target='_blank'
-											className='underline'
-											rel='noopener'
-										>
-											Winner
-										</a>{' '}
-										in the &quot;Best use of Deep tech&quot; category with a
-										solution built a around IPFS for resilient distribution of
-										crisis information.
-									</p>
-								</div>
+								<p>
+									<a
+										href='https://www.mynewsdesk.com/se/digg-myndigheten-foer-digital-foervaltning/pressreleases/vinnarna-av-hack-for-sweden-2018-2478241'
+										target='_blank'
+										className='underline'
+										rel='noopener noreferrer'
+									>
+										Winner
+									</a>{' '}
+									in the &quot;Best use of Deep tech&quot; category with a
+									solution built around IPFS for resilient distribution of
+									crisis information.
+								</p>
 							</li>
 
 							<li>
@@ -148,21 +115,19 @@ export default function Page() {
 									<CircleIcon className='w-4 h-4' />
 									<p>PyCon Sweden</p>
 								</div>
-								<div>
-									<p>
-										Gave a talk about{' '}
-										<a
-											href='https://www.pycon.se/2015/'
-											target='_blank'
-											className='underline'
-											rel='noopener'
-										>
-											Python in Life Sciences
-										</a>
-										. How to analyze billions of DNA sequences and visualize
-										result using Flask and MongoDB.
-									</p>
-								</div>
+								<p>
+									Gave a talk about{' '}
+									<a
+										href='https://www.pycon.se/2015/'
+										target='_blank'
+										className='underline'
+										rel='noopener noreferrer'
+									>
+										Python in Life Sciences
+									</a>
+									. How to analyze billions of DNA sequences and visualize
+									results using Flask and MongoDB.
+								</p>
 							</li>
 						</ul>
 					</section>
@@ -199,7 +164,7 @@ export default function Page() {
 								<a
 									href='https://www.robinandeer.com'
 									target='_blank'
-									rel='noreferrer'
+									rel='noopener noreferrer'
 								>
 									robinandeer.com
 								</a>
@@ -210,7 +175,7 @@ export default function Page() {
 								<a
 									href='https://github.com/robinandeer'
 									target='_blank'
-									rel='noreferrer'
+									rel='noopener noreferrer'
 								>
 									github.com/robinandeer
 								</a>
@@ -221,7 +186,7 @@ export default function Page() {
 								<a
 									href='https://www.linkedin.com/in/robinandeer/'
 									target='_blank'
-									rel='noreferrer'
+									rel='noopener noreferrer'
 								>
 									linkedin.com/in/robinandeer
 								</a>
@@ -237,21 +202,33 @@ export default function Page() {
 						</h2>
 
 						<Work
+							title='Member of Technical Staff'
+							company='Runway'
+							href='https://www.runwayml.com'
+							location='New York'
+							startDate='Jan 2024'
+							endDate='Present'
+							description={[
+								'Building tools for human imagination. Working on the web platform powering AI-driven creative tools for video, image, and audio generation.',
+							]}
+						/>
+
+						<Work
 							title='Staff Engineer'
 							company='Hedvig'
 							href='https://www.hedvig.com'
 							location='Stockholm'
 							startDate='May 2021'
-							endDate='Present'
+							endDate='Dec 2023'
 							description={[
 								<p key='innovative-growth'>
-									<strong>Innovative Growth</strong>: Leading agile teams, I
-									drive feature development, including a successful e-commerce
+									<strong>Innovative Growth</strong>: Led agile teams driving
+									feature development, including a successful e-commerce
 									marketplace launch and personalized cross-sales, fueling
-									Hedvig's expansion.
+									Hedvig&apos;s expansion.
 								</p>,
-								<p key='opperational-excellence'>
-									<strong>Operational Excellence</strong>: Oversee{' '}
+								<p key='operational-excellence'>
+									<strong>Operational Excellence</strong>: Oversaw{' '}
 									<a href='https://www.hedvig.com' className='underline'>
 										Hedvig.com
 									</a>{' '}
@@ -259,20 +236,10 @@ export default function Page() {
 									maintenance, monitoring, and troubleshooting.
 								</p>,
 								<p key='leadership'>
-									<strong>Leadership and Mentorship</strong>: Actively
-									contribute to the engineering leadership team, defining
-									technical priorities. Mentor multiple team members, fostering
-									a culture of best practices.
-								</p>,
-								<p key='onboarding'>
-									<strong>Talent and Onboarding</strong>: Play a key role in
-									hiring and onboarding new engineers and managers, contributing
-									to team growth and cohesion.
-								</p>,
-								<p key='improvement'>
-									<strong>Continuous Improvement</strong>: Collaborate on
-									refining best practices, and fostering a culture of continuous
-									improvement to enhance technical quality and productivity.
+									<strong>Leadership and Mentorship</strong>: Contributed to the
+									engineering leadership team, defining technical priorities.
+									Mentored multiple team members, fostering a culture of best
+									practices.
 								</p>,
 							]}
 						/>
@@ -285,7 +252,7 @@ export default function Page() {
 							startDate='Jan 2018'
 							endDate='May 2021'
 							description={[
-								<p key='versetile'>
+								<p key='versatile'>
 									<strong>Versatile Solutions</strong>: Developed and maintained
 									micro-frontends for an airline company, launched a React
 									Native app for a Nordic bank with FaceID-login, and led React
@@ -300,11 +267,6 @@ export default function Page() {
 									<strong>Innovative Technology</strong>: Architected
 									cross-platform solutions, including serverless GraphQL APIs in
 									AWS, demonstrating a commitment to cutting-edge technology.
-								</p>,
-								<p key='hiring'>
-									<strong>Hiring and Evaluation</strong>: Played a key role in
-									hiring and evaluating new engineers, contributing to the
-									growth and success of the team.
 								</p>,
 							]}
 						/>
@@ -326,11 +288,6 @@ export default function Page() {
 									<strong>Automation Expertise</strong>: Created a suite of
 									internal tools for the automated processing and analysis of
 									large-scale clinical genomics data.
-								</p>,
-								<p key='assurance'>
-									<strong>Compliance Assurance</strong>: Ensured software and
-									automation compliance with ISO/IEC 17025 accreditation
-									requirements, maintaining high standards.
 								</p>,
 							]}
 						/>
@@ -380,7 +337,7 @@ function Work({
 					</span>
 				</h3>
 				<div className='flex items-center space-x-1 text-gray-300'>
-					<a href={href} target='_blank' rel='noreferrer'>
+					<a href={href} target='_blank' rel='noopener noreferrer'>
 						{company}
 					</a>
 					<CircleIcon className='w-4 h-4' />

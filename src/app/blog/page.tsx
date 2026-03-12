@@ -12,7 +12,7 @@ export default async function BlogPage() {
 	const posts = await getAllPostsMeta();
 
 	return (
-		<div className='p-5 sm:p-6 flex flex-col gap-5 sm:gap-6'>
+		<div className='flex flex-col gap-5 sm:gap-6'>
 			<header>
 				<Link href='/'>
 					<BackLink>Home</BackLink>
@@ -47,7 +47,7 @@ export default async function BlogPage() {
 									})}
 								</p>
 
-								<h2 className='text-base font-medium text-gray-900 dark:text-gray-50 active:bg-op'>
+								<h2 className='text-base font-medium text-gray-900 dark:text-gray-50'>
 									{meta.title}
 								</h2>
 
