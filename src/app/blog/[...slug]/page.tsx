@@ -1,11 +1,12 @@
 import path from 'node:path';
 import { Anchor } from 'components/anchor';
 import { BackLink } from 'components/back-link';
-import { IntroCard } from 'components/intro-card';
+import { HistoryBack } from 'components/history-back';
 import { SITE_URL } from 'config';
+import { ArrowUpRightIcon } from 'lucide-react';
 import { getAllPostsMeta, getPost } from 'mdx/mdx.helpers';
 import Image from 'next/image';
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 
 export async function generateStaticParams() {
 	const slugs = await getAllPostsMeta();
@@ -15,70 +16,76 @@ export async function generateStaticParams() {
 export default async function BlogPostPage({
 	params,
 }: {
-	params: Promise<{ slug: string[] }>;
+	params: Promise<{ slug: Array<string> }>;
 }) {
 	const { slug } = await params;
 	const post = await getPost(slug.join('-'));
 
 	return (
-		<div className='flex flex-col gap-10 lg:gap-16'>
-			<header>
-				<Link passHref href='/blog'>
-					<BackLink>Posts</BackLink>
-				</Link>
+		<article className='flex flex-col gap-8'>
+			<header className='flex flex-col gap-6'>
+				<HistoryBack fallback='/blog'>
+					<BackLink>Back</BackLink>
+				</HistoryBack>
+
+				<div className='flex flex-col gap-2'>
+					<h1
+						className='text-3xl sm:text-4xl font-semibold tracking-tight text-gray-900 dark:text-gray-50 leading-tight'
+						style={{ viewTransitionName: `post-title-${slug.join('-')}` }}
+					>
+						{post.title}
+					</h1>
+					<time className='text-sm text-gray-400 dark:text-gray-500'>
+						{new Date(post.date).toLocaleDateString('en-US', {
+							year: 'numeric',
+							month: 'long',
+							day: 'numeric',
+						})}
+					</time>
+				</div>
 			</header>
 
 			{post.image && (
-				<div className='max-w-4xl mx-auto w-full'>
-					<Image
-						priority={true}
-						src={post.image}
-						width={post.imageWidth}
-						height={post.imageHeight}
-						alt={post.imageAlt || ''}
-					/>
-				</div>
+				<Image
+					priority={true}
+					src={post.image}
+					width={post.imageWidth}
+					height={post.imageHeight}
+					alt={post.imageAlt || ''}
+					className='rounded-lg'
+				/>
 			)}
 
-			<div className='min-h-screen'>
-				<article className='flex flex-col gap-10 lg:gap-16 max-w-2xl mx-auto'>
-					<header className='flex flex-col gap-2'>
-						<h1 className='text-3xl lg:text-5xl font-semibold lg:leading-tight'>
-							{post.title}
-						</h1>
-						<p className='text-xs lg:text-base font-medium text-gray-500 dark:text-gray-200 uppercase'>
-							{new Date(post.date).toLocaleDateString('en-US', {
-								year: 'numeric',
-								month: 'long',
-								day: 'numeric',
-							})}
-						</p>
-					</header>
-					<div className='prose prose-yellow prose-code:before:content-none prose-code:after:content-none'>
-						{post.content}
-					</div>
-				</article>
+			<div className='prose prose-gray dark:prose-invert prose-code:before:content-none prose-code:after:content-none max-w-none'>
+				{post.content}
 			</div>
-			<footer className='max-w-3xl mx-auto w-full'>
-				<IntroCard>
-					If you liked this post,{' '}
-					<Anchor
-						href={`https://x.com/intent/tweet?text=${encodeURIComponent(`${post.title} by @robinandeer`)}&url=${encodeURIComponent(`${SITE_URL}/blog/${slug.join('/')}`)}`}
-					>
-						tell me on X
-					</Anchor>
-					!
-				</IntroCard>
+
+			<hr className='border-gray-200 dark:border-gray-800' />
+
+			<footer className='flex items-center justify-between text-sm text-gray-400 dark:text-gray-500'>
+				<Link
+					href='/blog'
+					className='hover:text-gray-600 dark:hover:text-gray-300 transition-colors'
+				>
+					&larr; All posts
+				</Link>
+				<Anchor
+					href={`https://x.com/intent/tweet?text=${encodeURIComponent(`${post.title} by @robinandeer`)}&url=${encodeURIComponent(`${SITE_URL}/blog/${slug.join('/')}`)}`}
+					target='_blank'
+					className='inline-flex items-center gap-1 no-underline! text-gray-400! dark:text-gray-500! hover:text-gray-600! dark:hover:text-gray-300! font-normal!'
+				>
+					Share on X
+					<ArrowUpRightIcon className='w-3.5 h-3.5' />
+				</Anchor>
 			</footer>
-			<div className='h-10' />
-		</div>
+		</article>
 	);
 }
 
 export async function generateMetadata({
 	params,
 }: {
-	params: Promise<{ slug: string[] }>;
+	params: Promise<{ slug: Array<string> }>;
 }) {
 	const { slug } = await params;
 	const post = await getPost(slug.join('-'));

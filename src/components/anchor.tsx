@@ -7,7 +7,7 @@ export function Anchor({ className, target, rel, ...props }: Props) {
 	return (
 		<a
 			className={cn(
-				'font-medium rounded cursor-pointer underline focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50',
+				'font-medium underline underline-offset-2 decoration-gray-300 dark:decoration-gray-600 hover:decoration-current transition-colors',
 				className,
 			)}
 			target={target}

@@ -94,3 +94,18 @@ bun run format     # Format all files
 - Tailwind v4 uses CSS-based config (no `tailwind.config.js`)
 - Blog posts are stored in `/posts` as Markdown files
 - Syntax highlighting uses Shiki via rehype-pretty-code
+
+## Learned Workspace Facts
+
+- Navigation links use `Link` from `next-view-transitions` (not `next/link`) for View Transition support
+- Root layout wraps `<html>` in `<ViewTransitions>` from `next-view-transitions`
+- Biome CSS linting is enabled with `tailwindDirectives: true` in `biome.json`
+- Color tokens use zinc-based neutrals (`gray-50` through `gray-950`) and teal accent (`accent-400`, `accent-500`, `accent-600`) defined in `src/styles/global.css` `@theme`
+- Dev server runs via `portless` for stable local URL (`robinandeer.localhost:1355`); configured in `.vscode/launch.json`
+- Static data lives in `src/data/` (beliefs.ts, background.ts, reading.ts) and is imported by both pages and homepage cards
+- Homepage is a 3-column bento grid with `GlowCard` (subtle cursor glow), `StaggerGrid` (first-visit stagger animation), glassmorphic cards, and `grid-flow-dense` for asymmetric layout
+- Homepage content hierarchy: hero → featured/latest post → recent posts → everything else; the latest blog post must stay near the top
+- View transitions use fade-only for root; shared element `viewTransitionName` only on blog list ↔ post page titles (not homepage)
+- `/api/github` route fetches GitHub contribution data via GraphQL; requires `GITHUB_TOKEN` env var; client fetch must use `cache: 'no-store'`
+- `HistoryBack` component wraps back links with `router.back()` for context-aware navigation; falls back to `href` for direct visits
+- Beliefs page content comes from personal interviews with the user, not AI-generated platitudes; `src/data/beliefs.ts` should only contain user-sourced material
