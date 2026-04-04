@@ -1,5 +1,5 @@
 import { Anchor } from 'components/anchor';
-import { GitHubHeatmap } from 'components/github-heatmap';
+import { ContributionArtifact } from 'components/contribution-artifact';
 import { GlowCard } from 'components/glow-card';
 import { Greeting } from 'components/greeting';
 import { InteractiveLogo } from 'components/interactive-logo';
@@ -65,23 +65,23 @@ export default async function Page() {
 						</Card>
 					</GlowCard>
 
-					<a
-						href='https://github.com/robinandeer'
-						target='_blank'
-						rel='noopener noreferrer'
-						className='group'
-					>
-						<GlowCard className='h-full'>
-							<Card
-								className={cn(
-									'p-6 sm:p-8 h-full flex flex-col justify-center',
-									'hover:border-gray-300 dark:hover:border-gray-700 transition-colors',
-								)}
-							>
-								<GitHubHeatmap />
-							</Card>
-						</GlowCard>
-					</a>
+				<a
+					href='https://github.com/robinandeer'
+					target='_blank'
+					rel='noopener noreferrer'
+					className='group'
+				>
+					<GlowCard className='h-full'>
+						<Card
+							className={cn(
+								'p-4 sm:p-5 h-full flex flex-col',
+								'hover:border-gray-300 dark:hover:border-gray-700 transition-colors',
+							)}
+						>
+							<ContributionArtifact />
+						</Card>
+					</GlowCard>
+				</a>
 
 					{/* Row 2: Featured post (2/3) + Reading (1/3) */}
 					{featured && (

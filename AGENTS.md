@@ -97,8 +97,8 @@ bun run format     # Format all files
 
 ## Learned Workspace Facts
 
-- Navigation links use `Link` from `next-view-transitions` (not `next/link`) for View Transition support
-- Root layout wraps `<html>` in `<ViewTransitions>` from `next-view-transitions`
+- Navigation links use `Link` from `next-view-transitions` (not `next/link`) for View Transition support; root layout wraps `<html>` in `<ViewTransitions>`
+- `scripts/generate-contribution-art.ts` generates weekly artwork from GitHub contribution data using `@runwayml/sdk`; run via `bun run generate-art`; output in `public/generated/`; GitHub Actions cron commits weekly on Mondays
 - Biome CSS linting is enabled with `tailwindDirectives: true` in `biome.json`
 - Color tokens use zinc-based neutrals (`gray-50` through `gray-950`) and teal accent (`accent-400`, `accent-500`, `accent-600`) defined in `src/styles/global.css` `@theme`
 - Dev server runs via `portless` for stable local URL (`robinandeer.localhost:1355`); configured in `.vscode/launch.json`

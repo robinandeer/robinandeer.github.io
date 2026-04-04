@@ -9,14 +9,16 @@
 		"analyze": "next experimental-analyze",
 		"lint": "biome check .",
 		"lint:fix": "biome check . --write",
-		"format": "biome format . --write"
+		"format": "biome format . --write",
+		"generate-art": "bun run scripts/generate-contribution-art.ts"
 	},
 	"dependencies": {
+		"@runwayml/sdk": "^3.18.0",
 		"@vercel/analytics": "^2.0.1",
 		"@vercel/speed-insights": "^2.0.0",
 		"clsx": "^2.1.1",
 		"lucide-react": "^0.577.0",
-		"next": "^16.1.6",
+		"next": "^16.2.2",
 		"next-mdx-remote": "^6.0.0",
 		"next-view-transitions": "^0.3.5",
 		"react": "^19.2.4",
@@ -28,12 +30,12 @@
 		"tailwind-merge": "^3.5.0"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^2.4.6",
-		"@tailwindcss/postcss": "^4.2.1",
+		"@biomejs/biome": "^2.4.10",
+		"@tailwindcss/postcss": "^4.2.2",
 		"@tailwindcss/typography": "^0.5.19",
-		"@types/node": "^25.5.0",
+		"@types/node": "^25.5.2",
 		"@types/react": "^19.2.14",
-		"tailwindcss": "^4.2.1",
+		"tailwindcss": "^4.2.2",
 		"typescript": "^5.9.3"
 	}
 }

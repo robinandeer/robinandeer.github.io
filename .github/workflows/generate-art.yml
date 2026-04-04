@@ -1,0 +1,35 @@
+name: Generate Contribution Artifact
+
+on:
+  schedule:
+    - cron: "0 6 * * 1" # Every Monday at 06:00 UTC
+  workflow_dispatch: # Manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - run: bun install --frozen-lockfile
+
+      - name: Generate artifact
+        run: bun run generate-art
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_CONTRIBUTIONS_TOKEN }}
+          RUNWAYML_API_SECRET: ${{ secrets.RUNWAYML_API_SECRET }}
+
+      - name: Commit generated artwork
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/generated/
+          git diff --staged --quiet || git commit -m "art: regenerate weekly contribution artifact"
+          git push
