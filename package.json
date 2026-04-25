@@ -10,6 +10,7 @@
 		"lint": "biome check .",
 		"lint:fix": "biome check . --write",
 		"format": "biome format . --write",
+		"check": "bun run lint && bun run build",
 		"generate-art": "bun run scripts/generate-contribution-art.ts"
 	},
 	"dependencies": {

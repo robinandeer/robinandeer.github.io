@@ -1,6 +1,6 @@
 export const currentlyReading = {
-	title: 'Kafka on the Shore',
-	author: 'Haruki Murakami',
-	cover: '/books/kafka-on-the-shore.jpg',
-	href: 'https://www.amazon.com/dp/1400079276',
+	title: 'Butter',
+	author: 'Asako Yuzuki',
+	cover: '/books/butter.jpg',
+	href: 'https://www.amazon.com/dp/0063236400',
 };

@@ -4,13 +4,17 @@ My personal blog. Built with [Next.js](https://nextjs.org/) and deployed to [Ver
 
 ## Getting Started
 
-First, run the development server:
+Run the dev server (scripts live in `package.json`; everything is runnable from a terminal):
 
 ```bash
-bun dev
+bun run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+If you use [just](https://github.com/casey/just): `just dev` (same as above). Run `just` with no arguments to list recipes.
+
+Open [http://localhost:3000](http://localhost:3000) with your browser (or your usual local URL if you use a custom port).
+
+**Before pushing:** `bun run check` runs lint and a production build.
 
 ## Learn More
 

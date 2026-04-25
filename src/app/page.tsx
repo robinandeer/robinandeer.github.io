@@ -1,5 +1,5 @@
 import { Anchor } from 'components/anchor';
-import { ContributionArtifact } from 'components/contribution-artifact';
+import { GitHubHeatmap } from 'components/github-heatmap';
 import { GlowCard } from 'components/glow-card';
 import { Greeting } from 'components/greeting';
 import { InteractiveLogo } from 'components/interactive-logo';
@@ -65,23 +65,24 @@ export default async function Page() {
 						</Card>
 					</GlowCard>
 
-				<a
-					href='https://github.com/robinandeer'
-					target='_blank'
-					rel='noopener noreferrer'
-					className='group'
-				>
-					<GlowCard className='h-full'>
-						<Card
-							className={cn(
-								'p-4 sm:p-5 h-full flex flex-col',
-								'hover:border-gray-300 dark:hover:border-gray-700 transition-colors',
-							)}
-						>
-							<ContributionArtifact />
-						</Card>
-					</GlowCard>
-				</a>
+					<a
+						href='https://github.com/robinandeer'
+						target='_blank'
+						rel='noopener noreferrer'
+						className='group flex h-full min-h-0 flex-col'
+					>
+						<GlowCard className='flex min-h-0 flex-1 flex-col'>
+							<Card
+								className={cn(
+									'flex h-full min-h-0 flex-col justify-center',
+									'px-4 pt-6 pb-5 sm:px-5 sm:pt-7 sm:pb-6',
+									'hover:border-gray-300 dark:hover:border-gray-700 transition-colors',
+								)}
+							>
+								<GitHubHeatmap />
+							</Card>
+						</GlowCard>
+					</a>
 
 					{/* Row 2: Featured post (2/3) + Reading (1/3) */}
 					{featured && (
@@ -138,34 +139,69 @@ export default async function Page() {
 						href={currentlyReading.href}
 						target='_blank'
 						rel='noopener noreferrer'
-						className='group'
+						className='group flex h-full min-h-0 min-w-0 flex-col'
 					>
-						<GlowCard className='h-full'>
+						<GlowCard className='flex h-full min-h-0 min-w-0 flex-1 flex-col'>
 							<Card
 								className={cn(
-									'p-8 sm:p-10 flex items-center gap-5 h-full',
+									'@container flex h-full min-h-0 min-w-0 flex-1 flex-col p-6 sm:p-8',
 									'hover:border-gray-300 dark:hover:border-gray-700 transition-colors',
 								)}
 							>
-								<Image
-									src={currentlyReading.cover}
-									alt={currentlyReading.title}
-									width={60}
-									height={80}
-									className='rounded-md shadow-md shrink-0'
-									style={{ width: 60, height: 'auto' }}
-								/>
-								<div className='flex flex-col gap-1'>
-									<span className='text-xs font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wider flex items-center gap-1'>
-										<BookOpenIcon className='w-3 h-3' />
-										Reading
-									</span>
-									<p className='font-medium text-gray-900 dark:text-gray-50 text-sm leading-snug'>
-										{currentlyReading.title}
-									</p>
-									<p className='text-xs text-gray-400 dark:text-gray-500'>
-										{currentlyReading.author}
-									</p>
+								{/*
+									Narrow: column — flex-1 cover fills tall bento rows; text at bottom.
+									Wide (@min ~380px on this card): row — cover left, text right (e.g. full-width mobile / wide tile).
+								*/}
+								<div
+									className={cn(
+										'flex min-h-0 w-full min-w-0 flex-1 flex-col items-stretch',
+										'@min-[380px]:flex-row @min-[380px]:items-center @min-[380px]:gap-5',
+									)}
+								>
+									<div
+										className={cn(
+											'relative flex min-h-0 w-full min-w-0 flex-1 items-stretch justify-center py-1',
+											'@min-[380px]:w-28 @min-[380px]:flex-none @min-[380px]:shrink-0 @min-[380px]:py-0',
+										)}
+									>
+										<div
+											className={cn(
+												'relative h-full min-h-28 max-h-full w-auto max-w-full',
+												'aspect-[2/3] overflow-hidden rounded-md shadow-md',
+												'@min-[380px]:h-auto @min-[380px]:min-h-0 @min-[380px]:max-h-none @min-[380px]:w-full',
+											)}
+										>
+											<Image
+												src={currentlyReading.cover}
+												alt={currentlyReading.title}
+												fill
+												sizes='(max-width: 768px) 45vw, 200px'
+												className='object-contain'
+											/>
+										</div>
+									</div>
+									<div
+										className={cn(
+											'shrink-0 pt-3 text-center',
+											'@min-[380px]:min-w-0 @min-[380px]:flex-1 @min-[380px]:pt-0 @min-[380px]:text-left',
+										)}
+									>
+										<span
+											className={cn(
+												'text-xs font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wider flex items-center justify-center gap-1',
+												'@min-[380px]:justify-start',
+											)}
+										>
+											<BookOpenIcon className='w-3 h-3' />
+											Reading
+										</span>
+										<p className='mt-1 font-medium text-gray-900 dark:text-gray-50 text-sm leading-snug'>
+											{currentlyReading.title}
+										</p>
+										<p className='text-xs text-gray-400 dark:text-gray-500'>
+											{currentlyReading.author}
+										</p>
+									</div>
 								</div>
 							</Card>
 						</GlowCard>

@@ -33,13 +33,23 @@ public/            # Static assets
 
 ## Commands
 
+All workflows go through **`package.json` scripts** (terminal-only; no VS Code `launch.json` required). Optional **`just`** recipes in `justfile` call the same scripts—install with `brew install just` or see [just](https://github.com/casey/just).
+
 ```bash
-bun run dev        # Start development server
-bun run build      # Production build
-bun run lint       # Check for issues (Biome)
-bun run lint:fix   # Auto-fix issues
-bun run format     # Format all files
+bun run dev          # Start development server
+bun run build        # Production build (includes TypeScript)
+bun run check        # Lint + build (quick pre-push / CI parity)
+bun run lint         # Check for issues (Biome)
+bun run lint:fix     # Auto-fix issues
+bun run format       # Format all files
+bun run generate-art # Regenerate contribution artwork (needs env — see learned facts)
+
+just                 # List just recipes (if `just` is installed)
+just dev             # Same as bun run dev
+just check           # Same as bun run check
 ```
+
+For **multiple processes in one command** (e.g. API + web), npm’s **`npm-run-all`** (`run-p` / `run-s`) or **`concurrently`** are the usual approach; this repo only needs a single dev server, so `check` uses `&&` instead.
 
 ## Code Conventions
 
@@ -95,17 +105,72 @@ bun run format     # Format all files
 - Blog posts are stored in `/posts` as Markdown files
 - Syntax highlighting uses Shiki via rehype-pretty-code
 
+## Illustration Style
+
+House style for blog post poster images. Goal: a recognizable, recurring visual identity that matches the site's tone (warm, personal, informal) — not stock photos, not slick gradients, not generic AI-generated 3D renders.
+
+### Vibe
+
+- Soft hand-drawn line work, slightly wobbly — never perfectly clean strokes
+- Cozy and warm, **not** retro-cute, not children's-book, not chibi
+- Cute is fine, but lean grown-up and a touch reflective
+- Always **literal** — depict the actual scene from the post, never abstract metaphor
+
+### Palette
+
+- Site uses zinc neutrals + teal accent (`accent-400/500/600`); illustrations should harmonize, not clash
+- Working palette: muted teal (primary, hoodie/accent), terracotta/clay (secondary), warm wood tones, off-white/cream
+- **Background:** site has both light and dark modes — pure cream backgrounds look wrong in dark mode. Prefer:
+  1. Transparent PNG (scene floats on the page) — most flexible
+  2. Soft warm parchment that reads as a "card" tone in both modes
+  - Avoid pure white or pure cream as a flat fill behind the scene
+
+### Recurring Character (the narrator)
+
+A stylized version of Robin — not a literal portrait, more a consistent "narrator" character that shows up across posts.
+
+Locked traits:
+- Blue eyes (always, this is the focal point)
+- Teal hoodie (matches site accent)
+- Curly hair (preferred over straight)
+- No glasses (post-LASIK)
+- Early 30s, slim build, fair skin
+
+TBD (pick one variant — see chat for proposals): hair color (dark brown / sandy blonde / auburn).
+
+**Reference image in the repo (use for new posters):** `public/images/live-avatars/narrator-reference.png` — the canonical “narrator” look; align generated art to this, not a one-off DALL·E face each time.
+
+### Composition
+
+- Centered scene with breathing room around it — never edge-to-edge
+- Furniture, plants, mug, laptop, etc. used as supporting cast — establishes "domestic / personal workspace" feeling
+- Consistent props across illustrations build the world (same chair, same mug, same plant)
+
+### Don'ts
+
+- No glasses on the character
+- No retro / vintage / 80s nostalgia styling
+- No glossy 3D renders or chrome
+- No abstract or metaphorical imagery — always show the literal scene
+- No stock-photo-style realism
+
+### Storage
+
+- **Per post:** `public/images/<post-slug>/poster.jpg` (e.g. `public/images/ai-faces/poster.jpg` → `/images/ai-faces/poster.jpg` in frontmatter)
+- **Series / multi-part posts:** a stable folder under `public/images/<series>/` is fine (e.g. `public/images/live-avatars/poster.jpg` for the live-avatar series, with `narrator-reference.png` in the same folder for character consistency)
+- Export a **web-sized** JPEG (about 1200px wide; ~100–200 KB) for the path referenced in frontmatter; set `imageWidth` / `imageHeight` to the **actual** pixel dimensions of that file
+
 ## Learned Workspace Facts
 
-- Navigation links use `Link` from `next-view-transitions` (not `next/link`) for View Transition support; root layout wraps `<html>` in `<ViewTransitions>`
-- `scripts/generate-contribution-art.ts` generates weekly artwork from GitHub contribution data using `@runwayml/sdk`; run via `bun run generate-art`; output in `public/generated/`; GitHub Actions cron commits weekly on Mondays
+- Navigation uses `Link` from `next-view-transitions` (not `next/link`); root layout wraps `<html>` in `<ViewTransitions>`; view transitions are fade-only at root; shared element `viewTransitionName` only on blog list ↔ post page titles (not homepage)
+- Homepage GitHub card uses `GitHubHeatmap`: a familiar contribution grid (last 12 weeks, teal intensity levels) from `/api/github`. Optional `bun run generate-art` + `scripts/generate-contribution-art.ts` write to `public/generated/` (weekly GitHub Action); for Runway `textToImage`, call `waitForTaskOutput()` on the promise returned by `create()` (not the awaited value). Face or artist-style refs can trigger moderation; clear `.next/cache/images` if static assets look stale in dev
+- `package.json` may use `overrides` (e.g. `yaml`) to satisfy `bun audit` for transitive dependencies; `.cursor/hooks/state/` is gitignored—do not commit local hook or continual-learning index files
 - Biome CSS linting is enabled with `tailwindDirectives: true` in `biome.json`
 - Color tokens use zinc-based neutrals (`gray-50` through `gray-950`) and teal accent (`accent-400`, `accent-500`, `accent-600`) defined in `src/styles/global.css` `@theme`
 - Dev server runs via `portless` for stable local URL (`robinandeer.localhost:1355`); configured in `.vscode/launch.json`
 - Static data lives in `src/data/` (beliefs.ts, background.ts, reading.ts) and is imported by both pages and homepage cards
 - Homepage is a 3-column bento grid with `GlowCard` (subtle cursor glow), `StaggerGrid` (first-visit stagger animation), glassmorphic cards, and `grid-flow-dense` for asymmetric layout
 - Homepage content hierarchy: hero → featured/latest post → recent posts → everything else; the latest blog post must stay near the top
-- View transitions use fade-only for root; shared element `viewTransitionName` only on blog list ↔ post page titles (not homepage)
 - `/api/github` route fetches GitHub contribution data via GraphQL; requires `GITHUB_TOKEN` env var; client fetch must use `cache: 'no-store'`
 - `HistoryBack` component wraps back links with `router.back()` for context-aware navigation; falls back to `href` for direct visits
 - Beliefs page content comes from personal interviews with the user, not AI-generated platitudes; `src/data/beliefs.ts` should only contain user-sourced material

@@ -31,7 +31,7 @@ export function GlowCard({
 		<div
 			onMouseMove={trackGlow}
 			onMouseLeave={hideGlow}
-			className={cn('relative', className)}
+			className={cn('relative flex min-h-0 flex-col', className)}
 		>
 			<div
 				ref={glowRef}
@@ -41,7 +41,7 @@ export function GlowCard({
 				)}
 				aria-hidden='true'
 			/>
-			<div className='relative h-full'>{children}</div>
+			<div className='relative flex min-h-0 flex-1 flex-col'>{children}</div>
 		</div>
 	);
 }
