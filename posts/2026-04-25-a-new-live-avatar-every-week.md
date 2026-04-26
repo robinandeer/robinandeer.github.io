@@ -8,7 +8,8 @@ intro: Why I'm spending evenings building the same small app on every live-avata
 image: /images/live-avatars/poster.jpg
 imageAlt: Hand-drawn scene — person in a teal hoodie at a desk with a microphone and laptop; the screen shows a live digital avatar, with a mug and plant nearby.
 imageWidth: 1200
-imageHeight: 669
+imageHeight: 668
+imageVideo: /images/live-avatars/poster-hero.mp4
 ---
 
 *I work at Runway on [Runway Characters](https://runwayml.com/product/characters), which is one of the products in this space. These posts are personal — my own opinions, on my own time, not Runway's. I won't be reviewing Runway; that would be weird.*

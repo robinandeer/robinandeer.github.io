@@ -2,6 +2,7 @@ import path from 'node:path';
 import { Anchor } from 'components/anchor';
 import { BackLink } from 'components/back-link';
 import { HistoryBack } from 'components/history-back';
+import { PostPosterMedia } from 'components/post-poster-media';
 import { SITE_URL } from 'config';
 import { ArrowUpRightIcon } from 'lucide-react';
 import { getAllPostsMeta, getPost } from 'mdx/mdx.helpers';
@@ -45,16 +46,26 @@ export default async function BlogPostPage({
 				</div>
 			</header>
 
-			{post.image && (
-				<Image
-					priority={true}
-					src={post.image}
-					width={post.imageWidth}
-					height={post.imageHeight}
-					alt={post.imageAlt || ''}
-					className='rounded-lg'
-				/>
-			)}
+			{post.image &&
+				(post.imageVideo ? (
+					<PostPosterMedia
+						image={post.image}
+						imageWidth={post.imageWidth}
+						imageHeight={post.imageHeight}
+						imageAlt={post.imageAlt || ''}
+						imageVideo={post.imageVideo}
+						playVideoLoops={post.playVideoLoops}
+					/>
+				) : (
+					<Image
+						priority
+						src={post.image}
+						width={post.imageWidth}
+						height={post.imageHeight}
+						alt={post.imageAlt || ''}
+						className='rounded-lg'
+					/>
+				))}
 
 			<div className='prose prose-gray dark:prose-invert prose-code:before:content-none prose-code:after:content-none max-w-none'>
 				{post.content}

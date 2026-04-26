@@ -159,6 +159,8 @@ TBD (pick one variant — see chat for proposals): hair color (dark brown / sand
 - **Per post:** `public/images/<post-slug>/poster.jpg` (e.g. `public/images/ai-faces/poster.jpg` → `/images/ai-faces/poster.jpg` in frontmatter)
 - **Series / multi-part posts:** a stable folder under `public/images/<series>/` is fine (e.g. `public/images/live-avatars/poster.jpg` for the live-avatar series, with `narrator-reference.png` in the same folder for character consistency)
 - Export a **web-sized** JPEG (about 1200px wide; ~100–200 KB) for the path referenced in frontmatter; set `imageWidth` / `imageHeight` to the **actual** pixel dimensions of that file
+- **Optional poster loop (blog post page only):** put a short seamless loop next to the JPEG (e.g. `poster.webm` in the same folder). In post frontmatter add `imageVideo: /images/.../poster.webm` and optional `playVideoLoops` (default `2`). The player is `muted` + `playsInline` for autoplay; `prefers-reduced-motion` keeps the static `image`. Social/OG still use the JPEG.
+- **Poster + video must match the same pixel width × height** (or the hero will jump when `object-cover` re-samples a different aspect ratio). H.264 `yuv420p` needs **even** width and height—if the JPEG is 1200×669, scale the poster to 1200×668 (or 670) and use that for both assets and `imageHeight`.
 
 ## Learned Workspace Facts
 
