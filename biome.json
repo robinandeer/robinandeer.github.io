@@ -54,9 +54,13 @@
 			"src/**/*.ts",
 			"src/**/*.tsx",
 			"src/**/*.css",
+			"scripts/**/*.ts",
 			"*.config.js",
 			"*.config.mjs",
-			"*.config.ts"
+			"*.config.ts",
+			"package.json",
+			"tsconfig.json",
+			"biome.json"
 		]
 	}
 }

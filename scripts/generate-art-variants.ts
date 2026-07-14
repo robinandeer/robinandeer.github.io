@@ -1,14 +1,20 @@
-import fs from 'node:fs/promises'
-import path from 'node:path'
-import RunwayML from '@runwayml/sdk'
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import RunwayML from '@runwayml/sdk';
 
-const OUTPUT_DIR = path.join(import.meta.dirname, '..', 'public', 'generated', 'variants')
+const OUTPUT_DIR = path.join(
+	import.meta.dirname,
+	'..',
+	'public',
+	'generated',
+	'variants',
+);
 
 const CONTRIBUTION_CONTEXT = [
 	'The composition varies in density from section to section:',
 	'dense clusters in some areas, sparse scattered elements in others,',
 	'with a couple of nearly empty zones.',
-].join(' ')
+].join(' ');
 
 const VARIANTS: Array<{ name: string; prompt: string }> = [
 	{
@@ -70,52 +76,52 @@ const VARIANTS: Array<{ name: string; prompt: string }> = [
 			'Feels like a modernist poster or stamp. No text, no frame.',
 		].join(' '),
 	},
-]
+];
 
 async function downloadImage(url: string, dest: string) {
-	const response = await fetch(url)
-	if (!response.ok) throw new Error(`Failed to download: ${response.status}`)
-	const buffer = await response.arrayBuffer()
-	await fs.writeFile(dest, Buffer.from(buffer))
+	const response = await fetch(url);
+	if (!response.ok) throw new Error(`Failed to download: ${response.status}`);
+	const buffer = await response.arrayBuffer();
+	await fs.writeFile(dest, Buffer.from(buffer));
 }
 
 async function generate(variant: { name: string; prompt: string }) {
-	const client = new RunwayML()
+	const client = new RunwayML();
 
-	console.log(`\n🎨 [${variant.name}] Generating...`)
-	console.log(`   Prompt: ${variant.prompt.slice(0, 120)}...`)
+	console.log(`\n🎨 [${variant.name}] Generating...`);
+	console.log(`   Prompt: ${variant.prompt.slice(0, 120)}...`);
 
 	const task = client.textToImage.create({
 		model: 'gen4_image',
 		promptText: variant.prompt,
 		ratio: '1080:1080',
-	})
+	});
 
-	const result = await task.waitForTaskOutput()
-	const imageUrl = result.output[0]
+	const result = await task.waitForTaskOutput();
+	const imageUrl = result.output[0];
 
-	const dest = path.join(OUTPUT_DIR, `${variant.name}.webp`)
-	await downloadImage(imageUrl, dest)
-	console.log(`   ✅ Saved: ${dest}`)
+	const dest = path.join(OUTPUT_DIR, `${variant.name}.webp`);
+	await downloadImage(imageUrl, dest);
+	console.log(`   ✅ Saved: ${dest}`);
 }
 
 async function main() {
-	await fs.mkdir(OUTPUT_DIR, { recursive: true })
+	await fs.mkdir(OUTPUT_DIR, { recursive: true });
 
-	console.log(`Generating ${VARIANTS.length} variants...\n`)
+	console.log(`Generating ${VARIANTS.length} variants...\n`);
 
 	for (const variant of VARIANTS) {
 		try {
-			await generate(variant)
+			await generate(variant);
 		} catch (error) {
-			console.error(`   ❌ [${variant.name}] Failed:`, error)
+			console.error(`   ❌ [${variant.name}] Failed:`, error);
 		}
 	}
 
-	console.log('\n🎉 Done! Check public/generated/variants/')
+	console.log('\n🎉 Done! Check public/generated/variants/');
 }
 
 main().catch((error) => {
-	console.error('Fatal:', error)
-	process.exit(1)
-})
+	console.error('Fatal:', error);
+	process.exit(1);
+});
