@@ -4,11 +4,6 @@
 # or operating system, you probably want to add a global ignore instead:
 # git config --global core.excludesfile ~/.gitignore_global
 
-# Ignore .DS_store file
-.DS_Store
-
-*.sublime-*
-
 # dependencies
 /node_modules
 
@@ -20,25 +15,34 @@
 /out/
 
 # production
-/dist
-/tmp
 /build
+/dist
 
 # misc
 .DS_Store
+*.code-workspace
+*.sublime-*
+.cursor/hooks/state/
+.vscode
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local2
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-.next
+# vercel
 .vercel
-.vscode
-.cursor/hooks/state/
 
-*.code-workspace
+# typescript
+tsconfig.tsbuildinfo
+
+# next.js (also)
+.next
+/tmp
