@@ -5,6 +5,9 @@ author: Robin Andeer
 date: 2016-06-21
 tags: tutorial, python, testing, pytest, fixtures
 intro: A tutorial to test Python code. In part 2 I introduce pytest and how to leverage one of it's most powerful features.
+series: How I test my code
+seriesSlug: how-i-test-my-code
+seriesIndex: 2
 ---
 
 This is part 2 in my series on "How I test code". [Part 1][part1] discusses testing habits and how to motivate yourself to write them. This post goes into more Python specific tools and conventions around testing.

@@ -1,44 +1,112 @@
-import { CircleIcon, GithubIcon, LinkedinIcon } from 'lucide-react';
+import { CvPrintButton } from 'components/cv-print-button';
+import { GithubIcon, LinkedinIcon } from 'lucide-react';
+import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
+import { cn } from 'utils/cn';
+
+export const metadata: Metadata = {
+	title: 'Robin Andeer — CV',
+	robots: {
+		index: false,
+		follow: false,
+		googleBot: {
+			index: false,
+			follow: false,
+		},
+	},
+};
 
 export default function Page() {
 	return (
-		<div className='max-w-4xl mx-auto bg-white text-gray-900 print:text-black'>
-			<div className='grid grid-cols-[1fr_2fr] space-x-2 min-h-screen'>
-				<aside className='space-y-4 bg-teal-600 pt-4 pb-20 h-full'>
+		<div className='cv-document max-w-4xl mx-auto bg-white text-gray-900 print:text-black print:max-w-none'>
+			<CvPrintButton />
+			<div className='cv-sheet grid grid-cols-[minmax(0,13.5rem)_1fr] sm:grid-cols-[minmax(0,15rem)_1fr] min-h-[calc(100svh-5.25rem)] print:min-h-0'>
+				<aside className='flex flex-col gap-4 border-r border-gray-200 bg-gray-50 pt-5 pb-5 print:gap-3.5 print:pt-4 print:pb-4'>
 					<header id='intro' className='px-4'>
-						<h1 className='text-3xl text-white font-semibold'>Robin Andeer</h1>
-						<h2 className='text-xl text-teal-100'>Product Engineer</h2>
+						<h1 className='text-2xl sm:text-3xl text-gray-950 font-semibold tracking-tight text-balance'>
+							Robin Andeer
+						</h1>
+						<p className='mt-0.5 text-base sm:text-lg text-teal-700'>
+							Product Engineer
+						</p>
 					</header>
 
 					<section id='contact-information' className='space-y-2'>
 						<SidebarHeading>Contact</SidebarHeading>
-						<ul className='pl-4 text-teal-100 text-xs'>
+						<ul className='px-4 text-gray-600 text-xs leading-relaxed space-y-1'>
 							<li>
-								<a href='mailto:robin.andeer@gmail.com'>
+								<a
+									href='mailto:robin.andeer@gmail.com'
+									className='hover:text-gray-950 transition-colors'
+								>
 									robin.andeer@gmail.com
 								</a>
 							</li>
 							<li>
-								<a href='tel:+46700423833'>+46 70 042 38 33</a>
+								<a
+									href='tel:+19295121456'
+									className='hover:text-gray-950 transition-colors tabular-nums'
+								>
+									+1 929 512 1456
+								</a>
 							</li>
 							<li>New York, NY</li>
+							<li>
+								<a
+									href='https://www.robinandeer.com'
+									target='_blank'
+									rel='noopener noreferrer'
+									className='hover:text-gray-950 transition-colors'
+								>
+									robinandeer.com
+								</a>
+							</li>
+							<li className='flex items-center gap-1.5'>
+								<GithubIcon
+									className='size-3 shrink-0 text-gray-400'
+									aria-hidden
+								/>
+								<a
+									href='https://github.com/robinandeer'
+									target='_blank'
+									rel='noopener noreferrer'
+									className='hover:text-gray-950 transition-colors'
+								>
+									github.com/robinandeer
+								</a>
+							</li>
+							<li className='flex items-center gap-1.5'>
+								<LinkedinIcon
+									className='size-3 shrink-0 text-gray-400'
+									aria-hidden
+								/>
+								<a
+									href='https://www.linkedin.com/in/robinandeer/'
+									target='_blank'
+									rel='noopener noreferrer'
+									className='hover:text-gray-950 transition-colors'
+								>
+									linkedin.com/in/robinandeer
+								</a>
+							</li>
 						</ul>
 					</section>
 
 					<section id='information' className='space-y-2'>
 						<SidebarHeading>Information</SidebarHeading>
-						<ul className='space-y-1 px-4 text-teal-100 text-xs'>
-							<li className='flex justify-between'>
-								<p>Experience</p>
-								<p className='text-white'>12+ years</p>
+						<ul className='px-4 text-gray-600 text-xs'>
+							<li className='flex justify-between gap-2'>
+								<span>Experience</span>
+								<span className='text-gray-950 tabular-nums font-medium'>
+									13+ years
+								</span>
 							</li>
 						</ul>
 					</section>
 
-					<section id='skills' className='space-y-4'>
+					<section id='skills' className='space-y-2.5'>
 						<SidebarHeading>Skills</SidebarHeading>
-						<ul className='flex flex-wrap px-4'>
+						<ul className='flex flex-wrap gap-1 px-4'>
 							{[
 								'TypeScript',
 								'React',
@@ -47,17 +115,17 @@ export default function Page() {
 								'GraphQL',
 								'REST API',
 								'AI/ML Integration',
+								'Streaming / Realtime',
 								'React Native',
 								'AWS',
 								'CI/CD',
 								'Python',
 								'SQL',
 								'Datadog',
-								'Vue.js',
 							].map((skill) => (
 								<li
 									key={skill}
-									className='bg-teal-100 text-teal-700 rounded-md px-2 py-1 font-medium text-xs mr-1 mb-1'
+									className='bg-white text-gray-700 ring-1 ring-gray-200 rounded px-1.5 py-0.5 font-medium text-[11px] leading-snug'
 								>
 									{skill}
 								</li>
@@ -67,66 +135,39 @@ export default function Page() {
 
 					<section id='achievements' className='space-y-2'>
 						<SidebarHeading>Achievements</SidebarHeading>
-						<ul className='space-y-2 px-4 text-teal-100 text-xs'>
+						<ul className='space-y-3 px-4 text-gray-600 text-xs leading-relaxed text-pretty'>
 							<li>
-								<div className='flex items-center space-x-1 font-medium text-white'>
-									<p>2019</p>
-									<CircleIcon className='w-4 h-4' />
-									<p>Contentful Meetup</p>
+								<div className='flex items-center gap-1.5 font-medium text-gray-950'>
+									<span className='tabular-nums text-teal-700'>2019</span>
+									<Dot />
+									<span>Contentful Meetup</span>
 								</div>
-								<p>
-									Presented{' '}
-									<a
-										className='underline'
-										href='https://www.facebook.com/watch/live/?v=402638810331653'
-										target='_blank'
-										rel='noopener noreferrer'
-									>
-										a talk
-									</a>{' '}
-									about building and testing UI extensions for Contentful CMS.
+								<p className='mt-1'>
+									Talk on building and testing UI extensions for Contentful CMS.
 								</p>
 							</li>
 
 							<li>
-								<div className='flex items-center space-x-1 font-medium text-white'>
-									<p>2018</p>
-									<CircleIcon className='w-4 h-4' />
-									<p>Hack for Sweden</p>
+								<div className='flex items-center gap-1.5 font-medium text-gray-950'>
+									<span className='tabular-nums text-teal-700'>2018</span>
+									<Dot />
+									<span>Hack for Sweden</span>
 								</div>
-								<p>
-									<a
-										href='https://www.mynewsdesk.com/se/digg-myndigheten-foer-digital-foervaltning/pressreleases/vinnarna-av-hack-for-sweden-2018-2478241'
-										target='_blank'
-										className='underline'
-										rel='noopener noreferrer'
-									>
-										Winner
-									</a>{' '}
-									in the &quot;Best use of Deep tech&quot; category with a
-									solution built around IPFS for resilient distribution of
-									crisis information.
+								<p className='mt-1'>
+									Winner, Best use of Deep tech — IPFS for resilient crisis
+									information distribution.
 								</p>
 							</li>
 
 							<li>
-								<div className='flex items-center space-x-1 font-medium text-white'>
-									<p>2015</p>
-									<CircleIcon className='w-4 h-4' />
-									<p>PyCon Sweden</p>
+								<div className='flex items-center gap-1.5 font-medium text-gray-950'>
+									<span className='tabular-nums text-teal-700'>2015</span>
+									<Dot />
+									<span>PyCon Sweden</span>
 								</div>
-								<p>
-									Gave a talk about{' '}
-									<a
-										href='https://www.pycon.se/2015/'
-										target='_blank'
-										className='underline'
-										rel='noopener noreferrer'
-									>
-										Python in Life Sciences
-									</a>
-									. How to analyze billions of DNA sequences and visualize
-									results using Flask and MongoDB.
+								<p className='mt-1'>
+									Talk: Python in Life Sciences — analyzing DNA at scale with
+									Flask and MongoDB.
 								</p>
 							</li>
 						</ul>
@@ -134,70 +175,29 @@ export default function Page() {
 
 					<section id='education' className='space-y-2'>
 						<SidebarHeading>Education</SidebarHeading>
-						<div className='space-y-2 px-4 text-teal-100 text-xs'>
+						<div className='space-y-2 px-4 text-gray-600 text-xs leading-relaxed'>
 							<div>
-								<h3 className='font-bold text-white'>
+								<h3 className='font-semibold text-gray-950 text-pretty'>
 									Master of Science Engineering
 								</h3>
-								<p className='text-teal-100'>
-									KTH Royal Institute of Technology
-								</p>
-								<div className='flex items-center space-x-1'>
-									<p className='text-teal-100'>2008 — 2013</p>
-									<CircleIcon className='w-4 h-4' />
-									<p className='text-teal-100'>Stockholm</p>
+								<p>KTH Royal Institute of Technology</p>
+								<div className='flex items-center gap-1.5 mt-0.5'>
+									<span className='tabular-nums'>2008 — 2013</span>
+									<Dot />
+									<span>Stockholm</span>
 								</div>
 							</div>
-							<p className='text-white'>
-								Majored in computational genomics. Wrote my thesis at Karolinska
-								Institute where I developed software to analyze DNA sequencing
-								data, later used in hospitals in Sweden and USA.
+							<p className='text-pretty'>
+								Computational genomics · thesis at Karolinska on DNA sequencing
+								software later used clinically.
 							</p>
-						</div>
-					</section>
-
-					<section id='links' className='space-y-2'>
-						<SidebarHeading>Links</SidebarHeading>
-						<div className='space-y-2 px-4 text-teal-100 text-xs'>
-							<div className='flex justify-between'>
-								<p>Personal blog</p>
-								<a
-									href='https://www.robinandeer.com'
-									target='_blank'
-									rel='noopener noreferrer'
-								>
-									robinandeer.com
-								</a>
-							</div>
-
-							<div className='flex justify-between items-center'>
-								<GithubIcon className='w-4 h-4' />
-								<a
-									href='https://github.com/robinandeer'
-									target='_blank'
-									rel='noopener noreferrer'
-								>
-									github.com/robinandeer
-								</a>
-							</div>
-
-							<div className='flex justify-between items-center'>
-								<LinkedinIcon className='w-4 h-4' />
-								<a
-									href='https://www.linkedin.com/in/robinandeer/'
-									target='_blank'
-									rel='noopener noreferrer'
-								>
-									linkedin.com/in/robinandeer
-								</a>
-							</div>
 						</div>
 					</section>
 				</aside>
 
-				<main className='py-4'>
-					<section id='work-experience' className='px-4 space-y-4'>
-						<h2 className='text-xl font-bold flex items-center'>
+				<main className='py-5 px-5 sm:px-6 print:py-4 print:px-5'>
+					<section id='work-experience' className='space-y-4 print:space-y-3.5'>
+						<h2 className='text-lg font-semibold tracking-tight text-gray-950 border-b border-gray-200 pb-2'>
 							Work experience
 						</h2>
 
@@ -209,7 +209,23 @@ export default function Page() {
 							startDate='Jan 2024'
 							endDate='Present'
 							description={[
-								'Building tools for human imagination. Working on the web platform powering AI-driven creative tools for video, image, and audio generation.',
+								<p key='characters'>
+									<strong>Runway Characters</strong> — shipped the product UI
+									for real-time conversational AI characters from a single
+									image; worked side-by-side with research on latency, lip-sync,
+									and the browser experience.
+								</p>,
+								<p key='platform'>
+									<strong>Web platform</strong> — React/TypeScript interfaces
+									for generative video, image, and audio tools; the unglamorous
+									bits (state, errors, loading) that keep creative tools feeling
+									fast.
+								</p>,
+								<p key='api'>
+									<strong>Developer surfaces</strong> — API docs, playgrounds,
+									and internal tooling so people outside the core app can ship
+									on the same models.
+								</p>,
 							]}
 						/>
 
@@ -221,25 +237,21 @@ export default function Page() {
 							startDate='May 2021'
 							endDate='Dec 2023'
 							description={[
-								<p key='innovative-growth'>
-									<strong>Innovative Growth</strong>: Led agile teams driving
-									feature development, including a successful e-commerce
-									marketplace launch and personalized cross-sales, fueling
-									Hedvig&apos;s expansion.
-								</p>,
-								<p key='operational-excellence'>
-									<strong>Operational Excellence</strong>: Oversaw{' '}
-									<a href='https://www.hedvig.com' className='underline'>
+								<p key='product'>
+									Owned{' '}
+									<a
+										href='https://www.hedvig.com'
+										className='underline underline-offset-2 decoration-gray-300 hover:decoration-gray-500'
+									>
 										Hedvig.com
 									</a>{' '}
-									and APIs, ensuring robust performance through active
-									maintenance, monitoring, and troubleshooting.
+									and customer-facing APIs — marketplace launch, cross-sell
+									flows, and the monitoring that caught breakage before
+									customers did.
 								</p>,
 								<p key='leadership'>
-									<strong>Leadership and Mentorship</strong>: Contributed to the
-									engineering leadership team, defining technical priorities.
-									Mentored multiple team members, fostering a culture of best
-									practices.
+									Part of eng leadership: set technical priorities, grew the
+									design system, mentored engineers through gnarly rewrites.
 								</p>,
 							]}
 						/>
@@ -252,21 +264,14 @@ export default function Page() {
 							startDate='Jan 2018'
 							endDate='May 2021'
 							description={[
-								<p key='versatile'>
-									<strong>Versatile Solutions</strong>: Developed and maintained
-									micro-frontends for an airline company, launched a React
-									Native app for a Nordic bank with FaceID-login, and led React
-									and Next.js web app development.
+								<p key='delivery'>
+									Consulting across stacks — airline micro-frontends, a React
+									Native bank app with FaceID, greenfield React/Next.js apps,
+									and the occasional brownfield rescue.
 								</p>,
-								<p key='leadership'>
-									<strong>Agile Leadership</strong>: Educated clients on agile
-									best practices, led workshops on Contentful CMS, and mentored
-									junior engineers in React and web development.
-								</p>,
-								<p key='innovative'>
-									<strong>Innovative Technology</strong>: Architected
-									cross-platform solutions, including serverless GraphQL APIs in
-									AWS, demonstrating a commitment to cutting-edge technology.
+								<p key='craft'>
+									Ran Contentful workshops for clients; mentored juniors; stood
+									up serverless GraphQL APIs on AWS when the brief needed it.
 								</p>,
 							]}
 						/>
@@ -279,16 +284,7 @@ export default function Page() {
 							startDate='Jul 2014'
 							endDate='Dec 2017'
 							description={[
-								<p key='efficiency'>
-									<strong>Clinical Efficiency</strong>: Developed a secure web
-									portal for clinicians, streamlining the management of DNA
-									sequencing analysis results.
-								</p>,
-								<p key='expertise'>
-									<strong>Automation Expertise</strong>: Created a suite of
-									internal tools for the automated processing and analysis of
-									large-scale clinical genomics data.
-								</p>,
+								'Built the clinician-facing portal for DNA sequencing results, plus internal pipelines that chewed through clinical genomics data without babysitting.',
 							]}
 						/>
 
@@ -300,7 +296,7 @@ export default function Page() {
 							startDate='Aug 2013'
 							endDate='Jul 2014'
 							description={[
-								'Maintained and developed Chanjo, an open-source DNA sequencing analysis tool used at Karolinska Hospital and Harvard School of Public Health.',
+								'Maintained Chanjo, open-source DNA coverage analysis used at Karolinska Hospital and Harvard School of Public Health.',
 							]}
 						/>
 					</section>
@@ -329,23 +325,28 @@ function Work({
 }) {
 	return (
 		<div className='space-y-2'>
-			<header>
-				<h3>
-					<b>{title}</b>{' '}
-					<span className='text-gray-300'>
+			<header className='space-y-0.5'>
+				<h3 className='text-[15px] sm:text-base leading-snug text-pretty'>
+					<span className='font-semibold text-gray-900'>{title}</span>{' '}
+					<span className='text-gray-500 tabular-nums text-sm font-normal'>
 						{startDate} — {endDate}
 					</span>
 				</h3>
-				<div className='flex items-center space-x-1 text-gray-300'>
-					<a href={href} target='_blank' rel='noopener noreferrer'>
+				<div className='flex items-center gap-1.5 text-sm text-gray-500'>
+					<a
+						href={href}
+						target='_blank'
+						rel='noopener noreferrer'
+						className='hover:text-gray-800 transition-colors'
+					>
 						{company}
 					</a>
-					<CircleIcon className='w-4 h-4' />
-					<p>{location}</p>
+					<Dot className='bg-gray-400' />
+					<span>{location}</span>
 				</div>
 			</header>
 
-			<ul className='list-disc space-y-1 pl-4 text-sm'>
+			<ul className='list-disc space-y-1.5 pl-4 text-sm text-gray-700 leading-relaxed text-pretty marker:text-gray-400'>
 				{description.map((item, index) => (
 					<li key={index}>{item}</li>
 				))}
@@ -356,8 +357,17 @@ function Work({
 
 function SidebarHeading({ children }: { children: ReactNode }) {
 	return (
-		<h2 className='text-sm font-medium text-white pl-4 py-1 bg-teal-700'>
+		<h2 className='text-[11px] font-semibold uppercase tracking-[0.08em] text-teal-700 pl-4 py-1.5 border-y border-gray-200/80 bg-white/60'>
 			{children}
 		</h2>
+	);
+}
+
+function Dot({ className }: { className?: string }) {
+	return (
+		<span
+			className={cn('size-1 rounded-full shrink-0 bg-teal-600/50', className)}
+			aria-hidden
+		/>
 	);
 }

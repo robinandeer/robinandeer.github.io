@@ -5,6 +5,10 @@ author: Robin Andeer
 date: 2016-06-18
 tags: tutorial, python, testing, habits
 intro: A tutorial to test Python code. In part 1 we discuss testing habits and how to motivate yourself to write them.
+series: How I test my code
+seriesSlug: how-i-test-my-code
+seriesIndex: 1
+seriesDescription: A three-part look at testing habits, pytest, and coverage in Python.
 ---
 
 Reasons to test code are plentiful; performance, quality, usability, security, and stability. However, I’m going to focus on testing to **ensure expected behavior**.
@@ -20,7 +24,7 @@ I decided to write a series of post on "How I test code". The first part will fo
   alt="Intro"
   width={1000}
   height={800}
-  layout="responsive"
+  className="h-auto w-full max-w-3xl"
 />
 
 ## Motivation: the habit loop
@@ -32,9 +36,9 @@ It's only natural to feel like tests is but an additional step that you would ra
 <Image
   src="/images/testing/habit-loop.png"
   alt="Habit loop"
-  width={656 }
+  width={656}
   height={306}
-  layout="responsive"
+  className="h-auto w-full max-w-3xl"
 />
 
 Example of a habit loop: cue, routine, reward, and craving ☝️.

@@ -4,7 +4,6 @@ category: reflections
 author: Robin Andeer
 date: 2026-04-25
 tags: reflection, ai, avatars, developer-experience
-intro: Why I'm spending evenings building the same small app on every live-avatar platform I can find.
 image: /images/live-avatars/poster.jpg
 imageAlt: Hand-drawn scene — person in a teal hoodie at a desk with a microphone and laptop; the screen shows a live digital avatar, with a mug and plant nearby.
 imageWidth: 1200

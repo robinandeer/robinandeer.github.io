@@ -1,12 +1,19 @@
-# Optional task runner: https://github.com/casey/just
-# Install: brew install just   (or: cargo install just)
-# Every recipe delegates to package.json — keep scripts there as the source of truth.
+# https://github.com/casey/just  —  brew install just
+# Recipes call package.json; keep scripts there as source of truth.
 
 default:
 	@just --list
 
 dev:
 	bun run dev
+
+# Next on http://localhost:3000 only (skip portless)
+dev-app:
+	bun run dev:app
+
+# Use if `dev` stops hot-reloading (Turbopack HMR quirks on some setups)
+dev-webpack:
+	bun run dev:webpack
 
 build:
 	bun run build

@@ -45,7 +45,7 @@ export function GitHubHeatmap() {
 
 	return (
 		<div className='flex flex-col gap-3 w-full min-w-0'>
-			<div className='flex items-baseline justify-between gap-2'>
+			<div className='flex flex-wrap items-baseline justify-between gap-x-2 gap-y-1'>
 				<p className='text-xs font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wider'>
 					GitHub
 				</p>

@@ -1,8 +1,8 @@
 import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from 'config';
-import { getAllPostsMeta } from 'mdx/mdx.helpers';
+import { getAllPostListMeta } from 'mdx/mdx.helpers';
 
 export async function GET() {
-	const posts = await getAllPostsMeta();
+	const posts = await getAllPostListMeta();
 
 	const items = posts
 		.map(

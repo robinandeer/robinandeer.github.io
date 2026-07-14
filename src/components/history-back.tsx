@@ -1,15 +1,18 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import type { MouseEvent, ReactNode } from 'react';
+import type { AnchorHTMLAttributes, MouseEvent, ReactNode } from 'react';
 
 export function HistoryBack({
 	fallback,
 	children,
+	className,
+	...anchorProps
 }: {
 	fallback: string;
 	children: ReactNode;
-}) {
+	className?: string;
+} & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'>) {
 	const router = useRouter();
 
 	function goBack(e: MouseEvent<HTMLAnchorElement>) {
@@ -18,7 +21,7 @@ export function HistoryBack({
 	}
 
 	return (
-		<a href={fallback} onClick={goBack}>
+		<a {...anchorProps} href={fallback} onClick={goBack} className={className}>
 			{children}
 		</a>
 	);

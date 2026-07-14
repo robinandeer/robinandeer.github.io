@@ -1,17 +1,23 @@
 import path from 'node:path';
-import { Anchor } from 'components/anchor';
-import { BackLink } from 'components/back-link';
-import { HistoryBack } from 'components/history-back';
+import { PostAuthorByline } from 'components/post-author-byline';
+import { PostAuthorFooter } from 'components/post-author-footer';
 import { PostPosterMedia } from 'components/post-poster-media';
+import { PostRelatedPosts } from 'components/post-related-posts';
+import { PostSeriesCallout } from 'components/post-series-callout';
+import { PostSeriesFooter } from 'components/post-series-footer';
 import { SITE_URL } from 'config';
-import { ArrowUpRightIcon } from 'lucide-react';
-import { getAllPostsMeta, getPost } from 'mdx/mdx.helpers';
+import {
+	getAllPostListMeta,
+	getPost,
+	getRelatedPostMetas,
+	getSeriesContextForPost,
+	type SeriesContext,
+} from 'mdx/mdx.helpers';
 import Image from 'next/image';
-import { Link } from 'next-view-transitions';
 
 export async function generateStaticParams() {
-	const slugs = await getAllPostsMeta();
-	return slugs.map((item) => ({ slug: item.slug.split('/') }));
+	const posts = await getAllPostListMeta();
+	return posts.map((item) => ({ slug: item.slug.split('/') }));
 }
 
 export default async function BlogPostPage({
@@ -21,74 +27,82 @@ export default async function BlogPostPage({
 }) {
 	const { slug } = await params;
 	const post = await getPost(slug.join('-'));
+	const relatedPosts = await getRelatedPostMetas(post.slug, {
+		category: post.category,
+	});
+	let seriesContext: SeriesContext | null = null;
+	if (post.series != null && post.seriesSlug != null) {
+		seriesContext = await getSeriesContextForPost(
+			post.slug,
+			post.seriesSlug,
+			post.series,
+		);
+	}
+	/** One discovery block: series card or related, not both (related shows if no series or empty series) */
+	const showSeriesFooter = Boolean(seriesContext && seriesContext.total > 0);
+	const showRelatedPosts = !showSeriesFooter;
 
 	return (
-		<article className='flex flex-col gap-8'>
-			<header className='flex flex-col gap-6'>
-				<HistoryBack fallback='/blog'>
-					<BackLink>Back</BackLink>
-				</HistoryBack>
+		<article className='post-article-enter flex flex-col'>
+			<div className='flex flex-col gap-8'>
+				<header className='flex flex-col gap-6'>
+					<div className='flex flex-col gap-3'>
+						<h1
+							className='text-3xl sm:text-4xl font-semibold tracking-tight text-gray-900 dark:text-gray-50 leading-tight'
+							style={{ viewTransitionName: `post-title-${slug.join('-')}` }}
+						>
+							{post.title}
+						</h1>
+						<PostAuthorByline date={post.date} />
+					</div>
+				</header>
 
-				<div className='flex flex-col gap-2'>
-					<h1
-						className='text-3xl sm:text-4xl font-semibold tracking-tight text-gray-900 dark:text-gray-50 leading-tight'
-						style={{ viewTransitionName: `post-title-${slug.join('-')}` }}
-					>
-						{post.title}
-					</h1>
-					<time className='text-sm text-gray-400 dark:text-gray-500'>
-						{new Date(post.date).toLocaleDateString('en-US', {
-							year: 'numeric',
-							month: 'long',
-							day: 'numeric',
-						})}
-					</time>
+				{post.series && post.seriesSlug && (
+					<PostSeriesCallout
+						series={post.series}
+						seriesSlug={post.seriesSlug}
+					/>
+				)}
+
+				{post.image &&
+					(post.imageVideo ? (
+						<PostPosterMedia
+							image={post.image}
+							imageWidth={post.imageWidth}
+							imageHeight={post.imageHeight}
+							imageAlt={post.imageAlt || ''}
+							imageVideo={post.imageVideo}
+							playVideoLoops={post.playVideoLoops}
+						/>
+					) : (
+						<Image
+							priority
+							src={post.image}
+							width={post.imageWidth}
+							height={post.imageHeight}
+							alt={post.imageAlt || ''}
+							className='rounded-lg'
+						/>
+					))}
+
+				<div className='prose prose-gray dark:prose-invert prose-code:before:content-none prose-code:after:content-none max-w-none'>
+					{post.content}
 				</div>
-			</header>
-
-			{post.image &&
-				(post.imageVideo ? (
-					<PostPosterMedia
-						image={post.image}
-						imageWidth={post.imageWidth}
-						imageHeight={post.imageHeight}
-						imageAlt={post.imageAlt || ''}
-						imageVideo={post.imageVideo}
-						playVideoLoops={post.playVideoLoops}
-					/>
-				) : (
-					<Image
-						priority
-						src={post.image}
-						width={post.imageWidth}
-						height={post.imageHeight}
-						alt={post.imageAlt || ''}
-						className='rounded-lg'
-					/>
-				))}
-
-			<div className='prose prose-gray dark:prose-invert prose-code:before:content-none prose-code:after:content-none max-w-none'>
-				{post.content}
 			</div>
 
-			<hr className='border-gray-200 dark:border-gray-800' />
+			<div className='mt-12 flex flex-col gap-10 border-t border-gray-200/80 pt-10 dark:border-gray-800 sm:mt-16 sm:pt-12'>
+				{showSeriesFooter && post.series && post.seriesSlug && (
+					<PostSeriesFooter
+						slug={post.slug}
+						series={post.series}
+						seriesSlug={post.seriesSlug}
+					/>
+				)}
 
-			<footer className='flex items-center justify-between text-sm text-gray-400 dark:text-gray-500'>
-				<Link
-					href='/blog'
-					className='hover:text-gray-600 dark:hover:text-gray-300 transition-colors'
-				>
-					&larr; All posts
-				</Link>
-				<Anchor
-					href={`https://x.com/intent/tweet?text=${encodeURIComponent(`${post.title} by @robinandeer`)}&url=${encodeURIComponent(`${SITE_URL}/blog/${slug.join('/')}`)}`}
-					target='_blank'
-					className='inline-flex items-center gap-1 no-underline! text-gray-400! dark:text-gray-500! hover:text-gray-600! dark:hover:text-gray-300! font-normal!'
-				>
-					Share on X
-					<ArrowUpRightIcon className='w-3.5 h-3.5' />
-				</Anchor>
-			</footer>
+				{showRelatedPosts && <PostRelatedPosts posts={relatedPosts} />}
+
+				<PostAuthorFooter postTitle={post.title} slug={slug} />
+			</div>
 		</article>
 	);
 }
@@ -102,7 +116,7 @@ export async function generateMetadata({
 	const post = await getPost(slug.join('-'));
 
 	const title = `${post.title} - Robin Andeer`;
-	const description = post.intro;
+	const description = post.intro ?? post.title;
 	const images = post.image
 		? [
 				{

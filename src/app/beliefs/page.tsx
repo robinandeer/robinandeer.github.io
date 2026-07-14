@@ -1,32 +1,24 @@
-import { BackLink } from 'components/back-link'
-import { beliefs } from 'data/beliefs'
-import type { Metadata } from 'next'
-import { Link } from 'next-view-transitions'
-import { cn } from 'utils/cn'
+import { beliefs } from 'data/beliefs';
+import type { Metadata } from 'next';
+import { cn } from 'utils/cn';
 
 export const metadata: Metadata = {
 	title: 'Beliefs - Robin Andeer',
 	description:
 		'Things I believe about software, work, and the web. Personal principles shaped by experience.',
-}
+};
 
 export default function BeliefsPage() {
 	return (
 		<div className='px-6 py-12 sm:py-16 max-w-2xl mx-auto w-full'>
 			<div className='flex flex-col gap-12'>
-				<header className='flex flex-col gap-4'>
-					<Link href='/'>
-						<BackLink>Home</BackLink>
-					</Link>
-					<div className='flex flex-col gap-2'>
-						<h1 className='text-2xl sm:text-3xl font-semibold tracking-tight text-gray-900 dark:text-gray-50'>
-							Things I Believe
-						</h1>
-						<p className='text-gray-500 dark:text-gray-400'>
-							Shaped by experience, not borrowed from Twitter. Updated as I
-							learn.
-						</p>
-					</div>
+				<header className='flex flex-col gap-2'>
+					<h1 className='text-2xl sm:text-3xl font-semibold tracking-tight text-gray-900 dark:text-gray-50'>
+						Things I Believe
+					</h1>
+					<p className='text-gray-500 dark:text-gray-400'>
+						Shaped by experience, not borrowed from Twitter. Updated as I learn.
+					</p>
 				</header>
 
 				<ol className='flex flex-col gap-10'>
@@ -53,5 +45,5 @@ export default function BeliefsPage() {
 				</ol>
 			</div>
 		</div>
-	)
+	);
 }

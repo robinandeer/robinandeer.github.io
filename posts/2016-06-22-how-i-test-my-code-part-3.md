@@ -5,6 +5,9 @@ author: Robin Andeer
 date: 2016-06-22
 tags: tutorial, python, testing, pytest, coverage, automation, travis
 intro: A tutorial to test Python code. In part 3 we cover test coverage and how to setup test automation.
+series: How I test my code
+seriesSlug: how-i-test-my-code
+seriesIndex: 3
 ---
 
 This is the third installment in my "How I test code"-series. In this post, I get into the benefits of measuring test coverage and show how you can run automated tests; locally and remotely.

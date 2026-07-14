@@ -36,7 +36,7 @@ export function GlowCard({
 			<div
 				ref={glowRef}
 				className={cn(
-					'pointer-events-none absolute inset-0 rounded-2xl',
+					'pointer-events-none absolute inset-0 rounded-[1.5rem]',
 					'opacity-0 transition-opacity duration-500',
 				)}
 				aria-hidden='true'

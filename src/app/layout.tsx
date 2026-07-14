@@ -2,6 +2,9 @@ import 'styles/global.css';
 
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { SiteFooter } from 'components/site-footer';
+import { SiteHeader } from 'components/site-header';
+import { ThemeProvider } from 'components/theme-provider';
 import { SITE_BANNER, SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from 'config';
 import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
@@ -25,7 +28,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 					/>
 				</head>
 				<body>
-					{children}
+					<ThemeProvider>
+						<div className='flex min-h-svh flex-col'>
+							<SiteHeader />
+							<div className='flex flex-1 flex-col pt-[max(5.25rem,calc(1rem+env(safe-area-inset-top)+3.5rem))] print:pt-0'>
+								{children}
+							</div>
+							<SiteFooter />
+						</div>
+					</ThemeProvider>
 					<Analytics />
 					<SpeedInsights />
 				</body>

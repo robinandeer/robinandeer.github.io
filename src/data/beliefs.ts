@@ -22,6 +22,6 @@ export const beliefs = [
 	{
 		belief: 'AI is the new pair programmer.',
 		context:
-			"I used to champion pair programming at previous companies. AI agents have filled that role — bouncing ideas, writing code together, having a conversation about the problem. I sometimes miss the human side, but the productivity is real.",
+			'I used to champion pair programming at previous companies. AI agents have filled that role — bouncing ideas, writing code together, having a conversation about the problem. I sometimes miss the human side, but the productivity is real.',
 	},
-]
+];

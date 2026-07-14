@@ -2,7 +2,13 @@
 
 import { PauseIcon, PlayIcon, RotateCcwIcon } from 'lucide-react';
 import Image from 'next/image';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import {
+	useCallback,
+	useEffect,
+	useLayoutEffect,
+	useRef,
+	useState,
+} from 'react';
 import { cn } from 'utils/cn';
 
 type PostPosterMediaProps = {
@@ -13,6 +19,11 @@ type PostPosterMediaProps = {
 	/** /path/under/public — .webm, .mp4, or .mov */
 	imageVideo: string;
 	playVideoLoops?: number;
+	/**
+	 * When true on **(hover: hover)** viewports: loop only while hovered (e.g. homepage card).
+	 * When false (default): **autoplay** the timed loop on load on all devices — use on full post pages.
+	 */
+	playOnHover?: boolean;
 	className?: string;
 };
 
@@ -29,8 +40,11 @@ const transportClass = cn(
 );
 
 /**
- * Plays a short poster loop a few times on load, then pauses; user can pause/resume or replay
- * the full run. Falls back to `image` if video is missing, fails, or reduced motion is preferred.
+ * Poster video:
+ * - **`playOnHover` + (hover: hover):** static first frame until pointer enters; loops while hovered;
+ *   pointer leave resets (replay button after).
+ * - **Otherwise:** plays `playVideoLoops` times on load (muted `playsInline`), then stops.
+ * - **Reduced motion:** JPEG only.
  */
 export function PostPosterMedia({
 	image,
@@ -39,6 +53,7 @@ export function PostPosterMedia({
 	imageAlt = '',
 	imageVideo,
 	playVideoLoops = 2,
+	playOnHover = false,
 	className,
 }: PostPosterMediaProps) {
 	const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -47,7 +62,9 @@ export function PostPosterMedia({
 	const [useStatic, setUseStatic] = useState(false);
 	const [videoReady, setVideoReady] = useState(false);
 	const [replaysExhausted, setReplaysExhausted] = useState(false);
-	/** `true` after the first time playback has actually run (avoids a “play” icon before autoplay). */
+	const [mediaHoverCapable, setMediaHoverCapable] = useState(false);
+	const hoverToPlay = playOnHover && mediaHoverCapable;
+	/** `true` after the first time playback has actually run (avoids a “play” icon before playback). */
 	const [hasPlayed, setHasPlayed] = useState(false);
 	/** `true` while the element reports playback, except when we’re about to continue a multi-loop. */
 	const [isPlaying, setIsPlaying] = useState(false);
@@ -58,6 +75,7 @@ export function PostPosterMedia({
 		if (!video) return;
 		setReplaysExhausted(false);
 		completedLoops.current = 0;
+		video.loop = false;
 		video.currentTime = 0;
 		void video.play();
 	}, []);
@@ -65,6 +83,7 @@ export function PostPosterMedia({
 	const onVideoEnded = useCallback(() => {
 		const video = videoRef.current;
 		if (!video) return;
+		if (video.loop) return;
 		completedLoops.current += 1;
 		if (completedLoops.current < playVideoLoops) {
 			ignoreNextPauseForPlaying.current = true;
@@ -104,6 +123,39 @@ export function PostPosterMedia({
 		return () => mq.removeEventListener('change', onChange);
 	}, []);
 
+	useLayoutEffect(() => {
+		setMediaHoverCapable(window.matchMedia('(hover: hover)').matches);
+	}, []);
+
+	/** Autoplay the timed loop when not in hover-to-play mode (no `autoPlay` attribute — avoids flash). */
+	useEffect(() => {
+		if (!videoReady || useStatic || hoverToPlay) return;
+		const video = videoRef.current;
+		if (!video) return;
+		video.loop = false;
+		void video.play();
+	}, [videoReady, useStatic, hoverToPlay]);
+
+	const onPointerEnter = useCallback(() => {
+		if (!hoverToPlay) return;
+		const video = videoRef.current;
+		if (!video) return;
+		video.loop = true;
+		setReplaysExhausted(false);
+		void video.play();
+	}, [hoverToPlay]);
+
+	const onPointerLeave = useCallback(() => {
+		if (!hoverToPlay) return;
+		const video = videoRef.current;
+		if (!video) return;
+		video.loop = false;
+		video.pause();
+		video.currentTime = 0;
+		setIsPlaying(false);
+		setReplaysExhausted(true);
+	}, [hoverToPlay]);
+
 	if (useStatic) {
 		return (
 			<Image
@@ -122,9 +174,12 @@ export function PostPosterMedia({
 			className={cn(
 				'relative w-full max-w-full overflow-hidden rounded-lg',
 				'bg-gray-50 dark:bg-gray-950',
+				hoverToPlay && 'cursor-pointer',
 				className,
 			)}
 			style={{ aspectRatio: `${imageWidth} / ${imageHeight}` }}
+			onPointerEnter={onPointerEnter}
+			onPointerLeave={onPointerLeave}
 		>
 			{/* Keep mounted so layout/letterbox doesn’t jump when the video fades in. */}
 			<Image
@@ -149,7 +204,6 @@ export function PostPosterMedia({
 				)}
 				playsInline
 				muted
-				autoPlay
 				preload='auto'
 				aria-label={imageAlt}
 				onLoadedData={() => setVideoReady(true)}
