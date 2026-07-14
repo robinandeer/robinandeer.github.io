@@ -1,5 +1,5 @@
 import { CvPrintButton } from 'components/cv-print-button';
-import { GithubIcon, LinkedinIcon } from 'lucide-react';
+import { GitHubIcon, LinkedInIcon } from 'components/social-icons';
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { cn } from 'utils/cn';
@@ -62,7 +62,7 @@ export default function Page() {
 								</a>
 							</li>
 							<li className='flex items-center gap-1.5'>
-								<GithubIcon
+								<GitHubIcon
 									className='size-3 shrink-0 text-gray-400'
 									aria-hidden
 								/>
@@ -76,7 +76,7 @@ export default function Page() {
 								</a>
 							</li>
 							<li className='flex items-center gap-1.5'>
-								<LinkedinIcon
+								<LinkedInIcon
 									className='size-3 shrink-0 text-gray-400'
 									aria-hidden
 								/>

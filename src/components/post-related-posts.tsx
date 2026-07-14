@@ -1,5 +1,5 @@
 import { formatPostDate } from 'data/author';
-import { CornerDownRight, NewspaperIcon } from 'lucide-react';
+import { CornerDownRightIcon, NewspaperIcon } from 'lucide-react';
 import type { PostListMeta } from 'mdx/mdx.helpers';
 import Image from 'next/image';
 import { Link } from 'next-view-transitions';
@@ -28,7 +28,7 @@ export function PostRelatedPosts({ posts }: PostRelatedPostsProps) {
 				id='related-posts-heading'
 				className='flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.14em] text-gray-400 dark:text-gray-500'
 			>
-				<CornerDownRight
+				<CornerDownRightIcon
 					className='h-3.5 w-3.5 shrink-0 text-gray-400/90 dark:text-gray-500'
 					aria-hidden
 				/>

@@ -21,35 +21,35 @@
 		"generate-art": "bun run scripts/generate-contribution-art.ts"
 	},
 	"dependencies": {
-		"@runwayml/sdk": "^3.18.0",
+		"@runwayml/sdk": "^4.9.0",
 		"@vercel/analytics": "^2.0.1",
 		"@vercel/speed-insights": "^2.0.0",
 		"clsx": "^2.1.1",
-		"lucide-react": "^0.577.0",
-		"next": "^16.2.4",
+		"lucide-react": "^1.24.0",
+		"next": "^16.2.10",
 		"next-mdx-remote": "^6.0.0",
 		"next-themes": "^0.4.6",
 		"next-view-transitions": "^0.3.5",
-		"react": "^19.2.4",
-		"react-dom": "^19.2.4",
+		"react": "^19.2.7",
+		"react-dom": "^19.2.7",
 		"rehype-autolink-headings": "^7.1.0",
-		"rehype-pretty-code": "^0.14.3",
+		"rehype-pretty-code": "^0.14.4",
 		"rehype-slug": "^6.0.0",
-		"shiki": "^4.0.2",
-		"tailwind-merge": "^3.5.0",
-		"yaml": "^2.8.3"
+		"shiki": "^4.3.1",
+		"tailwind-merge": "^3.6.0",
+		"yaml": "^2.9.0"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^2.4.10",
-		"@tailwindcss/postcss": "^4.2.2",
-		"@tailwindcss/typography": "^0.5.19",
-		"@types/node": "^25.5.2",
-		"@types/react": "^19.2.14",
-		"portless": "^0.12.0",
-		"tailwindcss": "^4.2.2",
+		"@biomejs/biome": "^2.5.3",
+		"@tailwindcss/postcss": "^4.3.2",
+		"@tailwindcss/typography": "^0.5.20",
+		"@types/node": "^26.1.1",
+		"@types/react": "^19.2.17",
+		"portless": "^0.15.1",
+		"tailwindcss": "^4.3.2",
 		"typescript": "^5.9.3"
 	},
 	"overrides": {
-		"yaml": "2.8.3"
+		"yaml": "2.9.0"
 	}
 }
