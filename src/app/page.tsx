@@ -1,6 +1,9 @@
 import { Anchor, anchorLinkClassName } from 'components/anchor';
 import { DisclosureBlock } from 'components/disclosure-block';
-import { GitHubHeatmap } from 'components/github-heatmap';
+import {
+	GitHubHeatmap,
+	GitHubHeatmapSkeleton,
+} from 'components/github-heatmap';
 import { HomeCyclingHeading } from 'components/home-cycling-heading';
 import { InteractiveLogo } from 'components/interactive-logo';
 import { PostPosterMedia } from 'components/post-poster-media';
@@ -17,7 +20,7 @@ import {
 import { getAllPostsMeta } from 'mdx/mdx.helpers';
 import Image from 'next/image';
 import { Link } from 'next-view-transitions';
-import type { ReactNode } from 'react';
+import { type ReactNode, Suspense } from 'react';
 import { cn } from 'utils/cn';
 
 export default async function Page() {
@@ -121,7 +124,7 @@ export default async function Page() {
 												width={featured.imageWidth}
 												height={featured.imageHeight}
 												className='object-cover w-full h-full transition-transform duration-500 group-hover:scale-[1.02]'
-												priority
+												preload
 											/>
 										</div>
 									))}
@@ -245,7 +248,9 @@ export default async function Page() {
 								'hover:border-accent-500/25 dark:hover:border-accent-400/20',
 							)}
 						>
-							<GitHubHeatmap />
+							<Suspense fallback={<GitHubHeatmapSkeleton />}>
+								<GitHubHeatmap />
+							</Suspense>
 						</a>
 					</div>
 

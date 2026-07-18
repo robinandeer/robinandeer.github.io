@@ -7,7 +7,8 @@
 
 @theme {
 	--font-sans:
-		var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+		var(--font-instrument-sans), ui-sans-serif, system-ui, -apple-system,
+		sans-serif;
 
 	--color-gray-50: #fafafa;
 	--color-gray-100: #f4f4f5;

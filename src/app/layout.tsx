@@ -7,20 +7,24 @@ import { SiteHeader } from 'components/site-header';
 import { ThemeProvider } from 'components/theme-provider';
 import { SITE_BANNER, SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from 'config';
 import type { Metadata, Viewport } from 'next';
-import { Inter } from 'next/font/google';
+import { Instrument_Sans } from 'next/font/google';
 import { ViewTransitions } from 'next-view-transitions';
 import type { ReactNode } from 'react';
 
-const inter = Inter({
+const instrumentSans = Instrument_Sans({
 	subsets: ['latin'],
 	display: 'swap',
-	variable: '--font-inter',
+	variable: '--font-instrument-sans',
 });
 
 export default function RootLayout({ children }: { children: ReactNode }) {
 	return (
 		<ViewTransitions>
-			<html lang='en' className={inter.variable} suppressHydrationWarning>
+			<html
+				lang='en'
+				className={instrumentSans.variable}
+				suppressHydrationWarning
+			>
 				<head>
 					<meta
 						name='source-greeting'

@@ -1,12 +1,5 @@
-'use client';
-
-import { useEffect, useState } from 'react';
+import { getGitHubHeatmapData } from 'data/github-contributions';
 import { cn } from 'utils/cn';
-
-type HeatmapData = {
-	totalContributions: number;
-	weeks: Array<Array<number>>;
-};
 
 function getLevel(count: number) {
 	if (count === 0) return 0;
@@ -26,17 +19,29 @@ const levelColors = [
 	'bg-accent-500 dark:bg-accent-400/85',
 ];
 
-export function GitHubHeatmap() {
-	const [data, setData] = useState<HeatmapData | null>(null);
+export function GitHubHeatmapSkeleton() {
+	return (
+		<div className='flex flex-col gap-3 w-full min-w-0'>
+			<div className='flex flex-wrap items-baseline justify-between gap-x-2 gap-y-1'>
+				<p className='text-xs font-medium text-gray-400 dark:text-gray-500 uppercase tracking-wider'>
+					GitHub
+				</p>
+			</div>
+			<div className='grid grid-cols-[repeat(12,1fr)] gap-[3px] w-full'>
+				{Array.from({ length: WEEKS * 7 }).map((_, i) => (
+					<div
+						key={i}
+						className='aspect-square rounded-[2px] bg-gray-100 dark:bg-gray-800 min-w-0'
+					/>
+				))}
+			</div>
+		</div>
+	);
+}
 
-	useEffect(() => {
-		fetch('/api/github', { cache: 'no-store' })
-			.then((r) => (r.ok ? r.json() : null))
-			.then(setData)
-			.catch(() => {});
-	}, []);
-
-	const weeks = data?.weeks?.slice(-WEEKS) ?? [];
+export async function GitHubHeatmap() {
+	const data = await getGitHubHeatmapData();
+	const weeks = data.weeks.slice(-WEEKS);
 	const hasData = weeks.length > 0 && weeks.some((w) => w.some((c) => c > 0));
 	const recentTotal = weeks.reduce(
 		(sum, week) => sum + week.reduce((a, b) => a + b, 0),

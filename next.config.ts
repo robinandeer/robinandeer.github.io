@@ -2,6 +2,7 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
 	reactStrictMode: true,
+	reactCompiler: true,
 	env: {
 		SITE_BUILD_TIME_ISO: new Date().toISOString(),
 	},

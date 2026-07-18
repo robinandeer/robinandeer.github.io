@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { cn } from 'utils/cn';
 
 const SESSION_INTRO_KEY = 'robin-home-cycling-intro-v1';
@@ -37,11 +37,11 @@ export function HomeCyclingHeading({
 		}
 	}, []);
 
-	const cycle = useCallback(() => {
+	const cycle = () => {
 		hasCycled.current = true;
 		setSessionIntro(false);
 		setIndex((value) => (value + 1) % lines.length);
-	}, [lines.length]);
+	};
 
 	const line = lines[index] ?? lines[0];
 	const letters = graphemes(line);

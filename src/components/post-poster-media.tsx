@@ -2,13 +2,7 @@
 
 import { PauseIcon, PlayIcon, RotateCcwIcon } from 'lucide-react';
 import Image from 'next/image';
-import {
-	useCallback,
-	useEffect,
-	useLayoutEffect,
-	useRef,
-	useState,
-} from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { cn } from 'utils/cn';
 
 type PostPosterMediaProps = {
@@ -70,7 +64,7 @@ export function PostPosterMedia({
 	const [isPlaying, setIsPlaying] = useState(false);
 	const completedLoops = useRef(0);
 
-	const replayPoster = useCallback(() => {
+	const replayPoster = () => {
 		const video = videoRef.current;
 		if (!video) return;
 		setReplaysExhausted(false);
@@ -78,9 +72,9 @@ export function PostPosterMedia({
 		video.loop = false;
 		video.currentTime = 0;
 		void video.play();
-	}, []);
+	};
 
-	const onVideoEnded = useCallback(() => {
+	const onVideoEnded = () => {
 		const video = videoRef.current;
 		if (!video) return;
 		if (video.loop) return;
@@ -95,9 +89,9 @@ export function PostPosterMedia({
 			setIsPlaying(false);
 			setReplaysExhausted(true);
 		}
-	}, [playVideoLoops]);
+	};
 
-	const togglePause = useCallback(() => {
+	const togglePause = () => {
 		const video = videoRef.current;
 		if (!video) return;
 		if (video.paused) {
@@ -105,13 +99,13 @@ export function PostPosterMedia({
 		} else {
 			video.pause();
 		}
-	}, []);
+	};
 
-	const resumeFromUserPause = useCallback(() => {
+	const resumeFromUserPause = () => {
 		const video = videoRef.current;
 		if (!video) return;
 		void video.play();
-	}, []);
+	};
 
 	useEffect(() => {
 		const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -136,16 +130,16 @@ export function PostPosterMedia({
 		void video.play();
 	}, [videoReady, useStatic, hoverToPlay]);
 
-	const onPointerEnter = useCallback(() => {
+	const onPointerEnter = () => {
 		if (!hoverToPlay) return;
 		const video = videoRef.current;
 		if (!video) return;
 		video.loop = true;
 		setReplaysExhausted(false);
 		void video.play();
-	}, [hoverToPlay]);
+	};
 
-	const onPointerLeave = useCallback(() => {
+	const onPointerLeave = () => {
 		if (!hoverToPlay) return;
 		const video = videoRef.current;
 		if (!video) return;
@@ -154,12 +148,12 @@ export function PostPosterMedia({
 		video.currentTime = 0;
 		setIsPlaying(false);
 		setReplaysExhausted(true);
-	}, [hoverToPlay]);
+	};
 
 	if (useStatic) {
 		return (
 			<Image
-				priority
+				preload
 				src={image}
 				width={imageWidth}
 				height={imageHeight}
@@ -183,7 +177,7 @@ export function PostPosterMedia({
 		>
 			{/* Keep mounted so layout/letterbox doesn’t jump when the video fades in. */}
 			<Image
-				priority
+				preload
 				src={image}
 				width={imageWidth}
 				height={imageHeight}

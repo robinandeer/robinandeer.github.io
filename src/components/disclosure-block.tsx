@@ -32,9 +32,7 @@ export function DisclosureBlock({
 				)}
 				aria-controls={panelId}
 			>
-				<span className='home-disclosure-label'>
-					{label}
-				</span>
+				<span className='home-disclosure-label'>{label}</span>
 				<ChevronDownIcon
 					aria-hidden
 					className='home-disclosure-chevron h-4 w-4 shrink-0 text-gray-400 transition-[transform,color] duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] dark:text-gray-500'

@@ -60,6 +60,7 @@ type MdxImageProps = {
 	className?: string;
 	layout?: string;
 	priority?: boolean;
+	preload?: boolean;
 	unoptimized?: boolean;
 	quality?: number;
 	[key: string]: unknown;
@@ -78,6 +79,7 @@ function MdxImage(props: MdxImageProps) {
 		className,
 		layout,
 		priority,
+		preload,
 		unoptimized,
 		quality,
 	} = props;
@@ -95,7 +97,7 @@ function MdxImage(props: MdxImageProps) {
 			width={w}
 			height={h}
 			alt={String(alt)}
-			priority={Boolean(priority)}
+			preload={Boolean(preload ?? priority)}
 			unoptimized={Boolean(unoptimized)}
 			quality={typeof quality === 'number' ? quality : undefined}
 			className={cn(

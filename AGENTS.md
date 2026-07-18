@@ -9,9 +9,10 @@ Personal blog and portfolio site for Robin Andeer, built with Next.js and deploy
 ## Tech Stack
 
 - **Runtime**: Bun
-- **Framework**: Next.js 16 (App Router)
-- **Language**: TypeScript 5.9
-- **Styling**: Tailwind CSS 4 (CSS-first config)
+- **Framework**: Next.js 16 (App Router; Turbopack default)
+- **Language**: TypeScript 7 (`experimental.useTypeScriptCli` in `next.config.ts`)
+- **React**: 19 + **React Compiler** (`reactCompiler: true`)
+- **Styling**: Tailwind CSS 4 (CSS-first config); UI font **Instrument Sans** (`next/font/google` → `--font-instrument-sans`)
 - **Linting/Formatting**: Biome
 - **Icons**: lucide-react
 - **MDX**: next-mdx-remote with rehype-pretty-code (Shiki)
@@ -22,7 +23,7 @@ Personal blog and portfolio site for Robin Andeer, built with Next.js and deploy
 src/
 ├── app/           # Next.js App Router pages
 ├── components/    # Reusable React components
-├── data/          # Static content (beliefs, watching, site-connect, …)
+├── data/          # Static content (beliefs, watching, site-connect, github-contributions, …)
 ├── mdx/           # MDX processing utilities
 ├── styles/        # Global CSS (Tailwind)
 ├── utils/         # Utility functions (cn, etc.)
@@ -69,12 +70,17 @@ For **multiple processes in one command** (e.g. API + web), npm’s **`npm-run-a
 
 - Prefer function components with **named exports** (not default exports)
 - Name event handlers by what they do, not with `handle` prefix
-- Only subscribe to Zustand state that affects UI rendering
+- Prefer Server Components; keep `'use client'` only where interactivity requires it
+- Rely on **React Compiler** for memoization — avoid adding `useMemo` / `useCallback` unless profiling says otherwise
 
 ### Icons
 
 - Import lucide-react icons with `Icon` suffix: `GithubIcon`, `TwitterIcon`, etc.
 - This clearly indicates these are icon components
+
+### Images
+
+- Prefer **`preload`** on LCP/`next/image` heroes (Next 16; `priority` deprecated). MDX images still accept legacy `priority` and map it to `preload`.
 
 ### Styling
 
@@ -103,11 +109,12 @@ For **multiple processes in one command** (e.g. API + web), npm’s **`npm-run-a
 - `src/components/site-header.tsx` / `site-footer.tsx` - global shell (logo + theme pill, footer glass card)
 - `src/components/experience-list.tsx` - Background page job rows (accordion when `summary` / `stack` set)
 - `src/data/site-connect.ts` - footer “Connect” URLs + `siteSourceRepoUrl`
+- `src/data/github-contributions.ts` - cached GitHub GraphQL heatmap data (`unstable_cache` / ~1h revalidate)
 - `src/components/scroll-to-top-button.tsx` - post pages only (`blog/[...slug]/layout.tsx`)
 - `src/utils/cn.ts` - className utility (clsx + tailwind-merge)
 - `src/mdx/mdx.helpers.tsx` - MDX processing with syntax highlighting
 - `biome.json` - Linting and formatting rules
-- `next.config.ts` - Next.js configuration
+- `next.config.ts` - Next.js configuration (`reactCompiler`, TypeScript CLI)
 
 ## Notes
 
@@ -115,6 +122,7 @@ For **multiple processes in one command** (e.g. API + web), npm’s **`npm-run-a
 - Tailwind v4 uses CSS-based config (no `tailwind.config.js`)
 - Blog posts are stored in `/posts` as Markdown files
 - Syntax highlighting uses Shiki via rehype-pretty-code
+- Personal-site ship workflow: **commit + push `master`** when asked; no feature branch / PR unless Robin asks. Don’t land Next auto-appended agent-rules blocks in routine commits.
 
 ## Illustration Style
 
@@ -177,21 +185,29 @@ TBD (pick one variant — see chat for proposals): hair color (dark brown / sand
 
 - **`SiteHeader`** dynamic-island pill and **`HomeCyclingHeading`** click/title stagger animation are explicitly valued homepage UX — preserve them unless redesigning deliberately.
 - The **`md+`** spotlight next to GitHub is **Recent flicks** (**`recentFlicks`** in **`src/data/watching.ts`**) because Robin cares more about film than a reading list; don’t replace it with a books card unless Robin asks.
+- When Robin asks, start / stop / restart the local dev server (`just dev` / `bun run dev`); prefer **`just`** for restart. Do not refuse with the old “never start dev” habit.
+- Personal site workflow: when asked to ship, **commit and push straight to `master`** — no feature branch / PR unless Robin asks. Don’t edit **`AGENTS.md`** for routine UI work; leave Next auto-appended agent-rules (and unrelated `AGENTS.md` churn) out of those commits.
+- Homepage hover UX: **Recent flicks** rows use a **full-row** highlight (not a partial/inner chip). **More** **`DisclosureBlock`**s: **no** summary hover background and **no** open-state accent label color.
+- **`/background`** Experience cards: open state keeps the logo at **full opacity**; expanded body padding should align with the title column.
 
 ## Learned Workspace Facts
 
-- Navigation uses `Link` from `next-view-transitions` (not `next/link`); root layout wraps `<html>` in `<ViewTransitions>`; root transitions are fade-only; shared element `viewTransitionName` only on blog list ↔ post page titles (not homepage)
-- **Theme:** `next-themes` with `attribute="class"` on `<html>`; Tailwind `dark:` uses `@custom-variant dark` in `global.css` (class-based). **`SiteHeader`**: floating **dynamic-island** pill (**`.island-pill`** in **`global.css`** — inset highlight + soft depth + blur); **`SiteHeaderBack`** (animated width on non-`/` routes), home link (logo + first name), **`ThemeToggle`** nested chip (**inset shadow**). **`SiteHeaderBack`** fallbacks: **`/blog`** for posts, **`/`** for **`/blog`** index and other top-level pages. **`ThemeToggle`** idle shows the active mode; hover, focus-within, or touch expands light/dark/system (**system** uses `SunMoonIcon`); teal active styling when open; fine-pointer collapse is animated (inactive slots squeeze, then width; use **`bun run dev:webpack`** if Turbopack HMR misbehaves). On pick, blur asynchronously: capture **`const target = event.currentTarget`** before **`queueMicrotask`**, then **`target?.blur()`**—React clears **`event.currentTarget`** after the handler returns
-- **Island surfaces (rog.ie-adjacent):** **`global.css`** **`.island-panel`** (+ **`--footer`** rounder radius) drives homepage cards (featured post, recent list wrapper, GitHub, recent flicks, **More**), footer shell, and **`SectionTitle`** pill chips on **`/`** — cohesive glass bubbles. **`.island-lift`** adds a tiny hover lift on the **featured post** card only (not GitHub or Recent flicks); **`.section-pill-playful`** is a soft overshoot scale on section pills. **`body`** uses very subtle **teal / pink / lavender** radial washes (light + dark)
-- **Dev / HMR:** **`bun run dev`** or **`just dev`** → **[portless](https://portless.sh)** stable URL **`https://robinandeer.localhost`** (TLS; trust the local CA on first run). Under the hood **`portless`** runs script **`dev:app`** (`next dev`). Use **`bun run dev:app`** for plain **http://localhost:3000** without the proxy. Use **`bun run dev:webpack`** / **`just dev-webpack`** if Turbopack Fast Refresh stops updating; Cursor’s embedded Simple Browser preview often lags Next.js HMR—verify in a normal browser tab; **`next start`** does not hot-reload
-- Homepage GitHub card: `GitHubHeatmap` from **`/api/github`** (GraphQL; needs **`GITHUB_TOKEN`**; client **`fetch`** uses **`cache: 'no-store'`**). Optional **`bun run generate-art`** → `public/generated/`; Runway **`textToImage`**: call **`waitForTaskOutput()`** on the promise from **`create()`**. Clear **`.next/cache/images`** if static assets look stale in dev
-- `package.json` may use **`overrides`** for **`bun audit`**; **`.cursor/hooks/state/`** is gitignored (do not commit hook state or continual-learning index files)
-- Biome: **`tailwindDirectives: true`** in **`biome.json`**. Color tokens: zinc neutrals (**`gray-50`**–**`gray-950`**) + teal accent (**`accent-400`** / **`500`** / **`600`**) in **`src/styles/global.css`** **`@theme`**
-- Homepage: narrow **`max-w-2xl`** column—**`HomeCyclingHeading`** (inside **`h1`**) cycles **`homeDisplayLines`** in **`src/data/home-greetings.ts`** (**full phrases** per click, e.g. “Hey, I'm Robin …”, **`index`** wraps **`lines.length`**). **Letter-stagger** animates the whole line; **first session load** via **`sessionStorage`** **`robin-home-cycling-intro-v1`**; **`Intl.Segmenter`** when available. Then **rog.ie-style** body copy (two tight paragraphs): Runway/NYC + what you build on the web, then **`Background`** + personal beat + what the site is; **`RunwayMark`** (**`components/runway-mark.tsx`**) + **`public/icons/runway-mark.png`** (Runway site icon; replace if branding changes), **`LibraryIcon`** + Background. **Hero social nav** (`/` header): compact **glass pills** (footer-adjacent styling), **`ArrowUpRightIcon`** on outbound links, **`Link`** for RSS. Sections **featured post card** (no section label) → **Recent writing** (one **`island-panel`**: **`md+`** **3-column** grid with **`divide-x`** / small screens **`divide-y`**, editorial date treatment, **`Read`** affordance) → **`md+`** two-column row (**GitHub** heatmap | **Recent flicks** — up to **3** Letterboxd-linked rows from **`recentFlicks`**) → More; keep the latest blog post near the top
-- **`SiteFooter`**: **`md+`** two-column grid — **Around the web** (vertical **connect list**: stacked label + handle, soft row hover, external **`ArrowUpRightIcon`** / RSS **`ArrowRightIcon`**) | **Repository** (underlined **Peek the repo** link + one-line blurb) + **Build** in a **nested tinted panel** (`<dl>` version / **`time dateTime`** / commit); **`lg:max-w-3xl`**; mobile stacks with top border before right column
-- Blog **Writing** index: year column uses **`.blog-year-watermark`** (outlined stroke numerals in **`global.css`**) behind each year's posts
-- Static data in **`src/data/`** (beliefs, background, watching, site-connect, author, …) imported by pages and cards; **`background.ts`** jobs may include **`summary`** and **`stack`** — those rows use expandable **`details`** via **`ExperienceList`** on **`/background`**; plain rows link out only
-- **`HistoryBack`** (`router.back()` with **`href`** fallback on direct loads): wired through **`SiteHeaderBack`** in the header; **`BackLink`** component removed
-- Beliefs page copy comes from personal interviews only; **`src/data/beliefs.ts`** holds user-sourced material only
-- Homepage **More** island stacks **`DisclosureBlock`**s with light **`divide-y`** separators (matches Recent writing). Each block: grid **`0fr`→`1fr`** height easing, content fade + slight slide, overshoot chevron + **`group-open`** accent label; **`home-disclosure*`** in **`global.css`**
-- Blog posts: **`PostAuthorByline`** / **`PostAuthorFooter`** + **`SiteLogoMark`**; copy from **`src/data/author.ts`**; optional **`intro`** in frontmatter is for SEO/RSS/home cards, not the article body; **`ScrollToTopButton`** on **`blog/[...slug]/layout.tsx`** only; **related:** **`getRelatedPostMetas`** (up to **2**), **`PostRelatedPosts`** two-column on **`sm+`**; **series:** optional **`series`** / **`seriesSlug`** / **`seriesIndex`** / **`seriesDescription`**, **`PostSeriesCallout`**, **`PostSeriesFooter`**, **`/blog/series/[slug]`**, helpers in **`mdx/mdx.helpers.tsx`**. **`getAllPostListMeta`** (no MDX body compile) powers **`/blog`**, **`feed.xml`**, **`sitemap.ts`** post URLs, and **`blog/[...slug]/generateStaticParams`**; full **`getPost`** / **`getAllPostsMeta`** only where the compiled post is needed. **Writing** archive: **`PostListMeta.readingTimeMinutes`** from frontmatter **`readingTimeMinutes`** or ~**200 wpm** estimate; optional **`languageLabel`** / **`externalUrl`**. Post footer back link label **Writing** (not “All posts”).
+- Navigation uses `Link` from `next-view-transitions` (not `next/link`); root layout wraps `<html>` in `<ViewTransitions>`; root transitions are fade-only; shared element `viewTransitionName` only on blog list ↔ post page titles (not homepage). **`HistoryBack`** (`router.back()` + **`href`** fallback) is wired through **`SiteHeaderBack`**; **`BackLink`** removed.
+- **Theme:** `next-themes` with `attribute="class"` on `<html>`; Tailwind `dark:` uses `@custom-variant dark` in `global.css`. **`SiteHeader`**: floating **dynamic-island** pill (**`.island-pill`**); **`SiteHeaderBack`** (animated width on non-`/` routes; fallbacks **`/blog`** for posts, **`/`** otherwise), home link (logo + first name, no hover scale), **`ThemeToggle`** nested chip. Idle shows active mode; hover/focus-within/touch expands light/dark/system (**`SunMoonIcon`**); teal when open; fine-pointer collapse animated. On pick, capture **`event.currentTarget`** before **`queueMicrotask`** then **`blur()`**.
+- **Island surfaces:** **`.island-panel`** (+ **`--footer`**) drives homepage cards, footer, **`SectionTitle`** pills. **`.island-lift`** only on the **featured post** card (not GitHub / Recent flicks). **`.section-pill-playful`** soft overshoot on section pills. **`body`**: subtle teal / pink / lavender radial washes.
+- **Dev / HMR:** **`bun run dev`** / **`just dev`** → portless **`https://robinandeer.localhost`** (TLS). Plain **`bun run dev:app`** → **`:3000`**. **`bun run dev:webpack`** / **`just dev-webpack`** if Turbopack HMR stalls; verify in a normal browser tab; **`next start`** does not hot-reload. Kill stale **`next dev`** PIDs if portless fails with “another next dev server is already running.”
+- Homepage GitHub card: server **`GitHubHeatmap`** (+ **`Suspense`** skeleton) via **`getGitHubHeatmapData()`** in **`src/data/github-contributions.ts`** (`unstable_cache` ~1h; needs **`GITHUB_TOKEN`**). **`/api/github`** reuses the same helper. Optional **`bun run generate-art`** → `public/generated/`; Runway **`textToImage`**: **`waitForTaskOutput()`** on **`create()`**. Clear **`.next/cache/images`** if assets look stale.
+- Tooling: Biome **`tailwindDirectives: true`**; zinc + teal tokens in **`global.css`** **`@theme`**; **`package.json`** may use **`overrides`** for **`bun audit`**; **`.cursor/hooks/state/`** is gitignored (don’t commit continual-learning index / hook state). **`babel-plugin-react-compiler`** is a devDependency for `reactCompiler`.
+- Homepage: **`max-w-2xl`**; **`HomeCyclingHeading`** cycles full phrases from **`home-greetings.ts`** (letter-stagger; session intro key **`robin-home-cycling-intro-v1`**). Body: Runway/NYC + craft, then Background + personal beat; **`RunwayMark`** + **`LibraryIcon`**. Hero socials: glass pills + outbound **`ArrowUpRightIcon`**. Sections: featured → Recent writing (**`md+`** 3-col) → GitHub | Recent flicks (up to **3**) → More (**`DisclosureBlock`**s, **`divide-y`**, height/`home-disclosure*` motion — no hover bg / open accent label).
+- **`SiteFooter`**: **`md+`** two-column — Around the web (connect list) | Repository + Build nested panel; **`lg:max-w-3xl`**.
+- Blog: Writing index year **`.blog-year-watermark`**; posts use **`PostAuthorByline`** / **`PostAuthorFooter`**, optional series helpers, **`getAllPostListMeta`** for list/feed/sitemap/params; **`ScrollToTopButton`** on post layout only; footer back label **Writing**. LCP posters use **`preload`** on **`next/image`**.
+- Static data in **`src/data/`**; beliefs copy is interview-sourced only. **`background.ts`** jobs with **`summary`** / **`stack`** → expandable **`ExperienceList`** on **`/background`** (open = full logo opacity; body padding aligns with title); plain rows link out.
+- **`/cv`**: print-friendly single-page resume (browser Save as PDF strips site chrome); keep out of sitemap / search indexing; prefer subtle light-mode / Vercel-adjacent polish over heavy redesign.
+
+<!-- BEGIN:nextjs-agent-rules -->
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+<!-- END:nextjs-agent-rules -->

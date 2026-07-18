@@ -76,7 +76,7 @@ export default async function BlogPostPage({
 						/>
 					) : (
 						<Image
-							priority
+							preload
 							src={post.image}
 							width={post.imageWidth}
 							height={post.imageHeight}
