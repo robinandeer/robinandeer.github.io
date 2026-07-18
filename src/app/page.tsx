@@ -251,29 +251,24 @@ export default async function Page() {
 
 					<div className='min-w-0 mt-14 sm:mt-16 md:mt-0'>
 						<SectionTitle>Recent flicks</SectionTitle>
-						<div
-							className={cn(
-								'island-panel mt-4 flex flex-col p-3 sm:p-4',
-								'hover:border-accent-500/25 dark:hover:border-accent-400/20',
-							)}
-						>
-							<ul className='flex flex-col'>
-								{recentFlicks.map((flick, flickIndex) => (
-									<li
-										key={flick.href}
-										className={cn(
-											flickIndex > 0 &&
-												'border-t border-gray-200/75 pt-3 mt-3 dark:border-gray-800/80',
-										)}
-									>
+						<div className='island-panel mt-4 overflow-hidden'>
+							<ul
+								className={cn(
+									'flex flex-col',
+									'divide-y divide-gray-200/85 dark:divide-gray-800/90',
+								)}
+							>
+								{recentFlicks.map((flick) => (
+									<li key={flick.href}>
 										<a
 											href={flick.href}
 											target='_blank'
 											rel='noopener noreferrer'
 											className={cn(
-												'group flex min-h-0 gap-3 rounded-lg px-1 py-0.5 -mx-1',
-												'transition-colors duration-200',
-												'hover:bg-gray-100/80 dark:hover:bg-gray-900/40',
+												'group flex min-h-0 gap-3 px-3 py-3 sm:px-4 sm:py-3.5',
+												'outline-none transition-colors duration-200',
+												'hover:bg-gray-100/90 dark:hover:bg-gray-900/50',
+												'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent-500/50',
 											)}
 										>
 											<div className='flex w-11 shrink-0 items-center justify-center self-center sm:w-[3.25rem]'>
@@ -314,7 +309,6 @@ export default async function Page() {
 						className={cn(
 							'island-panel mt-4 overflow-hidden divide-y divide-gray-200/85',
 							'dark:divide-gray-800/90',
-							'px-3 py-1 sm:px-4 sm:py-1.5',
 						)}
 					>
 						<DisclosureBlock id='more-background' label='Background'>

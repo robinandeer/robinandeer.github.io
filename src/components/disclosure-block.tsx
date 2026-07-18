@@ -24,18 +24,15 @@ export function DisclosureBlock({
 			<summary
 				className={cn(
 					'flex w-full list-none items-center justify-between gap-3',
-					'cursor-pointer rounded-lg px-2 py-2.5 -mx-1.5 text-left font-semibold text-gray-900',
+					'cursor-pointer px-3 py-3 sm:px-4 text-left font-semibold text-gray-900',
 					'dark:text-gray-50',
-					'transition-[background-color,transform,box-shadow] duration-200 ease-out',
-					'hover:bg-gray-100/75 active:bg-gray-100/90',
-					'dark:hover:bg-gray-800/40 dark:active:bg-gray-800/55',
-					'motion-safe:active:scale-[0.99]',
+					'outline-none',
 					'[&::-webkit-details-marker]:hidden',
-					'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-500/80',
+					'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent-500/50',
 				)}
 				aria-controls={panelId}
 			>
-				<span className='home-disclosure-label transition-colors duration-200 group-open/disclosure:text-accent-600 dark:group-open/disclosure:text-accent-400'>
+				<span className='home-disclosure-label'>
 					{label}
 				</span>
 				<ChevronDownIcon
@@ -49,7 +46,7 @@ export function DisclosureBlock({
 						id={panelId}
 						className={cn(
 							'home-disclosure-content',
-							'pb-3 pl-0.5 pr-0 text-[15px] leading-relaxed text-gray-600 dark:text-gray-400',
+							'px-3 pb-3.5 sm:px-4 text-[15px] leading-relaxed text-gray-600 dark:text-gray-400',
 						)}
 					>
 						{children}

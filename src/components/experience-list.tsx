@@ -47,6 +47,7 @@ function ExperienceRowInner({
 					'ring-1 ring-gray-950/[0.06] dark:ring-white/[0.06]',
 					'transition-all duration-300',
 					'group-hover:grayscale-0 group-hover:opacity-100',
+					'group-open:grayscale-0 group-open:opacity-100',
 				)}
 			/>
 			<div className='flex-1 min-w-0 flex items-start justify-between gap-4'>
@@ -90,6 +91,7 @@ function ExpandableExperienceRow({ item }: { item: ExperienceItem }) {
 				className={cn(
 					rowPadding,
 					'flex items-start gap-4 list-none cursor-pointer',
+					'group-open:pb-3.5',
 					'[&::-webkit-details-marker]:hidden',
 					'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-gray-950',
 				)}
@@ -116,33 +118,37 @@ function ExpandableExperienceRow({ item }: { item: ExperienceItem }) {
 				<div className='border-t border-gray-200/65 dark:border-gray-800/90'>
 					<div
 						className={cn(
-							'px-4 pb-4 pt-4 sm:px-5 sm:pb-5',
-							'pl-14 sm:pl-[4.5rem]',
+							'grid grid-cols-[40px_minmax(0,1fr)] gap-4',
+							'px-4 pt-3.5 pb-4 sm:px-5',
 						)}
 					>
-						{item.summary && (
-							<p className='text-[15px] leading-relaxed text-gray-600 dark:text-gray-400'>
-								{item.summary}
-							</p>
-						)}
-						{item.stack && item.stack.length > 0 && (
-							<p className='mt-3 text-[13px] leading-relaxed text-gray-500 dark:text-gray-500'>
-								<span className='font-medium text-gray-600 dark:text-gray-400'>
-									Stack
-								</span>
-								{' · '}
-								{item.stack.join(', ')}
-							</p>
-						)}
-						<a
-							href={item.href}
-							target='_blank'
-							rel='noopener noreferrer'
-							className='mt-4 inline-flex items-center gap-1 text-sm font-medium text-accent-600 hover:text-accent-500 dark:text-accent-400 dark:hover:text-accent-300'
-						>
-							Visit {item.company}
-							<span aria-hidden>↗</span>
-						</a>
+						{/* spacer matches logo column so body lines up with title */}
+						<div aria-hidden className='mt-0.5' />
+						<div className='min-w-0'>
+							{item.summary && (
+								<p className='text-[15px] leading-relaxed text-gray-600 dark:text-gray-400'>
+									{item.summary}
+								</p>
+							)}
+							{item.stack && item.stack.length > 0 && (
+								<p className='mt-3 text-[13px] leading-relaxed text-gray-500 dark:text-gray-500'>
+									<span className='font-medium text-gray-600 dark:text-gray-400'>
+										Stack
+									</span>
+									{' · '}
+									{item.stack.join(', ')}
+								</p>
+							)}
+							<a
+								href={item.href}
+								target='_blank'
+								rel='noopener noreferrer'
+								className='mt-4 inline-flex items-center gap-1 text-sm font-medium text-accent-600 hover:text-accent-500 dark:text-accent-400 dark:hover:text-accent-300'
+							>
+								Visit {item.company}
+								<span aria-hidden>↗</span>
+							</a>
+						</div>
 					</div>
 				</div>
 			)}
